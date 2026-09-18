@@ -1,0 +1,1 @@
+run_id,configuration_id,timestamp_utc,manifest_ref,corpus_sha256,task_set_sha256,region,model_id,concurrency,cache_state,attempted_tasks,successful_tasks,error_count,retry_count,p50_latency_ms,p95_latency_ms,throughput_requests_per_s,total_cost_usd,setup_engineer_hours,maintenance_engineer_hours,recovery_minutes,notes
