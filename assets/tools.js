@@ -49,8 +49,8 @@ if(typeof document!=="undefined"){
    const heading=Object.assign(document.createElement("h3"),{textContent:current.priorities.length?"Suggested next steps":"All dimensions reported as evidenced"});
    const list=document.createElement("ul");current.priorities.forEach(p=>list.append(Object.assign(document.createElement("li"),{textContent:p.dimension+": "+p.action})));
    if(!current.priorities.length)list.append(Object.assign(document.createElement("li"),{textContent:"Validate the evidence with an independent review and schedule reassessment."}));
-   result.replaceChildren(score,note,bar,heading,list);exportButton.disabled=false;
+   const report=document.createElement("details"),summary=document.createElement("summary"),pre=document.createElement("pre");summary.textContent="View result JSON";pre.textContent=JSON.stringify(current,null,2);pre.style.cssText="white-space:pre-wrap;overflow-wrap:anywhere;font:11px/1.6 monospace";report.append(summary,pre);result.replaceChildren(score,note,bar,heading,list,report);exportButton.disabled=false;
   });
-  exportButton.addEventListener("click",()=>{if(!current)return;const blob=new Blob([JSON.stringify({...current,exportedAt:new Date().toISOString(),status:"unverified self-assessment"},null,2)],{type:"application/json"});const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=mode+"-assessment.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+  exportButton.addEventListener("click",()=>{if(!current)return;const blob=new Blob([JSON.stringify({...current,exportedAt:new Date().toISOString(),status:"unverified self-assessment"},null,2)],{type:"application/json"});const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=mode+"-assessment.json";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);});
  }
 }
