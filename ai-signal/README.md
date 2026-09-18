@@ -65,6 +65,30 @@ Sources → collection → deduplication → fact extraction → verification �
 
 No part of the ingestion or automated analysis pipeline is enabled here. Future tooling should write drafts to this content contract, preserve provenance, and pass the same validation and editorial review before publication.
 
+## Manual edition review
+
+Real editions begin in `content/review/edition-01.json`, separate from the live `content/publication.json`. The review file contains 3–5 drafts, source-linked fact records, labeled analysis and outlook, explicit uncertainties, a four-part human checklist, and proposed Signal Map movements tied to story IDs.
+
+Build the ignored local review bundle:
+
+```sh
+python3 ai-signal/scripts/review_edition.py
+python3 ai-signal/scripts/test_review_edition.py
+```
+
+Open `ai-signal/.review/edition-01/index.html` and review each story. For approval, verify every linked primary source and exact date, edit the story as needed, set `factCheck`, `rightsCheck`, `fairnessCheck`, and `copyCheck` to true, change review status to `approved`, and record `reviewer` and `reviewedAt`. Set the edition `publicationDate` only after the full edition is ready.
+
+The release gate must then pass:
+
+```sh
+python3 ai-signal/scripts/review_edition.py --ready
+python3 ai-signal/scripts/promote_edition.py
+```
+
+The second command writes an ignored `publication-candidate.json` for final comparison. It does not modify the live publication. Only after that candidate is reviewed should an editor run `promote_edition.py --apply`, rebuild, test, and submit the resulting live files. Promotion refuses pending checklists, missing reviewer records, unresolved fact citations, undated or non-primary sources, unlabeled outlooks, and untraceable map changes.
+
+No collector, scheduler, model call, or automated publication step is part of this workflow.
+
 ## Safety and privacy
 
 Text is HTML-escaped. Slugs and source URLs are validated. No third-party fonts, analytics, model API calls, browser storage, user accounts, or backend. GitHub Pages may keep ordinary hosting request logs. Generated-file cleanup is restricted to the recorded generated manifest inside this publication.
