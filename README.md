@@ -3,6 +3,7 @@
 Static GitHub Pages research hub at https://ddugi.github.io/.
 
 ## Publications and tools
+- /ai-signal/ — distinct editorial publication, JSON-driven demonstration stories, Signal Map and Weekly Signal. See ai-signal/README.md for authoring and build commands.
 - / — research hub and roadmap
 - /ai-readiness/ — five-dimension, equal-weight evidence self-assessment
 - /gitops-maturity/ — cumulative Level 0–5 evidence gates
