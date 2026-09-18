@@ -1,0 +1,39 @@
+name: Quality gates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject obvious committed secrets
+        shell: bash
+        run: |
+          if git grep -nE '(BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|gh[pousr]_[A-Za-z0-9]{30,}|AKIA[0-9A-Z]{16})' -- . ':!*.md'; then
+            echo 'Potential credential material found.' >&2
+            exit 1
+          fi
+      - name: Build AI Signal
+        run: python3 ai-signal/scripts/build.py
+      - name: Run publication tests
+        run: python3 ai-signal/scripts/test_build.py
+      - name: Verify generated files
+        run: python3 ai-signal/scripts/build.py --check
+      - name: Require committed generated output
+        run: git diff --exit-code

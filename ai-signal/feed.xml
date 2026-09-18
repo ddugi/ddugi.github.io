@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>AI Signal</title>
+  <subtitle>What changed. Why it matters. Where it’s going.</subtitle>
+  <id>https://ddugi.github.io/ai-signal/</id>
+  <link href="https://ddugi.github.io/ai-signal/"/>
+  <link href="https://ddugi.github.io/ai-signal/feed.xml" rel="self" type="application/atom+xml"/>
+  <updated>2026-09-18T00:00:00Z</updated>
+  <author><name>Dugi Selmanaj</name></author>
+  <rights>Copyright 2026 Dugi Selmanaj. All rights reserved.</rights>
+  <entry>
+    <title>AI Signal demonstration edition</title>
+    <id>https://ddugi.github.io/ai-signal/weekly/2026-09-18/</id>
+    <link href="https://ddugi.github.io/ai-signal/weekly/2026-09-18/"/>
+    <updated>2026-09-18T00:00:00Z</updated>
+    <summary>This edition contains fictional editorial demonstrations and does not report current events.</summary>
+  </entry>
+</feed>

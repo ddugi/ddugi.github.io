@@ -123,6 +123,7 @@ def header(title, description, prefix, canonical, data, asset_version):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)} — AI Signal</title><meta name="description" content="{e(description)}"><meta name="theme-color" content="#f5f3eb">
 <link rel="canonical" href="{e(canonical)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="{e(canonical)}">
+<link rel="alternate" type="application/atom+xml" title="AI Signal" href="{prefix}feed.xml">
 <link rel="stylesheet" href="{prefix}assets/signal.css?v={asset_version}"><script src="{prefix}assets/signal.js?v={asset_version}" defer></script>
 </head><body><a class="skip" href="#main">Skip to content</a><div class="shell">
 <div class="utility"><a href="{prefix}../">A publication from Dugi Research Lab ↗</a><span>Edition {e(pub["edition"])} / <b>{label}</b></span></div>
@@ -130,7 +131,7 @@ def header(title, description, prefix, canonical, data, asset_version):
 <div class="edition-note"><strong>{label}</strong><span>{e(note)}</span></div>'''
 
 def footer(prefix):
-    return f'''<footer class="footer"><div><a class="wordmark" href="{prefix}">AI Signal<span style="color:var(--orange)">✳</span></a><p>What changed. Why it matters. Where it’s going.</p></div><div class="footer-links"><a href="{prefix}about/">Editorial method</a><a href="{prefix}content/publication.json">Open content / JSON</a><a href="https://github.com/ddugi/ddugi.github.io/tree/main/ai-signal">Publication source ↗</a></div></footer></div></body></html>'''
+    return f'''<footer class="footer"><div><a class="wordmark" href="{prefix}">AI Signal<span style="color:var(--orange)">✳</span></a><p>What changed. Why it matters. Where it’s going.</p><p class="small">© 2026 Dugi Selmanaj. Editorial content: all rights reserved.</p></div><div class="footer-links"><a href="{prefix}about/">Editorial method</a><a href="{prefix}policies/editorial/">Editorial standards</a><a href="{prefix}policies/corrections/">Corrections</a><a href="{prefix}policies/privacy/">Privacy</a><a href="{prefix}content/publication.json">Open content / JSON</a><a href="https://github.com/ddugi/ddugi.github.io/tree/main/ai-signal">Publication source ↗</a></div></footer></div></body></html>'''
 
 ART = '''<svg viewBox="0 0 280 330" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="12" y="15" width="256" height="295" rx="128" fill="#e6f29b"/><circle cx="140" cy="145" r="83" fill="none" stroke="#839570"/><circle cx="140" cy="145" r="52" fill="none" stroke="#839570"/><path d="M34 210L140 145L232 75" fill="none" stroke="#172822" stroke-width="2"/><path d="M218 77L233 74L230 89" fill="none" stroke="#172822" stroke-width="2"/><rect x="118" y="123" width="44" height="44" rx="4" fill="#172822" transform="rotate(12 140 145)"/><circle cx="80" cy="182" r="9" fill="#b74220"/><path d="M43 245H238" stroke="#839570"/><text x="140" y="271" text-anchor="middle" font-family="monospace" font-size="9" fill="#172822">CAPABILITY ≠ AUTHORITY</text><text x="140" y="287" text-anchor="middle" font-family="monospace" font-size="7" fill="#65716b">A CONCEPTUAL STUDY</text></svg>'''
 
@@ -244,4 +245,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -69,7 +69,8 @@ No part of the ingestion or automated analysis pipeline is enabled here. Future 
 
 Text is HTML-escaped. Slugs and source URLs are validated. No third-party fonts, analytics, model API calls, browser storage, user accounts, or backend. GitHub Pages may keep ordinary hosting request logs. Generated-file cleanup is restricted to the recorded generated manifest inside this publication.
 
+Public policies live at `policies/editorial/`, `policies/corrections/`, and `policies/privacy/`. The Atom feed is `feed.xml`. Repository-wide ownership, licensing, security, and release controls are documented at the repository root.
+
 ## Checks
 
 Tests cover publication approval gates, resolved sources, unsafe URLs/slugs, duplicate records, draft exclusion, escaped content, derived reading time, internal links, unique IDs and page headings. `--check` rejects stale generated files.
-
