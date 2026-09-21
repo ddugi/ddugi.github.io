@@ -86,7 +86,7 @@ def validate(data):
         require(item["direction"] in ("up", "up-strong", "down", "flat"), "Invalid map direction")
         require(item["dimension"].strip() and item["rationale"].strip(), "Map needs a dimension and rationale")
         require(item["storyId"] is None or item["storyId"] in visible_ids, "Map story reference is invalid")
-        if signal_map["status"] == "editorial":
+        if signal_map["status"] == "editorial" and item["direction"] != "flat":
             require(item["storyId"] is not None, "Editorial map movements require story evidence")
     weekly = data["weekly"]
     require(re.fullmatch(r"\d{4}-\d{2}-\d{2}", weekly["slug"]) and valid_date(weekly["date"]), "Invalid weekly edition")
@@ -113,7 +113,11 @@ def meta(story):
     return f'<div class="meta"><span>{e(story["topic"])}</span><time datetime="{e(story["publishedAt"])}">{stamp(story["publishedAt"])}</time><span>{read_minutes(story)} min read</span></div>'
 
 def demo_tag(story):
-    return '<span class="demo-tag">Editorial demonstration</span>' if story["status"] == "demo" else '<span class="label">Reported signal</span>'
+    if story["status"] == "demo":
+        return '<span class="demo-tag">Editorial demonstration</span>'
+    if story["status"] == "draft":
+        return '<span class="demo-tag">Editorial draft · Not published</span>'
+    return '<span class="label">Reported signal</span>'
 
 def header(title, description, prefix, canonical, data, asset_version):
     pub = data["publication"]

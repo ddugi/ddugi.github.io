@@ -1,11 +1,26 @@
 {
   "schemaVersion": 1,
-  "publication": {
-    "name": "AI Signal",
-    "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "01",
-    "mode": "live",
-    "updatedAt": "2026-09-21"
+  "edition": {
+    "id": "edition-01",
+    "title": "Controls become part of the capability story",
+    "status": "editorial-review",
+    "preparedAt": "2026-09-21",
+    "publicationDate": "2026-09-21",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 01 on 21 September 2026."
+  },
+  "weekly": {
+    "title": "Controls become part of the capability story",
+    "intro": "This edition follows five developments where the operating environment matters as much as the model claim: cyber thresholds, lab transparency, scientific workflow bottlenecks, evaluation containment, and embedded review.",
+    "theme": "Capability is moving into systems whose controls, evidence, and downstream bottlenecks determine whether the change is useful.",
+    "watchNext": [
+      "Independent evaluation of frontier cyber-capability claims and safeguards.",
+      "Cross-lab adoption of comparable operational transparency measures.",
+      "Process-level evidence that reported scientific time savings produce more completed research.",
+      "METR's independent findings on Anthropic's evaluation-security incidents.",
+      "Concrete access, reporting, conflict-of-interest, and funding rules for embedded evaluators."
+    ],
+    "closing": "The first real edition should publish only after every factual record, source, interpretation, and map movement has received human approval."
   },
   "stories": [
     {
@@ -16,7 +31,7 @@
       "topic": "Frontier cyber capability",
       "category": "Security & Governance",
       "signal": "Structural Shift",
-      "status": "published",
+      "status": "draft",
       "featured": true,
       "publishedAt": "2026-09-01",
       "updatedAt": "2026-09-21",
@@ -64,14 +79,20 @@
           "publisher": "OpenAI",
           "url": "https://openai.com/index/path-to-astra/",
           "publishedAt": "2026-09-01",
-          "accessedAt": "2026-09-21"
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source account from the model provider. Claims about capability and safeguards are attributed to OpenAI and have not been independently reproduced for this draft.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-21"
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
       }
     },
     {
@@ -82,7 +103,7 @@
       "topic": "Frontier-lab transparency",
       "category": "Research",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-17",
       "updatedAt": "2026-09-21",
@@ -137,14 +158,20 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
           "publishedAt": "2026-09-17",
-          "accessedAt": "2026-09-21"
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source proposal and self-reported measurements from Anthropic. Values are attributed and the methodological limitations stated by Anthropic are retained.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-21"
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
       }
     },
     {
@@ -155,7 +182,7 @@
       "topic": "AI adoption in science",
       "category": "Enterprise AI",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-15",
       "updatedAt": "2026-09-21",
@@ -211,14 +238,20 @@
           "publisher": "Google",
           "url": "https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/",
           "publishedAt": "2026-09-15",
-          "accessedAt": "2026-09-21"
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source summary from Google. Numerical claims are attributed to Google; this draft flags self-reporting, sample, and provider-interest limitations.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-21"
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
       }
     },
     {
@@ -229,7 +262,7 @@
       "topic": "Agent evaluation security",
       "category": "Agents",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-09",
       "updatedAt": "2026-09-21",
@@ -292,7 +325,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
           "publishedAt": "2026-09-09",
-          "accessedAt": "2026-09-21"
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
         },
         {
           "id": "anthropic-security",
@@ -300,14 +334,20 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/news/improving-alignment-security-efforts",
           "publishedAt": "2026-08-31",
-          "accessedAt": "2026-09-21"
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source incident analysis from Anthropic, supported by its earlier remediation account. Claims remain attributed pending METR's independent findings.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-21"
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
       }
     },
     {
@@ -318,7 +358,7 @@
       "topic": "Independent frontier-model evaluation",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-18",
       "updatedAt": "2026-09-21",
@@ -381,115 +421,51 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
           "publishedAt": "2026-09-18",
-          "accessedAt": "2026-09-21"
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source partnership announcement from Anthropic. Investment, access, and planned activities are attributed; no operating results are claimed.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-21"
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
       }
     }
   ],
-  "signalMap": {
-    "status": "editorial",
-    "asOf": "2026-09-21",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 01. Arrows are qualitative, not quantitative scores.",
-    "items": [
-      {
-        "area": "Models",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 01 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Agents",
-        "direction": "up",
-        "dimension": "Evaluation-security scrutiny",
-        "rationale": "Anthropic's fuller assessment documents four real-world incidents, a wider transcript review, and model behavior that remained concerning after containment failed. The arrow reflects stronger evaluation-security scrutiny, not a measured field-wide increase in incidents.",
-        "storyId": "agent-evaluations-need-real-containment"
-      },
-      {
-        "area": "Inference",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 01 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Open Source",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 01 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Robotics",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 01 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Enterprise Adoption",
-        "direction": "up",
-        "dimension": "Reported workflow penetration in science",
-        "rationale": "Google reports frequent AI use in its U.S. and U.K. scientist sample. The movement is deliberately scoped to reported use, not completed research output.",
-        "storyId": "ai-adoption-data-points-to-the-next-bottleneck"
-      },
-      {
-        "area": "AI Security",
-        "direction": "up-strong",
-        "dimension": "Control depth attached to frontier capability",
-        "rationale": "OpenAI says its cyber threshold now requires access controls and active monitoring that can stop tasks. The strong arrow describes control depth, not independently proven misuse risk.",
-        "storyId": "frontier-cyber-capability-changes-the-release-question"
-      },
-      {
-        "area": "Governance",
-        "direction": "up",
-        "dimension": "Embedded evaluation capacity",
-        "rationale": "Anthropic and Accenture announced substantial investment and employee-like evaluator access. The movement describes new evaluation capacity; independence and effectiveness remain unproven.",
-        "storyId": "embedded-evaluation-needs-independent-rules"
-      },
-      {
-        "area": "Compute",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 01 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Data Infrastructure",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 01 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      }
-    ]
-  },
-  "weekly": {
-    "slug": "2026-09-21",
-    "title": "Controls become part of the capability story",
-    "date": "2026-09-21",
-    "status": "published",
-    "intro": "This edition follows five developments where the operating environment matters as much as the model claim: cyber thresholds, lab transparency, scientific workflow bottlenecks, evaluation containment, and embedded review.",
-    "theme": "Capability is moving into systems whose controls, evidence, and downstream bottlenecks determine whether the change is useful.",
-    "storyIds": [
-      "frontier-cyber-capability-changes-the-release-question",
-      "frontier-labs-start-measuring-the-work-behind-the-models",
-      "ai-adoption-data-points-to-the-next-bottleneck",
-      "agent-evaluations-need-real-containment",
-      "embedded-evaluation-needs-independent-rules"
-    ],
-    "watchNext": [
-      "Independent evaluation of frontier cyber-capability claims and safeguards.",
-      "Cross-lab adoption of comparable operational transparency measures.",
-      "Process-level evidence that reported scientific time savings produce more completed research.",
-      "METR's independent findings on Anthropic's evaluation-security incidents.",
-      "Concrete access, reporting, conflict-of-interest, and funding rules for embedded evaluators."
-    ],
-    "closing": "The first real edition should publish only after every factual record, source, interpretation, and map movement has received human approval."
-  }
+  "signalMapChanges": [
+    {
+      "area": "Agents",
+      "direction": "up",
+      "dimension": "Evaluation-security scrutiny",
+      "rationale": "Anthropic's fuller assessment documents four real-world incidents, a wider transcript review, and model behavior that remained concerning after containment failed. The arrow reflects stronger evaluation-security scrutiny, not a measured field-wide increase in incidents.",
+      "storyId": "agent-evaluations-need-real-containment"
+    },
+    {
+      "area": "Enterprise Adoption",
+      "direction": "up",
+      "dimension": "Reported workflow penetration in science",
+      "rationale": "Google reports frequent AI use in its U.S. and U.K. scientist sample. The movement is deliberately scoped to reported use, not completed research output.",
+      "storyId": "ai-adoption-data-points-to-the-next-bottleneck"
+    },
+    {
+      "area": "AI Security",
+      "direction": "up-strong",
+      "dimension": "Control depth attached to frontier capability",
+      "rationale": "OpenAI says its cyber threshold now requires access controls and active monitoring that can stop tasks. The strong arrow describes control depth, not independently proven misuse risk.",
+      "storyId": "frontier-cyber-capability-changes-the-release-question"
+    },
+    {
+      "area": "Governance",
+      "direction": "up",
+      "dimension": "Embedded evaluation capacity",
+      "rationale": "Anthropic and Accenture announced substantial investment and employee-like evaluator access. The movement describes new evaluation capacity; independence and effectiveness remain unproven.",
+      "storyId": "embedded-evaluation-needs-independent-rules"
+    }
+  ]
 }
