@@ -6,6 +6,8 @@ A distinct static editorial publication at https://ddugi.github.io/ai-signal/.
 
 `content/publication.json` is the editorial source of truth. It contains publication metadata, story records, map rationales and a weekly edition. `content/schema.json` documents the format using JSON Schema 2020-12.
 
+`content/update-state.json` records the last successfully published editorial update. It is intentionally `null` until the first live edition passes human review, validation, and publication. Repository-wide agent instructions in `../AGENTS.md` define the research, drafting, review, and state-update workflow.
+
 `scripts/build.py` generates the homepage, seven initial story pages, the weekly edition and editorial-method page. All generated HTML is committed so the existing GitHub Pages branch deployment needs no new workflow or package installation.
 
 Do not edit generated HTML directly.
