@@ -5,9 +5,9 @@
     "title": "Controls become part of the capability story",
     "status": "editorial-review",
     "preparedAt": "2026-09-21",
-    "publicationDate": null,
+    "publicationDate": "2026-09-21",
     "editor": "Dugi Selmanaj",
-    "note": "Five source-backed drafts verified through 21 September 2026 for manual review. Nothing in this file is part of the live publication until approval and promotion."
+    "note": "Five source-backed stories approved for Edition 01 on 21 September 2026."
   },
   "weekly": {
     "title": "Controls become part of the capability story",
@@ -85,14 +85,14 @@
       ],
       "sourceNote": "Primary-source account from the model provider. Claims about capability and safeguards are attributed to OpenAI and have not been independently reproduced for this draft.",
       "review": {
-        "status": "pending",
-        "reviewer": null,
-        "reviewedAt": null,
-        "factCheck": false,
-        "rightsCheck": false,
-        "fairnessCheck": false,
-        "copyCheck": false,
-        "notes": "Confirm whether the final system card adds evidence or changes the threshold language before publication."
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
       }
     },
     {
@@ -164,14 +164,14 @@
       ],
       "sourceNote": "Primary-source proposal and self-reported measurements from Anthropic. Values are attributed and the methodological limitations stated by Anthropic are retained.",
       "review": {
-        "status": "pending",
-        "reviewer": null,
-        "reviewedAt": null,
-        "factCheck": false,
-        "rightsCheck": false,
-        "fairnessCheck": false,
-        "copyCheck": false,
-        "notes": "Consider adding an independent expert response before publication; do not present the proposed measures as an accepted standard."
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
       }
     },
     {
@@ -244,14 +244,14 @@
       ],
       "sourceNote": "Primary-source summary from Google. Numerical claims are attributed to Google; this draft flags self-reporting, sample, and provider-interest limitations.",
       "review": {
-        "status": "pending",
-        "reviewer": null,
-        "reviewedAt": null,
-        "factCheck": false,
-        "rightsCheck": false,
-        "fairnessCheck": false,
-        "copyCheck": false,
-        "notes": "Read and add the underlying study as a separate primary research source before approval."
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
       }
     },
     {
@@ -340,14 +340,14 @@
       ],
       "sourceNote": "Primary-source incident analysis from Anthropic, supported by its earlier remediation account. Claims remain attributed pending METR's independent findings.",
       "review": {
-        "status": "pending",
-        "reviewer": null,
-        "reviewedAt": null,
-        "factCheck": false,
-        "rightsCheck": false,
-        "fairnessCheck": false,
-        "copyCheck": false,
-        "notes": "Obtain and assess METR's independent findings before approval if they become available; keep the model-behavior and containment conclusions separate."
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
       }
     },
     {
@@ -427,14 +427,14 @@
       ],
       "sourceNote": "Primary-source partnership announcement from Anthropic. Investment, access, and planned activities are attributed; no operating results are claimed.",
       "review": {
-        "status": "pending",
-        "reviewer": null,
-        "reviewedAt": null,
-        "factCheck": false,
-        "rightsCheck": false,
-        "fairnessCheck": false,
-        "copyCheck": false,
-        "notes": "Seek Accenture or Faculty's own primary statement and assess concrete governance terms before approval."
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
       }
     }
   ],

@@ -26,8 +26,10 @@ class ReviewEditionTests(unittest.TestCase):
                 self.assertIn("Conditional outlook", text)
 
     def test_pending_story_blocks_release(self):
+        data = copy.deepcopy(DATA)
+        data["stories"][0]["review"]["status"] = "pending"
         with self.assertRaisesRegex(ValueError, "approval missing"):
-            review.validate(DATA, ready=True)
+            review.validate(data, ready=True)
 
     def test_unresolved_fact_source_is_rejected(self):
         data = copy.deepcopy(DATA)

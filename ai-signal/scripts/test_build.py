@@ -27,19 +27,22 @@ class Page(HTMLParser):
             if value: self.links.append(value)
 
 class PublicationTests(unittest.TestCase):
-    def test_demo_content_is_explicit(self):
+    def test_live_content_is_source_backed_and_approved(self):
         build.validate(DATA)
+        self.assertEqual(DATA["publication"]["mode"], "live")
         pages = build.build(DATA)
         for story in DATA["stories"]:
-            self.assertEqual(story["facts"], [])
+            self.assertTrue(story["facts"])
+            self.assertTrue(story["sources"])
+            self.assertEqual(story["review"]["status"], "approved")
             page = pages[f'stories/{story["slug"]}/index.html']
-            self.assertIn("Editorial demonstration, not a news report", page)
-            self.assertIn("No verified news facts are asserted", page)
+            self.assertNotIn("Editorial demonstration, not a news report", page)
+            self.assertIn("Verified facts", page)
             self.assertIn("Conditional outlook", page)
 
     def test_unreviewed_reporting_cannot_publish(self):
         data = copy.deepcopy(DATA)
-        data["stories"][0]["status"] = "published"
+        data["stories"][0]["facts"] = []
         with self.assertRaisesRegex(ValueError, "requires verified facts"):
             build.validate(data)
 
@@ -53,12 +56,11 @@ class PublicationTests(unittest.TestCase):
     def test_review_required_with_valid_sources(self):
         data = copy.deepcopy(DATA)
         story = data["stories"][0]
-        story["status"] = "published"
-        story["facts"] = [{"text":"A sample fact record.", "sourceIds":["source-1"], "verifiedAt":"2026-09-18"}]
-        story["sources"] = [{"id":"source-1", "title":"Example only", "publisher":"Example", "url":"https://example.com/", "publishedAt":None, "accessedAt":"2026-09-18"}]
+        approved = copy.deepcopy(story["review"])
+        story["review"] = {"status":"pending", "reviewer":None, "reviewedAt":None}
         with self.assertRaisesRegex(ValueError, "editorial approval"):
             build.validate(data)
-        story["review"] = {"status":"approved", "reviewer":"Test reviewer", "reviewedAt":"2026-09-18"}
+        story["review"] = approved
         build.validate(data)
 
     def test_unsafe_urls_and_paths_rejected(self):
@@ -92,6 +94,10 @@ class PublicationTests(unittest.TestCase):
         data = copy.deepcopy(DATA)
         removed = data["stories"][-1]
         removed["status"] = "draft"
+        data["weekly"]["storyIds"].remove(removed["id"])
+        for item in data["signalMap"]["items"]:
+            if item["storyId"] == removed["id"]:
+                item.update({"direction":"flat", "dimension":"No new assessment", "rationale":"No published story supports movement.", "storyId":None})
         self.assertNotIn(f'stories/{removed["slug"]}/index.html', build.build(data))
 
     def test_reading_time_is_derived(self):
@@ -122,4 +128,3 @@ class PublicationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
