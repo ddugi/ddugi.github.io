@@ -3,7 +3,9 @@
 import copy
 import importlib.util
 import json
+import re
 import unittest
+from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
@@ -13,6 +15,7 @@ spec = importlib.util.spec_from_file_location("signal_build", ROOT / "scripts/bu
 build = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(build)
 DATA = json.loads((ROOT / "content/publication.json").read_text())
+UPDATE_STATE = json.loads((ROOT / "content/update-state.json").read_text())
 
 class Page(HTMLParser):
     def __init__(self):
@@ -27,6 +30,24 @@ class Page(HTMLParser):
             if value: self.links.append(value)
 
 class PublicationTests(unittest.TestCase):
+    def test_update_state_contract(self):
+        state = UPDATE_STATE
+        self.assertEqual(state["schema_version"], 1)
+        self.assertIsInstance(state["initial_lookback_days"], int)
+        self.assertGreater(state["initial_lookback_days"], 0)
+        self.assertLessEqual(state["initial_lookback_days"], 30)
+        timestamp = state["last_successful_update"]
+        if timestamp is not None:
+            self.assertTrue(timestamp.endswith("Z"))
+            datetime.fromisoformat(timestamp.removesuffix("Z") + "+00:00")
+        commit = state["last_successful_commit"]
+        self.assertTrue(commit is None or re.fullmatch(r"[0-9a-f]{40}", commit))
+        published_ids = state["last_published_story_ids"]
+        self.assertEqual(len(published_ids), len(set(published_ids)))
+        stories = {story["id"]: story for story in DATA["stories"]}
+        self.assertTrue(all(story_id in stories for story_id in published_ids))
+        self.assertTrue(all(stories[story_id]["status"] == "published" for story_id in published_ids))
+
     def test_demo_content_is_explicit(self):
         build.validate(DATA)
         pages = build.build(DATA)
@@ -122,4 +143,3 @@ class PublicationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
