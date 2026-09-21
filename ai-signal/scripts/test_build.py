@@ -35,6 +35,7 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(state["schema_version"], 1)
         self.assertIsInstance(state["initial_lookback_days"], int)
         self.assertGreater(state["initial_lookback_days"], 0)
+        self.assertLessEqual(state["initial_lookback_days"], 30)
         timestamp = state["last_successful_update"]
         if timestamp is not None:
             self.assertTrue(timestamp.endswith("Z"))
