@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "edition": {
+    "id": "edition-02",
+    "title": "The model is no longer the whole system",
+    "status": "editorial-review",
+    "preparedAt": "2026-09-22",
+    "publicationDate": null,
+    "editor": "Dugi Selmanaj",
+    "note": "Four source-backed drafts prepared on 22 September 2026. Nothing in this edition is approved or published."
+  },
+  "weekly": {
+    "title": "The model is no longer the whole system",
+    "intro": "This review edition follows four changes around the model: independent domain review, chemist-facing validation, elastic agent runtime, and qualification of power and cooling equipment.",
+    "theme": "AI progress is becoming a systems question. Review rules, domain evidence, runtime behavior, and physical infrastructure increasingly decide whether a capability can be used.",
+    "watchNext": [
+      "Public recommendations from the mathematics advisory group, including how it handles disputed or incomplete results.",
+      "Independent reproduction of RetroChimera results and prospective laboratory evidence for suggested routes.",
+      "Customer-side AgentCore latency and cost measurements under production workloads, regions, networking, and tools.",
+      "Published DSX Ready test boundaries and evidence that qualified components reduce integration failures at site level."
+    ],
+    "closing": "Each announcement changes a surrounding layer of AI. The open question is whether those layers produce evidence that outsiders can inspect."
+  },
+  "stories": [
+    {
+      "id": "an-advisory-group-can-review-results-not-control-the-pace",
+      "slug": "an-advisory-group-can-review-results-not-control-the-pace",
+      "title": "An advisory group can review the result. It cannot control the race.",
+      "summary": "OpenAI and nine mathematicians established an independent group to advise on mathematical AI results. Its remit is public; its power is limited.",
+      "topic": "Mathematics and AI governance",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": true,
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-22",
+      "author": "Dugi Selmanaj",
+      "visual": "governance",
+      "scenario": "OpenAI announced an independent group of mathematicians to advise on reviewing, communicating, and releasing mathematical results produced with AI.",
+      "facts": [
+        {
+          "text": "OpenAI announced the Advisory Group on Mathematics and Artificial Intelligence on 21 September 2026.",
+          "sourceIds": [
+            "openai-math-advisory"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "OpenAI says the group will advise on the significance, review, communication, dissemination, and professional standards of emerging mathematical results.",
+          "sourceIds": [
+            "openai-math-advisory"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "OpenAI says group members are unpaid, may publish advice, may comment without being asked, and control their own membership.",
+          "sourceIds": [
+            "openai-math-advisory"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "OpenAI explicitly says the group will not advise the company on how to pace its internal progress in mathematics.",
+          "sourceIds": [
+            "openai-math-advisory"
+          ],
+          "verifiedAt": "2026-09-22"
+        }
+      ],
+      "changed": "A named external group now has a public mandate to advise OpenAI on mathematical AI results and to publish its advice. The group can challenge how results are reviewed and released, but it has no stated decision right over OpenAI's research pace or releases.",
+      "whyItMatters": "A mathematical proof is not useful because a model produced it; it becomes useful when experts can inspect it, resolve gaps, assign credit, and communicate it without flooding the field. The group creates a place for that work. Its lack of decision power also makes the boundary visible: advice can improve release practice without governing the company that controls the model.",
+      "technicalImpact": "A credible review process needs stable artifacts: the exact proof, model and prompt context, revision history, reviewer comments, dependency checks, and a record of unresolved objections. Without that package, experts are reviewing a moving claim rather than a reproducible result.",
+      "businessImpact": "Organizations using AI for high-value research will need domain review capacity, publication rules, and clear ownership of errors. A provider-appointed advisory channel can help, but buyers should still ask who can delay a release, require more evidence, or disclose disagreement.",
+      "outlook": "Conditional outlook: if the group publishes specific recommendations and OpenAI follows them, domain-led review could become a template for other scientific AI programs. If advice is nonbinding or the underlying artifacts remain inaccessible, the group may add legitimacy without adding much control.",
+      "uncertainties": [
+        "OpenAI reports that its internal model resolved more than 100 long-standing problems, including Navier–Stokes. This draft does not treat those extraordinary capability claims as established facts because independent review is not yet available.",
+        "Independence of membership and publication does not create authority over release timing, access to evidence, or company decisions.",
+        "The announcement does not yet specify review procedures, disclosure rules, conflict handling, response deadlines, or what happens when OpenAI rejects advice."
+      ],
+      "analysis": "The important announcement is not the large number in OpenAI's capability claim. It is the attempt to build a review institution before those claims arrive at scale. The honest footnote is already present: the institution can advise, and the company still decides.",
+      "sources": [
+        {
+          "id": "openai-math-advisory",
+          "title": "Advisory Group on Mathematics and Artificial Intelligence",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+          "publishedAt": "2026-09-21",
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source announcement from OpenAI. The group's public website corroborates its independent mandate but does not display an exact publication date, so it is not used as a dated source record. OpenAI's capability claims remain attributed and unverified in this draft.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewedAt": null,
+        "factCheck": false,
+        "rightsCheck": false,
+        "fairnessCheck": false,
+        "copyCheck": false,
+        "notes": "Verify the remit, power boundary, and wording around OpenAI's unverified capability claims."
+      }
+    },
+    {
+      "id": "retrochimera-makes-chemist-judgement-part-of-the-test",
+      "slug": "retrochimera-makes-chemist-judgement-part-of-the-test",
+      "title": "RetroChimera makes chemist judgement part of the test.",
+      "summary": "A new retrosynthesis system combines two different model types and asks expert chemists whether the proposed routes make sense. That is better evidence, with a small but important caveat.",
+      "topic": "AI-assisted chemical synthesis",
+      "category": "Research",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-22",
+      "author": "Dugi Selmanaj",
+      "visual": "research",
+      "scenario": "Microsoft Research and collaborators published RetroChimera, a retrosynthesis model evaluated on benchmarks, proprietary pharmaceutical data, and expert chemist preferences.",
+      "facts": [
+        {
+          "text": "Nature published the RetroChimera paper on 21 September 2026.",
+          "sourceIds": [
+            "nature-retrochimera"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "The system combines a Transformer-based de novo model and a graph-neural-network template model with a learned ranking strategy.",
+          "sourceIds": [
+            "nature-retrochimera",
+            "microsoft-retrochimera"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "The paper reports experiments on rare reactions, distribution shift, and transfer or fine-tuning with internal datasets from two pharmaceutical companies.",
+          "sourceIds": [
+            "nature-retrochimera"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "Microsoft reports that expert chemists accepted RetroChimera routes for nine of ten challenging targets, compared with five, four, and two targets for three comparison systems.",
+          "sourceIds": [
+            "microsoft-retrochimera"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "Microsoft released the implementation and weights and links them from its research announcement.",
+          "sourceIds": [
+            "microsoft-retrochimera"
+          ],
+          "verifiedAt": "2026-09-22"
+        }
+      ],
+      "changed": "RetroChimera combines two models that fail differently, then ranks their proposals together. The release adds a peer-reviewed paper, expert preference tests, transfer experiments with pharmaceutical datasets, and public code and weights.",
+      "whyItMatters": "Retrosynthesis benchmarks can reward a prediction that resembles recorded data without proving that a chemist would trust the full route. Adding blind expert judgement moves the test closer to the real decision: is this route plausible enough to spend laboratory time on? The open artifacts also give other researchers a chance to find where that judgement breaks.",
+      "technicalImpact": "The architecture treats model disagreement as useful information. A flexible generator can suggest unfamiliar reactions while a template model anchors predictions in known patterns; learned voting decides when to trust each. Production use still needs literature checks, feasibility models, uncertainty handling, and prospective laboratory validation.",
+      "businessImpact": "Better route ranking could reduce the expert time spent triaging impossible options in drug and materials research. It does not remove the expensive part: purchasing inputs, running reactions, measuring yield, and deciding whether a route is safe and scalable.",
+      "outlook": "Conditional outlook: if independent teams reproduce the results and prospective laboratory studies confirm the proposed routes, chemist-aligned evaluation could become more important than leaderboard accuracy for synthesis-planning tools. The present evidence does not yet show faster or cheaper molecule production in routine use.",
+      "uncertainties": [
+        "The reported whole-route comparison covers ten challenging targets. Nine accepted routes is encouraging, but the sample is too small to establish broad reliability.",
+        "Expert acceptance is not the same as successful laboratory synthesis, yield, safety, cost, or manufacturability.",
+        "The strongest checkpoint uses licensed Pistachio reaction data through 2023, and performance may fall for newer or substantially different chemistry.",
+        "Several authors and the release are affiliated with Microsoft, which developed and distributes the model."
+      ],
+      "analysis": "The useful shift is from ‘Did the model recover the dataset answer?’ to ‘Would a chemist act on this route?’ RetroChimera gets closer to that question. Ten targets still leave a very large laboratory door to walk through.",
+      "sources": [
+        {
+          "id": "nature-retrochimera",
+          "title": "Chemist-aligned retrosynthesis by ensembling diverse inductive bias models",
+          "publisher": "Nature",
+          "url": "https://www.nature.com/articles/s41586-026-11160-9",
+          "publishedAt": "2026-09-21",
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
+        },
+        {
+          "id": "microsoft-retrochimera",
+          "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
+          "publisher": "Microsoft Research",
+          "url": "https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/",
+          "publishedAt": "2026-09-21",
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary research paper and the research team's technical release note. Numerical comparisons remain attributed to the authors and need independent reproduction and prospective laboratory evidence.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewedAt": null,
+        "factCheck": false,
+        "rightsCheck": false,
+        "fairnessCheck": false,
+        "copyCheck": false,
+        "notes": "Check the paper tables and supplement before approving the comparison language."
+      }
+    },
+    {
+      "id": "agent-infrastructure-starts-pricing-the-idle-time",
+      "slug": "agent-infrastructure-starts-pricing-the-idle-time",
+      "title": "Agent infrastructure starts pricing the idle time.",
+      "summary": "AWS changed how AgentCore allocates memory and starts isolated sessions. The story is less about one cold-start chart and more about agents becoming a distinct compute workload.",
+      "topic": "Managed agent runtime",
+      "category": "Infrastructure",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-18",
+      "updatedAt": "2026-09-22",
+      "author": "Dugi Selmanaj",
+      "visual": "infrastructure",
+      "scenario": "AWS released a new AgentCore runtime designed to reclaim unused session memory and restore agent environments from prepared snapshots.",
+      "facts": [
+        {
+          "text": "AWS announced the new AgentCore runtime on 18 September 2026.",
+          "sourceIds": [
+            "aws-agentcore-runtime"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "AWS says the runtime pages memory in on demand, reclaims memory that becomes cold or is released, and bills against changing usage instead of a session's peak allocation.",
+          "sourceIds": [
+            "aws-agentcore-runtime"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "AWS says the runtime prepares an agent environment once, snapshots it, and restores the snapshot for new instances.",
+          "sourceIds": [
+            "aws-agentcore-runtime"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "In an AWS test of 5,000 cold invocations per configuration, an empty echo agent showed about two seconds P75 cold-start latency for images from 200 MB to 2 GB; AWS reports the previous runtime rose from about 5.4 seconds to nearly 30 seconds.",
+          "sourceIds": [
+            "aws-agentcore-runtime"
+          ],
+          "verifiedAt": "2026-09-22"
+        }
+      ],
+      "changed": "AWS changed AgentCore's execution model around two agent-specific costs: memory retained across long sessions and isolated environments that must start after idle periods. The service now reclaims session memory and restores prepared snapshots instead of repeating all initialization work.",
+      "whyItMatters": "An agent can wait for a person, call tools, resume hours later, and spend much of its life idle. That shape does not fit a simple request-response server. A runtime that prices changing memory use and restores isolated sessions treats the agent loop as its own infrastructure workload, rather than a chatbot placed in a container.",
+      "technicalImpact": "Teams should measure the full path: session start, container restore, model calls, tool latency, state recovery, network setup, failure isolation, and identity. AWS's echo test isolates platform startup; it does not describe the latency or reliability of a working agent.",
+      "businessImpact": "Usage-linked memory could lower waste for bursty or long-lived agents, while a managed runtime shifts more operational control to AWS. Buyers need workload-level cost tests and an exit plan because snapshot behavior, billing units, architecture support, quotas, and regional availability can shape the application.",
+      "outlook": "Conditional outlook: if customer measurements confirm predictable starts and lower total cost, agent runtimes may become a distinct managed-compute category. Standard containers and serverless functions will remain credible alternatives for simpler jobs or teams that value portability over specialized lifecycle features.",
+      "uncertainties": [
+        "AWS designed and measured the benchmark. Independent workload results are not yet available in the cited source.",
+        "The test used an empty echo agent across two AWS regions and excluded model and tool work, so it does not predict end-user response time.",
+        "AWS says the memory rate is higher even though many agents should consume fewer GB-hours. Savings depend on the workload's real allocation and idle pattern.",
+        "The story was published before Edition 01 and is included here as a material development missed by the previous review window."
+      ],
+      "analysis": "The two-second chart is the demo. The signal is the workload model behind it: agents wait, resume, retain state, and need isolation while doing very little. Cloud infrastructure is beginning to price and schedule that awkward shape directly.",
+      "sources": [
+        {
+          "id": "aws-agentcore-runtime",
+          "title": "The new AgentCore runtime: Elastic, optimized, and consistently fast starts",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/machine-learning/the-new-agentcore-runtime-elastic-optimized-and-consistently-fast-starts/",
+          "publishedAt": "2026-09-18",
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source technical announcement and provider benchmark from AWS. Performance and cost claims are attributed to AWS and should be tested with representative customer workloads.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewedAt": null,
+        "factCheck": false,
+        "rightsCheck": false,
+        "fairnessCheck": false,
+        "copyCheck": false,
+        "notes": "Verify benchmark conditions, pricing language, availability, and architecture constraints before approval."
+      }
+    },
+    {
+      "id": "ai-infrastructure-gets-a-qualified-parts-list",
+      "slug": "ai-infrastructure-gets-a-qualified-parts-list",
+      "title": "AI infrastructure gets a qualified parts list.",
+      "summary": "NVIDIA is qualifying batteries and cooling units against its data-center reference designs. That makes power and heat part of the platform contract, with a large site-level caveat.",
+      "topic": "AI data-center infrastructure",
+      "category": "Infrastructure",
+      "signal": "Interesting",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-22",
+      "author": "Dugi Selmanaj",
+      "visual": "infrastructure",
+      "scenario": "NVIDIA launched DSX Ready, a qualification program for products used with its AI-factory reference designs, beginning with battery energy storage and cooling distribution units.",
+      "facts": [
+        {
+          "text": "NVIDIA announced DSX Ready on 21 September 2026.",
+          "sourceIds": [
+            "nvidia-dsx-ready"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "The program begins with battery energy storage systems and cooling distribution units.",
+          "sourceIds": [
+            "nvidia-dsx-ready"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "NVIDIA lists initial qualified battery systems from Hitachi Energy, LG Energy Solution, and Tesla, and cooling units from LG Electronics, LiquidStack, and Vertiv.",
+          "sourceIds": [
+            "nvidia-dsx-ready"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "NVIDIA says battery partners run required tests and submit evidence for review, while cooling providers use a self-qualification suite against applicable functional requirements.",
+          "sourceIds": [
+            "nvidia-dsx-ready"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "NVIDIA states that passing qualification does not replace site engineering or imply site-level stability.",
+          "sourceIds": [
+            "nvidia-dsx-ready"
+          ],
+          "verifiedAt": "2026-09-22"
+        }
+      ],
+      "changed": "NVIDIA extended its AI-factory reference-design program into named power and cooling products. Builders now get an NVIDIA-defined qualification signal for two physical infrastructure categories, with different evidence paths for batteries and cooling units.",
+      "whyItMatters": "GPU availability does not create usable compute when a site cannot deliver power, remove heat, or integrate equipment safely. A qualified component list turns those dependencies into part of the platform design. It may shorten product selection, but it can also concentrate more of the data-center stack around one vendor's reference architecture.",
+      "technicalImpact": "Qualification can narrow component choices before site design begins. Engineers still need to validate electrical topology, water and thermal limits, redundancy, controls, failure domains, maintainability, and local grid conditions. The badge cannot model the facility around the component.",
+      "businessImpact": "Suppliers gain a clearer route into NVIDIA-centered projects, and buyers get a shorter list to evaluate. The trade-off is ecosystem dependence: procurement flexibility and negotiating power may shrink if qualification becomes a practical requirement.",
+      "outlook": "Conditional outlook: if DSX Ready publishes clear test boundaries and qualified systems reduce integration problems, vendor qualification could spread across more AI-factory components. If criteria remain opaque or site outcomes do not improve, it will function mainly as a procurement label.",
+      "uncertainties": [
+        "NVIDIA's announcement does not publish the full test criteria, thresholds, failure data, review cadence, or removal process for qualified products.",
+        "The cooling path uses a self-qualification suite, while the battery path includes submitted data and NVIDIA review; the two badges may not represent the same assurance depth.",
+        "No deployment evidence in the cited announcement shows that qualified components reduce cost, delays, outages, or integration failures.",
+        "A component can satisfy a reference-design requirement and still fail to fit a site's grid, climate, topology, operating model, or safety case."
+      ],
+      "analysis": "The interesting move is that the AI platform now reaches the battery cabinet and cooling loop. The qualification mark may remove one question from procurement. It does not remove the building around it.",
+      "sources": [
+        {
+          "id": "nvidia-dsx-ready",
+          "title": "NVIDIA Launches DSX Ready to Qualify Power and Cooling Products for AI Factories",
+          "publisher": "NVIDIA",
+          "url": "https://blogs.nvidia.com/blog/dsx-ready-ai-factories-power-cooling/",
+          "publishedAt": "2026-09-21",
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source announcement from NVIDIA. Qualification scope and expected benefits are described by the program owner; no independent site-level outcome evidence is included.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewedAt": null,
+        "factCheck": false,
+        "rightsCheck": false,
+        "fairnessCheck": false,
+        "copyCheck": false,
+        "notes": "Verify partner names, qualification paths, and the explicit site-level limitation."
+      }
+    }
+  ],
+  "signalMapChanges": [
+    {
+      "area": "Governance",
+      "direction": "up",
+      "dimension": "Independent domain-review capacity",
+      "rationale": "OpenAI announced a named, unpaid group that may publish advice and comment without being asked. The arrow describes added review capacity, not authority over OpenAI or validation of its mathematical claims.",
+      "storyId": "an-advisory-group-can-review-results-not-control-the-pace"
+    },
+    {
+      "area": "Models",
+      "direction": "up",
+      "dimension": "Domain-expert validation and open artifacts",
+      "rationale": "RetroChimera adds chemist preference tests, a peer-reviewed paper, public implementation, and weights. The movement is scoped to the evidence package for this system, not a field-wide rise in model reliability.",
+      "storyId": "retrochimera-makes-chemist-judgement-part-of-the-test"
+    },
+    {
+      "area": "Agents",
+      "direction": "up",
+      "dimension": "Runtime specialization for long-lived sessions",
+      "rationale": "AWS changed memory reclamation, snapshot restore, and billing around agent session behavior. The arrow tracks specialized runtime capability, not proven adoption or lower customer cost.",
+      "storyId": "agent-infrastructure-starts-pricing-the-idle-time"
+    },
+    {
+      "area": "Data Infrastructure",
+      "direction": "up",
+      "dimension": "Qualification of AI-factory power and cooling components",
+      "rationale": "NVIDIA introduced named qualification paths for battery and cooling products. The movement reflects a new procurement and integration mechanism, not demonstrated site-level reliability.",
+      "storyId": "ai-infrastructure-gets-a-qualified-parts-list"
+    }
+  ]
+}
