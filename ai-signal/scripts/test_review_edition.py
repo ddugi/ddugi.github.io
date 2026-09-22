@@ -25,6 +25,16 @@ class ReviewEditionTests(unittest.TestCase):
                 self.assertIn("LOCAL EDITORIAL REVIEW", text)
                 self.assertIn("Conditional outlook", text)
 
+    def test_review_index_uses_current_edition(self):
+        data = copy.deepcopy(DATA)
+        data["edition"]["id"] = "edition-02"
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "edition"
+            review.build(data, output)
+            text = (output / "index.html").read_text()
+            self.assertIn("edition-02 review", text)
+            self.assertIn("review/edition-02.json", text)
+
     def test_pending_story_blocks_release(self):
         data = copy.deepcopy(DATA)
         data["stories"][0]["review"]["status"] = "pending"
