@@ -7,15 +7,16 @@
     "preparedAt": "2026-09-22",
     "publicationDate": null,
     "editor": "Dugi Selmanaj",
-    "note": "Four source-backed drafts prepared on 22 September 2026. Nothing in this edition is approved or published."
+    "note": "Five source-backed drafts prepared through 23 September 2026. Nothing in this edition is approved or published."
   },
   "weekly": {
     "title": "The model is no longer the whole system",
-    "intro": "This review edition follows four changes around the model: independent domain review, chemist-facing validation, elastic agent runtime, and qualification of power and cooling equipment.",
-    "theme": "AI progress is becoming a systems question. Review rules, domain evidence, runtime behavior, and physical infrastructure increasingly decide whether a capability can be used.",
+    "intro": "This review edition follows five changes around the model: independent domain review, chemist-facing validation, frontier-model efficiency, elastic agent runtime, and qualification of power and cooling equipment.",
+    "theme": "AI progress is becoming a systems question. Price, review rules, domain evidence, runtime behavior, and physical infrastructure increasingly decide whether a capability can be used.",
     "watchNext": [
       "Public recommendations from the mathematics advisory group, including how it handles disputed or incomplete results.",
       "Independent reproduction of RetroChimera results and prospective laboratory evidence for suggested routes.",
+      "Independent task-level cost and safety evaluations for Claude Opus 5.5 outside Anthropic's selected workloads.",
       "Customer-side AgentCore latency and cost measurements under production workloads, regions, networking, and tools.",
       "Published DSX Ready test boundaries and evidence that qualified components reduce integration failures at site level."
     ],
@@ -196,6 +197,103 @@
         "fairnessCheck": false,
         "copyCheck": false,
         "notes": "Check the paper tables and supplement before approving the comparison language."
+      }
+    },
+    {
+      "id": "frontier-models-enter-the-efficiency-race",
+      "slug": "frontier-models-enter-the-efficiency-race",
+      "title": "The frontier model is moving down the cost curve.",
+      "summary": "Anthropic released Opus 5.5 with lower token prices and provider-reported efficiency gains. The useful comparison is cost per completed task, including the controls around it.",
+      "topic": "Frontier-model efficiency",
+      "category": "Models",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-23",
+      "author": "Dugi Selmanaj",
+      "visual": "models",
+      "scenario": "Anthropic released Claude Opus 5.5 with new pricing, performance claims, a system card, external pre-release evaluations, and capability-linked safeguards.",
+      "facts": [
+        {
+          "text": "Anthropic released Claude Opus 5.5 on 22 September 2026.",
+          "sourceIds": [
+            "anthropic-opus-55"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic lists Opus 5.5 at $4 per million input tokens, $20 per million output tokens, and $0.20 per million cache-read tokens, compared with $5, $25, and $0.50 for Opus 5.",
+          "sourceIds": [
+            "anthropic-opus-55"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic reports that Opus 5.5 costs 40% less than Opus 5 on its typical-workload tests and generates output more than 30% faster.",
+          "sourceIds": [
+            "anthropic-opus-55"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic says Frontier Design and METR evaluated the model before release and that biology and cybersecurity safeguards route some work through restricted access or another model.",
+          "sourceIds": [
+            "anthropic-opus-55",
+            "anthropic-opus-55-system-card"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic states that Opus 5.5 may recognize evaluation settings and that pre-deployment evaluations cannot reliably catch every failure.",
+          "sourceIds": [
+            "anthropic-opus-55-system-card"
+          ],
+          "verifiedAt": "2026-09-23"
+        }
+      ],
+      "changed": "Anthropic moved its top Opus tier to lower input, output, and cache-read prices while reporting higher speed and fewer tokens per task. It released the model with a system card, outside pre-release evaluators, and restricted paths for some biology and cybersecurity work.",
+      "whyItMatters": "Frontier capability becomes easier to use when the same result needs fewer model calls, fewer tokens, and less waiting. That changes routing decisions: teams can reserve an expensive model for hard tasks only if they can measure which tasks actually benefit. The safety controls matter to the same calculation because a fallback or access check can change both result quality and operating cost.",
+      "technicalImpact": "Evaluate complete workflows rather than benchmark scores or token prices. Record task success, retries, tool calls, cache use, latency, safeguard interventions, human review, and total spend. A model that charges less per token can still cost more per useful result if it explores longer or needs more correction.",
+      "businessImpact": "Lower listed prices put pressure on the premium-model tier and may make advanced models practical for more production work. Procurement still needs a representative task set and independent logs; Anthropic's typical workload is not automatically the buyer's workload.",
+      "outlook": "Conditional outlook: if independent evaluations confirm lower cost per accepted task, frontier-model competition may shift from peak scores toward efficiency and controllability. If the gains depend on selected harnesses, caching patterns, or provider-defined tasks, the price change will be less structural than the launch suggests.",
+      "uncertainties": [
+        "Anthropic selected and reported most of the performance, cost, and safety comparisons. External evaluators participated, but their full findings are not all contained in the launch page.",
+        "The 40% typical-workload figure mixes listed prices with provider-observed token use. Different prompts, tools, cache hit rates, and effort settings can produce a different result.",
+        "Benchmark margins are small or setup-dependent in several comparisons, and Anthropic itself says those margins are becoming less reliable guides to real-world differences.",
+        "The system card says the model may recognize evaluations, which weakens confidence that simulated behavior fully predicts unattended production behavior."
+      ],
+      "analysis": "The interesting number is not a leaderboard point. It is the bill for a task someone accepts. Opus 5.5 suggests the frontier is starting to compete on that number, but the receipt still needs retries, safeguards, and human checking included.",
+      "sources": [
+        {
+          "id": "anthropic-opus-55",
+          "title": "Claude Opus 5.5",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/claude-opus-5-5",
+          "publishedAt": "2026-09-22",
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
+        },
+        {
+          "id": "anthropic-opus-55-system-card",
+          "title": "Claude Opus 5.5 System Card",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/claude-opus-5-5-system-card",
+          "publishedAt": "2026-09-22",
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary release materials from Anthropic. Price points are public list prices; performance, efficiency, and safety results remain provider-reported unless an external evaluator publishes its own result.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewedAt": null,
+        "factCheck": false,
+        "rightsCheck": false,
+        "fairnessCheck": false,
+        "copyCheck": false,
+        "notes": "Verify pricing, benchmark setup, system-card limitations, and which external evaluation results are independently available."
       }
     },
     {
@@ -380,6 +478,13 @@
       "dimension": "Domain-expert validation and open artifacts",
       "rationale": "RetroChimera adds chemist preference tests, a peer-reviewed paper, public implementation, and weights. The movement is scoped to the evidence package for this system, not a field-wide rise in model reliability.",
       "storyId": "retrochimera-makes-chemist-judgement-part-of-the-test"
+    },
+    {
+      "area": "Inference",
+      "direction": "down",
+      "dimension": "Listed price for frontier-tier model use",
+      "rationale": "Anthropic lowered Opus input, output, and cache-read prices and reports fewer tokens per task. The downward arrow tracks listed and provider-measured cost for this release, not independently verified cost across customer workloads.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
     },
     {
       "area": "Agents",
