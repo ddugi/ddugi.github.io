@@ -7,18 +7,18 @@
     "preparedAt": "2026-09-22",
     "publicationDate": null,
     "editor": "Dugi Selmanaj",
-    "note": "Five source-backed drafts prepared through 23 September 2026. Nothing in this edition is approved or published."
+    "note": "Five source-backed drafts prepared through 24 September 2026. Nothing in this edition is approved or published."
   },
   "weekly": {
     "title": "The model is no longer the whole system",
-    "intro": "This review edition follows five changes around the model: independent domain review, chemist-facing validation, frontier-model efficiency, elastic agent runtime, and qualification of power and cooling equipment.",
-    "theme": "AI progress is becoming a systems question. Price, review rules, domain evidence, runtime behavior, and physical infrastructure increasingly decide whether a capability can be used.",
+    "intro": "This review edition follows five changes around the model: independent domain review, chemist-facing validation, frontier-model efficiency, elastic agent runtime, and local containment for coding agents.",
+    "theme": "AI progress is becoming a systems question. Price, review rules, domain evidence, runtime behavior, and execution boundaries increasingly decide whether a capability can be used.",
     "watchNext": [
       "Public recommendations from the mathematics advisory group, including how it handles disputed or incomplete results.",
       "Independent reproduction of RetroChimera results and prospective laboratory evidence for suggested routes.",
       "Independent task-level cost and safety evaluations for Claude Opus 5.5 outside Anthropic's selected workloads.",
       "Customer-side AgentCore latency and cost measurements under production workloads, regions, networking, and tools.",
-      "Published DSX Ready test boundaries and evidence that qualified components reduce integration failures at site level."
+      "Evidence that local agent sandboxes stay contained under adversarial commands, tool chains, and credential workflows."
     ],
     "closing": "Each announcement changes a surrounding layer of AI. The open question is whether those layers produce evidence that outsiders can inspect."
   },
@@ -377,81 +377,81 @@
       }
     },
     {
-      "id": "ai-infrastructure-gets-a-qualified-parts-list",
-      "slug": "ai-infrastructure-gets-a-qualified-parts-list",
-      "title": "AI infrastructure gets a qualified parts list.",
-      "summary": "NVIDIA is qualifying batteries and cooling units against its data-center reference designs. That makes power and heat part of the platform contract, with a large site-level caveat.",
-      "topic": "AI data-center infrastructure",
-      "category": "Infrastructure",
-      "signal": "Interesting",
+      "id": "coding-agents-get-a-local-boundary",
+      "slug": "coding-agents-get-a-local-boundary",
+      "title": "A coding agent needs a boundary before it needs more autonomy.",
+      "summary": "GitHub added local sandbox controls for agent-run commands. The useful change is explicit control over files, networks, and credentials—with an off-by-default warning.",
+      "topic": "Local agent containment",
+      "category": "Security & Governance",
+      "signal": "Important",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2026-09-21",
-      "updatedAt": "2026-09-22",
+      "publishedAt": "2026-09-23",
+      "updatedAt": "2026-09-24",
       "author": "Dugi Selmanaj",
-      "visual": "infrastructure",
-      "scenario": "NVIDIA launched DSX Ready, a qualification program for products used with its AI-factory reference designs, beginning with battery energy storage and cooling distribution units.",
+      "visual": "security",
+      "scenario": "GitHub released project-level local sandboxing in public preview for repository and working-tree sessions in the GitHub Copilot app.",
       "facts": [
         {
-          "text": "NVIDIA announced DSX Ready on 21 September 2026.",
+          "text": "GitHub announced local sandboxing in the GitHub Copilot app on 23 September 2026.",
           "sourceIds": [
-            "nvidia-dsx-ready"
+            "github-local-sandbox"
           ],
-          "verifiedAt": "2026-09-22"
+          "verifiedAt": "2026-09-24"
         },
         {
-          "text": "The program begins with battery energy storage systems and cooling distribution units.",
+          "text": "Project settings can restrict additional filesystem paths, outbound and local-network access, and availability of Git and GitHub CLI credentials.",
           "sourceIds": [
-            "nvidia-dsx-ready"
+            "github-local-sandbox"
           ],
-          "verifiedAt": "2026-09-22"
+          "verifiedAt": "2026-09-24"
         },
         {
-          "text": "NVIDIA lists initial qualified battery systems from Hitachi Energy, LG Energy Solution, and Tesla, and cooling units from LG Electronics, LiquidStack, and Vertiv.",
+          "text": "GitHub says enterprise-managed settings can make the effective policy more restrictive than the project requests.",
           "sourceIds": [
-            "nvidia-dsx-ready"
+            "github-local-sandbox"
           ],
-          "verifiedAt": "2026-09-22"
+          "verifiedAt": "2026-09-24"
         },
         {
-          "text": "NVIDIA says battery partners run required tests and submit evidence for review, while cooling providers use a self-qualification suite against applicable functional requirements.",
+          "text": "GitHub says the sandboxed shell fails instead of running without a sandbox when the operating system cannot enforce the requested policy.",
           "sourceIds": [
-            "nvidia-dsx-ready"
+            "github-local-sandbox"
           ],
-          "verifiedAt": "2026-09-22"
+          "verifiedAt": "2026-09-24"
         },
         {
-          "text": "NVIDIA states that passing qualification does not replace site engineering or imply site-level stability.",
+          "text": "Local sandboxing is off by default, applies to new or restarted local sessions, does not cover cloud or remote-host sessions, and remains in public preview.",
           "sourceIds": [
-            "nvidia-dsx-ready"
+            "github-local-sandbox"
           ],
-          "verifiedAt": "2026-09-22"
+          "verifiedAt": "2026-09-24"
         }
       ],
-      "changed": "NVIDIA extended its AI-factory reference-design program into named power and cooling products. Builders now get an NVIDIA-defined qualification signal for two physical infrastructure categories, with different evidence paths for batteries and cooling units.",
-      "whyItMatters": "GPU availability does not create usable compute when a site cannot deliver power, remove heat, or integrate equipment safely. A qualified component list turns those dependencies into part of the platform design. It may shorten product selection, but it can also concentrate more of the data-center stack around one vendor's reference architecture.",
-      "technicalImpact": "Qualification can narrow component choices before site design begins. Engineers still need to validate electrical topology, water and thermal limits, redundancy, controls, failure domains, maintainability, and local grid conditions. The badge cannot model the facility around the component.",
-      "businessImpact": "Suppliers gain a clearer route into NVIDIA-centered projects, and buyers get a shorter list to evaluate. The trade-off is ecosystem dependence: procurement flexibility and negotiating power may shrink if qualification becomes a practical requirement.",
-      "outlook": "Conditional outlook: if DSX Ready publishes clear test boundaries and qualified systems reduce integration problems, vendor qualification could spread across more AI-factory components. If criteria remain opaque or site outcomes do not improve, it will function mainly as a procurement label.",
+      "changed": "The Copilot app now has a project-level policy boundary for commands that run on a developer's machine. Filesystem, network, and credential access can be separated, enterprise policy can tighten the result, and unsupported enforcement fails closed.",
+      "whyItMatters": "A coding agent acts with whatever the surrounding process can reach. Asking a person to inspect every shell command does not scale to long tasks. A sandbox moves part of that decision into a reusable boundary: which files, networks, and credentials can this session touch at all?",
+      "technicalImpact": "Treat the effective sandbox policy as deployable configuration. Start with the working tree, block unrelated paths and local networks, expose credentials only when required, and verify the policy after restart. Teams also need tests for subprocesses and tools that cross the boundary, because a clean top-level command can still invoke a risky child process.",
+      "businessImpact": "Local containment can make agent adoption easier for security teams without forcing all work into a hosted environment. The operational burden shifts to policy design: permissive defaults, credential exceptions, and inconsistent project settings can erase much of the protection.",
+      "outlook": "Conditional outlook: if enterprises can enforce and audit consistent policies, sandbox configuration may become a standard control for local coding agents. If most users leave the preview disabled or routinely approve bypasses, it will remain an optional safety feature rather than an operating boundary.",
       "uncertainties": [
-        "NVIDIA's announcement does not publish the full test criteria, thresholds, failure data, review cadence, or removal process for qualified products.",
-        "The cooling path uses a self-qualification suite, while the battery path includes submitted data and NVIDIA review; the two badges may not represent the same assurance depth.",
-        "No deployment evidence in the cited announcement shows that qualified components reduce cost, delays, outages, or integration failures.",
-        "A component can satisfy a reference-design requirement and still fail to fit a site's grid, climate, topology, operating model, or safety case."
+        "The feature is a public preview and may change; the announcement provides no independent security assessment or escape-testing results.",
+        "Sandboxing is off by default and changes apply only to new or restarted sessions, leaving room for users to believe an existing session is protected when it is not.",
+        "Local, cloud, remote-host, app, and CLI sessions have different configuration paths. That fragmentation can produce inconsistent controls across the same organization.",
+        "Allowing authenticated Git or GitHub CLI operations may be necessary for useful work, but it also gives a compromised session a path to external changes unless scope and approvals are constrained."
       ],
-      "analysis": "The interesting move is that the AI platform now reaches the battery cabinet and cooling loop. The qualification mark may remove one question from procurement. It does not remove the building around it.",
+      "analysis": "The important feature is not another permission dialog. It is a boundary that exists before the agent writes the command. The catch is equally concrete: a sandbox that starts off is policy potential, not protection.",
       "sources": [
         {
-          "id": "nvidia-dsx-ready",
-          "title": "NVIDIA Launches DSX Ready to Qualify Power and Cooling Products for AI Factories",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/dsx-ready-ai-factories-power-cooling/",
-          "publishedAt": "2026-09-21",
-          "accessedAt": "2026-09-22",
+          "id": "github-local-sandbox",
+          "title": "Local sandboxing in the GitHub Copilot app",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
+          "publishedAt": "2026-09-23",
+          "accessedAt": "2026-09-24",
           "kind": "primary"
         }
       ],
-      "sourceNote": "Primary-source announcement from NVIDIA. Qualification scope and expected benefits are described by the program owner; no independent site-level outcome evidence is included.",
+      "sourceNote": "Primary-source release note from GitHub. The control surface and limitations are documented by the vendor; this draft does not claim independent validation of the isolation boundary.",
       "review": {
         "status": "pending",
         "reviewer": null,
@@ -460,7 +460,7 @@
         "rightsCheck": false,
         "fairnessCheck": false,
         "copyCheck": false,
-        "notes": "Verify partner names, qualification paths, and the explicit site-level limitation."
+        "notes": "Verify default state, session scope, fail-closed behavior, enterprise enforcement, and credential handling before approval."
       }
     }
   ],
@@ -494,11 +494,11 @@
       "storyId": "agent-infrastructure-starts-pricing-the-idle-time"
     },
     {
-      "area": "Data Infrastructure",
+      "area": "AI Security",
       "direction": "up",
-      "dimension": "Qualification of AI-factory power and cooling components",
-      "rationale": "NVIDIA introduced named qualification paths for battery and cooling products. The movement reflects a new procurement and integration mechanism, not demonstrated site-level reliability.",
-      "storyId": "ai-infrastructure-gets-a-qualified-parts-list"
+      "dimension": "Local containment controls for coding agents",
+      "rationale": "GitHub added project-level filesystem, network, and credential boundaries with enterprise tightening and fail-closed enforcement. The arrow reflects available control depth, not independent proof that the sandbox resists escape.",
+      "storyId": "coding-agents-get-a-local-boundary"
     }
   ]
 }
