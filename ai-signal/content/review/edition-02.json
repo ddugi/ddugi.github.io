@@ -7,18 +7,18 @@
     "preparedAt": "2026-09-22",
     "publicationDate": null,
     "editor": "Dugi Selmanaj",
-    "note": "Five source-backed drafts prepared through 24 September 2026. Nothing in this edition is approved or published."
+    "note": "Five source-backed drafts prepared through 25 September 2026. Nothing in this edition is approved or published."
   },
   "weekly": {
     "title": "The model is no longer the whole system",
-    "intro": "This review edition follows five changes around the model: independent domain review, chemist-facing validation, frontier-model efficiency, elastic agent runtime, and local containment for coding agents.",
-    "theme": "AI progress is becoming a systems question. Price, review rules, domain evidence, runtime behavior, and execution boundaries increasingly decide whether a capability can be used.",
+    "intro": "This review edition follows five changes around the model: independent domain review, chemist-facing validation, frontier-model efficiency, elastic agent runtime, and enterprise controls for agent access and feature rollout.",
+    "theme": "AI progress is becoming a systems question. Price, review rules, domain evidence, runtime behavior, execution boundaries, and rollout defaults increasingly decide whether a capability can be used.",
     "watchNext": [
       "Public recommendations from the mathematics advisory group, including how it handles disputed or incomplete results.",
       "Independent reproduction of RetroChimera results and prospective laboratory evidence for suggested routes.",
       "Independent task-level cost and safety evaluations for Claude Opus 5.5 outside Anthropic's selected workloads.",
       "Customer-side AgentCore latency and cost measurements under production workloads, regions, networking, and tools.",
-      "Evidence that local agent sandboxes stay contained under adversarial commands, tool chains, and credential workflows."
+      "Evidence that agent sandbox policies resist escape and that enterprise rollout defaults are consistently enforced, visible, and auditable."
     ],
     "closing": "Each announcement changes a surrounding layer of AI. The open question is whether those layers produce evidence that outsiders can inspect."
   },
@@ -379,18 +379,18 @@
     {
       "id": "coding-agents-get-a-local-boundary",
       "slug": "coding-agents-get-a-local-boundary",
-      "title": "A coding agent needs a boundary before it needs more autonomy.",
-      "summary": "GitHub added local sandbox controls for agent-run commands. The useful change is explicit control over files, networks, and credentials—with an off-by-default warning.",
-      "topic": "Local agent containment",
+      "title": "The AI control plane now decides what arrives by default.",
+      "summary": "GitHub added local boundaries for agent-run commands and a global default for future Copilot features. Enterprise AI policy is moving from scattered toggles into a control plane.",
+      "topic": "Enterprise agent controls",
       "category": "Security & Governance",
       "signal": "Important",
       "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-23",
-      "updatedAt": "2026-09-24",
+      "updatedAt": "2026-09-25",
       "author": "Dugi Selmanaj",
       "visual": "security",
-      "scenario": "GitHub released project-level local sandboxing in public preview for repository and working-tree sessions in the GitHub Copilot app.",
+      "scenario": "GitHub released local sandboxing for Copilot app sessions and introduced an enterprise default policy for generally available Copilot features, code review, and MCP servers.",
       "facts": [
         {
           "text": "GitHub announced local sandboxing in the GitHub Copilot app on 23 September 2026.",
@@ -426,20 +426,42 @@
             "github-local-sandbox"
           ],
           "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "GitHub announced a global default policy for eligible generally available Copilot features on 24 September 2026.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        },
+        {
+          "text": "Enterprises can set eligible current and future features to enabled, disabled, or delegated to organization administrators; the policy is scheduled to take effect on 22 October 2026.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        },
+        {
+          "text": "GitHub says explicit feature decisions and preview opt-ins are preserved, and that the default covers eligible feature controls, Copilot code review, and MCP-server policy.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
         }
       ],
-      "changed": "The Copilot app now has a project-level policy boundary for commands that run on a developer's machine. Filesystem, network, and credential access can be separated, enterprise policy can tighten the result, and unsupported enforcement fails closed.",
-      "whyItMatters": "A coding agent acts with whatever the surrounding process can reach. Asking a person to inspect every shell command does not scale to long tasks. A sandbox moves part of that decision into a reusable boundary: which files, networks, and credentials can this session touch at all?",
-      "technicalImpact": "Treat the effective sandbox policy as deployable configuration. Start with the working tree, block unrelated paths and local networks, expose credentials only when required, and verify the policy after restart. Teams also need tests for subprocesses and tools that cross the boundary, because a clean top-level command can still invoke a risky child process.",
-      "businessImpact": "Local containment can make agent adoption easier for security teams without forcing all work into a hosted environment. The operational burden shifts to policy design: permissive defaults, credential exceptions, and inconsistent project settings can erase much of the protection.",
-      "outlook": "Conditional outlook: if enterprises can enforce and audit consistent policies, sandbox configuration may become a standard control for local coding agents. If most users leave the preview disabled or routinely approve bypasses, it will remain an optional safety feature rather than an operating boundary.",
+      "changed": "GitHub added two layers of enterprise control. A local sandbox can constrain filesystem, network, and credential access for agent-run commands. A separate global policy can decide whether current and future eligible Copilot features are enabled, disabled, or delegated to organization administrators by default.",
+      "whyItMatters": "AI governance fails when every new capability arrives as a separate switch that administrators discover after users do. A default policy answers the rollout question before the next feature appears, while the sandbox answers what an active agent can touch. Together they turn adoption from a sequence of product surprises into an explicit operating decision.",
+      "technicalImpact": "Treat feature defaults and sandbox rules as versioned policy. Record which layer wins, preserve explicit exceptions, test the effective filesystem, network, and credential boundary, and inventory MCP servers and code-review agents covered by the rollout default. A configured policy is useful only if teams can see and audit the effective result.",
+      "businessImpact": "Central defaults can reduce administrative drift across large organizations and let security teams choose deliberate opt-in. They can also expand AI access silently if an enterprise selects enabled and stops reviewing future eligible features. The setting becomes a standing risk decision, not a one-time convenience.",
+      "outlook": "Conditional outlook: if vendors expose consistent, auditable controls across models, agents, tools, and clients, enterprise AI policy may become a real control plane. If eligibility exceptions and product-specific settings remain fragmented, administrators will still need manual inventories to understand what users can access.",
       "uncertainties": [
-        "The feature is a public preview and may change; the announcement provides no independent security assessment or escape-testing results.",
-        "Sandboxing is off by default and changes apply only to new or restarted sessions, leaving room for users to believe an existing session is protected when it is not.",
-        "Local, cloud, remote-host, app, and CLI sessions have different configuration paths. That fragmentation can produce inconsistent controls across the same organization.",
-        "Allowing authenticated Git or GitHub CLI operations may be necessary for useful work, but it also gives a compromised session a path to external changes unless scope and approvals are constrained."
+        "Local sandboxing remains a public preview, is off by default, and provides no independent escape-testing results in the cited release note.",
+        "The global rollout policy does not take effect until 22 October 2026, so this draft cannot verify its behavior across a real enterprise estate.",
+        "Eligibility rules and exceptions can change which controls inherit the default; administrators still need an effective-policy inventory.",
+        "Local, cloud, remote-host, app, and CLI sessions have different control paths, which can produce inconsistent protection.",
+        "A permissive global default or broadly available Git credentials can turn centralized convenience into a larger blast radius."
       ],
-      "analysis": "The important feature is not another permission dialog. It is a boundary that exists before the agent writes the command. The catch is equally concrete: a sandbox that starts off is policy potential, not protection.",
+      "analysis": "The important change is temporal. Administrators are no longer deciding only what is available today; they are deciding the default answer for features that do not exist yet. That saves work, but it also turns a settings page into future policy.",
       "sources": [
         {
           "id": "github-local-sandbox",
@@ -449,9 +471,18 @@
           "publishedAt": "2026-09-23",
           "accessedAt": "2026-09-24",
           "kind": "primary"
+        },
+        {
+          "id": "github-copilot-default-policy",
+          "title": "Default Enablement of Copilot Features for Copilot Business and Enterprise",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/",
+          "publishedAt": "2026-09-24",
+          "accessedAt": "2026-09-25",
+          "kind": "primary"
         }
       ],
-      "sourceNote": "Primary-source release note from GitHub. The control surface and limitations are documented by the vendor; this draft does not claim independent validation of the isolation boundary.",
+      "sourceNote": "Primary-source release notes from GitHub. They define the announced controls and rollout schedule; this draft does not claim independent validation of sandbox isolation or enterprise-wide policy enforcement.",
       "review": {
         "status": "pending",
         "reviewer": null,
@@ -460,7 +491,7 @@
         "rightsCheck": false,
         "fairnessCheck": false,
         "copyCheck": false,
-        "notes": "Verify default state, session scope, fail-closed behavior, enterprise enforcement, and credential handling before approval."
+        "notes": "Verify sandbox scope, default state, fail-closed behavior, policy eligibility, exceptions, and the 22 October enforcement date."
       }
     }
   ],
@@ -496,8 +527,8 @@
     {
       "area": "AI Security",
       "direction": "up",
-      "dimension": "Local containment controls for coding agents",
-      "rationale": "GitHub added project-level filesystem, network, and credential boundaries with enterprise tightening and fail-closed enforcement. The arrow reflects available control depth, not independent proof that the sandbox resists escape.",
+      "dimension": "Agent containment and enterprise rollout controls",
+      "rationale": "GitHub added local filesystem, network, and credential boundaries plus a global default for future eligible Copilot features. The arrow reflects broader control coverage, not independent proof of sandbox strength or policy enforcement.",
       "storyId": "coding-agents-get-a-local-boundary"
     }
   ]
