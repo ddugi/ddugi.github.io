@@ -7,9 +7,8 @@ import importlib.util
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-REVIEW_SOURCE = ROOT / "content" / "review" / "edition-01.json"
+DEFAULT_REVIEW_SOURCE = ROOT / "content" / "review" / "edition-01.json"
 LIVE_SOURCE = ROOT / "content" / "publication.json"
-CANDIDATE = ROOT / ".review" / "edition-01" / "publication-candidate.json"
 
 def load_module(name, path):
     spec = importlib.util.spec_from_file_location(name, path)
@@ -23,8 +22,10 @@ builder = load_module("signal_build", ROOT / "scripts" / "build.py")
 def candidate(review, current):
     reviewer.validate(review, ready=True)
     publish_date = review["edition"]["publicationDate"]
+    edition_id = review["edition"]["id"]
+    edition_number = edition_id.removeprefix("edition-")
     result = copy.deepcopy(current)
-    result["publication"].update({"edition": "01", "mode": "live", "updatedAt": publish_date})
+    result["publication"].update({"edition": edition_number, "mode": "live", "updatedAt": publish_date})
     result["stories"] = []
     for draft in review["stories"]:
         story = copy.deepcopy(draft)
@@ -42,13 +43,13 @@ def candidate(review, current):
     result["signalMap"].update({
         "status": "editorial",
         "asOf": publish_date,
-        "note": "Directional editorial assessment based only on the linked stories in Edition 01. Arrows are qualitative, not quantitative scores."
+        "note": f"Directional editorial assessment based only on the linked stories in Edition {edition_number}. Arrows are qualitative, not quantitative scores."
     })
     for item in result["signalMap"]["items"]:
         if item["area"] in changes:
             item.update(changes[item["area"]])
         else:
-            item.update({"direction": "flat", "dimension": "No new assessment", "rationale": "Edition 01 proposes no evidence-backed movement for this area.", "storyId": None})
+            item.update({"direction": "flat", "dimension": "No new assessment", "rationale": f"Edition {edition_number} proposes no evidence-backed movement for this area.", "storyId": None})
     weekly = review["weekly"]
     result["weekly"] = {
         "slug": publish_date,
@@ -66,12 +67,15 @@ def candidate(review, current):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--source", type=Path, default=DEFAULT_REVIEW_SOURCE, help="Approved review edition to promote")
+    parser.add_argument("--candidate", type=Path, help="Optional path for the review-only publication candidate")
     parser.add_argument("--apply", action="store_true", help="Replace the live source after all review gates pass")
     args = parser.parse_args()
-    review = json.loads(REVIEW_SOURCE.read_text(encoding="utf-8"))
+    review = json.loads(args.source.read_text(encoding="utf-8"))
     current = json.loads(LIVE_SOURCE.read_text(encoding="utf-8"))
     result = candidate(review, current)
-    target = LIVE_SOURCE if args.apply else CANDIDATE
+    candidate_path = args.candidate or ROOT / ".review" / review["edition"]["id"] / "publication-candidate.json"
+    target = LIVE_SOURCE if args.apply else candidate_path
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     action = "updated live publication source" if args.apply else "wrote review-only publication candidate"

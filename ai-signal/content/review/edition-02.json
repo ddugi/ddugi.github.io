@@ -1,11 +1,26 @@
 {
   "schemaVersion": 1,
-  "publication": {
-    "name": "AI Signal",
-    "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "02",
-    "mode": "live",
-    "updatedAt": "2026-09-25"
+  "edition": {
+    "id": "edition-02",
+    "title": "The model is no longer the whole system",
+    "status": "editorial-review",
+    "preparedAt": "2026-09-22",
+    "publicationDate": "2026-09-25",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 02 on 25 September 2026."
+  },
+  "weekly": {
+    "title": "The model is no longer the whole system",
+    "intro": "This edition follows five changes around the model: independent domain review, chemist-facing validation, frontier-model efficiency, elastic agent runtime, and enterprise controls for agent access and feature rollout.",
+    "theme": "AI progress is becoming a systems question. Price, review rules, domain evidence, runtime behavior, execution boundaries, and rollout defaults increasingly decide whether a capability can be used.",
+    "watchNext": [
+      "Public recommendations from the mathematics advisory group, including how it handles disputed or incomplete results.",
+      "Independent reproduction of RetroChimera results and prospective laboratory evidence for suggested routes.",
+      "Independent task-level cost and safety evaluations for Claude Opus 5.5 outside Anthropic's selected workloads.",
+      "Customer-side AgentCore latency and cost measurements under production workloads, regions, networking, and tools.",
+      "Evidence that agent sandbox policies resist escape and that enterprise rollout defaults are consistently enforced, visible, and auditable."
+    ],
+    "closing": "Each announcement changes a surrounding layer of AI. The open question is whether those layers produce evidence that outsiders can inspect."
   },
   "stories": [
     {
@@ -16,10 +31,10 @@
       "topic": "Mathematics and AI governance",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": true,
       "publishedAt": "2026-09-21",
-      "updatedAt": "2026-09-25",
+      "updatedAt": "2026-09-22",
       "author": "Dugi Selmanaj",
       "visual": "governance",
       "scenario": "OpenAI announced an independent group of mathematicians to advise on reviewing, communicating, and releasing mathematical results produced with AI.",
@@ -71,14 +86,20 @@
           "publisher": "OpenAI",
           "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
           "publishedAt": "2026-09-21",
-          "accessedAt": "2026-09-22"
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source announcement from OpenAI. The group's public website corroborates its independent mandate but does not display an exact publication date, so it is not used as a dated source record. OpenAI's capability claims remain attributed and unverified in this draft.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-25"
+        "reviewedAt": "2026-09-25",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Publication authorized by the editor on 25 September 2026."
       }
     },
     {
@@ -89,10 +110,10 @@
       "topic": "AI-assisted chemical synthesis",
       "category": "Research",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-21",
-      "updatedAt": "2026-09-25",
+      "updatedAt": "2026-09-22",
       "author": "Dugi Selmanaj",
       "visual": "research",
       "scenario": "Microsoft Research and collaborators published RetroChimera, a retrosynthesis model evaluated on benchmarks, proprietary pharmaceutical data, and expert chemist preferences.",
@@ -153,7 +174,8 @@
           "publisher": "Nature",
           "url": "https://www.nature.com/articles/s41586-026-11160-9",
           "publishedAt": "2026-09-21",
-          "accessedAt": "2026-09-22"
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
         },
         {
           "id": "microsoft-retrochimera",
@@ -161,14 +183,20 @@
           "publisher": "Microsoft Research",
           "url": "https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/",
           "publishedAt": "2026-09-21",
-          "accessedAt": "2026-09-22"
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary research paper and the research team's technical release note. Numerical comparisons remain attributed to the authors and need independent reproduction and prospective laboratory evidence.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-25"
+        "reviewedAt": "2026-09-25",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Publication authorized by the editor on 25 September 2026."
       }
     },
     {
@@ -179,10 +207,10 @@
       "topic": "Frontier-model efficiency",
       "category": "Models",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-22",
-      "updatedAt": "2026-09-25",
+      "updatedAt": "2026-09-23",
       "author": "Dugi Selmanaj",
       "visual": "models",
       "scenario": "Anthropic released Claude Opus 5.5 with new pricing, performance claims, a system card, external pre-release evaluations, and capability-linked safeguards.",
@@ -243,7 +271,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-opus-5-5",
           "publishedAt": "2026-09-22",
-          "accessedAt": "2026-09-23"
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
         },
         {
           "id": "anthropic-opus-55-system-card",
@@ -251,14 +280,20 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-opus-5-5-system-card",
           "publishedAt": "2026-09-22",
-          "accessedAt": "2026-09-23"
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary release materials from Anthropic. Price points are public list prices; performance, efficiency, and safety results remain provider-reported unless an external evaluator publishes its own result.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-25"
+        "reviewedAt": "2026-09-25",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Publication authorized by the editor on 25 September 2026."
       }
     },
     {
@@ -269,10 +304,10 @@
       "topic": "Managed agent runtime",
       "category": "Infrastructure",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-18",
-      "updatedAt": "2026-09-25",
+      "updatedAt": "2026-09-22",
       "author": "Dugi Selmanaj",
       "visual": "infrastructure",
       "scenario": "AWS released a new AgentCore runtime designed to reclaim unused session memory and restore agent environments from prepared snapshots.",
@@ -325,14 +360,20 @@
           "publisher": "Amazon Web Services",
           "url": "https://aws.amazon.com/blogs/machine-learning/the-new-agentcore-runtime-elastic-optimized-and-consistently-fast-starts/",
           "publishedAt": "2026-09-18",
-          "accessedAt": "2026-09-22"
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source technical announcement and provider benchmark from AWS. Performance and cost claims are attributed to AWS and should be tested with representative customer workloads.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-25"
+        "reviewedAt": "2026-09-25",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Publication authorized by the editor on 25 September 2026."
       }
     },
     {
@@ -343,7 +384,7 @@
       "topic": "Enterprise agent controls",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-23",
       "updatedAt": "2026-09-25",
@@ -428,7 +469,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
           "publishedAt": "2026-09-23",
-          "accessedAt": "2026-09-24"
+          "accessedAt": "2026-09-24",
+          "kind": "primary"
         },
         {
           "id": "github-copilot-default-policy",
@@ -436,115 +478,58 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/",
           "publishedAt": "2026-09-24",
-          "accessedAt": "2026-09-25"
+          "accessedAt": "2026-09-25",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source release notes from GitHub. They define the announced controls and rollout schedule; this draft does not claim independent validation of sandbox isolation or enterprise-wide policy enforcement.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-25"
+        "reviewedAt": "2026-09-25",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Publication authorized by the editor on 25 September 2026."
       }
     }
   ],
-  "signalMap": {
-    "status": "editorial",
-    "asOf": "2026-09-25",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 02. Arrows are qualitative, not quantitative scores.",
-    "items": [
-      {
-        "area": "Models",
-        "direction": "up",
-        "dimension": "Domain-expert validation and open artifacts",
-        "rationale": "RetroChimera adds chemist preference tests, a peer-reviewed paper, public implementation, and weights. The movement is scoped to the evidence package for this system, not a field-wide rise in model reliability.",
-        "storyId": "retrochimera-makes-chemist-judgement-part-of-the-test"
-      },
-      {
-        "area": "Agents",
-        "direction": "up",
-        "dimension": "Runtime specialization for long-lived sessions",
-        "rationale": "AWS changed memory reclamation, snapshot restore, and billing around agent session behavior. The arrow tracks specialized runtime capability, not proven adoption or lower customer cost.",
-        "storyId": "agent-infrastructure-starts-pricing-the-idle-time"
-      },
-      {
-        "area": "Inference",
-        "direction": "down",
-        "dimension": "Listed price for frontier-tier model use",
-        "rationale": "Anthropic lowered Opus input, output, and cache-read prices and reports fewer tokens per task. The downward arrow tracks listed and provider-measured cost for this release, not independently verified cost across customer workloads.",
-        "storyId": "frontier-models-enter-the-efficiency-race"
-      },
-      {
-        "area": "Open Source",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 02 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Robotics",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 02 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Enterprise Adoption",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 02 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "AI Security",
-        "direction": "up",
-        "dimension": "Agent containment and enterprise rollout controls",
-        "rationale": "GitHub added local filesystem, network, and credential boundaries plus a global default for future eligible Copilot features. The arrow reflects broader control coverage, not independent proof of sandbox strength or policy enforcement.",
-        "storyId": "coding-agents-get-a-local-boundary"
-      },
-      {
-        "area": "Governance",
-        "direction": "up",
-        "dimension": "Independent domain-review capacity",
-        "rationale": "OpenAI announced a named, unpaid group that may publish advice and comment without being asked. The arrow describes added review capacity, not authority over OpenAI or validation of its mathematical claims.",
-        "storyId": "an-advisory-group-can-review-results-not-control-the-pace"
-      },
-      {
-        "area": "Compute",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 02 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Data Infrastructure",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 02 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      }
-    ]
-  },
-  "weekly": {
-    "slug": "2026-09-25",
-    "title": "The model is no longer the whole system",
-    "date": "2026-09-25",
-    "status": "published",
-    "intro": "This edition follows five changes around the model: independent domain review, chemist-facing validation, frontier-model efficiency, elastic agent runtime, and enterprise controls for agent access and feature rollout.",
-    "theme": "AI progress is becoming a systems question. Price, review rules, domain evidence, runtime behavior, execution boundaries, and rollout defaults increasingly decide whether a capability can be used.",
-    "storyIds": [
-      "an-advisory-group-can-review-results-not-control-the-pace",
-      "retrochimera-makes-chemist-judgement-part-of-the-test",
-      "frontier-models-enter-the-efficiency-race",
-      "agent-infrastructure-starts-pricing-the-idle-time",
-      "coding-agents-get-a-local-boundary"
-    ],
-    "watchNext": [
-      "Public recommendations from the mathematics advisory group, including how it handles disputed or incomplete results.",
-      "Independent reproduction of RetroChimera results and prospective laboratory evidence for suggested routes.",
-      "Independent task-level cost and safety evaluations for Claude Opus 5.5 outside Anthropic's selected workloads.",
-      "Customer-side AgentCore latency and cost measurements under production workloads, regions, networking, and tools.",
-      "Evidence that agent sandbox policies resist escape and that enterprise rollout defaults are consistently enforced, visible, and auditable."
-    ],
-    "closing": "Each announcement changes a surrounding layer of AI. The open question is whether those layers produce evidence that outsiders can inspect."
-  }
+  "signalMapChanges": [
+    {
+      "area": "Governance",
+      "direction": "up",
+      "dimension": "Independent domain-review capacity",
+      "rationale": "OpenAI announced a named, unpaid group that may publish advice and comment without being asked. The arrow describes added review capacity, not authority over OpenAI or validation of its mathematical claims.",
+      "storyId": "an-advisory-group-can-review-results-not-control-the-pace"
+    },
+    {
+      "area": "Models",
+      "direction": "up",
+      "dimension": "Domain-expert validation and open artifacts",
+      "rationale": "RetroChimera adds chemist preference tests, a peer-reviewed paper, public implementation, and weights. The movement is scoped to the evidence package for this system, not a field-wide rise in model reliability.",
+      "storyId": "retrochimera-makes-chemist-judgement-part-of-the-test"
+    },
+    {
+      "area": "Inference",
+      "direction": "down",
+      "dimension": "Listed price for frontier-tier model use",
+      "rationale": "Anthropic lowered Opus input, output, and cache-read prices and reports fewer tokens per task. The downward arrow tracks listed and provider-measured cost for this release, not independently verified cost across customer workloads.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
+    },
+    {
+      "area": "Agents",
+      "direction": "up",
+      "dimension": "Runtime specialization for long-lived sessions",
+      "rationale": "AWS changed memory reclamation, snapshot restore, and billing around agent session behavior. The arrow tracks specialized runtime capability, not proven adoption or lower customer cost.",
+      "storyId": "agent-infrastructure-starts-pricing-the-idle-time"
+    },
+    {
+      "area": "AI Security",
+      "direction": "up",
+      "dimension": "Agent containment and enterprise rollout controls",
+      "rationale": "GitHub added local filesystem, network, and credential boundaries plus a global default for future eligible Copilot features. The arrow reflects broader control coverage, not independent proof of sandbox strength or policy enforcement.",
+      "storyId": "coding-agents-get-a-local-boundary"
+    }
+  ]
 }
