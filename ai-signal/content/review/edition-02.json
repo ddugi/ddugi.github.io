@@ -5,13 +5,13 @@
     "title": "The model is no longer the whole system",
     "status": "editorial-review",
     "preparedAt": "2026-09-22",
-    "publicationDate": null,
+    "publicationDate": "2026-09-25",
     "editor": "Dugi Selmanaj",
-    "note": "Five source-backed drafts prepared through 25 September 2026. Nothing in this edition is approved or published."
+    "note": "Five source-backed stories approved for Edition 02 on 25 September 2026."
   },
   "weekly": {
     "title": "The model is no longer the whole system",
-    "intro": "This review edition follows five changes around the model: independent domain review, chemist-facing validation, frontier-model efficiency, elastic agent runtime, and enterprise controls for agent access and feature rollout.",
+    "intro": "This edition follows five changes around the model: independent domain review, chemist-facing validation, frontier-model efficiency, elastic agent runtime, and enterprise controls for agent access and feature rollout.",
     "theme": "AI progress is becoming a systems question. Price, review rules, domain evidence, runtime behavior, execution boundaries, and rollout defaults increasingly decide whether a capability can be used.",
     "watchNext": [
       "Public recommendations from the mathematics advisory group, including how it handles disputed or incomplete results.",
@@ -92,14 +92,14 @@
       ],
       "sourceNote": "Primary-source announcement from OpenAI. The group's public website corroborates its independent mandate but does not display an exact publication date, so it is not used as a dated source record. OpenAI's capability claims remain attributed and unverified in this draft.",
       "review": {
-        "status": "pending",
-        "reviewer": null,
-        "reviewedAt": null,
-        "factCheck": false,
-        "rightsCheck": false,
-        "fairnessCheck": false,
-        "copyCheck": false,
-        "notes": "Verify the remit, power boundary, and wording around OpenAI's unverified capability claims."
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-25",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Publication authorized by the editor on 25 September 2026."
       }
     },
     {
@@ -189,14 +189,14 @@
       ],
       "sourceNote": "Primary research paper and the research team's technical release note. Numerical comparisons remain attributed to the authors and need independent reproduction and prospective laboratory evidence.",
       "review": {
-        "status": "pending",
-        "reviewer": null,
-        "reviewedAt": null,
-        "factCheck": false,
-        "rightsCheck": false,
-        "fairnessCheck": false,
-        "copyCheck": false,
-        "notes": "Check the paper tables and supplement before approving the comparison language."
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-25",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Publication authorized by the editor on 25 September 2026."
       }
     },
     {
@@ -286,14 +286,14 @@
       ],
       "sourceNote": "Primary release materials from Anthropic. Price points are public list prices; performance, efficiency, and safety results remain provider-reported unless an external evaluator publishes its own result.",
       "review": {
-        "status": "pending",
-        "reviewer": null,
-        "reviewedAt": null,
-        "factCheck": false,
-        "rightsCheck": false,
-        "fairnessCheck": false,
-        "copyCheck": false,
-        "notes": "Verify pricing, benchmark setup, system-card limitations, and which external evaluation results are independently available."
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-25",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Publication authorized by the editor on 25 September 2026."
       }
     },
     {
@@ -366,14 +366,14 @@
       ],
       "sourceNote": "Primary-source technical announcement and provider benchmark from AWS. Performance and cost claims are attributed to AWS and should be tested with representative customer workloads.",
       "review": {
-        "status": "pending",
-        "reviewer": null,
-        "reviewedAt": null,
-        "factCheck": false,
-        "rightsCheck": false,
-        "fairnessCheck": false,
-        "copyCheck": false,
-        "notes": "Verify benchmark conditions, pricing language, availability, and architecture constraints before approval."
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-25",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Publication authorized by the editor on 25 September 2026."
       }
     },
     {
@@ -484,14 +484,14 @@
       ],
       "sourceNote": "Primary-source release notes from GitHub. They define the announced controls and rollout schedule; this draft does not claim independent validation of sandbox isolation or enterprise-wide policy enforcement.",
       "review": {
-        "status": "pending",
-        "reviewer": null,
-        "reviewedAt": null,
-        "factCheck": false,
-        "rightsCheck": false,
-        "fairnessCheck": false,
-        "copyCheck": false,
-        "notes": "Verify sandbox scope, default state, fail-closed behavior, policy eligibility, exceptions, and the 22 October enforcement date."
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-25",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Publication authorized by the editor on 25 September 2026."
       }
     }
   ],
