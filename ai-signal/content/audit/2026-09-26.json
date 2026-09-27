@@ -1,0 +1,49 @@
+{
+  "run_date": "2026-09-26",
+  "research_window": {
+    "start": "2026-09-25T07:35:34Z",
+    "end": "2026-09-26T07:05:20Z"
+  },
+  "status": "publication-candidate",
+  "checked_primary_sources": [
+    "OpenAI announcements",
+    "Anthropic newsroom",
+    "Google DeepMind news",
+    "Microsoft official blog and Copilot product blog",
+    "AWS machine learning announcements",
+    "GitHub changelog",
+    "NVIDIA technical blog",
+    "Hugging Face official and community publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "enterprise-agents-become-managed-workloads",
+      "source_publication_date": "2026-09-25",
+      "reason": "Microsoft connected generated apps, persistent agents, tenant runtime, identity, governance, inventory, and usage billing in one enterprise product change. Two dated Microsoft primary sources support the factual record."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub enterprise managed settings in-product validator",
+      "source_publication_date": "2026-09-25",
+      "reason": "Useful enforcement feedback, but an incremental configuration aid that does not warrant a separate signal after Edition 02 covered the wider enterprise control plane."
+    },
+    {
+      "candidate": "GitHub Copilot usage metrics adds pull-request review stages",
+      "source_publication_date": "2026-09-25",
+      "reason": "Useful operational measurement, but limited to human review timing and not enough evidence of a broader AI engineering shift."
+    },
+    {
+      "candidate": "GitHub agentic autofix uses Copilot Memory",
+      "source_publication_date": "2026-09-25",
+      "reason": "A narrow integration between two public previews with no independent outcome, security, or reliability evidence."
+    },
+    {
+      "candidate": "Hugging Face community model and robotics posts",
+      "source_publication_date": "2026-09-25",
+      "reason": "Interesting community work, but the strongest performance and deployment claims were author-reported and insufficiently verified for this edition."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "Edition 03 treats Microsoft's release as a product-architecture change. The Signal Map movement is explicitly scoped to available enterprise infrastructure and does not claim broad adoption or production reliability."
+}
