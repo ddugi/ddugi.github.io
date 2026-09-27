@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "last_successful_update": "2026-09-26T07:05:20Z",
+  "last_successful_commit": "078fa296431b8e198d511db521f9896daf0daa6b",
+  "last_published_story_ids": [
+    "enterprise-agents-become-managed-workloads",
+    "coding-agents-get-a-local-boundary",
+    "frontier-models-enter-the-efficiency-race",
+    "an-advisory-group-can-review-results-not-control-the-pace",
+    "retrochimera-makes-chemist-judgement-part-of-the-test"
+  ],
+  "initial_lookback_days": 7,
+  "note": "Edition 03 was validated, merged, and verified in production. The next research window starts after last_successful_update."
+}
