@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-09-26T07:05:20Z",
-  "last_successful_commit": "078fa296431b8e198d511db521f9896daf0daa6b",
+  "last_successful_update": "2026-09-27T12:08:54Z",
+  "last_successful_commit": "6a2aff2a3f0bbe548f118acd5b65a37d72df3ccd",
   "last_published_story_ids": [
     "enterprise-agents-become-managed-workloads",
     "coding-agents-get-a-local-boundary",
@@ -10,5 +10,5 @@
     "retrochimera-makes-chemist-judgement-part-of-the-test"
   ],
   "initial_lookback_days": 7,
-  "note": "Edition 03 was validated, merged, and verified in production. The next research window starts after last_successful_update."
+  "note": "The 27 September research window completed with no publishable signal. The audit passed validation and merged; Edition 03 remains live."
 }

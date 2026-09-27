@@ -4,7 +4,7 @@
     "start": "2026-09-26T07:05:20Z",
     "end": "2026-09-27T12:08:54Z"
   },
-  "status": "research-complete",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI announcements",
     "Anthropic newsroom",
@@ -40,5 +40,11 @@
     }
   ],
   "emerging_trends_detected": 0,
-  "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised AI Signal story. The live Edition 03 and Signal Map remain unchanged."
+  "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised AI Signal story. The live Edition 03 and Signal Map remain unchanged.",
+  "publication": {
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/7",
+    "commit": "6a2aff2a3f0bbe548f118acd5b65a37d72df3ccd",
+    "live_edition_changed": false,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
 }
