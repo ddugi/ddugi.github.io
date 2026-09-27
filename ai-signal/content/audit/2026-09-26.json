@@ -4,7 +4,7 @@
     "start": "2026-09-25T07:35:34Z",
     "end": "2026-09-26T07:05:20Z"
   },
-  "status": "publication-candidate",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI announcements",
     "Anthropic newsroom",
@@ -45,5 +45,10 @@
     }
   ],
   "emerging_trends_detected": 0,
-  "notes": "Edition 03 treats Microsoft's release as a product-architecture change. The Signal Map movement is explicitly scoped to available enterprise infrastructure and does not claim broad adoption or production reliability."
+  "notes": "Edition 03 treats Microsoft's release as a product-architecture change. The Signal Map movement is explicitly scoped to available enterprise infrastructure and does not claim broad adoption or production reliability.",
+  "publication": {
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/5",
+    "commit": "078fa296431b8e198d511db521f9896daf0daa6b",
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
 }
