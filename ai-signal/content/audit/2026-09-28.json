@@ -1,0 +1,34 @@
+{
+  "run_date": "2026-09-28",
+  "research_window": {
+    "start": "2026-09-27T12:08:54Z",
+    "end": "2026-09-28T07:03:54Z"
+  },
+  "status": "research-complete",
+  "checked_primary_sources": [
+    "OpenAI announcements",
+    "Anthropic newsroom",
+    "Google DeepMind news",
+    "Microsoft official blogs and research publications",
+    "AWS machine learning announcements and service documentation",
+    "GitHub changelog",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI publications",
+    "Hugging Face official publications"
+  ],
+  "accepted": [],
+  "rejected": [
+    {
+      "candidate": "GitHub unified Copilot experience and policy changes",
+      "source_publication_date": "2026-08-28",
+      "reason": "The only primary announcement remains outside this research window and says rollout would begin no earlier than 28 September. No dated launch confirmation was available during the window, so the announced timing is not treated as evidence that the change is live. Its enterprise-control implications are already covered by the current edition."
+    },
+    {
+      "candidate": "GitHub Copilot code review Balanced model selection becoming the default",
+      "source_publication_date": "2026-08-28",
+      "reason": "This is a scheduled setting change within the same earlier announcement, with no new primary release note during the research window. It is incremental and does not independently clear the publication threshold."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised AI Signal story. Edition 03 and every Signal Map movement remain unchanged."
+}
