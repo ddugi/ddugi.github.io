@@ -4,7 +4,7 @@
     "start": "2026-09-28T07:03:54Z",
     "end": "2026-09-29T07:01:30Z"
   },
-  "status": "research-complete",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI announcements",
     "Anthropic newsroom and model launch materials",
@@ -31,5 +31,11 @@
     }
   ],
   "emerging_trends_detected": 0,
-  "notes": "Edition 04 materially updates the existing frontier-model efficiency story rather than duplicating it. The Inference Signal Map movement remains downward and is now explicitly scoped to provider-reported cost per completed task."
+  "notes": "Edition 04 materially updates the existing frontier-model efficiency story rather than duplicating it. The Inference Signal Map movement remains downward and is now explicitly scoped to provider-reported cost per completed task.",
+  "publication": {
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/11",
+    "commit": "1cf6754a19c0ff4b768ed8f6ee37bc1c3e8fa116",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
 }
