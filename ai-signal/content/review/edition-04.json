@@ -1,11 +1,26 @@
 {
   "schemaVersion": 1,
-  "publication": {
-    "name": "AI Signal",
-    "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "04",
-    "mode": "live",
-    "updatedAt": "2026-09-29"
+  "edition": {
+    "id": "edition-04",
+    "title": "The model race is becoming an efficiency race",
+    "status": "editorial-review",
+    "preparedAt": "2026-09-29",
+    "publicationDate": "2026-09-29",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 04 on 29 September 2026. The frontier-model efficiency signal is materially updated with Claude Sonnet 5.5 and its GitHub Copilot rollout."
+  },
+  "weekly": {
+    "title": "The model race is becoming an efficiency race",
+    "intro": "This edition updates the frontier-model signal after Anthropic pushed its efficiency story into the everyday Sonnet tier and GitHub distributed that model through Copilot.",
+    "theme": "Capability still matters, but the enterprise decision increasingly depends on accepted work per unit of time, tool use, policy, and spend.",
+    "watchNext": [
+      "Independent cost-per-accepted-task measurements for Sonnet 5.5 across representative enterprise workloads.",
+      "Whether fewer steps and tool calls persist outside Anthropic and GitHub selected evaluations.",
+      "How GitHub enterprise model policies affect rollout consistency, cost, and auditability.",
+      "Production evidence for Copilot Managed Runtime isolation, recovery, inventory accuracy, and tenant policy enforcement.",
+      "Independent laboratory validation of RetroChimera routes beyond expert preference tests."
+    ],
+    "closing": "The cheapest token is not necessarily the cheapest result. The next useful benchmark is the bill for work someone accepts."
   },
   "stories": [
     {
@@ -16,10 +31,10 @@
       "topic": "Enterprise agent runtime",
       "category": "Enterprise AI",
       "signal": "Structural Shift",
-      "status": "published",
+      "status": "draft",
       "featured": true,
       "publishedAt": "2026-09-25",
-      "updatedAt": "2026-09-29",
+      "updatedAt": "2026-09-26",
       "author": "Dugi Selmanaj",
       "visual": "enterprise",
       "scenario": "Microsoft announced Copilot Home, Code, and Autopilot alongside Copilot Managed Runtime and new FinOps controls for agentic work.",
@@ -80,7 +95,8 @@
           "publisher": "Microsoft",
           "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
           "publishedAt": "2026-09-25",
-          "accessedAt": "2026-09-26"
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
         },
         {
           "id": "microsoft-managed-runtime",
@@ -88,14 +104,20 @@
           "publisher": "Microsoft",
           "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/",
           "publishedAt": "2026-09-25",
-          "accessedAt": "2026-09-26"
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source announcements from Microsoft. Product availability, governance, security, and cost claims remain vendor-reported; this edition does not claim independent production validation.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-29"
+        "reviewedAt": "2026-09-29",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, dates, factual attribution, counterarguments, and editorial wording reviewed under the authorized daily publication workflow on 29 September 2026."
       }
     },
     {
@@ -106,10 +128,10 @@
       "topic": "Enterprise agent controls",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-23",
-      "updatedAt": "2026-09-29",
+      "updatedAt": "2026-09-25",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub released local sandboxing for Copilot app sessions and introduced an enterprise default policy for generally available Copilot features, code review, and MCP servers.",
@@ -191,7 +213,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
           "publishedAt": "2026-09-23",
-          "accessedAt": "2026-09-24"
+          "accessedAt": "2026-09-24",
+          "kind": "primary"
         },
         {
           "id": "github-copilot-default-policy",
@@ -199,14 +222,20 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/",
           "publishedAt": "2026-09-24",
-          "accessedAt": "2026-09-25"
+          "accessedAt": "2026-09-25",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source release notes from GitHub. They define the announced controls and rollout schedule; this draft does not claim independent validation of sandbox isolation or enterprise-wide policy enforcement.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-29"
+        "reviewedAt": "2026-09-29",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, dates, factual attribution, counterarguments, and editorial wording reviewed under the authorized daily publication workflow on 29 September 2026."
       }
     },
     {
@@ -217,7 +246,7 @@
       "topic": "Frontier-model efficiency",
       "category": "Models",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-22",
       "updatedAt": "2026-09-29",
@@ -318,7 +347,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-opus-5-5",
           "publishedAt": "2026-09-22",
-          "accessedAt": "2026-09-23"
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
         },
         {
           "id": "anthropic-opus-55-system-card",
@@ -326,7 +356,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-opus-5-5-system-card",
           "publishedAt": "2026-09-22",
-          "accessedAt": "2026-09-23"
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
         },
         {
           "id": "anthropic-sonnet-55",
@@ -334,7 +365,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-sonnet-5-5",
           "publishedAt": "2026-09-28",
-          "accessedAt": "2026-09-29"
+          "accessedAt": "2026-09-29",
+          "kind": "primary"
         },
         {
           "id": "github-sonnet-55-copilot",
@@ -342,14 +374,20 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot/",
           "publishedAt": "2026-09-28",
-          "accessedAt": "2026-09-29"
+          "accessedAt": "2026-09-29",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source launch material from Anthropic and GitHub. Performance, task-cost, safety, and early-testing claims remain vendor-reported; this edition does not claim independent production validation.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-29"
+        "reviewedAt": "2026-09-29",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, dates, factual attribution, counterarguments, and editorial wording reviewed under the authorized daily publication workflow on 29 September 2026."
       }
     },
     {
@@ -360,10 +398,10 @@
       "topic": "Mathematics and AI governance",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-21",
-      "updatedAt": "2026-09-29",
+      "updatedAt": "2026-09-25",
       "author": "Dugi Selmanaj",
       "visual": "governance",
       "scenario": "OpenAI announced an independent group of mathematicians to advise on reviewing, communicating, and releasing mathematical results produced with AI.",
@@ -415,14 +453,20 @@
           "publisher": "OpenAI",
           "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
           "publishedAt": "2026-09-21",
-          "accessedAt": "2026-09-22"
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source announcement from OpenAI. The group's public website corroborates its independent mandate but does not display an exact publication date, so it is not used as a dated source record. OpenAI's capability claims remain attributed and unverified in this draft.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-29"
+        "reviewedAt": "2026-09-29",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, dates, factual attribution, counterarguments, and editorial wording reviewed under the authorized daily publication workflow on 29 September 2026."
       }
     },
     {
@@ -433,10 +477,10 @@
       "topic": "AI-assisted chemical synthesis",
       "category": "Research",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-21",
-      "updatedAt": "2026-09-29",
+      "updatedAt": "2026-09-25",
       "author": "Dugi Selmanaj",
       "visual": "research",
       "scenario": "Microsoft Research and collaborators published RetroChimera, a retrosynthesis model evaluated on benchmarks, proprietary pharmaceutical data, and expert chemist preferences.",
@@ -497,7 +541,8 @@
           "publisher": "Nature",
           "url": "https://www.nature.com/articles/s41586-026-11160-9",
           "publishedAt": "2026-09-21",
-          "accessedAt": "2026-09-22"
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
         },
         {
           "id": "microsoft-retrochimera",
@@ -505,115 +550,58 @@
           "publisher": "Microsoft Research",
           "url": "https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/",
           "publishedAt": "2026-09-21",
-          "accessedAt": "2026-09-22"
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary research paper and the research team's technical release note. Numerical comparisons remain attributed to the authors and need independent reproduction and prospective laboratory evidence.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-09-29"
+        "reviewedAt": "2026-09-29",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, dates, factual attribution, counterarguments, and editorial wording reviewed under the authorized daily publication workflow on 29 September 2026."
       }
     }
   ],
-  "signalMap": {
-    "status": "editorial",
-    "asOf": "2026-09-29",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 04. Arrows are qualitative, not quantitative scores.",
-    "items": [
-      {
-        "area": "Models",
-        "direction": "up",
-        "dimension": "Domain-expert validation and open artifacts",
-        "rationale": "RetroChimera adds chemist preference tests, a peer-reviewed paper, public implementation, and weights. The movement is scoped to the evidence package for this system, not a field-wide rise in model reliability.",
-        "storyId": "retrochimera-makes-chemist-judgement-part-of-the-test"
-      },
-      {
-        "area": "Agents",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 04 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Inference",
-        "direction": "down",
-        "dimension": "Provider-reported cost per completed model task",
-        "rationale": "Anthropic lowered Opus prices and now reports that Sonnet 5.5 completes typical work with fewer tokens and up to 30% lower task cost at unchanged token prices. The arrow tracks the direction of provider-reported task economics, not independent savings across customer workloads.",
-        "storyId": "frontier-models-enter-the-efficiency-race"
-      },
-      {
-        "area": "Open Source",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 04 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Robotics",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 04 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Enterprise Adoption",
-        "direction": "up",
-        "dimension": "Managed runtime for persistent agents and generated apps",
-        "rationale": "Microsoft combined tenant-hosted generated apps, persistent agent identity and workspace, centralized inventory, policy, and usage billing. The movement is scoped to available enterprise product infrastructure, not proof of broad adoption or production reliability.",
-        "storyId": "enterprise-agents-become-managed-workloads"
-      },
-      {
-        "area": "AI Security",
-        "direction": "up",
-        "dimension": "Agent containment and enterprise rollout controls",
-        "rationale": "GitHub added local filesystem, network, and credential boundaries plus a global default for future eligible Copilot features. The arrow reflects broader control coverage, not independent proof of sandbox strength or policy enforcement.",
-        "storyId": "coding-agents-get-a-local-boundary"
-      },
-      {
-        "area": "Governance",
-        "direction": "up",
-        "dimension": "Independent domain-review capacity",
-        "rationale": "OpenAI announced a named, unpaid group that may publish advice and comment without being asked. The arrow describes added review capacity, not authority over OpenAI or validation of its mathematical claims.",
-        "storyId": "an-advisory-group-can-review-results-not-control-the-pace"
-      },
-      {
-        "area": "Compute",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 04 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Data Infrastructure",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 04 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      }
-    ]
-  },
-  "weekly": {
-    "slug": "2026-09-29",
-    "title": "The model race is becoming an efficiency race",
-    "date": "2026-09-29",
-    "status": "published",
-    "intro": "This edition updates the frontier-model signal after Anthropic pushed its efficiency story into the everyday Sonnet tier and GitHub distributed that model through Copilot.",
-    "theme": "Capability still matters, but the enterprise decision increasingly depends on accepted work per unit of time, tool use, policy, and spend.",
-    "storyIds": [
-      "enterprise-agents-become-managed-workloads",
-      "coding-agents-get-a-local-boundary",
-      "frontier-models-enter-the-efficiency-race",
-      "an-advisory-group-can-review-results-not-control-the-pace",
-      "retrochimera-makes-chemist-judgement-part-of-the-test"
-    ],
-    "watchNext": [
-      "Independent cost-per-accepted-task measurements for Sonnet 5.5 across representative enterprise workloads.",
-      "Whether fewer steps and tool calls persist outside Anthropic and GitHub selected evaluations.",
-      "How GitHub enterprise model policies affect rollout consistency, cost, and auditability.",
-      "Production evidence for Copilot Managed Runtime isolation, recovery, inventory accuracy, and tenant policy enforcement.",
-      "Independent laboratory validation of RetroChimera routes beyond expert preference tests."
-    ],
-    "closing": "The cheapest token is not necessarily the cheapest result. The next useful benchmark is the bill for work someone accepts."
-  }
+  "signalMapChanges": [
+    {
+      "area": "Governance",
+      "direction": "up",
+      "dimension": "Independent domain-review capacity",
+      "rationale": "OpenAI announced a named, unpaid group that may publish advice and comment without being asked. The arrow describes added review capacity, not authority over OpenAI or validation of its mathematical claims.",
+      "storyId": "an-advisory-group-can-review-results-not-control-the-pace"
+    },
+    {
+      "area": "Models",
+      "direction": "up",
+      "dimension": "Domain-expert validation and open artifacts",
+      "rationale": "RetroChimera adds chemist preference tests, a peer-reviewed paper, public implementation, and weights. The movement is scoped to the evidence package for this system, not a field-wide rise in model reliability.",
+      "storyId": "retrochimera-makes-chemist-judgement-part-of-the-test"
+    },
+    {
+      "area": "Inference",
+      "direction": "down",
+      "dimension": "Provider-reported cost per completed model task",
+      "rationale": "Anthropic lowered Opus prices and now reports that Sonnet 5.5 completes typical work with fewer tokens and up to 30% lower task cost at unchanged token prices. The arrow tracks the direction of provider-reported task economics, not independent savings across customer workloads.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
+    },
+    {
+      "area": "AI Security",
+      "direction": "up",
+      "dimension": "Agent containment and enterprise rollout controls",
+      "rationale": "GitHub added local filesystem, network, and credential boundaries plus a global default for future eligible Copilot features. The arrow reflects broader control coverage, not independent proof of sandbox strength or policy enforcement.",
+      "storyId": "coding-agents-get-a-local-boundary"
+    },
+    {
+      "area": "Enterprise Adoption",
+      "direction": "up",
+      "dimension": "Managed runtime for persistent agents and generated apps",
+      "rationale": "Microsoft combined tenant-hosted generated apps, persistent agent identity and workspace, centralized inventory, policy, and usage billing. The movement is scoped to available enterprise product infrastructure, not proof of broad adoption or production reliability.",
+      "storyId": "enterprise-agents-become-managed-workloads"
+    }
+  ]
 }

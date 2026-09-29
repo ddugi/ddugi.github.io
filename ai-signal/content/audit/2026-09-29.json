@@ -1,0 +1,35 @@
+{
+  "run_date": "2026-09-29",
+  "research_window": {
+    "start": "2026-09-28T07:03:54Z",
+    "end": "2026-09-29T07:01:30Z"
+  },
+  "status": "research-complete",
+  "checked_primary_sources": [
+    "OpenAI announcements",
+    "Anthropic newsroom and model launch materials",
+    "Google DeepMind news",
+    "Microsoft official blogs and research publications",
+    "AWS machine learning announcements and service documentation",
+    "GitHub changelog",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI publications",
+    "Hugging Face official publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "frontier-models-enter-the-efficiency-race",
+      "source_publication_date": "2026-09-28",
+      "reason": "Anthropic extended its model-efficiency claim from Opus to the broadly used Sonnet tier, and GitHub made the model generally available in Copilot with enterprise policy controls. Two dated primary sources materially strengthen the existing cost-per-completed-task signal without creating a duplicate story."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub self-hosted runner version enforcement date moved",
+      "source_publication_date": "2026-09-28",
+      "reason": "An operational schedule change for runner enforcement, not a meaningful AI, infrastructure, security, or governance signal for this publication."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "Edition 04 materially updates the existing frontier-model efficiency story rather than duplicating it. The Inference Signal Map movement remains downward and is now explicitly scoped to provider-reported cost per completed task."
+}
