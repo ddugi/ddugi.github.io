@@ -4,7 +4,7 @@
     "start": "2026-09-29T07:01:30Z",
     "end": "2026-09-30T06:53:49Z"
   },
-  "status": "research-complete",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI model documentation and Deployment Safety Hub",
     "Anthropic newsroom",
@@ -36,5 +36,11 @@
     }
   ],
   "emerging_trends_detected": 1,
-  "notes": "Edition 05 strengthens the existing model-efficiency story into a cross-vendor signal. The Inference movement remains downward and is explicitly limited to pricing direction and vendor-reported task economics."
+  "notes": "Edition 05 strengthens the existing model-efficiency story into a cross-vendor signal. The Inference movement remains downward and is explicitly limited to pricing direction and vendor-reported task economics.",
+  "publication": {
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/13",
+    "commit": "131cea00d77d6a91904a994679aab094a8ceac21",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
 }
