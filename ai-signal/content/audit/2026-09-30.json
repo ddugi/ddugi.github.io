@@ -1,0 +1,40 @@
+{
+  "run_date": "2026-09-30",
+  "research_window": {
+    "start": "2026-09-29T07:01:30Z",
+    "end": "2026-09-30T06:53:49Z"
+  },
+  "status": "research-complete",
+  "checked_primary_sources": [
+    "OpenAI model documentation and Deployment Safety Hub",
+    "Anthropic newsroom",
+    "Google DeepMind news",
+    "Microsoft official blogs and research publications",
+    "AWS machine learning announcements and service documentation",
+    "GitHub changelog",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI publications",
+    "Hugging Face official publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "frontier-models-enter-the-efficiency-race",
+      "source_publication_date": "2026-09-29",
+      "reason": "OpenAI launched GPT-6.1 Sol with explicit pricing, deployment specifications, safety classification, and safeguards, while GitHub distributed it through Copilot with enterprise policy controls. The release materially strengthens the existing cross-vendor model-efficiency signal without creating a duplicate story."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub external custom properties for business context",
+      "source_publication_date": "2026-09-29",
+      "reason": "Useful platform-governance metadata, but not specific enough to AI engineering or enterprise AI to warrant a separate signal in this edition."
+    },
+    {
+      "candidate": "GitHub repository custom runner settings for Dependabot",
+      "source_publication_date": "2026-09-29",
+      "reason": "An incremental supply-chain configuration feature without evidence of a broader structural shift for AI Signal readers."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 05 strengthens the existing model-efficiency story into a cross-vendor signal. The Inference movement remains downward and is explicitly limited to pricing direction and vendor-reported task economics."
+}
