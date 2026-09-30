@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-09-29T07:01:30Z",
-  "last_successful_commit": "1cf6754a19c0ff4b768ed8f6ee37bc1c3e8fa116",
+  "last_successful_update": "2026-09-30T06:53:49Z",
+  "last_successful_commit": "131cea00d77d6a91904a994679aab094a8ceac21",
   "last_published_story_ids": [
     "enterprise-agents-become-managed-workloads",
     "coding-agents-get-a-local-boundary",
@@ -10,5 +10,5 @@
     "retrochimera-makes-chemist-judgement-part-of-the-test"
   ],
   "initial_lookback_days": 7,
-  "note": "The 29 September research window published Edition 04 with a material update to the frontier-model efficiency signal based on Anthropic and GitHub primary sources."
+  "note": "The 30 September research window published Edition 05 with a material cross-vendor update to the model-efficiency signal based on OpenAI and GitHub primary sources."
 }
