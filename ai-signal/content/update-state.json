@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-09-30T06:53:49Z",
-  "last_successful_commit": "131cea00d77d6a91904a994679aab094a8ceac21",
+  "last_successful_update": "2026-10-01T06:30:19Z",
+  "last_successful_commit": "4ce40f5e01f03cee8c3d9a31f61765c7582a29bc",
   "last_published_story_ids": [
     "enterprise-agents-become-managed-workloads",
     "coding-agents-get-a-local-boundary",
     "frontier-models-enter-the-efficiency-race",
     "an-advisory-group-can-review-results-not-control-the-pace",
-    "retrochimera-makes-chemist-judgement-part-of-the-test"
+    "provenance-moves-into-the-molecule"
   ],
   "initial_lookback_days": 7,
-  "note": "The 30 September research window published Edition 05 with a material cross-vendor update to the model-efficiency signal based on OpenAI and GitHub primary sources."
+  "note": "The 1 October research window published Edition 06 with a material Gemini 4 Argon update to the model-routing signal and a new SynthID Bio provenance signal."
 }

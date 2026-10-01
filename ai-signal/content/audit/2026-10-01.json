@@ -4,7 +4,7 @@
     "start": "2026-09-30T06:53:49Z",
     "end": "2026-10-01T06:30:19Z"
   },
-  "status": "ready-for-publication",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI API changelog and infrastructure documentation",
     "Anthropic newsroom",
@@ -43,9 +43,9 @@
   "emerging_trends_detected": 2,
   "notes": "Edition 06 updates the existing model-routing story and adds a biological provenance story. Signal Map movements for Models, Inference, and Data Infrastructure point directly to those published stories.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/15",
+    "commit": "4ce40f5e01f03cee8c3d9a31f61765c7582a29bc",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
