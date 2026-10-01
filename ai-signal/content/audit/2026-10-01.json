@@ -1,0 +1,51 @@
+{
+  "run_date": "2026-10-01",
+  "research_window": {
+    "start": "2026-09-30T06:53:49Z",
+    "end": "2026-10-01T06:30:19Z"
+  },
+  "status": "ready-for-publication",
+  "checked_primary_sources": [
+    "OpenAI API changelog and infrastructure documentation",
+    "Anthropic newsroom",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft official blogs and research publications",
+    "AWS machine learning announcements and service documentation",
+    "GitHub changelog",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI publications",
+    "Hugging Face official publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "frontier-models-enter-the-efficiency-race",
+      "source_publication_date": "2026-09-30",
+      "reason": "Google Gemini 4 Argon materially strengthens the existing cross-vendor model-routing signal with long-horizon capability, phased access, explicit safeguard work, and temporary versus post-introductory pricing."
+    },
+    {
+      "story_id": "provenance-moves-into-the-molecule",
+      "source_publication_date": "2026-09-30",
+      "reason": "The peer-reviewed SynthID Bio work provides a distinct, source-backed provenance signal with wet-lab function testing, calibrated detection results, and a documented removal attack."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "OpenAI API IP allowlist",
+      "source_publication_date": "2026-10-01",
+      "reason": "A useful production security control, but an incremental network-access feature rather than a sufficiently broad standalone signal. It remains a candidate for a future enterprise AI control-plane update."
+    },
+    {
+      "candidate": "Anthropic Frontier Safety Roadmap October targets",
+      "source_publication_date": "2026-10-01",
+      "reason": "The date represents roadmap targets, not evidence that the listed mitigations were completed or independently verified; no completion claim was published."
+    }
+  ],
+  "emerging_trends_detected": 2,
+  "notes": "Edition 06 updates the existing model-routing story and adds a biological provenance story. Signal Map movements for Models, Inference, and Data Infrastructure point directly to those published stories.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
