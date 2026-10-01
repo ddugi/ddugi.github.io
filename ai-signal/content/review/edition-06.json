@@ -1,11 +1,26 @@
 {
   "schemaVersion": 1,
-  "publication": {
-    "name": "AI Signal",
-    "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "06",
-    "mode": "live",
-    "updatedAt": "2026-10-01"
+  "edition": {
+    "id": "edition-06",
+    "title": "The frontier model is becoming a governed route",
+    "status": "editorial-review",
+    "preparedAt": "2026-10-01",
+    "publicationDate": "2026-10-01",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 06 on 1 October 2026. The edition adds Google Gemini 4 Argon to the cross-vendor routing signal and replaces the earlier chemistry story with SynthID Bio as a new provenance and biosecurity signal."
+  },
+  "weekly": {
+    "title": "The frontier model is becoming a governed route",
+    "intro": "Google introduced Gemini 4 Argon through a restricted cyber-defender rollout, pairing long-horizon capability with explicit access staging, safety controls, and future pricing. A separate DeepMind paper shows provenance controls moving from digital media into functional proteins.",
+    "theme": "Frontier AI is no longer just a model choice. It is an access, routing, provenance, and control decision that follows the output into real systems.",
+    "watchNext": [
+      "Independent production evaluations of Gemini 4 Argon beyond vendor and partner benchmarks.",
+      "Whether Google preserves phased access and stated safeguards when Argon reaches paid API customers.",
+      "Independent comparisons of cost per accepted task across Argon, GPT-6.1 Sol, and Claude Sonnet 5.5.",
+      "Whether biological watermarking survives deliberate removal attempts without making useful designs impractical.",
+      "Whether synthesis providers and biological databases adopt interoperable provenance standards rather than vendor-specific detectors."
+    ],
+    "closing": "The model is only one layer. The durable system also decides who may use it, where it may act, how its output is traced, and what evidence can stop the route."
   },
   "stories": [
     {
@@ -16,10 +31,10 @@
       "topic": "Enterprise agent runtime",
       "category": "Enterprise AI",
       "signal": "Structural Shift",
-      "status": "published",
+      "status": "draft",
       "featured": true,
       "publishedAt": "2026-09-25",
-      "updatedAt": "2026-10-01",
+      "updatedAt": "2026-09-26",
       "author": "Dugi Selmanaj",
       "visual": "enterprise",
       "scenario": "Microsoft announced Copilot Home, Code, and Autopilot alongside Copilot Managed Runtime and new FinOps controls for agentic work.",
@@ -80,7 +95,8 @@
           "publisher": "Microsoft",
           "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
           "publishedAt": "2026-09-25",
-          "accessedAt": "2026-09-26"
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
         },
         {
           "id": "microsoft-managed-runtime",
@@ -88,14 +104,20 @@
           "publisher": "Microsoft",
           "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/",
           "publishedAt": "2026-09-25",
-          "accessedAt": "2026-09-26"
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source announcements from Microsoft. Product availability, governance, security, and cost claims remain vendor-reported; this edition does not claim independent production validation.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-01"
+        "reviewedAt": "2026-10-01",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 1 October 2026."
       }
     },
     {
@@ -106,10 +128,10 @@
       "topic": "Enterprise agent controls",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-23",
-      "updatedAt": "2026-10-01",
+      "updatedAt": "2026-09-25",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub released local sandboxing for Copilot app sessions and introduced an enterprise default policy for generally available Copilot features, code review, and MCP servers.",
@@ -191,7 +213,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
           "publishedAt": "2026-09-23",
-          "accessedAt": "2026-09-24"
+          "accessedAt": "2026-09-24",
+          "kind": "primary"
         },
         {
           "id": "github-copilot-default-policy",
@@ -199,14 +222,20 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/",
           "publishedAt": "2026-09-24",
-          "accessedAt": "2026-09-25"
+          "accessedAt": "2026-09-25",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source release notes from GitHub. They define the announced controls and rollout schedule; this draft does not claim independent validation of sandbox isolation or enterprise-wide policy enforcement.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-01"
+        "reviewedAt": "2026-10-01",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 1 October 2026."
       }
     },
     {
@@ -217,7 +246,7 @@
       "topic": "Frontier-model efficiency",
       "category": "Models",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-22",
       "updatedAt": "2026-10-01",
@@ -393,7 +422,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-opus-5-5",
           "publishedAt": "2026-09-22",
-          "accessedAt": "2026-09-23"
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
         },
         {
           "id": "anthropic-opus-55-system-card",
@@ -401,7 +431,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-opus-5-5-system-card",
           "publishedAt": "2026-09-22",
-          "accessedAt": "2026-09-23"
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
         },
         {
           "id": "anthropic-sonnet-55",
@@ -409,7 +440,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-sonnet-5-5",
           "publishedAt": "2026-09-28",
-          "accessedAt": "2026-09-29"
+          "accessedAt": "2026-09-29",
+          "kind": "primary"
         },
         {
           "id": "github-sonnet-55-copilot",
@@ -417,7 +449,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot/",
           "publishedAt": "2026-09-28",
-          "accessedAt": "2026-09-29"
+          "accessedAt": "2026-09-29",
+          "kind": "primary"
         },
         {
           "id": "openai-gpt-61-sol-model",
@@ -425,7 +458,8 @@
           "publisher": "OpenAI",
           "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
           "publishedAt": "2026-09-29",
-          "accessedAt": "2026-09-30"
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
         },
         {
           "id": "openai-gpt-61-sol-safety",
@@ -433,7 +467,8 @@
           "publisher": "OpenAI",
           "url": "https://deploymentsafety.openai.com/gpt-6-1-sol/respecting-auto-review",
           "publishedAt": "2026-09-29",
-          "accessedAt": "2026-09-30"
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
         },
         {
           "id": "github-gpt-61-sol-copilot",
@@ -441,7 +476,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot/",
           "publishedAt": "2026-09-29",
-          "accessedAt": "2026-09-30"
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
         },
         {
           "id": "google-gemini-4-argon",
@@ -449,14 +485,20 @@
           "publisher": "Google",
           "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
           "publishedAt": "2026-09-30",
-          "accessedAt": "2026-10-01"
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source model documentation, safety material, and distribution release notes. Capability, efficiency, safety, and early-testing claims remain vendor-reported; this edition does not claim independent production validation.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-01"
+        "reviewedAt": "2026-10-01",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 1 October 2026."
       }
     },
     {
@@ -467,10 +509,10 @@
       "topic": "Mathematics and AI governance",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-21",
-      "updatedAt": "2026-10-01",
+      "updatedAt": "2026-09-25",
       "author": "Dugi Selmanaj",
       "visual": "governance",
       "scenario": "OpenAI announced an independent group of mathematicians to advise on reviewing, communicating, and releasing mathematical results produced with AI.",
@@ -522,14 +564,20 @@
           "publisher": "OpenAI",
           "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
           "publishedAt": "2026-09-21",
-          "accessedAt": "2026-09-22"
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source announcement from OpenAI. The group's public website corroborates its independent mandate but does not display an exact publication date, so it is not used as a dated source record. OpenAI's capability claims remain attributed and unverified in this draft.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-01"
+        "reviewedAt": "2026-10-01",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 1 October 2026."
       }
     },
     {
@@ -540,7 +588,7 @@
       "topic": "Biological AI provenance",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-30",
       "updatedAt": "2026-10-01",
@@ -611,7 +659,8 @@
           "publisher": "Nature",
           "url": "https://www.nature.com/articles/s41586-026-10965-y",
           "publishedAt": "2026-09-30",
-          "accessedAt": "2026-10-01"
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
         },
         {
           "id": "deepmind-synthid-bio",
@@ -619,115 +668,65 @@
           "publisher": "Google DeepMind",
           "url": "https://deepmind.google/blog/introducing-synthid-bio/",
           "publishedAt": "2026-09-30",
-          "accessedAt": "2026-10-01"
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Peer-reviewed primary research and the research team’s release note. Performance and robustness claims are bounded to the reported experiments; this edition does not claim deployment readiness.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-01"
+        "reviewedAt": "2026-10-01",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 1 October 2026."
       }
     }
   ],
-  "signalMap": {
-    "status": "editorial",
-    "asOf": "2026-10-01",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 06. Arrows are qualitative, not quantitative scores.",
-    "items": [
-      {
-        "area": "Models",
-        "direction": "up",
-        "dimension": "Governed access to long-horizon frontier capability",
-        "rationale": "Google announced a frontier model for long-horizon work through a restricted defender rollout with explicit safety work before broader access. The movement reflects increased available capability and staged access, not independent validation or broad availability.",
-        "storyId": "frontier-models-enter-the-efficiency-race"
-      },
-      {
-        "area": "Agents",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 06 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Inference",
-        "direction": "down",
-        "dimension": "Provider-reported cost per completed model task",
-        "rationale": "Anthropic and OpenAI position workhorse models around lower effective or listed task cost, while Google announced temporary introductory pricing for Argon. The arrow tracks pricing direction and vendor-reported economics, not independently verified savings.",
-        "storyId": "frontier-models-enter-the-efficiency-race"
-      },
-      {
-        "area": "Open Source",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 06 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Robotics",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 06 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Enterprise Adoption",
-        "direction": "up",
-        "dimension": "Managed runtime for persistent agents and generated apps",
-        "rationale": "Microsoft combined tenant-hosted generated apps, persistent agent identity and workspace, centralized inventory, policy, and usage billing. The movement is scoped to available enterprise product infrastructure, not proof of broad adoption or production reliability.",
-        "storyId": "enterprise-agents-become-managed-workloads"
-      },
-      {
-        "area": "AI Security",
-        "direction": "up",
-        "dimension": "Agent containment and enterprise rollout controls",
-        "rationale": "GitHub added local filesystem, network, and credential boundaries plus a global default for future eligible Copilot features. The arrow reflects broader control coverage, not independent proof of sandbox strength or policy enforcement.",
-        "storyId": "coding-agents-get-a-local-boundary"
-      },
-      {
-        "area": "Governance",
-        "direction": "up",
-        "dimension": "Independent domain-review capacity",
-        "rationale": "OpenAI announced a named, unpaid group that may publish advice and comment without being asked. The arrow describes added review capacity, not authority over OpenAI or validation of its mathematical claims.",
-        "storyId": "an-advisory-group-can-review-results-not-control-the-pace"
-      },
-      {
-        "area": "Compute",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 06 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Data Infrastructure",
-        "direction": "up",
-        "dimension": "Embedded provenance for AI-generated biological data",
-        "rationale": "SynthID Bio demonstrates detectable watermarks in tested protein sequences and structures while preserving measured function. The movement is limited to a proof of concept and does not imply deployment readiness or resistance to determined removal.",
-        "storyId": "provenance-moves-into-the-molecule"
-      }
-    ]
-  },
-  "weekly": {
-    "slug": "2026-10-01",
-    "title": "The frontier model is becoming a governed route",
-    "date": "2026-10-01",
-    "status": "published",
-    "intro": "Google introduced Gemini 4 Argon through a restricted cyber-defender rollout, pairing long-horizon capability with explicit access staging, safety controls, and future pricing. A separate DeepMind paper shows provenance controls moving from digital media into functional proteins.",
-    "theme": "Frontier AI is no longer just a model choice. It is an access, routing, provenance, and control decision that follows the output into real systems.",
-    "storyIds": [
-      "enterprise-agents-become-managed-workloads",
-      "coding-agents-get-a-local-boundary",
-      "frontier-models-enter-the-efficiency-race",
-      "an-advisory-group-can-review-results-not-control-the-pace",
-      "provenance-moves-into-the-molecule"
-    ],
-    "watchNext": [
-      "Independent production evaluations of Gemini 4 Argon beyond vendor and partner benchmarks.",
-      "Whether Google preserves phased access and stated safeguards when Argon reaches paid API customers.",
-      "Independent comparisons of cost per accepted task across Argon, GPT-6.1 Sol, and Claude Sonnet 5.5.",
-      "Whether biological watermarking survives deliberate removal attempts without making useful designs impractical.",
-      "Whether synthesis providers and biological databases adopt interoperable provenance standards rather than vendor-specific detectors."
-    ],
-    "closing": "The model is only one layer. The durable system also decides who may use it, where it may act, how its output is traced, and what evidence can stop the route."
-  }
+  "signalMapChanges": [
+    {
+      "area": "Governance",
+      "direction": "up",
+      "dimension": "Independent domain-review capacity",
+      "rationale": "OpenAI announced a named, unpaid group that may publish advice and comment without being asked. The arrow describes added review capacity, not authority over OpenAI or validation of its mathematical claims.",
+      "storyId": "an-advisory-group-can-review-results-not-control-the-pace"
+    },
+    {
+      "area": "Inference",
+      "direction": "down",
+      "dimension": "Provider-reported cost per completed model task",
+      "rationale": "Anthropic and OpenAI position workhorse models around lower effective or listed task cost, while Google announced temporary introductory pricing for Argon. The arrow tracks pricing direction and vendor-reported economics, not independently verified savings.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
+    },
+    {
+      "area": "AI Security",
+      "direction": "up",
+      "dimension": "Agent containment and enterprise rollout controls",
+      "rationale": "GitHub added local filesystem, network, and credential boundaries plus a global default for future eligible Copilot features. The arrow reflects broader control coverage, not independent proof of sandbox strength or policy enforcement.",
+      "storyId": "coding-agents-get-a-local-boundary"
+    },
+    {
+      "area": "Enterprise Adoption",
+      "direction": "up",
+      "dimension": "Managed runtime for persistent agents and generated apps",
+      "rationale": "Microsoft combined tenant-hosted generated apps, persistent agent identity and workspace, centralized inventory, policy, and usage billing. The movement is scoped to available enterprise product infrastructure, not proof of broad adoption or production reliability.",
+      "storyId": "enterprise-agents-become-managed-workloads"
+    },
+    {
+      "area": "Models",
+      "direction": "up",
+      "dimension": "Governed access to long-horizon frontier capability",
+      "rationale": "Google announced a frontier model for long-horizon work through a restricted defender rollout with explicit safety work before broader access. The movement reflects increased available capability and staged access, not independent validation or broad availability.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
+    },
+    {
+      "area": "Data Infrastructure",
+      "direction": "up",
+      "dimension": "Embedded provenance for AI-generated biological data",
+      "rationale": "SynthID Bio demonstrates detectable watermarks in tested protein sequences and structures while preserving measured function. The movement is limited to a proof of concept and does not imply deployment readiness or resistance to determined removal.",
+      "storyId": "provenance-moves-into-the-molecule"
+    }
+  ]
 }
