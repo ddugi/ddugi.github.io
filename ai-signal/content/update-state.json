@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-01T06:30:19Z",
-  "last_successful_commit": "4ce40f5e01f03cee8c3d9a31f61765c7582a29bc",
+  "last_successful_update": "2026-10-02T07:00:57Z",
+  "last_successful_commit": "6dfb3d014f153e36eb6fbfaa47a287a5ce4caf80",
   "last_published_story_ids": [
     "enterprise-agents-become-managed-workloads",
     "coding-agents-get-a-local-boundary",
@@ -10,5 +10,5 @@
     "provenance-moves-into-the-molecule"
   ],
   "initial_lookback_days": 7,
-  "note": "The 1 October research window published Edition 06 with a material Gemini 4 Argon update to the model-routing signal and a new SynthID Bio provenance signal."
+  "note": "The 2 October research window published Edition 07 with a material GitHub dynamic-workflows update to the enterprise-agent operating-model signal."
 }
