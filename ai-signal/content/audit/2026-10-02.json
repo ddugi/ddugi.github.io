@@ -1,0 +1,51 @@
+{
+  "run_date": "2026-10-02",
+  "research_window": {
+    "start": "2026-10-01T06:30:19Z",
+    "end": "2026-10-02T07:00:57Z"
+  },
+  "status": "ready-for-publication",
+  "checked_primary_sources": [
+    "OpenAI API changelog and product announcements",
+    "Anthropic newsroom",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft official blogs and research publications",
+    "AWS AI announcements and service documentation",
+    "GitHub changelog and product documentation",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI publications",
+    "Hugging Face official publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "enterprise-agents-become-managed-workloads",
+      "source_publication_date": "2026-10-01",
+      "reason": "GitHub dynamic workflows materially strengthen the existing enterprise-agent operating-model signal by making orchestration, structured handoffs, checkpoints, permissions, runtime limits, and approximate credit limits explicit in code."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Anthropic and Barclays enterprise partnership",
+      "source_publication_date": "2026-10-01",
+      "reason": "A notable customer rollout, but the announcement is primarily a partnership statement and does not provide independently verifiable operational outcomes sufficient for a separate signal."
+    },
+    {
+      "candidate": "AWS Well-Architected Agent preview",
+      "source_publication_date": "2026-10-01",
+      "reason": "A relevant preview for cloud operations, but the available source is a vendor launch announcement without enough independent production evidence or a distinct structural change beyond the existing managed-agent signal."
+    },
+    {
+      "candidate": "NVIDIA AI factory return framework",
+      "source_publication_date": "2026-10-01",
+      "reason": "The article presents a vendor-authored investment framework and promotional assumptions rather than a newly verified technical development."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 07 materially updates the existing enterprise-agent story rather than creating a duplicate. Agent and Enterprise Adoption movements point directly to the updated story and remain qualitative.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
