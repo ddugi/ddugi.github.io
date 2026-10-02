@@ -4,7 +4,7 @@
     "start": "2026-10-01T06:30:19Z",
     "end": "2026-10-02T07:00:57Z"
   },
-  "status": "ready-for-publication",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI API changelog and product announcements",
     "Anthropic newsroom",
@@ -43,9 +43,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 07 materially updates the existing enterprise-agent story rather than creating a duplicate. Agent and Enterprise Adoption movements point directly to the updated story and remain qualitative.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/17",
+    "commit": "6dfb3d014f153e36eb6fbfaa47a287a5ce4caf80",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
