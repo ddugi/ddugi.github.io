@@ -1,0 +1,56 @@
+{
+  "run_date": "2026-10-03",
+  "research_window": {
+    "start": "2026-10-02T07:00:57Z",
+    "end": "2026-10-03T07:13:20Z"
+  },
+  "status": "ready-for-publication",
+  "checked_primary_sources": [
+    "OpenAI API changelog, deprecation notices, and product announcements",
+    "Anthropic newsroom",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft official blogs and research publications",
+    "AWS AI announcements and service documentation",
+    "GitHub changelog and product documentation",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI publications",
+    "Hugging Face official publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "coding-agents-get-a-local-boundary",
+      "source_publication_date": "2026-10-01",
+      "reason": "GitHub computer use materially extends the existing enterprise-control signal from repository, shell, network, credential, and rollout policy into desktop applications, visible context, OS permissions, saved approvals, and active-session revocation."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub Copilot code review API support and Balanced default effort",
+      "source_publication_date": "2026-10-02",
+      "reason": "Useful product integration and default tuning, but incremental and insufficiently distinct from existing coding-agent controls for a separate signal."
+    },
+    {
+      "candidate": "GitHub Copilot model deprecations",
+      "source_publication_date": "2026-10-02",
+      "reason": "Execution of a previously announced model-lifecycle schedule, with no new structural development or independent evidence."
+    },
+    {
+      "candidate": "AWS ambient-agent reference implementation",
+      "source_publication_date": "2026-10-01",
+      "reason": "A technical implementation guide that supports the existing managed-agent operating-model story, but is not a distinct product release or independently verified shift."
+    },
+    {
+      "candidate": "OpenAI API model deprecation notices",
+      "source_publication_date": "2026-10-01",
+      "reason": "Routine lifecycle notices with migration windows; they do not add a distinct signal beyond the existing model-routing and efficiency story."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 08 materially updates the existing enterprise-control story rather than duplicating it. The stronger AI Security movement points directly to the updated story and remains qualitative.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": null
+  }
+}
