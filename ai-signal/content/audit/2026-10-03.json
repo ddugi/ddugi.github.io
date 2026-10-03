@@ -4,7 +4,7 @@
     "start": "2026-10-02T07:00:57Z",
     "end": "2026-10-03T07:13:20Z"
   },
-  "status": "ready-for-publication",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI API changelog, deprecation notices, and product announcements",
     "Anthropic newsroom",
@@ -48,9 +48,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 08 materially updates the existing enterprise-control story rather than duplicating it. The stronger AI Security movement points directly to the updated story and remains qualitative.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
-    "live_edition_changed": false,
-    "verified_url": null
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/19",
+    "commit": "8de05196c37595c8d94889f0f705f3742f662236",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
