@@ -1,0 +1,34 @@
+{
+  "run_date": "2026-10-04",
+  "research_window": {
+    "start": "2026-10-03T07:13:20Z",
+    "end": "2026-10-04T07:10:39Z"
+  },
+  "status": "research-complete",
+  "checked_primary_sources": [
+    "OpenAI API changelog, deprecation notices, and product announcements",
+    "Anthropic newsroom",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft official blogs and research publications",
+    "AWS AI announcements and service documentation",
+    "GitHub changelog and product documentation",
+    "NVIDIA official announcements, NGC catalog, technical blog, and official repositories",
+    "Meta AI publications",
+    "Hugging Face official publications"
+  ],
+  "accepted": [],
+  "rejected": [
+    {
+      "candidate": "NVIDIA Dynamo catalog and repository updates",
+      "source_publication_date": "2026-10-03",
+      "reason": "The catalog and repositories showed routine package and code activity but no dated product announcement, tagged release, or stable new capability that could support a distinct source-backed signal."
+    },
+    {
+      "candidate": "Tool Eval Bench CLI community post for DGX Spark",
+      "source_publication_date": "2026-10-03",
+      "reason": "A community forum project rather than an authoritative NVIDIA release, with performance claims that were not independently verified or documented in a stable primary publication."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised AI Signal story. Edition 08 and every Signal Map movement remain unchanged."
+}
