@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-03T07:13:20Z",
-  "last_successful_commit": "8de05196c37595c8d94889f0f705f3742f662236",
+  "last_successful_update": "2026-10-04T07:10:39Z",
+  "last_successful_commit": "431f180458ff870670ea5fcd18cbe4b745f22590",
   "last_published_story_ids": [
     "enterprise-agents-become-managed-workloads",
     "coding-agents-get-a-local-boundary",
@@ -10,5 +10,5 @@
     "provenance-moves-into-the-molecule"
   ],
   "initial_lookback_days": 7,
-  "note": "The 3 October research window published Edition 08 with a material GitHub computer-use update to the enterprise agent-control signal."
+  "note": "The 4 October research window completed without a publishable development. Edition 08 and its five source-backed stories remain live."
 }
