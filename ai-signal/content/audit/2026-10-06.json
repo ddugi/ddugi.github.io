@@ -1,0 +1,39 @@
+{
+  "run_date": "2026-10-06",
+  "research_window": {
+    "start": "2026-10-05T06:32:32Z",
+    "end": "2026-10-06T06:41:41Z"
+  },
+  "status": "research-complete",
+  "checked_primary_sources": [
+    "OpenAI API changelog, official announcements, and developer announcements",
+    "Anthropic newsroom",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft official blogs and research publications",
+    "AWS AI announcements and service documentation",
+    "GitHub changelog and product documentation",
+    "NVIDIA official announcements, technical blog, NGC catalog, and official repositories",
+    "Meta AI publications",
+    "Hugging Face official publications"
+  ],
+  "accepted": [],
+  "rejected": [
+    {
+      "candidate": "GitHub secret scanning detectors for Lovable, Pydantic, and Supabase",
+      "source_publication_date": "2026-10-05",
+      "reason": "A useful application-security coverage expansion, but an incremental detector update rather than a distinct structural development in AI, infrastructure, or enterprise security."
+    },
+    {
+      "candidate": "DGX Spark Memory Saver community utility",
+      "source_publication_date": "2026-10-06",
+      "reason": "A community forum utility without an official NVIDIA release note, independently verified results, or enough stable technical evidence for a publication signal."
+    },
+    {
+      "candidate": "NVIDIA GTC Berlin world-model community guide",
+      "source_publication_date": "2026-10-05",
+      "reason": "An event guide and learning-program announcement rather than a new product capability, research result, or independently assessable market change."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised AI Signal story. Edition 08 and every Signal Map movement remain unchanged."
+}
