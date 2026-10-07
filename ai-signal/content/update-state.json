@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-06T06:41:41Z",
-  "last_successful_commit": "3c08205a40b9553ee6b742dff01ea9d6ddcd5448",
+  "last_successful_update": "2026-10-07T06:26:39Z",
+  "last_successful_commit": "733f4795a144441875ee4bac65970b52a2b77316",
   "last_published_story_ids": [
+    "ai-code-review-gets-an-open-scoreboard",
     "enterprise-agents-become-managed-workloads",
     "coding-agents-get-a-local-boundary",
     "frontier-models-enter-the-efficiency-race",
-    "an-advisory-group-can-review-results-not-control-the-pace",
     "provenance-moves-into-the-molecule"
   ],
   "initial_lookback_days": 7,
-  "note": "The 6 October research window completed without a publishable development. Edition 08 and its five source-backed stories remain live."
+  "note": "The 7 October research window published Edition 09 with the source-backed ReviewBench signal, transparently correcting coverage of a late-indexed 5 October primary source."
 }
