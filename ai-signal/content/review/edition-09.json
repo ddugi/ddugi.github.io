@@ -1,11 +1,26 @@
 {
   "schemaVersion": 1,
-  "publication": {
-    "name": "AI Signal",
-    "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "09",
-    "mode": "live",
-    "updatedAt": "2026-10-07"
+  "edition": {
+    "id": "edition-09",
+    "title": "The scoreboard is becoming part of the product",
+    "status": "editorial-review",
+    "preparedAt": "2026-10-07",
+    "publicationDate": "2026-10-07",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 09 on 7 October 2026. A late-discovered 5 October primary source adds ReviewBench and replaces the older advisory-group story in the current edition."
+  },
+  "weekly": {
+    "title": "The scoreboard is becoming part of the product",
+    "intro": "GitHub opened ReviewBench, a benchmark for AI code-review agents built from public pull requests, a multi-source golden set, a published rubric, and a reproducible runner. The useful shift is from model claims toward inspectable evaluation infrastructure.",
+    "theme": "An AI reviewer is only useful when teams can see what it catches, what noise it creates, and whether offline gains survive contact with production. The benchmark itself now needs engineering discipline, versioning, and independent scrutiny.",
+    "watchNext": [
+      "Independent reproduction of the published benchmark and agreement measurements.",
+      "Performance on private enterprise repositories, uncommon languages, and organization-specific conventions.",
+      "Whether repeated access to the test set encourages systems to overfit the leaderboard.",
+      "How results change with a different judge model, rubric, or benchmark version.",
+      "Evidence from production deployments outside GitHub that offline movement predicts user outcomes."
+    ],
+    "closing": "The interesting question is no longer which reviewer has the highest score. It is whether the test is inspectable, representative, resistant to gaming, and connected to the outcome the team actually values."
   },
   "stories": [
     {
@@ -16,7 +31,7 @@
       "topic": "AI code-review evaluation",
       "category": "Research",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": true,
       "publishedAt": "2026-10-05",
       "updatedAt": "2026-10-07",
@@ -110,14 +125,20 @@
           "publisher": "GitHub",
           "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
           "publishedAt": "2026-10-05",
-          "accessedAt": "2026-10-07"
+          "accessedAt": "2026-10-07",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source methodology and launch article from GitHub. Corpus, agreement, benchmark behavior, and production-alignment measurements are vendor-reported; this edition does not claim independent reproduction.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-07"
+        "reviewedAt": "2026-10-07",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 7 October 2026."
       }
     },
     {
@@ -128,10 +149,10 @@
       "topic": "Enterprise agent runtime",
       "category": "Enterprise AI",
       "signal": "Structural Shift",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-25",
-      "updatedAt": "2026-10-07",
+      "updatedAt": "2026-10-02",
       "author": "Dugi Selmanaj",
       "visual": "enterprise",
       "scenario": "GitHub released dynamic workflows for Copilot CLI, the Copilot app, and the Copilot SDK, allowing deterministic code and one or more agents to share a reusable process.",
@@ -240,7 +261,8 @@
           "publisher": "Microsoft",
           "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
           "publishedAt": "2026-09-25",
-          "accessedAt": "2026-09-26"
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
         },
         {
           "id": "microsoft-managed-runtime",
@@ -248,7 +270,8 @@
           "publisher": "Microsoft",
           "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/",
           "publishedAt": "2026-09-25",
-          "accessedAt": "2026-09-26"
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
         },
         {
           "id": "github-dynamic-workflows-release",
@@ -256,7 +279,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-02"
+          "accessedAt": "2026-10-02",
+          "kind": "primary"
         },
         {
           "id": "github-dynamic-workflows-docs",
@@ -264,14 +288,20 @@
           "publisher": "GitHub Docs",
           "url": "https://docs.github.com/en/copilot/concepts/agents/dynamic-workflows",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-02"
+          "accessedAt": "2026-10-02",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source announcements and product documentation from Microsoft and GitHub. Product behavior, availability, reliability, and cost claims remain vendor-reported; this edition does not claim independent production validation.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-07"
+        "reviewedAt": "2026-10-07",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 7 October 2026."
       }
     },
     {
@@ -282,10 +312,10 @@
       "topic": "Desktop agent controls",
       "category": "Security & Governance",
       "signal": "Structural Shift",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-23",
-      "updatedAt": "2026-10-07",
+      "updatedAt": "2026-10-03",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub released computer use in public preview for Copilot CLI and the Copilot app on macOS and Windows, allowing an approved agent to interact with desktop applications through their visual interface.",
@@ -415,7 +445,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
           "publishedAt": "2026-09-23",
-          "accessedAt": "2026-09-24"
+          "accessedAt": "2026-09-24",
+          "kind": "primary"
         },
         {
           "id": "github-copilot-default-policy",
@@ -423,7 +454,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/",
           "publishedAt": "2026-09-24",
-          "accessedAt": "2026-09-25"
+          "accessedAt": "2026-09-25",
+          "kind": "primary"
         },
         {
           "id": "github-computer-use-release",
@@ -431,7 +463,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-03"
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
         },
         {
           "id": "github-computer-use-docs",
@@ -439,7 +472,8 @@
           "publisher": "GitHub Docs",
           "url": "https://docs.github.com/en/copilot/how-tos/github-copilot-app/computer-use",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-03"
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
         },
         {
           "id": "github-computer-use-concepts",
@@ -447,7 +481,8 @@
           "publisher": "GitHub Docs",
           "url": "https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/computer-use",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-03"
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
         },
         {
           "id": "github-computer-use-enterprise-settings",
@@ -455,14 +490,20 @@
           "publisher": "GitHub Docs",
           "url": "https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-03"
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source release notes and product documentation from GitHub. GitHub documents the announced behavior, permissions, risks, and administrative control; this edition does not claim independent validation of desktop reliability or security.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-07"
+        "reviewedAt": "2026-10-07",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 7 October 2026."
       }
     },
     {
@@ -473,10 +514,10 @@
       "topic": "Frontier-model efficiency",
       "category": "Models",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-22",
-      "updatedAt": "2026-10-07",
+      "updatedAt": "2026-10-01",
       "author": "Dugi Selmanaj",
       "visual": "models",
       "scenario": "Google announced Gemini 4 Argon with long-horizon coding, enterprise, and cyber capabilities, but initially limited access to trusted cyber defenders while it strengthens safeguards before broader release.",
@@ -649,7 +690,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-opus-5-5",
           "publishedAt": "2026-09-22",
-          "accessedAt": "2026-09-23"
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
         },
         {
           "id": "anthropic-opus-55-system-card",
@@ -657,7 +699,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-opus-5-5-system-card",
           "publishedAt": "2026-09-22",
-          "accessedAt": "2026-09-23"
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
         },
         {
           "id": "anthropic-sonnet-55",
@@ -665,7 +708,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/claude-sonnet-5-5",
           "publishedAt": "2026-09-28",
-          "accessedAt": "2026-09-29"
+          "accessedAt": "2026-09-29",
+          "kind": "primary"
         },
         {
           "id": "github-sonnet-55-copilot",
@@ -673,7 +717,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot/",
           "publishedAt": "2026-09-28",
-          "accessedAt": "2026-09-29"
+          "accessedAt": "2026-09-29",
+          "kind": "primary"
         },
         {
           "id": "openai-gpt-61-sol-model",
@@ -681,7 +726,8 @@
           "publisher": "OpenAI",
           "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
           "publishedAt": "2026-09-29",
-          "accessedAt": "2026-09-30"
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
         },
         {
           "id": "openai-gpt-61-sol-safety",
@@ -689,7 +735,8 @@
           "publisher": "OpenAI",
           "url": "https://deploymentsafety.openai.com/gpt-6-1-sol/respecting-auto-review",
           "publishedAt": "2026-09-29",
-          "accessedAt": "2026-09-30"
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
         },
         {
           "id": "github-gpt-61-sol-copilot",
@@ -697,7 +744,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot/",
           "publishedAt": "2026-09-29",
-          "accessedAt": "2026-09-30"
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
         },
         {
           "id": "google-gemini-4-argon",
@@ -705,14 +753,20 @@
           "publisher": "Google",
           "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
           "publishedAt": "2026-09-30",
-          "accessedAt": "2026-10-01"
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source model documentation, safety material, and distribution release notes. Capability, efficiency, safety, and early-testing claims remain vendor-reported; this edition does not claim independent production validation.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-07"
+        "reviewedAt": "2026-10-07",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 7 October 2026."
       }
     },
     {
@@ -723,10 +777,10 @@
       "topic": "Biological AI provenance",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-30",
-      "updatedAt": "2026-10-07",
+      "updatedAt": "2026-10-01",
       "author": "Dugi Selmanaj",
       "visual": "governance",
       "scenario": "Google DeepMind and collaborators published methods for watermarking AI-generated protein sequences and predicted structures, with wet-lab testing and an explicit analysis of removal attacks.",
@@ -794,7 +848,8 @@
           "publisher": "Nature",
           "url": "https://www.nature.com/articles/s41586-026-10965-y",
           "publishedAt": "2026-09-30",
-          "accessedAt": "2026-10-01"
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
         },
         {
           "id": "deepmind-synthid-bio",
@@ -802,115 +857,72 @@
           "publisher": "Google DeepMind",
           "url": "https://deepmind.google/blog/introducing-synthid-bio/",
           "publishedAt": "2026-09-30",
-          "accessedAt": "2026-10-01"
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Peer-reviewed primary research and the research team’s release note. Performance and robustness claims are bounded to the reported experiments; this edition does not claim deployment readiness.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-07"
+        "reviewedAt": "2026-10-07",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 7 October 2026."
       }
     }
   ],
-  "signalMap": {
-    "status": "editorial",
-    "asOf": "2026-10-07",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 09. Arrows are qualitative, not quantitative scores.",
-    "items": [
-      {
-        "area": "Models",
-        "direction": "up",
-        "dimension": "Governed access to long-horizon frontier capability",
-        "rationale": "Google announced a frontier model for long-horizon work through a restricted defender rollout with explicit safety work before broader access. The movement reflects increased available capability and staged access, not independent validation or broad availability.",
-        "storyId": "frontier-models-enter-the-efficiency-race"
-      },
-      {
-        "area": "Agents",
-        "direction": "up",
-        "dimension": "Repeatable orchestration with explicit control points",
-        "rationale": "GitHub dynamic workflows make agent stages, handoffs, checkpoints, and limits part of a reusable program. The arrow tracks greater control surface, not deterministic agent output or proven safety.",
-        "storyId": "enterprise-agents-become-managed-workloads"
-      },
-      {
-        "area": "Inference",
-        "direction": "down",
-        "dimension": "Provider-reported cost per completed model task",
-        "rationale": "Anthropic and OpenAI position workhorse models around lower effective or listed task cost, while Google announced temporary introductory pricing for Argon. The arrow tracks pricing direction and vendor-reported economics, not independently verified savings.",
-        "storyId": "frontier-models-enter-the-efficiency-race"
-      },
-      {
-        "area": "Open Source",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 09 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Robotics",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 09 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Enterprise Adoption",
-        "direction": "up",
-        "dimension": "Managed, code-defined agent workflows",
-        "rationale": "Microsoft supplies managed runtime, identity, inventory, and billing for persistent agents, while GitHub now exposes reusable code-defined orchestration, checkpoints, and run limits. The movement reflects available product infrastructure, not independent proof of production reliability.",
-        "storyId": "enterprise-agents-become-managed-workloads"
-      },
-      {
-        "area": "AI Security",
-        "direction": "up-strong",
-        "dimension": "Agent containment across shell, network, credentials, and desktop applications",
-        "rationale": "GitHub extended Copilot controls from sandboxed commands and enterprise rollout policy into approved desktop applications, OS permissions, screen context, and active-session revocation. The arrow tracks the larger control surface, not independent proof of reliable or safe computer use.",
-        "storyId": "coding-agents-get-a-local-boundary"
-      },
-      {
-        "area": "Governance",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 09 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Compute",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 09 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Data Infrastructure",
-        "direction": "up",
-        "dimension": "Embedded provenance for AI-generated biological data",
-        "rationale": "SynthID Bio demonstrates detectable watermarks in tested protein sequences and structures while preserving measured function. The movement is limited to a proof of concept and does not imply deployment readiness or resistance to determined removal.",
-        "storyId": "provenance-moves-into-the-molecule"
-      }
-    ]
-  },
-  "weekly": {
-    "slug": "2026-10-07",
-    "title": "The scoreboard is becoming part of the product",
-    "date": "2026-10-07",
-    "status": "published",
-    "intro": "GitHub opened ReviewBench, a benchmark for AI code-review agents built from public pull requests, a multi-source golden set, a published rubric, and a reproducible runner. The useful shift is from model claims toward inspectable evaluation infrastructure.",
-    "theme": "An AI reviewer is only useful when teams can see what it catches, what noise it creates, and whether offline gains survive contact with production. The benchmark itself now needs engineering discipline, versioning, and independent scrutiny.",
-    "storyIds": [
-      "ai-code-review-gets-an-open-scoreboard",
-      "enterprise-agents-become-managed-workloads",
-      "coding-agents-get-a-local-boundary",
-      "frontier-models-enter-the-efficiency-race",
-      "provenance-moves-into-the-molecule"
-    ],
-    "watchNext": [
-      "Independent reproduction of the published benchmark and agreement measurements.",
-      "Performance on private enterprise repositories, uncommon languages, and organization-specific conventions.",
-      "Whether repeated access to the test set encourages systems to overfit the leaderboard.",
-      "How results change with a different judge model, rubric, or benchmark version.",
-      "Evidence from production deployments outside GitHub that offline movement predicts user outcomes."
-    ],
-    "closing": "The interesting question is no longer which reviewer has the highest score. It is whether the test is inspectable, representative, resistant to gaming, and connected to the outcome the team actually values."
-  }
+  "signalMapChanges": [
+    {
+      "area": "Inference",
+      "direction": "down",
+      "dimension": "Provider-reported cost per completed model task",
+      "rationale": "Anthropic and OpenAI position workhorse models around lower effective or listed task cost, while Google announced temporary introductory pricing for Argon. The arrow tracks pricing direction and vendor-reported economics, not independently verified savings.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
+    },
+    {
+      "area": "AI Security",
+      "direction": "up-strong",
+      "dimension": "Agent containment across shell, network, credentials, and desktop applications",
+      "rationale": "GitHub extended Copilot controls from sandboxed commands and enterprise rollout policy into approved desktop applications, OS permissions, screen context, and active-session revocation. The arrow tracks the larger control surface, not independent proof of reliable or safe computer use.",
+      "storyId": "coding-agents-get-a-local-boundary"
+    },
+    {
+      "area": "Enterprise Adoption",
+      "direction": "up",
+      "dimension": "Managed, code-defined agent workflows",
+      "rationale": "Microsoft supplies managed runtime, identity, inventory, and billing for persistent agents, while GitHub now exposes reusable code-defined orchestration, checkpoints, and run limits. The movement reflects available product infrastructure, not independent proof of production reliability.",
+      "storyId": "enterprise-agents-become-managed-workloads"
+    },
+    {
+      "area": "Models",
+      "direction": "up",
+      "dimension": "Governed access to long-horizon frontier capability",
+      "rationale": "Google announced a frontier model for long-horizon work through a restricted defender rollout with explicit safety work before broader access. The movement reflects increased available capability and staged access, not independent validation or broad availability.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
+    },
+    {
+      "area": "Data Infrastructure",
+      "direction": "up",
+      "dimension": "Embedded provenance for AI-generated biological data",
+      "rationale": "SynthID Bio demonstrates detectable watermarks in tested protein sequences and structures while preserving measured function. The movement is limited to a proof of concept and does not imply deployment readiness or resistance to determined removal.",
+      "storyId": "provenance-moves-into-the-molecule"
+    },
+    {
+      "area": "Agents",
+      "direction": "up",
+      "dimension": "Repeatable orchestration with explicit control points",
+      "rationale": "GitHub dynamic workflows make agent stages, handoffs, checkpoints, and limits part of a reusable program. The arrow tracks greater control surface, not deterministic agent output or proven safety.",
+      "storyId": "enterprise-agents-become-managed-workloads"
+    },
+    {
+      "area": "Research",
+      "direction": "up",
+      "dimension": "Open, production-linked evaluation infrastructure for AI code review",
+      "rationale": "GitHub published ReviewBench with a public corpus, labeled findings, rubric, judge configuration, runner, and one reported link between offline and online movement. The arrow tracks increased evaluation infrastructure, not independent validation or universal transfer to enterprise code.",
+      "storyId": "ai-code-review-gets-an-open-scoreboard"
+    }
+  ]
 }
