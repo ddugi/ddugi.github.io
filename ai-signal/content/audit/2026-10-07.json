@@ -1,0 +1,56 @@
+{
+  "run_date": "2026-10-07",
+  "research_window": {
+    "start": "2026-10-06T06:41:41Z",
+    "end": "2026-10-07T06:26:39Z"
+  },
+  "status": "ready-for-publication",
+  "checked_primary_sources": [
+    "OpenAI API changelog, official announcements, and developer announcements",
+    "Anthropic newsroom",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft official blogs and research publications",
+    "AWS AI announcements and service documentation",
+    "GitHub changelog, engineering publications, and product documentation",
+    "NVIDIA official announcements, technical blog, NGC catalog, and official repositories",
+    "Meta AI publications",
+    "Hugging Face official publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "ai-code-review-gets-an-open-scoreboard",
+      "source_publication_date": "2026-10-05",
+      "reason": "ReviewBench supplies a public corpus, multi-source ground truth, published rubric and judge configuration, reproducible runner, and a reported offline-to-production comparison. The source was indexed after the prior review and is included transparently as a late-discovered primary source."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub stacked pull requests general availability",
+      "source_publication_date": "2026-10-06",
+      "reason": "A useful collaboration release, but it is not a distinct AI, infrastructure, or security signal for the publication."
+    },
+    {
+      "candidate": "GitHub AI Scan enablement status in security overview",
+      "source_publication_date": "2026-10-06",
+      "reason": "Administrative visibility for an existing feature rather than a new security capability or independently validated technical change."
+    },
+    {
+      "candidate": "GitHub IDE update requirement for Copilot usage metrics",
+      "source_publication_date": "2026-10-06",
+      "reason": "An operational compatibility notice for existing telemetry, not a structural development."
+    },
+    {
+      "candidate": "GitHub agent-scale Git infrastructure article",
+      "source_publication_date": "2026-10-06",
+      "reason": "A useful engineering architecture account, but it describes internal infrastructure evolution without a separately available product capability or external evidence sufficient for a standalone signal."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 09 adds the late-discovered ReviewBench signal and removes the older advisory-group story from the current five-story edition. The Research movement points directly to the new story and remains qualitative.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": null
+  }
+}
