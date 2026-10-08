@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-07T06:26:39Z",
-  "last_successful_commit": "733f4795a144441875ee4bac65970b52a2b77316",
+  "last_successful_update": "2026-10-08T06:49:22Z",
+  "last_successful_commit": "f5069181340ebd9bb706a408a492a3037941a2da",
   "last_published_story_ids": [
+    "agent-policy-moves-outside-the-agent",
+    "the-answer-is-becoming-an-interface",
     "ai-code-review-gets-an-open-scoreboard",
     "enterprise-agents-become-managed-workloads",
-    "coding-agents-get-a-local-boundary",
-    "frontier-models-enter-the-efficiency-race",
-    "provenance-moves-into-the-molecule"
+    "coding-agents-get-a-local-boundary"
   ],
   "initial_lookback_days": 7,
-  "note": "The 7 October research window published Edition 09 with the source-backed ReviewBench signal, transparently correcting coverage of a late-indexed 5 October primary source."
+  "note": "The 8 October research window published Edition 10 with source-backed signals on external agent-policy enforcement and generated interactive interfaces."
 }
