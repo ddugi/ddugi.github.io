@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-10-08",
+  "research_window": {
+    "start": "2026-10-07T06:26:39Z",
+    "end": "2026-10-08T06:49:22Z"
+  },
+  "status": "ready-for-publication",
+  "checked_primary_sources": [
+    "OpenAI official announcements and safety publications",
+    "Anthropic newsroom",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, open-source, and technical publications",
+    "GitHub changelog and engineering publications",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "agent-policy-moves-outside-the-agent",
+      "source_publication_date": "2026-10-07",
+      "reason": "An inspectable open-source artifact adds external, history-aware enforcement across multiple agent action paths, with material limitations stated by the publisher."
+    },
+    {
+      "story_id": "the-answer-is-becoming-an-interface",
+      "source_publication_date": "2026-10-07",
+      "reason": "A broadly rolling product release changes the response primitive from fixed-format output to native, progressively streamed interactive interfaces."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "AWS RAG document-level access-control architecture",
+      "source_publication_date": "2026-10-07",
+      "reason": "Useful technical guidance, but it combines existing services and does not establish a new product or independently verified structural shift."
+    },
+    {
+      "candidate": "AWS DevOps Agent remediation tutorial",
+      "source_publication_date": "2026-10-07",
+      "reason": "A valuable approval-boundary pattern built from existing components, but a technical how-to rather than a distinct new capability."
+    },
+    {
+      "candidate": "Microsoft AI transformation across the infrastructure lifecycle",
+      "source_publication_date": "2026-10-07",
+      "reason": "Thought leadership and internal examples without enough inspectable technical evidence for a standalone signal."
+    },
+    {
+      "candidate": "Hugging Face community model and fine-tuning posts",
+      "source_publication_date": "2026-10-07",
+      "reason": "Community-authored announcements lacked enough primary methodology or enterprise impact evidence for this edition."
+    },
+    {
+      "candidate": "AWS customer and ROI case studies",
+      "source_publication_date": "2026-10-07",
+      "reason": "Vendor and customer-reported results were too use-case-specific for a structural signal without independent corroboration."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 10 adds two verified releases and retains three existing stories. Every directional map item resolves to a published story; all other areas will reset to no new assessment during promotion.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": null
+  }
+}

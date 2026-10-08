@@ -1,10 +1,10 @@
 [
   "about/index.html",
   "index.html",
+  "stories/agent-policy-moves-outside-the-agent/index.html",
   "stories/ai-code-review-gets-an-open-scoreboard/index.html",
   "stories/coding-agents-get-a-local-boundary/index.html",
   "stories/enterprise-agents-become-managed-workloads/index.html",
-  "stories/frontier-models-enter-the-efficiency-race/index.html",
-  "stories/provenance-moves-into-the-molecule/index.html",
-  "weekly/2026-10-07/index.html"
+  "stories/the-answer-is-becoming-an-interface/index.html",
+  "weekly/2026-10-08/index.html"
 ]

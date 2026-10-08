@@ -1,11 +1,13 @@
 {
   "schemaVersion": 1,
-  "publication": {
-    "name": "AI Signal",
-    "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "10",
-    "mode": "live",
-    "updatedAt": "2026-10-08"
+  "edition": {
+    "id": "edition-10",
+    "title": "The policy now sits outside the agent",
+    "status": "editorial-review",
+    "preparedAt": "2026-10-08",
+    "publicationDate": "2026-10-08",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 10 on 8 October 2026. Two verified 7 October releases add external agent-policy enforcement and generated interactive interfaces."
   },
   "stories": [
     {
@@ -16,7 +18,7 @@
       "topic": "Agent sandboxing and policy enforcement",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": true,
       "publishedAt": "2026-10-07",
       "updatedAt": "2026-10-08",
@@ -102,14 +104,20 @@
           "publisher": "AWS",
           "url": "https://aws.amazon.com/blogs/opensource/introducing-strands-box-ai-agent-sandboxes-powered-by-dogwood/",
           "publishedAt": "2026-10-07",
-          "accessedAt": "2026-10-08"
+          "accessedAt": "2026-10-08",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary launch and architecture article from AWS. Feature behavior, boundaries, and roadmap are vendor-described; no independent security audit or production result is claimed.",
       "review": {
         "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-08"
+        "reviewedAt": "2026-10-08",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook and limitations are explicit."
       }
     },
     {
@@ -120,7 +128,7 @@
       "topic": "Generative user interfaces",
       "category": "Enterprise AI",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-10-07",
       "updatedAt": "2026-10-08",
@@ -206,14 +214,20 @@
           "publisher": "OpenAI",
           "url": "https://openai.com/index/gpt-6-for-everyone/",
           "publishedAt": "2026-10-07",
-          "accessedAt": "2026-10-08"
+          "accessedAt": "2026-10-08",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary product-release article from OpenAI. Availability, architecture descriptions, and performance measurements are vendor-reported; no independent user study is claimed.",
       "review": {
         "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-08"
+        "reviewedAt": "2026-10-08",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook and limitations are explicit."
       }
     },
     {
@@ -224,7 +238,7 @@
       "topic": "AI code-review evaluation",
       "category": "Research",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-10-05",
       "updatedAt": "2026-10-08",
@@ -318,14 +332,20 @@
           "publisher": "GitHub",
           "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
           "publishedAt": "2026-10-05",
-          "accessedAt": "2026-10-07"
+          "accessedAt": "2026-10-07",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source methodology and launch article from GitHub. Corpus, agreement, benchmark behavior, and production-alignment measurements are vendor-reported; this edition does not claim independent reproduction.",
       "review": {
         "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-08"
+        "reviewedAt": "2026-10-08",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook and limitations are explicit."
       }
     },
     {
@@ -336,7 +356,7 @@
       "topic": "Enterprise agent runtime",
       "category": "Enterprise AI",
       "signal": "Structural Shift",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-25",
       "updatedAt": "2026-10-08",
@@ -448,7 +468,8 @@
           "publisher": "Microsoft",
           "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
           "publishedAt": "2026-09-25",
-          "accessedAt": "2026-09-26"
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
         },
         {
           "id": "microsoft-managed-runtime",
@@ -456,7 +477,8 @@
           "publisher": "Microsoft",
           "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/",
           "publishedAt": "2026-09-25",
-          "accessedAt": "2026-09-26"
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
         },
         {
           "id": "github-dynamic-workflows-release",
@@ -464,7 +486,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-02"
+          "accessedAt": "2026-10-02",
+          "kind": "primary"
         },
         {
           "id": "github-dynamic-workflows-docs",
@@ -472,14 +495,20 @@
           "publisher": "GitHub Docs",
           "url": "https://docs.github.com/en/copilot/concepts/agents/dynamic-workflows",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-02"
+          "accessedAt": "2026-10-02",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source announcements and product documentation from Microsoft and GitHub. Product behavior, availability, reliability, and cost claims remain vendor-reported; this edition does not claim independent production validation.",
       "review": {
         "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-08"
+        "reviewedAt": "2026-10-08",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook and limitations are explicit."
       }
     },
     {
@@ -490,7 +519,7 @@
       "topic": "Desktop agent controls",
       "category": "Security & Governance",
       "signal": "Structural Shift",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-09-23",
       "updatedAt": "2026-10-08",
@@ -623,7 +652,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
           "publishedAt": "2026-09-23",
-          "accessedAt": "2026-09-24"
+          "accessedAt": "2026-09-24",
+          "kind": "primary"
         },
         {
           "id": "github-copilot-default-policy",
@@ -631,7 +661,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/",
           "publishedAt": "2026-09-24",
-          "accessedAt": "2026-09-25"
+          "accessedAt": "2026-09-25",
+          "kind": "primary"
         },
         {
           "id": "github-computer-use-release",
@@ -639,7 +670,8 @@
           "publisher": "GitHub",
           "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-03"
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
         },
         {
           "id": "github-computer-use-docs",
@@ -647,7 +679,8 @@
           "publisher": "GitHub Docs",
           "url": "https://docs.github.com/en/copilot/how-tos/github-copilot-app/computer-use",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-03"
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
         },
         {
           "id": "github-computer-use-concepts",
@@ -655,7 +688,8 @@
           "publisher": "GitHub Docs",
           "url": "https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/computer-use",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-03"
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
         },
         {
           "id": "github-computer-use-enterprise-settings",
@@ -663,108 +697,57 @@
           "publisher": "GitHub Docs",
           "url": "https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings",
           "publishedAt": "2026-10-01",
-          "accessedAt": "2026-10-03"
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source release notes and product documentation from GitHub. GitHub documents the announced behavior, permissions, risks, and administrative control; this edition does not claim independent validation of desktop reliability or security.",
       "review": {
         "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-08"
+        "reviewedAt": "2026-10-08",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook and limitations are explicit."
       }
     }
   ],
-  "signalMap": {
-    "status": "editorial",
-    "asOf": "2026-10-08",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 10. Arrows are qualitative, not quantitative scores.",
-    "items": [
-      {
-        "area": "Models",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 10 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Agents",
-        "direction": "up",
-        "dimension": "Runtime-generated interactive interfaces",
-        "rationale": "OpenAI added model-composed native components and progressive interface streaming to ChatGPT responses. The movement reflects a broader interaction surface, not independent proof that generated interfaces are consistently correct, accessible, or safe.",
-        "storyId": "the-answer-is-becoming-an-interface"
-      },
-      {
-        "area": "Inference",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 10 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Open Source",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 10 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Robotics",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 10 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Enterprise Adoption",
-        "direction": "up",
-        "dimension": "Managed, code-defined agent workflows",
-        "rationale": "Microsoft supplies managed runtime, identity, inventory, and billing for persistent agents, while GitHub exposes reusable orchestration, checkpoints, and run limits. The movement reflects available infrastructure, not independent proof of production reliability.",
-        "storyId": "enterprise-agents-become-managed-workloads"
-      },
-      {
-        "area": "AI Security",
-        "direction": "up-strong",
-        "dimension": "External, history-aware policy enforcement for agent actions",
-        "rationale": "AWS released an open developer preview that combines OS containment with shared policy checks across selected shell, Python, egress, and MCP actions. The arrow tracks inspectable control infrastructure, not independent assurance or production readiness.",
-        "storyId": "agent-policy-moves-outside-the-agent"
-      },
-      {
-        "area": "Governance",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 10 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Compute",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 10 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Data Infrastructure",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 10 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      }
-    ]
-  },
+  "signalMapChanges": [
+    {
+      "area": "AI Security",
+      "direction": "up-strong",
+      "dimension": "External, history-aware policy enforcement for agent actions",
+      "rationale": "AWS released an open developer preview that combines OS containment with shared policy checks across selected shell, Python, egress, and MCP actions. The arrow tracks inspectable control infrastructure, not independent assurance or production readiness.",
+      "storyId": "agent-policy-moves-outside-the-agent"
+    },
+    {
+      "area": "Agents",
+      "direction": "up",
+      "dimension": "Runtime-generated interactive interfaces",
+      "rationale": "OpenAI added model-composed native components and progressive interface streaming to ChatGPT responses. The movement reflects a broader interaction surface, not independent proof that generated interfaces are consistently correct, accessible, or safe.",
+      "storyId": "the-answer-is-becoming-an-interface"
+    },
+    {
+      "area": "Enterprise Adoption",
+      "direction": "up",
+      "dimension": "Managed, code-defined agent workflows",
+      "rationale": "Microsoft supplies managed runtime, identity, inventory, and billing for persistent agents, while GitHub exposes reusable orchestration, checkpoints, and run limits. The movement reflects available infrastructure, not independent proof of production reliability.",
+      "storyId": "enterprise-agents-become-managed-workloads"
+    },
+    {
+      "area": "Research",
+      "direction": "up",
+      "dimension": "Open, production-linked evaluation infrastructure for AI code review",
+      "rationale": "GitHub published ReviewBench with a public corpus, labeled findings, rubric, judge configuration, runner, and one reported link between offline and online movement. The arrow tracks increased evaluation infrastructure, not independent validation or universal transfer.",
+      "storyId": "ai-code-review-gets-an-open-scoreboard"
+    }
+  ],
   "weekly": {
-    "slug": "2026-10-08",
     "title": "The policy now sits outside the agent",
-    "date": "2026-10-08",
-    "status": "published",
     "intro": "AWS opened a developer preview that moves selected agent controls into a separate sandbox and policy engine. OpenAI, meanwhile, moved the user interface into the model response. Both releases widen what an AI system can do—and make the boundary around it more important.",
     "theme": "Agent infrastructure is splitting into two layers: a flexible experience that can assemble actions and interfaces at runtime, and an enforcement layer that must remain outside the agent’s discretion.",
-    "storyIds": [
-      "agent-policy-moves-outside-the-agent",
-      "the-answer-is-becoming-an-interface",
-      "ai-code-review-gets-an-open-scoreboard",
-      "enterprise-agents-become-managed-workloads",
-      "coding-agents-get-a-local-boundary"
-    ],
     "watchNext": [
       "Independent security review and adversarial testing of Strands Box and Dogwood.",
       "Linux, Windows, container, and deployed-agent support for the sandbox model.",
