@@ -4,7 +4,7 @@
     "start": "2026-10-07T06:26:39Z",
     "end": "2026-10-08T06:49:22Z"
   },
-  "status": "ready-for-publication",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements and safety publications",
     "Anthropic newsroom",
@@ -58,9 +58,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 10 adds two verified releases and retains three existing stories. Every directional map item resolves to a published story; all other areas will reset to no new assessment during promotion.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
-    "live_edition_changed": false,
-    "verified_url": null
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/29",
+    "commit": "f5069181340ebd9bb706a408a492a3037941a2da",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
