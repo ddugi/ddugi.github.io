@@ -1,11 +1,13 @@
 {
   "schemaVersion": 1,
-  "publication": {
-    "name": "AI Signal",
-    "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "11",
-    "mode": "live",
-    "updatedAt": "2026-10-09"
+  "edition": {
+    "id": "edition-11",
+    "title": "The scanner is becoming a maintainer queue",
+    "status": "editorial-review",
+    "preparedAt": "2026-10-09",
+    "publicationDate": "2026-10-09",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 11 on 9 October 2026. Two verified 8 October publications add model-driven open-source vulnerability scanning and evidence from disrupted false-front operations."
   },
   "stories": [
     {
@@ -16,7 +18,7 @@
       "topic": "AI vulnerability discovery for open source",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": true,
       "publishedAt": "2026-10-08",
       "updatedAt": "2026-10-09",
@@ -111,7 +113,8 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
           "publishedAt": "2026-10-08",
-          "accessedAt": "2026-10-09"
+          "accessedAt": "2026-10-09",
+          "kind": "primary"
         },
         {
           "id": "anthropic-cyber-mission",
@@ -119,14 +122,20 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/news/anthropic-cyber-mission",
           "publishedAt": "2026-10-08",
-          "accessedAt": "2026-10-09"
+          "accessedAt": "2026-10-09",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary launch and program descriptions from Anthropic. Counts, validation results, maintainer feedback, and expected performance are vendor-reported; this edition does not claim independent reproduction.",
       "review": {
         "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-09"
+        "reviewedAt": "2026-10-09",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook, counterarguments, and source limits are explicit."
       }
     },
     {
@@ -137,7 +146,7 @@
       "topic": "AI-assisted influence operations",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-10-08",
       "updatedAt": "2026-10-09",
@@ -230,14 +239,20 @@
           "publisher": "OpenAI",
           "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations/",
           "publishedAt": "2026-10-08",
-          "accessedAt": "2026-10-09"
+          "accessedAt": "2026-10-09",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary threat-intelligence report from OpenAI, supplemented within the report by linked open-source material. Account observations, attribution, and impact ratings remain provider-reported and partly inferential.",
       "review": {
         "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-09"
+        "reviewedAt": "2026-10-09",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook, counterarguments, and source limits are explicit."
       }
     },
     {
@@ -248,7 +263,7 @@
       "topic": "Agent sandboxing and policy enforcement",
       "category": "Security & Governance",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-10-07",
       "updatedAt": "2026-10-09",
@@ -334,14 +349,20 @@
           "publisher": "AWS",
           "url": "https://aws.amazon.com/blogs/opensource/introducing-strands-box-ai-agent-sandboxes-powered-by-dogwood/",
           "publishedAt": "2026-10-07",
-          "accessedAt": "2026-10-08"
+          "accessedAt": "2026-10-08",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary launch and architecture article from AWS. Feature behavior, boundaries, and roadmap are vendor-described; no independent security audit or production result is claimed.",
       "review": {
         "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-09"
+        "reviewedAt": "2026-10-09",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook, counterarguments, and source limits are explicit."
       }
     },
     {
@@ -352,7 +373,7 @@
       "topic": "Generative user interfaces",
       "category": "Enterprise AI",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-10-07",
       "updatedAt": "2026-10-09",
@@ -438,14 +459,20 @@
           "publisher": "OpenAI",
           "url": "https://openai.com/index/gpt-6-for-everyone/",
           "publishedAt": "2026-10-07",
-          "accessedAt": "2026-10-08"
+          "accessedAt": "2026-10-08",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary product-release article from OpenAI. Availability, architecture descriptions, and performance measurements are vendor-reported; no independent user study is claimed.",
       "review": {
         "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-09"
+        "reviewedAt": "2026-10-09",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook, counterarguments, and source limits are explicit."
       }
     },
     {
@@ -456,7 +483,7 @@
       "topic": "AI code-review evaluation",
       "category": "Research",
       "signal": "Important",
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "publishedAt": "2026-10-05",
       "updatedAt": "2026-10-09",
@@ -550,108 +577,64 @@
           "publisher": "GitHub",
           "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
           "publishedAt": "2026-10-05",
-          "accessedAt": "2026-10-07"
+          "accessedAt": "2026-10-07",
+          "kind": "primary"
         }
       ],
       "sourceNote": "Primary-source methodology and launch article from GitHub. Corpus, agreement, benchmark behavior, and production-alignment measurements are vendor-reported; this edition does not claim independent reproduction.",
       "review": {
         "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-09"
+        "reviewedAt": "2026-10-09",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook, counterarguments, and source limits are explicit."
       }
     }
   ],
-  "signalMap": {
-    "status": "editorial",
-    "asOf": "2026-10-09",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 11. Arrows are qualitative, not quantitative scores.",
-    "items": [
-      {
-        "area": "Models",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 11 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Agents",
-        "direction": "up",
-        "dimension": "Runtime-generated interactive interfaces",
-        "rationale": "OpenAI added model-composed native components and progressive interface streaming to ChatGPT responses. The movement reflects a broader interaction surface, not independent proof that generated interfaces are consistently correct, accessible, or safe.",
-        "storyId": "the-answer-is-becoming-an-interface"
-      },
-      {
-        "area": "Inference",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 11 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Open Source",
-        "direction": "up",
-        "dimension": "Shared security scanning offered directly to maintainers",
-        "rationale": "Eligible projects can receive periodic scans, reproducers, and candidate patches at no charge. The movement reflects new available support and may also increase maintainer triage burden.",
-        "storyId": "the-scanner-is-becoming-a-maintainer-queue"
-      },
-      {
-        "area": "Robotics",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 11 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Enterprise Adoption",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 11 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "AI Security",
-        "direction": "up-strong",
-        "dimension": "Recurring model-driven vulnerability discovery for critical open source",
-        "rationale": "Anthropic launched a free opt-in scanner with reproducible reports and published an early high-severity validation. The arrow tracks expanded defensive capacity, not independent precision, patch safety, or reduced ecosystem risk.",
-        "storyId": "the-scanner-is-becoming-a-maintainer-queue"
-      },
-      {
-        "area": "Governance",
-        "direction": "up",
-        "dimension": "Evidence-based reporting on AI-assisted influence operations",
-        "rationale": "OpenAI connected account observations with open-source corroboration and separated model use, operator claims, distribution, and assessed impact. The arrow tracks additional transparency, not complete attribution or proof of causal impact.",
-        "storyId": "ai-did-not-invent-the-front"
-      },
-      {
-        "area": "Compute",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 11 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      },
-      {
-        "area": "Data Infrastructure",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 11 proposes no evidence-backed movement for this area.",
-        "storyId": null
-      }
-    ]
-  },
+  "signalMapChanges": [
+    {
+      "area": "AI Security",
+      "direction": "up-strong",
+      "dimension": "Recurring model-driven vulnerability discovery for critical open source",
+      "rationale": "Anthropic launched a free opt-in scanner with reproducible reports and published an early high-severity validation. The arrow tracks expanded defensive capacity, not independent precision, patch safety, or reduced ecosystem risk.",
+      "storyId": "the-scanner-is-becoming-a-maintainer-queue"
+    },
+    {
+      "area": "Open Source",
+      "direction": "up",
+      "dimension": "Shared security scanning offered directly to maintainers",
+      "rationale": "Eligible projects can receive periodic scans, reproducers, and candidate patches at no charge. The movement reflects new available support and may also increase maintainer triage burden.",
+      "storyId": "the-scanner-is-becoming-a-maintainer-queue"
+    },
+    {
+      "area": "Governance",
+      "direction": "up",
+      "dimension": "Evidence-based reporting on AI-assisted influence operations",
+      "rationale": "OpenAI connected account observations with open-source corroboration and separated model use, operator claims, distribution, and assessed impact. The arrow tracks additional transparency, not complete attribution or proof of causal impact.",
+      "storyId": "ai-did-not-invent-the-front"
+    },
+    {
+      "area": "Agents",
+      "direction": "up",
+      "dimension": "Runtime-generated interactive interfaces",
+      "rationale": "OpenAI added model-composed native components and progressive interface streaming to ChatGPT responses. The movement reflects a broader interaction surface, not independent proof that generated interfaces are consistently correct, accessible, or safe.",
+      "storyId": "the-answer-is-becoming-an-interface"
+    },
+    {
+      "area": "Research",
+      "direction": "up",
+      "dimension": "Open, production-linked evaluation infrastructure for AI code review",
+      "rationale": "GitHub published ReviewBench with a public corpus, labeled findings, rubric, judge configuration, runner, and one reported link between offline and online movement. The arrow tracks increased evaluation infrastructure, not independent validation or universal transfer.",
+      "storyId": "ai-code-review-gets-an-open-scoreboard"
+    }
+  ],
   "weekly": {
-    "slug": "2026-10-09",
     "title": "The scanner is becoming a maintainer queue",
-    "date": "2026-10-09",
-    "status": "published",
     "intro": "Anthropic opened a vulnerability-scanning service that can send maintainers raw model findings, while OpenAI documented influence operations using AI inside familiar organizational and publishing tactics. Both developments move the hard problem downstream: from generation to verification, identity, prioritization, and response.",
     "theme": "AI can produce security findings and persuasive material faster than institutions can verify them. The scarce resource is becoming trusted human and operational capacity around the model.",
-    "storyIds": [
-      "the-scanner-is-becoming-a-maintainer-queue",
-      "ai-did-not-invent-the-front",
-      "agent-policy-moves-outside-the-agent",
-      "the-answer-is-becoming-an-interface",
-      "ai-code-review-gets-an-open-scoreboard"
-    ],
     "watchNext": [
       "Independent maintainer measurements of OSS Scanner precision and triage time.",
       "Regression and security failure rates in model-proposed patches.",
