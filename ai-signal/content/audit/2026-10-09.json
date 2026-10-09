@@ -4,7 +4,7 @@
     "start": "2026-10-08T06:49:22Z",
     "end": "2026-10-09T07:06:01Z"
   },
-  "status": "ready-for-publication",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, safety publications, and threat reporting",
     "Anthropic newsroom, research, policy, and cyber publications",
@@ -58,9 +58,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 11 adds two verified security developments and retains three recent stories. Every directional Signal Map item resolves to a published story; all other areas reset to no new assessment during promotion.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
-    "live_edition_changed": false,
-    "verified_url": null
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/31",
+    "commit": "241617685af2a0f01d7237440a14ab54e972d859",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }

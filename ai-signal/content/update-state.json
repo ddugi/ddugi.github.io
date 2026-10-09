@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-08T06:49:22Z",
-  "last_successful_commit": "f5069181340ebd9bb706a408a492a3037941a2da",
+  "last_successful_update": "2026-10-09T07:06:01Z",
+  "last_successful_commit": "241617685af2a0f01d7237440a14ab54e972d859",
   "last_published_story_ids": [
+    "the-scanner-is-becoming-a-maintainer-queue",
+    "ai-did-not-invent-the-front",
     "agent-policy-moves-outside-the-agent",
     "the-answer-is-becoming-an-interface",
-    "ai-code-review-gets-an-open-scoreboard",
-    "enterprise-agents-become-managed-workloads",
-    "coding-agents-get-a-local-boundary"
+    "ai-code-review-gets-an-open-scoreboard"
   ],
   "initial_lookback_days": 7,
-  "note": "The 8 October research window published Edition 10 with source-backed signals on external agent-policy enforcement and generated interactive interfaces."
+  "note": "The 9 October research window published Edition 11 with source-backed signals on open-source vulnerability scanning and AI-assisted false-front operations."
 }
