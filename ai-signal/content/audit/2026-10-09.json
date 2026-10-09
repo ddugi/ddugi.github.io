@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-10-09",
+  "research_window": {
+    "start": "2026-10-08T06:49:22Z",
+    "end": "2026-10-09T07:06:01Z"
+  },
+  "status": "ready-for-publication",
+  "checked_primary_sources": [
+    "OpenAI official announcements, safety publications, and threat reporting",
+    "Anthropic newsroom, research, policy, and cyber publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, and technical publications",
+    "GitHub changelog and engineering publications",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-scanner-is-becoming-a-maintainer-queue",
+      "source_publication_date": "2026-10-08",
+      "reason": "A new opt-in service, concrete workflow, disclosed validation sample, reproducer-and-patch output, and explicit false-positive and maintainer-capacity limits support a material software-supply-chain signal."
+    },
+    {
+      "story_id": "ai-did-not-invent-the-front",
+      "source_publication_date": "2026-10-08",
+      "reason": "Provider telemetry and linked open-source evidence document how AI supports durable influence-operation workflows while carefully separating observed use, actor claims, distribution, and assessed impact."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Anthropic 2026 Usage Policy update",
+      "source_publication_date": "2026-10-08",
+      "reason": "Material policy clarification, but Anthropic says most operational requirements are continuations of existing enforcement rather than a new technical control."
+    },
+    {
+      "candidate": "Anthropic Genesis Mission funding commitment",
+      "source_publication_date": "2026-10-08",
+      "reason": "A funding and partnership announcement without a new inspectable technical capability or result."
+    },
+    {
+      "candidate": "NVIDIA KDD Cup data-agent lessons",
+      "source_publication_date": "2026-10-08",
+      "reason": "Useful competition retrospective, but not a new product, dataset, or independently validated structural change."
+    },
+    {
+      "candidate": "Hugging Face community model and dataset posts",
+      "source_publication_date": "2026-10-08",
+      "reason": "Community-authored releases lacked enough primary methodology, adoption evidence, or enterprise impact for this edition."
+    },
+    {
+      "candidate": "GitHub 7 October Copilot and sandbox releases",
+      "source_publication_date": "2026-10-07",
+      "reason": "Already represented in the existing agent-boundary coverage and outside the new research window; publishing again would duplicate the signal."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 11 adds two verified security developments and retains three recent stories. Every directional Signal Map item resolves to a published story; all other areas reset to no new assessment during promotion.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": null
+  }
+}
