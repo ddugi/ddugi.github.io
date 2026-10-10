@@ -1,0 +1,49 @@
+{
+  "run_date": "2026-10-10",
+  "research_window": {
+    "start": "2026-10-09T07:06:01Z",
+    "end": "2026-10-10T06:20:43Z"
+  },
+  "status": "research-complete",
+  "checked_primary_sources": [
+    "OpenAI official announcements, safety publications, and API changelog",
+    "Anthropic newsroom, research, policy, and cyber publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, and technical publications",
+    "GitHub changelog and engineering publications",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [],
+  "rejected": [
+    {
+      "candidate": "GitHub Copilot weekly releases for the week of 5 October",
+      "source_publication_date": "2026-10-09",
+      "reason": "A digest of capabilities announced earlier in the week rather than a new release on 9 October; the relevant agent-boundary changes are already represented in the live edition."
+    },
+    {
+      "candidate": "AWS September AI-builder recap",
+      "source_publication_date": "2026-10-09",
+      "reason": "A retrospective roundup of previously announced Bedrock, AgentCore, and Strands updates, with no new capability or evidence to assess."
+    },
+    {
+      "candidate": "Postman Agent Mode architecture on Amazon Bedrock",
+      "source_publication_date": "2026-10-09",
+      "reason": "A useful vendor-authored customer architecture, but it does not introduce a new product capability, independently testable result, or structural change beyond established agent-operating patterns."
+    },
+    {
+      "candidate": "Hugging Face GPU-cluster scheduling article",
+      "source_publication_date": "2026-10-09",
+      "reason": "An educational organization post about known scheduling techniques rather than a new release, benchmark, or independently supported infrastructure shift."
+    },
+    {
+      "candidate": "GitHub CodeQL 2.27.2 analysis improvements",
+      "source_publication_date": "2026-10-09",
+      "reason": "A valuable incremental static-analysis release, but not a distinct AI, platform, or enterprise-security signal for this publication."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised AI Signal story. Edition 11 and every Signal Map movement remain unchanged."
+}
