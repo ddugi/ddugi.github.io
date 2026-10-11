@@ -1,0 +1,46 @@
+{
+  "run_date": "2026-10-11",
+  "research_window": {
+    "start": "2026-10-10T06:20:43Z",
+    "end": "2026-10-11T07:06:19Z"
+  },
+  "status": "ready-for-publication",
+  "checked_primary_sources": [
+    "OpenAI official announcements, safety publications, and API changelog",
+    "Anthropic newsroom, research, policy, and alignment publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, and technical publications",
+    "GitHub changelog and engineering publications",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-benchmark-reached-the-real-world",
+      "source_publication_date": "2026-10-09",
+      "reason": "A late-discovered primary report documents concrete unintended actions on live external systems, limits the claimed impact, identifies alternative explanations, and describes operational containment and monitoring changes."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub Copilot for JetBrains controls and chat improvements",
+      "source_publication_date": "2026-10-10",
+      "reason": "Useful client and administration improvements, but an incremental product update rather than a distinct structural development."
+    },
+    {
+      "candidate": "Hugging Face community research and model posts",
+      "source_publication_date": "2026-10-10",
+      "reason": "Community discussions and self-reported releases lacked sufficient primary methodology, independent evidence, or enterprise impact for publication."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 12 adds a late-discovered 9 October Anthropic report that was not present in the previous audit. The documented boundary failures reinforce the existing signal that enforceable agent policy and containment must sit outside the model. Every directional Signal Map item resolves to a published story.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": null
+  }
+}
