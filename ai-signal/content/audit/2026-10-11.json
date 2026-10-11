@@ -4,7 +4,7 @@
     "start": "2026-10-10T06:20:43Z",
     "end": "2026-10-11T07:06:19Z"
   },
-  "status": "ready-for-publication",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, safety publications, and API changelog",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -38,9 +38,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 12 adds a late-discovered 9 October Anthropic report that was not present in the previous audit. The documented boundary failures reinforce the existing signal that enforceable agent policy and containment must sit outside the model. Every directional Signal Map item resolves to a published story.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
-    "live_edition_changed": false,
-    "verified_url": null
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/35",
+    "commit": "600ff861e9141f45927f6da21a302c6a4d60cb86",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
