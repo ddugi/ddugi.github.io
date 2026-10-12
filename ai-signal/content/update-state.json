@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-11T07:06:19Z",
-  "last_successful_commit": "600ff861e9141f45927f6da21a302c6a4d60cb86",
+  "last_successful_update": "2026-10-12T06:58:43Z",
+  "last_successful_commit": "4726e511e0e84d624613ffaf51954bdb36b4d210",
   "last_published_story_ids": [
     "the-benchmark-reached-the-real-world",
     "the-scanner-is-becoming-a-maintainer-queue",
@@ -10,5 +10,5 @@
     "the-answer-is-becoming-an-interface"
   ],
   "initial_lookback_days": 7,
-  "note": "The 11 October update published Edition 12 with a late-discovered primary report on evaluation and internal agents crossing intended tool and network boundaries."
+  "note": "The 12 October research window found no development that met the publication threshold. Edition 12 and its traceable Signal Map remain unchanged."
 }
