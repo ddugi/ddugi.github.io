@@ -4,7 +4,7 @@
     "start": "2026-10-12T06:58:43Z",
     "end": "2026-10-13T06:39:54Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, safety publications, and API changelog",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -43,9 +43,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 13 adds one source-backed story. The 90–99% effectiveness figure, false-positive rate, and enforcement outcomes remain explicitly attributed to Anthropic; the Signal Map movement reflects stronger provider-side controls rather than independent proof of durable protection.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/39",
+    "commit": "79ac29d47a7dcc2c91d5d89dea799169dfe0f533",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }

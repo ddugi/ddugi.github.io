@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-12T06:58:43Z",
-  "last_successful_commit": "4726e511e0e84d624613ffaf51954bdb36b4d210",
+  "last_successful_update": "2026-10-13T06:39:54Z",
+  "last_successful_commit": "79ac29d47a7dcc2c91d5d89dea799169dfe0f533",
   "last_published_story_ids": [
+    "the-model-moat-moved-into-the-control-plane",
     "the-benchmark-reached-the-real-world",
     "the-scanner-is-becoming-a-maintainer-queue",
     "ai-did-not-invent-the-front",
-    "agent-policy-moves-outside-the-agent",
-    "the-answer-is-becoming-an-interface"
+    "agent-policy-moves-outside-the-agent"
   ],
   "initial_lookback_days": 7,
-  "note": "The 12 October research window found no development that met the publication threshold. Edition 12 and its traceable Signal Map remain unchanged."
+  "note": "The 13 October update published Edition 13 after required validation and production verification. The new story tracks Anthropic's provider-reported anti-distillation defenses and their control-plane implications."
 }
