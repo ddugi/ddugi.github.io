@@ -1,0 +1,51 @@
+{
+  "run_date": "2026-10-13",
+  "research_window": {
+    "start": "2026-10-12T06:58:43Z",
+    "end": "2026-10-13T06:39:54Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, safety publications, and API changelog",
+    "Anthropic newsroom, research, policy, and alignment publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, industry, and technical publications",
+    "GitHub changelog and engineering publications",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-model-moat-moved-into-the-control-plane",
+      "source_publication_date": "2026-10-12",
+      "reason": "The report supplies concrete operational controls, measured provider telemetry, explicit trade-offs, and a broader architecture signal: model protection is moving into the serving control plane."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Meta Muse Wonder and Muse Wonder Full",
+      "source_publication_date": "2026-10-12",
+      "reason": "A material model release, but the announcement relies on vendor claims and says the fuller safety evaluation report is still forthcoming; evidence available in the research window was insufficient for an independent structural assessment."
+    },
+    {
+      "candidate": "GitHub push attribution for commits",
+      "source_publication_date": "2026-10-12",
+      "reason": "Useful enterprise provenance in limited public preview, but not a sufficiently strong AI, infrastructure, or software-development signal on its own for this edition."
+    },
+    {
+      "candidate": "AWS multi-agent self-healing SRE solution",
+      "source_publication_date": "2026-10-12",
+      "reason": "A vendor-authored implementation pattern and customer case study without independent comparative evidence or a new generally available platform capability."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 13 adds one source-backed story. The 90–99% effectiveness figure, false-positive rate, and enforcement outcomes remain explicitly attributed to Anthropic; the Signal Map movement reflects stronger provider-side controls rather than independent proof of durable protection.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
