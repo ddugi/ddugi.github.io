@@ -4,7 +4,7 @@
     "start": "2026-10-13T06:39:54Z",
     "end": "2026-10-14T06:58:25Z"
   },
-  "status": "deployed",
+  "status": "prepared",
   "checked_primary_sources": [
     "OpenAI official announcements, safety publications, and API changelog",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -21,6 +21,11 @@
       "story_id": "the-prompt-boundary-is-becoming-a-trust-boundary",
       "source_publication_date": "2026-10-13",
       "reason": "Microsoft announced a concrete inference-layer control that preserves content trust and provenance, adding independent product evidence to the broader shift from prompt-only defenses toward deterministic architectural enforcement."
+    },
+    {
+      "story_id": "the-scam-detector-stayed-on-the-phone",
+      "source_publication_date": "2026-10-14",
+      "reason": "The project supplies a concrete two-stage edge architecture, localized public-sector implementation, and explicit training/runtime privacy boundaries. It is publishable as an Interesting signal because rollout and quantitative effectiveness evidence remain pending."
     }
   ],
   "rejected": [
@@ -43,14 +48,28 @@
       "candidate": "Microsoft AI-era networking and power infrastructure posts",
       "source_publication_date": "2026-10-13",
       "reason": "Useful architecture and strategy commentary, but no new generally available capability or independently assessable result met the publication threshold."
+    },
+    {
+      "candidate": "OpenAI GPT-4-series API deprecation notice",
+      "source_publication_date": "2026-10-14",
+      "reason": "Operationally important migration notice with a clear January 2027 shutdown date, but a planned model-lifecycle change rather than a new structural AI, infrastructure, or governance signal."
+    },
+    {
+      "candidate": "GitHub 13 October product and security changelog items",
+      "source_publication_date": "2026-10-13",
+      "reason": "Useful incremental controls and integrations, but no single item discovered in the follow-up window added enough evidence or impact for another story."
     }
   ],
   "emerging_trends_detected": 1,
-  "notes": "Edition 14 adds one source-backed story. The trend assessment relies on independent Microsoft and AWS product evidence that deterministic trust and policy enforcement are moving outside the model prompt. Microsoft publishes no quantitative effectiveness or utility results, which remains explicit in the story and Signal Map rationale.",
+  "notes": "Edition 15 supersedes the morning Edition 14 after a new 14 October primary source became available. It adds the Google DeepMind and Singapore GovTech on-device scam-detection project as an Interesting signal, explicitly noting future rollout, absent metrics, and lack of independent validation.",
   "publication": {
-    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/41",
-    "commit": "3bd520146314bb5747d384ad64a39db5683eda57",
+    "pull_request": null,
+    "commit": null,
     "live_edition_changed": true,
-    "verified_url": "https://ddugi.github.io/ai-signal/"
+    "verified_url": null
+  },
+  "follow_up_research_window": {
+    "start": "2026-10-14T06:58:25Z",
+    "end": "2026-10-14T07:09:12Z"
   }
 }

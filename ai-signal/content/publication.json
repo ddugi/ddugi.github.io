@@ -3,11 +3,116 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "14",
+    "edition": "15",
     "mode": "live",
     "updatedAt": "2026-10-14"
   },
   "stories": [
+    {
+      "id": "the-scam-detector-stayed-on-the-phone",
+      "slug": "the-scam-detector-stayed-on-the-phone",
+      "title": "The scam detector stayed on the phone.",
+      "summary": "Google DeepMind and Singapore GovTech built a locally tuned scam-detection model intended to process conversations on users' devices. The useful signal is not a claimed detection score—the announcement gives none. It is a two-stage edge architecture that tries to improve safety without making private messages a cloud dataset.",
+      "topic": "On-device, locally adapted AI safety",
+      "category": "Security & Governance",
+      "signal": "Interesting",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-10-14",
+      "updatedAt": "2026-10-14",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "Google DeepMind and Singapore GovTech described a privacy-oriented model and staged deployment plan for detecting locally specific scam conversations on typical smartphones.",
+      "facts": [
+        {
+          "text": "Google DeepMind published the announcement on 14 October 2026 and said it built the model with Singapore's Government Technology Agency under their National AI Partnership.",
+          "sourceIds": [
+            "deepmind-on-device-scam-detection"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "The project fine-tuned a lightweight Gemma model on localized scam conversations covering impersonation of institutions, banks, public figures, and other regional schemes.",
+          "sourceIds": [
+            "deepmind-on-device-scam-detection"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "Google says the planned application integration will process conversation data entirely on-device and will require user consent before accessing on-device conversations.",
+          "sourceIds": [
+            "deepmind-on-device-scam-detection"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "The announced design uses a lightweight first-stage classifier to screen inbound messages and sends suspicious cases to a fine-tuned Gemma model for analysis of a larger multi-turn conversation snapshot.",
+          "sourceIds": [
+            "deepmind-on-device-scam-detection"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "When the model detects manipulative conversational patterns, the intended product behavior is to display a real-time warning before a user shares sensitive information or funds.",
+          "sourceIds": [
+            "deepmind-on-device-scam-detection"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "Google says fine-tuning occurred in a GovTech-managed GCP environment and excluded private or personally identifiable citizen data, using anonymized datasets derived from scam reports and intelligence feeds.",
+          "sourceIds": [
+            "deepmind-on-device-scam-detection"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "Google says the model was tested against synthetic dialogues and local corpora, but the announcement publishes no detection accuracy, false-positive rate, latency, battery, or device-coverage result.",
+          "sourceIds": [
+            "deepmind-on-device-scam-detection"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "Rollout inside citizen-facing applications remains future and phased; the announcement does not identify a public launch date or participating application.",
+          "sourceIds": [
+            "deepmind-on-device-scam-detection"
+          ],
+          "verifiedAt": "2026-10-14"
+        }
+      ],
+      "changed": "A government and model developer moved a localized conversational-safety task toward a two-stage edge pipeline: cheap screening first, deeper multi-turn analysis second, with planned processing kept on the user's device.",
+      "whyItMatters": "Fraud detection often asks users to trade message privacy for protection. On-device inference changes that system boundary. It can inspect context that an end-to-end encrypted service cannot read centrally, while localization acknowledges that social-engineering language and impersonation patterns differ by country and community.",
+      "technicalImpact": "Design edge safety as a cascade: keep the first stage cheap, invoke the larger local model selectively, expose a clear warning rather than taking autonomous financial action, and measure energy, latency, recall, and false alarms across representative devices. Keep training-data governance separate from runtime privacy and test how model updates reach devices without expanding telemetry.",
+      "businessImpact": "Banks, messaging providers, governments, and operating-system vendors gain a possible privacy-preserving intervention point before money or credentials leave the device. Adoption will depend on evidence the warnings are accurate, understandable, accessible, and resistant to alert fatigue—and on clear responsibility when the model misses a scam or blocks legitimate conversation.",
+      "outlook": "Conditional outlook: if phased deployment produces transparent effectiveness, battery, and false-positive results across ordinary phones, localized on-device safety models could become a reusable pattern for fraud prevention. If accuracy depends on narrow training data, updates lag new scams, or applications collect surrounding telemetry, the privacy and protection claims will weaken in practice.",
+      "uncertainties": [
+        "The model has been built but the citizen-facing rollout is described as future and phased; the announcement does not establish current public availability.",
+        "No quantitative detection, false-positive, latency, battery, memory, or device-compatibility results are published.",
+        "Google DeepMind and GovTech describe their own collaboration; no independent evaluation or red-team report is linked.",
+        "On-device inference prevents central access through the described model deployment, but the announcement does not specify what surrounding applications, operating systems, crash logs, or analytics may collect.",
+        "Anonymized reports and synthetic dialogues may not represent new scam tactics, multilingual code-switching, accessibility needs, or benign conversations that resemble manipulation.",
+        "Warnings can reduce harm only when users notice, understand, and trust them; repeated false alarms could create alert fatigue.",
+        "A localized classifier can be evaded as attackers adapt their wording, move to voice or images, or spread manipulation across channels the model cannot observe."
+      ],
+      "analysis": "The absence of a benchmark is a reason for restraint, not dismissal. The architecture answers a real design question: how can an encrypted conversation receive contextual protection without becoming readable to a central service? The answer is to move both the model and the privacy risk onto the device—then prove the trade-off in deployment.",
+      "sources": [
+        {
+          "id": "deepmind-on-device-scam-detection",
+          "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
+          "publisher": "Google DeepMind",
+          "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+          "publishedAt": "2026-10-14",
+          "accessedAt": "2026-10-14"
+        }
+      ],
+      "sourceNote": "Primary project announcement from Google DeepMind. Architecture, data governance, privacy behavior, testing, and readiness are partner-reported; no quantitative or independent evaluation is provided.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-14"
+      }
+    },
     {
       "id": "the-prompt-boundary-is-becoming-a-trust-boundary",
       "slug": "the-prompt-boundary-is-becoming-a-trust-boundary",
@@ -17,7 +122,7 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-10-13",
       "updatedAt": "2026-10-14",
       "author": "Dugi Selmanaj",
@@ -336,127 +441,6 @@
       }
     },
     {
-      "id": "the-scanner-is-becoming-a-maintainer-queue",
-      "slug": "the-scanner-is-becoming-a-maintainer-queue",
-      "title": "The scanner is becoming a maintainer queue.",
-      "summary": "Anthropic launched a free, opt-in service that sends recurring, model-generated vulnerability reports directly to open-source maintainers. The bottleneck is moving from finding possible bugs to verifying, prioritizing, and fixing them without drowning small teams.",
-      "topic": "AI vulnerability discovery for open source",
-      "category": "Security & Governance",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-08",
-      "updatedAt": "2026-10-14",
-      "author": "Dugi Selmanaj",
-      "visual": "security",
-      "scenario": "Anthropic opened OSS Scanner to eligible maintainers after testing a pipeline that produces unreviewed vulnerability reports, reproducers, and candidate patches.",
-      "facts": [
-        {
-          "text": "Anthropic announced OSS Scanner on 8 October 2026 as a free, opt-in service that periodically scans eligible open-source projects with its strongest models.",
-          "sourceIds": [
-            "anthropic-oss-scanner",
-            "anthropic-cyber-mission"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "Anthropic says the reports are fully model-generated and delivered without human review or triage, so reports can be inaccurate or invalid.",
-          "sourceIds": [
-            "anthropic-oss-scanner",
-            "anthropic-cyber-mission"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "Each report is described as containing a self-contained reproducer, a vulnerability explanation, an introduction bisection where possible, and a candidate patch where available.",
-          "sourceIds": [
-            "anthropic-oss-scanner"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "Anthropic reports finding more than 29,000 candidate vulnerabilities during six months of scanning while manually reviewing and triaging about 6,000.",
-          "sourceIds": [
-            "anthropic-oss-scanner"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "Anthropic says it sent maintainers nearly 5,000 unverified reports after those maintainers explicitly requested the full raw output.",
-          "sourceIds": [
-            "anthropic-oss-scanner"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "For an early validation, Anthropic says expert penetration testers reviewed 97 critical or high-severity findings across 48 projects: 85 met its coordinated-disclosure bar, 11 were real but duplicated known or scanned issues, and one was invalid.",
-          "sourceIds": [
-            "anthropic-oss-scanner"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "Anthropic reports testing early versions with dozens of projects and finding multiple vulnerability chains that led to unauthenticated remote-code-execution exploits.",
-          "sourceIds": [
-            "anthropic-oss-scanner"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "The service targets projects with enough capacity to triage the findings; Anthropic says it will continue human-reviewed coordinated disclosure for projects that cannot absorb raw reports.",
-          "sourceIds": [
-            "anthropic-cyber-mission"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "Enrollment is limited to core maintainers of projects selected case by case using criteria similar to OSS-Fuzz, including critical impact on infrastructure and user security.",
-          "sourceIds": [
-            "anthropic-oss-scanner"
-          ],
-          "verifiedAt": "2026-10-09"
-        }
-      ],
-      "changed": "A frontier-model vendor is turning vulnerability discovery into a recurring service for open-source maintainers and deliberately offering unreviewed findings to projects that opt into the extra triage load.",
-      "whyItMatters": "Model capability is no longer the only constraint. When one pipeline can produce tens of thousands of candidates, maintainer attention becomes part of the security boundary. A useful scanner must improve the rate of verified fixes, not merely the number of reports.",
-      "technicalImpact": "Route every finding through reproducible evidence, duplicate detection, project-specific threat modeling, severity correction, regression tests, and patch review. Track valid findings, time to verify, time to fix, reopened defects, and maintainer effort. Never grant raw reports automatic authority to merge code or publish a vulnerability.",
-      "businessImpact": "Free recurring scanning could give critical projects security coverage they could not otherwise fund. It can also move triage cost and disclosure risk onto volunteer teams. Program operators need capacity checks, private reporting, escalation paths, service-level expectations, and funding for remediation—not only more findings.",
-      "outlook": "Conditional outlook: if maintainers independently confirm high precision and the service measurably shortens remediation without overwhelming projects, model-driven scanning could become shared infrastructure for the software supply chain. If duplicates, severity errors, or patch defects consume scarce maintainer time, projects will restrict or abandon raw delivery.",
-      "uncertainties": [
-        "Anthropic produced the service, selected the validation sample, and reports the results; the cited evidence is not an independent audit.",
-        "The 97-finding validation covers critical and high-severity candidates and may not represent the full 29,000-candidate distribution.",
-        "Meeting Anthropic’s coordinated-disclosure bar is not the same as a maintainer accepting the severity, exploitability, or proposed patch.",
-        "Model-generated patches may introduce regressions or security defects even when the underlying finding is valid.",
-        "Eligible projects are selected case by case, so access and operational behavior across the broader open-source ecosystem remain unknown.",
-        "Finding more vulnerabilities does not prove that projects can fix them faster or that ecosystem risk declines."
-      ],
-      "analysis": "The headline number is 29,000 candidates. The operational number is 6,000 reviewed. The gap between them is the product problem: evidence, deduplication, prioritization, and maintainer capacity now matter as much as detection.",
-      "sources": [
-        {
-          "id": "anthropic-oss-scanner",
-          "title": "Launching an opt-in vulnerability-finding service for open-source software",
-          "publisher": "Anthropic",
-          "url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
-          "publishedAt": "2026-10-08",
-          "accessedAt": "2026-10-09"
-        },
-        {
-          "id": "anthropic-cyber-mission",
-          "title": "Introducing the Anthropic Cyber Mission",
-          "publisher": "Anthropic",
-          "url": "https://www.anthropic.com/news/anthropic-cyber-mission",
-          "publishedAt": "2026-10-08",
-          "accessedAt": "2026-10-09"
-        }
-      ],
-      "sourceNote": "Primary launch and program descriptions from Anthropic. Counts, validation results, maintainer feedback, and expected performance are vendor-reported; this edition does not claim independent reproduction.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-09"
-      }
-    },
-    {
       "id": "agent-policy-moves-outside-the-agent",
       "slug": "agent-policy-moves-outside-the-agent",
       "title": "The policy now sits outside the agent.",
@@ -564,101 +548,101 @@
   "signalMap": {
     "status": "editorial",
     "asOf": "2026-10-14",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 14. Arrows are qualitative, not quantitative scores.",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 15. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 15 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 15 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 15 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
-        "direction": "up",
-        "dimension": "Shared security scanning offered directly to maintainers",
-        "rationale": "Eligible projects can receive periodic scans, reproducers, and candidate patches at no charge. The movement reflects new available support and may also increase maintainer triage burden.",
-        "storyId": "the-scanner-is-becoming-a-maintainer-queue"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 15 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 15 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Government-backed localization of an on-device safety model",
+        "rationale": "The project combines a national public-sector partner, locally derived scam data, sovereign fine-tuning, and a phased citizen-application plan. Movement reflects institutional implementation work; public deployment and outcome evidence are still pending.",
+        "storyId": "the-scam-detector-stayed-on-the-phone"
       },
       {
         "area": "AI Security",
         "direction": "up-strong",
-        "dimension": "Origin-aware isolation of untrusted content before primary-model inference",
-        "rationale": "Microsoft described a product enforcement layer that classifies content using deterministic signals, quarantines untrusted inputs, and carries provenance downstream. The arrow reflects a concrete architectural control, not measured proof that prompt injection is solved.",
-        "storyId": "the-prompt-boundary-is-becoming-a-trust-boundary"
+        "dimension": "Safety controls moving into inference architecture and onto user devices",
+        "rationale": "Google DeepMind and Singapore GovTech described a two-stage on-device scam detector, while Microsoft and AWS supplied separate evidence of inference-layer and external policy controls. The arrow reflects architectural breadth, not measured effectiveness of the new detector.",
+        "storyId": "the-scam-detector-stayed-on-the-phone"
       },
       {
         "area": "Governance",
         "direction": "up",
-        "dimension": "Enterprise trust policy entering the inference pipeline",
-        "rationale": "Tenant signals such as external-sender status can now influence how retrieved content is processed before model synthesis. The movement reflects a new policy point while coverage, configuration, and effectiveness remain uncertain.",
-        "storyId": "the-prompt-boundary-is-becoming-a-trust-boundary"
+        "dimension": "Consent, sovereign training, and explicit separation of training-data and runtime privacy controls",
+        "rationale": "The partners report GovTech-managed fine-tuning, exclusion of citizen PII, consent-based access, and on-device runtime processing. These are concrete governance choices, while surrounding application telemetry and independent assurance remain unspecified.",
+        "storyId": "the-scam-detector-stayed-on-the-phone"
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 15 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 15 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
     "slug": "2026-10-14",
-    "title": "The prompt boundary is becoming a trust boundary",
+    "title": "The scam detector stayed on the phone",
     "date": "2026-10-14",
     "status": "published",
-    "intro": "Microsoft 365 Copilot is introducing a path that separates untrusted retrieved content before it reaches the primary model. Together with AWS's external agent policy layer, the pattern is becoming harder to dismiss: AI security controls are moving out of prompts and into system architecture.",
-    "theme": "Access permission says whether an assistant may read something. Provenance and integrity controls decide how much that content should be allowed to steer the assistant after it is read.",
+    "intro": "Google DeepMind and Singapore GovTech built a locally adapted model intended to detect scam conversations on ordinary smartphones without central access to the messages. It arrives on the same day as Microsoft's trust-aware Copilot control, reinforcing a broader pattern: AI safety is moving into where data is routed and processed.",
+    "theme": "Privacy and safety do not always require the same central service. Edge inference can keep sensitive context local, but the design earns trust only when accuracy, device cost, telemetry, updates, and user behavior are measured in the real deployment.",
     "storyIds": [
+      "the-scam-detector-stayed-on-the-phone",
       "the-prompt-boundary-is-becoming-a-trust-boundary",
       "the-model-moat-moved-into-the-control-plane",
       "the-benchmark-reached-the-real-world",
-      "the-scanner-is-becoming-a-maintainer-queue",
       "agent-policy-moves-outside-the-agent"
     ],
     "watchNext": [
-      "Measured prompt-injection resistance and task-quality impact from the Microsoft 365 Copilot enforcement layer.",
-      "Coverage for web content, shared files, third-party connectors, and non-email tool outputs.",
-      "Behavior when a trusted internal account or document is compromised.",
-      "Whether provenance labels survive multi-agent handoffs and long tool chains.",
-      "Independent testing that distinguishes deterministic routing from probabilistic content transformation."
+      "Public launch details and the applications that will integrate the Singapore scam detector.",
+      "Detection recall, false-positive rates, latency, memory, and battery impact across typical devices.",
+      "Independent testing against multilingual, multi-channel, and adaptive scam campaigns.",
+      "What telemetry surrounding applications collect even when inference stays on-device.",
+      "Whether the two-stage localized design transfers to other countries without centralizing private conversations."
     ],
-    "closing": "The next security boundary is not only who can read the data. It is how much authority the data receives after it enters the model."
+    "closing": "Keeping the model on the phone protects the message path. Evidence from deployment must show whether it also protects the person."
   }
 }
