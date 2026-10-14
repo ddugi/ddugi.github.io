@@ -1,0 +1,56 @@
+{
+  "run_date": "2026-10-14",
+  "research_window": {
+    "start": "2026-10-13T06:39:54Z",
+    "end": "2026-10-14T06:58:25Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, safety publications, and API changelog",
+    "Anthropic newsroom, research, policy, and alignment publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft Copilot, Foundry, Azure, infrastructure, and security publications",
+    "AWS AI, security, architecture, industry, and technical publications",
+    "GitHub changelog and engineering publications",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-prompt-boundary-is-becoming-a-trust-boundary",
+      "source_publication_date": "2026-10-13",
+      "reason": "Microsoft announced a concrete inference-layer control that preserves content trust and provenance, adding independent product evidence to the broader shift from prompt-only defenses toward deterministic architectural enforcement."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "AWS agents that transact with Anchor Browser and AgentCore payments",
+      "source_publication_date": "2026-10-13",
+      "reason": "A useful implementation pattern for externally enforced budgets and credential isolation, but primarily a partner solution and Marketplace integration rather than evidence of a new broadly available platform shift."
+    },
+    {
+      "candidate": "Grok 4.7 long-horizon agent evaluation on Amazon Bedrock",
+      "source_publication_date": "2026-10-13",
+      "reason": "A three-task AWS technical walkthrough with provider claims and a narrow evaluation; insufficient independent evidence for a model or agent-capability signal."
+    },
+    {
+      "candidate": "Orca Security natural-language security queries on Amazon Bedrock",
+      "source_publication_date": "2026-10-13",
+      "reason": "Customer-reported efficiency results compare against the team's own initial baseline and do not establish a general enterprise-security or agent architecture shift."
+    },
+    {
+      "candidate": "Microsoft AI-era networking and power infrastructure posts",
+      "source_publication_date": "2026-10-13",
+      "reason": "Useful architecture and strategy commentary, but no new generally available capability or independently assessable result met the publication threshold."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 14 adds one source-backed story. The trend assessment relies on independent Microsoft and AWS product evidence that deterministic trust and policy enforcement are moving outside the model prompt. Microsoft publishes no quantitative effectiveness or utility results, which remains explicit in the story and Signal Map rationale.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
