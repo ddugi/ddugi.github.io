@@ -89,9 +89,27 @@ The second command writes an ignored `publication-candidate.json` for final comp
 
 No collector, scheduler, model call, or automated publication step is part of this workflow.
 
+## Audience measurement
+
+Cloudflare Web Analytics support is built into the static generator but remains off unless `content/publication.json` contains both `"enabled": true` and a valid Cloudflare site token. A disabled configuration emits no third-party analytics script and must keep `siteToken` set to `null`.
+
+To enable it, add `ddugi.github.io` as a site under **Cloudflare Dashboard → Web Analytics**, copy the Site Token, then set:
+
+```json
+"analytics": {
+  "provider": "cloudflare-web-analytics",
+  "enabled": true,
+  "siteToken": "YOUR_CLOUDFLARE_SITE_TOKEN"
+}
+```
+
+Run the normal build and checks. The generator adds one deferred Cloudflare beacon to every generated page and changes the privacy notice from disabled to active wording. The token is a public site identifier embedded in HTML, not a Cloudflare API key. Never commit an API token or account credential here.
+
+The dashboard provides aggregate page views, approximate unique visits, referrers, countries, browsers, devices, and performance. It does not provide a list of visitor IP addresses or prove that a particular person read an article.
+
 ## Safety and privacy
 
-Text is HTML-escaped. Slugs and source URLs are validated. No third-party fonts, analytics, model API calls, browser storage, user accounts, or backend. GitHub Pages may keep ordinary hosting request logs. Generated-file cleanup is restricted to the recorded generated manifest inside this publication.
+Text is HTML-escaped. Slugs and source URLs are validated. No third-party fonts, advertising trackers, model API calls, browser storage, user accounts, or backend. Optional audience measurement is restricted to the validated Cloudflare Web Analytics configuration above. GitHub Pages may keep ordinary hosting request logs. Generated-file cleanup is restricted to the recorded generated manifest inside this publication.
 
 Public policies live at `policies/editorial/`, `policies/corrections/`, and `policies/privacy/`. The Atom feed is `feed.xml`. Repository-wide ownership, licensing, security, and release controls are documented at the repository root.
 

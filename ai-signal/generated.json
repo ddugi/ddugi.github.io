@@ -1,6 +1,7 @@
 [
   "about/index.html",
   "index.html",
+  "policies/privacy/index.html",
   "stories/agent-policy-moves-outside-the-agent/index.html",
   "stories/the-benchmark-reached-the-real-world/index.html",
   "stories/the-model-moat-moved-into-the-control-plane/index.html",
