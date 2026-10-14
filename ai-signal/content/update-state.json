@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-14T06:58:25Z",
-  "last_successful_commit": "3bd520146314bb5747d384ad64a39db5683eda57",
+  "last_successful_update": "2026-10-14T07:09:12Z",
+  "last_successful_commit": "4b3a9177b94b55feb02f3cfa5b0f10b01872102a",
   "last_published_story_ids": [
+    "the-scam-detector-stayed-on-the-phone",
     "the-prompt-boundary-is-becoming-a-trust-boundary",
     "the-model-moat-moved-into-the-control-plane",
     "the-benchmark-reached-the-real-world",
-    "the-scanner-is-becoming-a-maintainer-queue",
     "agent-policy-moves-outside-the-agent"
   ],
   "initial_lookback_days": 7,
-  "note": "The 14 October update published Edition 14 after required validation and production verification. The new story tracks Microsoft 365 Copilot trust-aware handling of untrusted content and the wider shift toward deterministic inference-layer controls."
+  "note": "A follow-up on 14 October published Edition 15 after a new Google DeepMind primary source appeared. The story covers Singapore GovTech's on-device scam-detection architecture while explicitly noting future rollout and absent quantitative validation."
 }
