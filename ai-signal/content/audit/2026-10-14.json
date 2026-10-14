@@ -4,7 +4,7 @@
     "start": "2026-10-13T06:39:54Z",
     "end": "2026-10-14T06:58:25Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, safety publications, and API changelog",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -63,10 +63,10 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 15 supersedes the morning Edition 14 after a new 14 October primary source became available. It adds the Google DeepMind and Singapore GovTech on-device scam-detection project as an Interesting signal, explicitly noting future rollout, absent metrics, and lack of independent validation.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/43",
+    "commit": "4b3a9177b94b55feb02f3cfa5b0f10b01872102a",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   },
   "follow_up_research_window": {
     "start": "2026-10-14T06:58:25Z",
