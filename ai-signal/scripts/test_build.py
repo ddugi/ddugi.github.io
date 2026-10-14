@@ -91,7 +91,13 @@ class PublicationTests(unittest.TestCase):
         self.assertIn("&lt;script&gt;", pages["index.html"])
 
     def test_analytics_is_absent_while_disabled(self):
-        pages = build.build(DATA)
+        data = copy.deepcopy(DATA)
+        data["analytics"] = {
+            "provider": "cloudflare-web-analytics",
+            "enabled": False,
+            "siteToken": None
+        }
+        pages = build.build(data)
         self.assertTrue(all("static.cloudflareinsights.com" not in page for page in pages.values()))
         self.assertIn("Analytics is currently disabled", pages["policies/privacy/index.html"])
 
@@ -114,9 +120,20 @@ class PublicationTests(unittest.TestCase):
 
     def test_disabled_analytics_cannot_retain_a_token(self):
         data = copy.deepcopy(DATA)
-        data["analytics"]["siteToken"] = "0123456789abcdef0123456789abcdef"
+        data["analytics"]["enabled"] = False
         with self.assertRaisesRegex(ValueError, "must not retain"):
             build.validate(data)
+
+    def test_enabled_analytics_is_present_on_all_publication_html(self):
+        if not DATA["analytics"]["enabled"]:
+            self.skipTest("Production analytics is disabled")
+        token = DATA["analytics"]["siteToken"]
+        pages = [p for p in ROOT.rglob("index.html") if ".review" not in p.parts]
+        self.assertTrue(pages)
+        for page in pages:
+            content = page.read_text(encoding="utf-8")
+            self.assertEqual(content.count("static.cloudflareinsights.com/beacon.min.js"), 1, page)
+            self.assertIn(token, content, page)
 
     def test_drafts_do_not_generate_pages(self):
         data = copy.deepcopy(DATA)

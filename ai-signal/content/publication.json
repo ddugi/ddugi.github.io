@@ -9,8 +9,8 @@
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
-    "enabled": false,
-    "siteToken": null
+    "enabled": true,
+    "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
     {
