@@ -90,6 +90,34 @@ class PublicationTests(unittest.TestCase):
         self.assertNotIn('<script>alert("x")</script>', pages["index.html"])
         self.assertIn("&lt;script&gt;", pages["index.html"])
 
+    def test_analytics_is_absent_while_disabled(self):
+        pages = build.build(DATA)
+        self.assertTrue(all("static.cloudflareinsights.com" not in page for page in pages.values()))
+        self.assertIn("Analytics is currently disabled", pages["policies/privacy/index.html"])
+
+    def test_analytics_requires_a_valid_token_and_reaches_every_generated_page(self):
+        data = copy.deepcopy(DATA)
+        data["analytics"] = {
+            "provider": "cloudflare-web-analytics",
+            "enabled": True,
+            "siteToken": "0123456789abcdef0123456789abcdef"
+        }
+        pages = build.build(data)
+        for relative, page in pages.items():
+            self.assertEqual(page.count("static.cloudflareinsights.com/beacon.min.js"), 1, relative)
+            self.assertIn("0123456789abcdef0123456789abcdef", page, relative)
+        self.assertIn("Cloudflare Web Analytics is enabled", pages["policies/privacy/index.html"])
+
+        data["analytics"]["siteToken"] = '\"><script>alert(1)</script>'
+        with self.assertRaisesRegex(ValueError, "valid Cloudflare site token"):
+            build.validate(data)
+
+    def test_disabled_analytics_cannot_retain_a_token(self):
+        data = copy.deepcopy(DATA)
+        data["analytics"]["siteToken"] = "0123456789abcdef0123456789abcdef"
+        with self.assertRaisesRegex(ValueError, "must not retain"):
+            build.validate(data)
+
     def test_drafts_do_not_generate_pages(self):
         data = copy.deepcopy(DATA)
         removed = data["stories"][-1]

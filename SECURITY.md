@@ -12,4 +12,4 @@ Include the affected URL or file, impact, reproduction steps, and suggested miti
 
 ## Scope
 
-The site is static and intentionally has no accounts, forms, database, analytics, secrets, payment handling, or server-side application. Reports about GitHub itself or GitHub Pages infrastructure should be sent to GitHub.
+The site is static and intentionally has no accounts, forms, database, secrets, payment handling, or server-side application. AI Signal supports optional Cloudflare Web Analytics for aggregate audience measurement; the build rejects missing or malformed configuration and the public privacy notice reports whether it is enabled. Reports about GitHub itself, Cloudflare infrastructure, or GitHub Pages infrastructure should be sent to the relevant provider.

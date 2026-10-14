@@ -7,6 +7,11 @@
     "mode": "live",
     "updatedAt": "2026-10-14"
   },
+  "analytics": {
+    "provider": "cloudflare-web-analytics",
+    "enabled": false,
+    "siteToken": null
+  },
   "stories": [
     {
       "id": "the-scam-detector-stayed-on-the-phone",

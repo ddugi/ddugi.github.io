@@ -17,7 +17,7 @@ Run `python3 -m http.server 8000` from this directory to preview locally. Deploy
 For production governance, protect `main`, require pull requests, require the `validate` job, prevent force pushes, and enable private vulnerability reporting in repository settings. These server-side controls cannot be established by files alone.
 
 ## Data and privacy
-No backend, analytics, external fonts, third-party scripts, or model calls. Answers live in page memory and are cleared on reload. Users can export JSON results. GitHub Pages may retain normal hosting request logs. Do not add confidential organizational data to exported files intended for public sharing.
+No backend, external fonts, advertising trackers, or model calls. Answers in the interactive tools live in page memory and are cleared on reload. Users can export JSON results. AI Signal has optional, disabled-by-default Cloudflare Web Analytics support for aggregate audience measurement; its public privacy notice and project README describe the active state and collected metrics. GitHub Pages may retain normal hosting request logs. Do not add confidential organizational data to exported files intended for public sharing.
 
 ## Scoring
 AI readiness: round(100 × sum(scores) / 15). All five scores must be integers from 0 through 3. Unknown scores zero; it is not inferred evidence of failure.
