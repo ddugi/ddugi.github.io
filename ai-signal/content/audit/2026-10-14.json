@@ -4,7 +4,7 @@
     "start": "2026-10-13T06:39:54Z",
     "end": "2026-10-14T06:58:25Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, safety publications, and API changelog",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -48,9 +48,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 14 adds one source-backed story. The trend assessment relies on independent Microsoft and AWS product evidence that deterministic trust and policy enforcement are moving outside the model prompt. Microsoft publishes no quantitative effectiveness or utility results, which remains explicit in the story and Signal Map rationale.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/41",
+    "commit": "3bd520146314bb5747d384ad64a39db5683eda57",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
