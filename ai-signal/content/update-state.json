@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-13T06:39:54Z",
-  "last_successful_commit": "79ac29d47a7dcc2c91d5d89dea799169dfe0f533",
+  "last_successful_update": "2026-10-14T06:58:25Z",
+  "last_successful_commit": "3bd520146314bb5747d384ad64a39db5683eda57",
   "last_published_story_ids": [
+    "the-prompt-boundary-is-becoming-a-trust-boundary",
     "the-model-moat-moved-into-the-control-plane",
     "the-benchmark-reached-the-real-world",
     "the-scanner-is-becoming-a-maintainer-queue",
-    "ai-did-not-invent-the-front",
     "agent-policy-moves-outside-the-agent"
   ],
   "initial_lookback_days": 7,
-  "note": "The 13 October update published Edition 13 after required validation and production verification. The new story tracks Anthropic's provider-reported anti-distillation defenses and their control-plane implications."
+  "note": "The 14 October update published Edition 14 after required validation and production verification. The new story tracks Microsoft 365 Copilot trust-aware handling of untrusted content and the wider shift toward deterministic inference-layer controls."
 }
