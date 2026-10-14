@@ -3,11 +3,116 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "13",
+    "edition": "14",
     "mode": "live",
-    "updatedAt": "2026-10-13"
+    "updatedAt": "2026-10-14"
   },
   "stories": [
+    {
+      "id": "the-prompt-boundary-is-becoming-a-trust-boundary",
+      "slug": "the-prompt-boundary-is-becoming-a-trust-boundary",
+      "title": "The prompt boundary is becoming a trust boundary.",
+      "summary": "Microsoft 365 Copilot is introducing an enforcement layer that routes content marked untrusted through a constrained processing path before it reaches the primary model. The signal is architectural: enterprise AI is beginning to preserve where information came from instead of flattening every token into one trusted conversation.",
+      "topic": "Trust-aware handling of indirect prompt injection",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-10-13",
+      "updatedAt": "2026-10-14",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "Microsoft described a Microsoft 365 Copilot enforcement layer that distinguishes trusted from untrusted retrieved content and constrains how the latter enters model context.",
+      "facts": [
+        {
+          "text": "Microsoft published the announcement on 13 October 2026 and described indirect prompt injection as malicious instructions embedded in content such as emails, documents, or messages processed by an AI system.",
+          "sourceIds": [
+            "microsoft-trust-aware-controls"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "Microsoft says these attacks can remain inside existing access permissions, meaning authentication, access governance, and data-loss-prevention controls may work as designed while inference-time risk remains.",
+          "sourceIds": [
+            "microsoft-trust-aware-controls"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "The announced architecture adds an enforcement layer between retrieved tool content and the primary model in Microsoft 365 Copilot.",
+          "sourceIds": [
+            "microsoft-trust-aware-controls"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "Microsoft says deterministic signals categorize retrieved content as trusted or untrusted; external email can be treated as untrusted when it crosses the organization's trust boundary.",
+          "sourceIds": [
+            "microsoft-trust-aware-controls"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "Content categorized as untrusted is routed to a quarantined, capability-constrained processing path that transforms it into a structured representation intended to retain useful information while dropping malicious instructions.",
+          "sourceIds": [
+            "microsoft-trust-aware-controls"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "The system can attach provenance markers to transformed content so downstream processing can account for its origin.",
+          "sourceIds": [
+            "microsoft-trust-aware-controls"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "Microsoft says the primary model receives trusted content unchanged and transformed representations of untrusted content rather than the original untrusted input.",
+          "sourceIds": [
+            "microsoft-trust-aware-controls"
+          ],
+          "verifiedAt": "2026-10-14"
+        },
+        {
+          "text": "Initial investment focuses on high-risk content including external communications; Microsoft says availability and behavior can vary by release status and tenant environment.",
+          "sourceIds": [
+            "microsoft-trust-aware-controls"
+          ],
+          "verifiedAt": "2026-10-14"
+        }
+      ],
+      "changed": "A major enterprise assistant is adding origin-based routing and constrained processing before retrieved content reaches the main model, rather than relying only on prompts, sanitization, or probabilistic attack detection inside a shared context.",
+      "whyItMatters": "Enterprise assistants often have legitimate permission to read the document carrying the attack. Access control therefore cannot answer the next question: should this content be allowed to influence instructions? Preserving origin and integrity through the inference pipeline creates a separate control plane for that decision.",
+      "technicalImpact": "Keep provenance attached to tool outputs, define trust from deterministic enterprise signals, quarantine low-integrity content, constrain the transformation schema, and prevent untrusted text from directly steering consequential tools. Test the entire path for label loss, trusted-source compromise, utility degradation, and content types that bypass classification.",
+      "businessImpact": "Security teams gain a policy point that maps to familiar boundaries such as external senders, but deployment depends on correct tenant configuration and content classification. Product owners should expect trade-offs: safer processing may omit context, change answer quality, and require investigation when legitimate external content is treated conservatively.",
+      "outlook": "Conditional outlook: if Microsoft publishes measurable attack-resistance and utility results and extends provenance across more tools and content types, trust-aware inference could become a standard enterprise AI control. If labels are incomplete, transformed content still carries adversarial intent, or trusted accounts are compromised, the new boundary will reduce only part of the prompt-injection surface.",
+      "uncertainties": [
+        "Microsoft provides no attack-success rate, false-positive rate, latency impact, or task-quality measurement for the announced product layer.",
+        "The announcement says availability and behavior vary by release status and tenant environment, so it does not establish uniform protection across Microsoft 365 Copilot deployments.",
+        "Deterministic classification and routing do not make the content transformation or final model response deterministic.",
+        "External-versus-internal origin is an imperfect trust signal: a compromised internal account or document can still carry malicious instructions.",
+        "Transforming untrusted content may remove useful detail, while preserving too much detail may preserve the attack; the announcement does not quantify that utility-security trade-off.",
+        "The initial focus on high-risk external communications leaves unclear how web pages, shared files, third-party connectors, and other tool outputs are covered.",
+        "This control does not by itself restrict tool permissions, repair unsafe workflows, or prevent misuse of data that the user and assistant are legitimately authorized to access."
+      ],
+      "analysis": "Prompt injection exists because models receive authority and evidence in the same language. Microsoft's move does not solve that conflict, but it stops pretending every retrieved token deserves the same influence. Provenance is becoming part of model context, and context is becoming part of security architecture.",
+      "sources": [
+        {
+          "id": "microsoft-trust-aware-controls",
+          "title": "Building Trust-Aware Controls for AI: Differentiated handling of untrusted content",
+          "publisher": "Microsoft",
+          "url": "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/building-trust-aware-controls-for-ai-differentiated-handling-of-untrusted-conten/4562160",
+          "publishedAt": "2026-10-13",
+          "accessedAt": "2026-10-14"
+        }
+      ],
+      "sourceNote": "Primary product and architecture announcement from Microsoft. Scope, behavior, and security benefits are vendor-described; the post provides no independent validation or quantitative security and utility results.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-14"
+      }
+    },
     {
       "id": "the-model-moat-moved-into-the-control-plane",
       "slug": "the-model-moat-moved-into-the-control-plane",
@@ -17,9 +122,9 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-10-12",
-      "updatedAt": "2026-10-13",
+      "updatedAt": "2026-10-14",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "Anthropic described a layered response to industrial-scale attempts to extract Claude reasoning through fraudulent accounts, proxy networks, and repeated prompt variations.",
@@ -123,7 +228,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-09",
-      "updatedAt": "2026-10-13",
+      "updatedAt": "2026-10-14",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "Anthropic reviewed evaluation and internal-agent transcripts after models interacted with external websites and systems in ways the company did not intend.",
@@ -241,7 +346,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-08",
-      "updatedAt": "2026-10-13",
+      "updatedAt": "2026-10-14",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "Anthropic opened OSS Scanner to eligible maintainers after testing a pipeline that produces unreviewed vulnerability reports, reproducers, and candidate patches.",
@@ -352,117 +457,6 @@
       }
     },
     {
-      "id": "ai-did-not-invent-the-front",
-      "slug": "ai-did-not-invent-the-front",
-      "title": "AI did not invent the front. It made the front easier to run.",
-      "summary": "OpenAI disrupted Russian and Iranian influence operations that used ChatGPT alongside familiar tactics: fake institutions, deceptive bylines, planted articles, forged material, and inflated internal reporting. The signal is operational scale and polish, not a new form of persuasion.",
-      "topic": "AI-assisted influence operations",
-      "category": "Security & Governance",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-08",
-      "updatedAt": "2026-10-13",
-      "author": "Dugi Selmanaj",
-      "visual": "governance",
-      "scenario": "OpenAI banned two account clusters after observing ChatGPT used for internal reporting, translation, editing, fake content, and activity around deceptive front organizations and personas.",
-      "facts": [
-        {
-          "text": "OpenAI published its report on 8 October 2026 and says it banned two covert influence operations originating from Russia and Iran.",
-          "sourceIds": [
-            "openai-false-fronts"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "OpenAI says both operations combined its models with conventional techniques and technologies rather than relying on AI alone.",
-          "sourceIds": [
-            "openai-false-fronts"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "The Russia-origin operation used ChatGPT mainly to create internal reports, with some use for content, translation, and scripts connected to false stories and a purported research organization.",
-          "sourceIds": [
-            "openai-false-fronts"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "OpenAI says available evidence indicates that people working for the Russian operation’s Latin American research organization did not know they were working for a Russian group.",
-          "sourceIds": [
-            "openai-false-fronts"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "OpenAI assessed the Russian operation as Category 5 on the six-level Breakout Scale, the first Category 5 operation it says it has disrupted since beginning this reporting.",
-          "sourceIds": [
-            "openai-false-fronts"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "The Iran-origin operation used seven deceptive journalist bylines; OpenAI identified almost 100 published or syndicated articles across roughly a dozen online outlets.",
-          "sourceIds": [
-            "openai-false-fronts"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "OpenAI assessed the Iranian article-placement activity as Category 4, while the social-media commenting activity was Category 2 and showed little substantial engagement.",
-          "sourceIds": [
-            "openai-false-fronts"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "OpenAI says it found no evidence that the Iranian operation’s automated posting was carried out with its models.",
-          "sourceIds": [
-            "openai-false-fronts"
-          ],
-          "verifiedAt": "2026-10-09"
-        },
-        {
-          "text": "OpenAI cautions that some operator claims could not be corroborated and that the actors sometimes took credit for activity unrelated to them.",
-          "sourceIds": [
-            "openai-false-fronts"
-          ],
-          "verifiedAt": "2026-10-09"
-        }
-      ],
-      "changed": "A provider threat report documents AI supporting durable front organizations and deceptive publication workflows, including internal management and reporting—not only bulk social posts. It also distinguishes observed model use from operator claims and external impact.",
-      "whyItMatters": "The most consequential misuse may look ordinary: better pitches, cleaner translations, faster reports, more consistent personas, and cheaper administration. Defenses that search only for obviously synthetic content will miss the human institutions, editorial channels, and trust relationships being exploited.",
-      "technicalImpact": "Combine model-abuse telemetry with identity, payment, device, network, publication, and open-source evidence. Preserve uncertainty between observed prompts, claimed activity, published material, and measured reach. Detection systems should flag coordinated behavior and provenance gaps without treating polished language as proof of AI use.",
-      "businessImpact": "Media outlets, research organizations, platforms, and public institutions need stronger contributor verification and disclosure procedures. The operational risk is not simply fake text; it is legitimate workflows being used to launder authorship and intent.",
-      "outlook": "Conditional outlook: if generative tools continue lowering the cost of translation, persona maintenance, and internal coordination, false-front operations may become more persistent and geographically adaptable. Their impact will still depend on distribution, trusted intermediaries, local knowledge, and whether defenders connect evidence across organizations.",
-      "uncertainties": [
-        "OpenAI has privileged account telemetry but is also the provider reporting its own enforcement; independent investigators cannot inspect the full dataset.",
-        "Attribution to origin, operator, and intent is probabilistic, and OpenAI says the specific Iranian actor could not be identified.",
-        "Some public matches corroborate operator claims, while other claimed activity was not found and may have been removed, private, or fabricated.",
-        "Breakout Scale ratings are OpenAI’s assessment of potential reach and impact, not a direct measure of audience belief or behavior change.",
-        "The report documents use of ChatGPT within broader operations and does not establish that AI caused their most consequential outcomes.",
-        "Publication under deceptive bylines can involve editorial and identity failures that model-level controls alone cannot solve."
-      ],
-      "analysis": "The durable advantage was not automatic persuasion. It was administrative leverage: translation, pitching, reporting, persona upkeep, and the ability to make a front look busier and more coherent than it was. The defense therefore belongs in identity and distribution systems as much as in model filters.",
-      "sources": [
-        {
-          "id": "openai-false-fronts",
-          "title": "Disrupting AI-enabled “false front” operations",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations/",
-          "publishedAt": "2026-10-08",
-          "accessedAt": "2026-10-09"
-        }
-      ],
-      "sourceNote": "Primary threat-intelligence report from OpenAI, supplemented within the report by linked open-source material. Account observations, attribution, and impact ratings remain provider-reported and partly inferential.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-09"
-      }
-    },
-    {
       "id": "agent-policy-moves-outside-the-agent",
       "slug": "agent-policy-moves-outside-the-agent",
       "title": "The policy now sits outside the agent.",
@@ -473,7 +467,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-07",
-      "updatedAt": "2026-10-13",
+      "updatedAt": "2026-10-14",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "AWS launched an Apache-2.0 developer preview that runs policy enforcement outside an agent process and evaluates actions across several tool boundaries.",
@@ -569,28 +563,28 @@
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-10-13",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 13. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-10-14",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 14. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 13 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 13 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 13 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
@@ -604,67 +598,67 @@
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 13 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 13 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
         "direction": "up-strong",
-        "dimension": "Runtime anti-distillation controls across identity, context, traffic, and billing",
-        "rationale": "Anthropic reported a layered control system and a 10-to-100-plus-fold reduction in reasoning tokens extracted on its own platform. The arrow tracks stronger provider-side controls and evidence, not independent proof of durable industry-wide protection.",
-        "storyId": "the-model-moat-moved-into-the-control-plane"
+        "dimension": "Origin-aware isolation of untrusted content before primary-model inference",
+        "rationale": "Microsoft described a product enforcement layer that classifies content using deterministic signals, quarantines untrusted inputs, and carries provenance downstream. The arrow reflects a concrete architectural control, not measured proof that prompt injection is solved.",
+        "storyId": "the-prompt-boundary-is-becoming-a-trust-boundary"
       },
       {
         "area": "Governance",
         "direction": "up",
-        "dimension": "Explicit disclosure of model-protection trade-offs",
-        "rationale": "Anthropic documented false positives, integration changes, blocked-request billing, foregone revenue, and limits to its evidence. The movement reflects more operational disclosure, while the measurements remain provider-reported.",
-        "storyId": "the-model-moat-moved-into-the-control-plane"
+        "dimension": "Enterprise trust policy entering the inference pipeline",
+        "rationale": "Tenant signals such as external-sender status can now influence how retrieved content is processed before model synthesis. The movement reflects a new policy point while coverage, configuration, and effectiveness remain uncertain.",
+        "storyId": "the-prompt-boundary-is-becoming-a-trust-boundary"
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 13 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 13 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 14 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-10-13",
-    "title": "The model moat moved into the control plane",
-    "date": "2026-10-13",
+    "slug": "2026-10-14",
+    "title": "The prompt boundary is becoming a trust boundary",
+    "date": "2026-10-14",
     "status": "published",
-    "intro": "Anthropic says its new defenses sharply reduced the reasoning data harvested by distillers on its platform. The larger shift is operational: model protection now reaches into tenant identity, context provenance, traffic classification, account enforcement, and billing.",
-    "theme": "A frontier model is not protected by weights and prompts alone. The serving layer decides who can collect capability at scale, how quickly abuse is detected, and which costs providers and legitimate customers must bear.",
+    "intro": "Microsoft 365 Copilot is introducing a path that separates untrusted retrieved content before it reaches the primary model. Together with AWS's external agent policy layer, the pattern is becoming harder to dismiss: AI security controls are moving out of prompts and into system architecture.",
+    "theme": "Access permission says whether an assistant may read something. Provenance and integrity controls decide how much that content should be allowed to steer the assistant after it is read.",
     "storyIds": [
+      "the-prompt-boundary-is-becoming-a-trust-boundary",
       "the-model-moat-moved-into-the-control-plane",
       "the-benchmark-reached-the-real-world",
       "the-scanner-is-becoming-a-maintainer-queue",
-      "ai-did-not-invent-the-front",
       "agent-policy-moves-outside-the-agent"
     ],
     "watchNext": [
-      "Independent validation of Anthropic's reported reduction and false-positive rate.",
-      "Evidence that attackers can or cannot reproduce capability without protected reasoning traces.",
-      "Comparable anti-distillation controls from cloud platforms and other model providers.",
-      "Cross-platform abuse signals that do not expose legitimate customer data.",
-      "Whether organization-bound context and blocked-request billing create material developer friction."
+      "Measured prompt-injection resistance and task-quality impact from the Microsoft 365 Copilot enforcement layer.",
+      "Coverage for web content, shared files, third-party connectors, and non-email tool outputs.",
+      "Behavior when a trusted internal account or document is compromised.",
+      "Whether provenance labels survive multi-agent handoffs and long tool chains.",
+      "Independent testing that distinguishes deterministic routing from probabilistic content transformation."
     ],
-    "closing": "The valuable model is only one part of the system. The rest of the moat is becoming infrastructure."
+    "closing": "The next security boundary is not only who can read the data. It is how much authority the data receives after it enters the model."
   }
 }
