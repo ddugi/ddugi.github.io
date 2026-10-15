@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-14T07:09:12Z",
-  "last_successful_commit": "4b3a9177b94b55feb02f3cfa5b0f10b01872102a",
+  "last_successful_update": "2026-10-15T06:49:15Z",
+  "last_successful_commit": "5a754be689bbd9ac42755dbc1a30292ed5ab0ed8",
   "last_published_story_ids": [
+    "the-workflow-got-a-lockfile",
     "the-scam-detector-stayed-on-the-phone",
     "the-prompt-boundary-is-becoming-a-trust-boundary",
     "the-model-moat-moved-into-the-control-plane",
-    "the-benchmark-reached-the-real-world",
-    "agent-policy-moves-outside-the-agent"
+    "the-benchmark-reached-the-real-world"
   ],
   "initial_lookback_days": 7,
-  "note": "A follow-up on 14 October published Edition 15 after a new Google DeepMind primary source appeared. The story covers Singapore GovTech's on-device scam-detection architecture while explicitly noting future rollout and absent quantitative validation."
+  "note": "Edition 16 was published on 15 October 2026 with a source-backed analysis of GitHub Actions workflow lockfiles. The story treats lockfiles as a reproducibility and governance control, not proof that a dependency is safe."
 }

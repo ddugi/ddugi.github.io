@@ -4,7 +4,7 @@
     "start": "2026-10-14T07:09:12Z",
     "end": "2026-10-15T06:46:50Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, safety publications, and API changelog",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -43,9 +43,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 16 adds one source-backed Important signal. The Signal Map movement is limited to software-supply-chain security and governance, and the story explicitly states that a lockfile preserves reviewed code but does not prove that code is safe.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/47",
+    "commit": "5a754be689bbd9ac42755dbc1a30292ed5ab0ed8",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
