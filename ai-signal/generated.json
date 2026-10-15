@@ -2,10 +2,10 @@
   "about/index.html",
   "index.html",
   "policies/privacy/index.html",
-  "stories/agent-policy-moves-outside-the-agent/index.html",
   "stories/the-benchmark-reached-the-real-world/index.html",
   "stories/the-model-moat-moved-into-the-control-plane/index.html",
   "stories/the-prompt-boundary-is-becoming-a-trust-boundary/index.html",
   "stories/the-scam-detector-stayed-on-the-phone/index.html",
-  "weekly/2026-10-14/index.html"
+  "stories/the-workflow-got-a-lockfile/index.html",
+  "weekly/2026-10-15/index.html"
 ]
