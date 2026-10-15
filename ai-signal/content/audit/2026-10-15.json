@@ -1,0 +1,51 @@
+{
+  "run_date": "2026-10-15",
+  "research_window": {
+    "start": "2026-10-14T07:09:12Z",
+    "end": "2026-10-15T06:46:50Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, safety publications, and API changelog",
+    "Anthropic newsroom, research, policy, and alignment publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, documentation, and official engineering repositories",
+    "NVIDIA official announcements, event materials, and technical blog",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-workflow-got-a-lockfile",
+      "source_publication_date": "2026-10-14",
+      "reason": "The preview combines exact direct and transitive dependency resolution, runtime enforcement, CI verification, Dependabot maintenance, and policy scope. It supports a structural supply-chain signal while explicitly separating reproducibility from dependency safety."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub HydraFusion updates and HydraFusion Max",
+      "source_publication_date": "2026-10-14",
+      "reason": "An incremental update to a research preview with provider-described orchestration changes but no independent benchmark or durable production evidence."
+    },
+    {
+      "candidate": "Microsoft disruption of YAM Store and associated cybercrime infrastructure",
+      "source_publication_date": "2026-10-14",
+      "reason": "A substantive cybersecurity operation, but AI assisted the investigation rather than establishing a new AI, infrastructure, or enterprise-platform signal for this publication."
+    },
+    {
+      "candidate": "NVIDIA OCP and SEMICON conference materials",
+      "source_publication_date": "2026-10-14",
+      "reason": "Scheduled event and ecosystem materials without a separately assessable technical release, benchmark, or deployment result."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 16 adds one source-backed Important signal. The Signal Map movement is limited to software-supply-chain security and governance, and the story explicitly states that a lockfile preserves reviewed code but does not prove that code is safe.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
