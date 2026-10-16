@@ -4,7 +4,7 @@
     "start": "2026-10-15T06:49:15Z",
     "end": "2026-10-16T06:54:03Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, product, safety, and API publications",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -53,9 +53,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 17 adds one Important story based on two same-day GitHub releases. Signal Map movement is limited to AI Security and Governance and remains qualitative; no accuracy, remediation-success, productivity, or independent outcome claim is made.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/49",
+    "commit": "afa10c5a7fd9410c783b37bc13de33aa703470a8",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
