@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "17",
+    "edition": "18",
     "mode": "live",
-    "updatedAt": "2026-10-16"
+    "updatedAt": "2026-10-17"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,112 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-pentest-agent-broke-the-target",
+      "slug": "the-pentest-agent-broke-the-target",
+      "title": "The pentest agent found the bug—and broke the target.",
+      "summary": "AWS tested an autonomous security agent against 37 recent, live vulnerability targets. An audit credited 33 intended end-to-end exploits, but two apparent wins came through benchmark flaws and two other runs crashed the target before retrieving proof. The useful signal is capability under audit—and the operational gap between finding a vulnerability and testing it safely.",
+      "topic": "Autonomous penetration testing against recent real-world vulnerabilities",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-10-15",
+      "updatedAt": "2026-10-17",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "AWS evaluated its Security Agent against containerized targets built from 37 recent CVEs, then manually audited every apparent success to distinguish intended exploitation from benchmark shortcuts and operational failure.",
+      "facts": [
+        {
+          "text": "AWS published the benchmark report on 15 October 2026 and described testing AWS Security Agent against 37 recent real-world CVEs packaged as live containerized targets.",
+          "sourceIds": [
+            "aws-security-agent-cve-benchmark"
+          ],
+          "verifiedAt": "2026-10-17"
+        },
+        {
+          "text": "Each run began with an unauthenticated or low-privilege starting point, an endpoint URL, and a one-line hint; the agent was not given exploit code or a proof of concept.",
+          "sourceIds": [
+            "aws-security-agent-cve-benchmark"
+          ],
+          "verifiedAt": "2026-10-17"
+        },
+        {
+          "text": "AWS initially observed 35 flag captures, then credited 33 of 37 targets—89.2 percent—as genuine end-to-end exploits after auditing every sample against the intended vulnerability path.",
+          "sourceIds": [
+            "aws-security-agent-cve-benchmark"
+          ],
+          "verifiedAt": "2026-10-17"
+        },
+        {
+          "text": "Two initial flag captures were reclassified because the agent reached the flag through unintended benchmark paths rather than the target CVE.",
+          "sourceIds": [
+            "aws-security-agent-cve-benchmark"
+          ],
+          "verifiedAt": "2026-10-17"
+        },
+        {
+          "text": "In the two remaining unsuccessful samples, AWS says the agent found and exploited the vulnerability but made the target unavailable before it could read the flag.",
+          "sourceIds": [
+            "aws-security-agent-cve-benchmark"
+          ],
+          "verifiedAt": "2026-10-17"
+        },
+        {
+          "text": "AWS used a fixed pipeline with Claude Opus 5, one evaluation epoch, and a ten-hour cap per sample; the report says the benchmark covered eight vulnerability classes and included more than six multi-step exploit chains.",
+          "sourceIds": [
+            "aws-security-agent-cve-benchmark"
+          ],
+          "verifiedAt": "2026-10-17"
+        },
+        {
+          "text": "The report says a validation layer caught and labeled 159 false positives and that the agent surfaced more than 1,200 additional findings that were deduplicated.",
+          "sourceIds": [
+            "aws-security-agent-cve-benchmark"
+          ],
+          "verifiedAt": "2026-10-17"
+        },
+        {
+          "text": "AWS says it used recent CVEs and disabled runtime CVE lookup to reduce contamination risk, while explicitly acknowledging that those measures do not eliminate contamination.",
+          "sourceIds": [
+            "aws-security-agent-cve-benchmark"
+          ],
+          "verifiedAt": "2026-10-17"
+        }
+      ],
+      "changed": "The evidence moved beyond recognizing a vulnerability description or generating an isolated exploit. A tool-using agent was given live targets, worked across multi-step chains, and had each apparent success audited against the intended path. The audit also exposed benchmark shortcuts and runs that were technically effective but operationally destructive.",
+      "whyItMatters": "Enterprise penetration testing is not a capture-the-flag contest. A useful system must find real attack paths while respecting scope, preserving availability, producing reviewable evidence, and distinguishing a target defect from a test-harness shortcut. The result is evidence of stronger autonomous capability and, at the same time, evidence that capability can outrun safe operation.",
+      "technicalImpact": "Evaluate security agents with live, isolated targets and per-case audit rather than headline success counts alone. Record the exploit path, target health, false positives, duplicated findings, tool actions, and recovery behavior. Production use needs hard scope limits, disposable environments where possible, approval gates for destructive actions, monitoring, kill switches, and a human who can reject a technically valid but unsafe path.",
+      "businessImpact": "Security teams may gain a way to extend hands-on testing across more applications and longer attack chains. The buying question is broader than detection rate: leaders need evidence about service disruption, analyst review time, false-positive handling, containment, data access, and liability when an automated test changes or disables a system.",
+      "outlook": "Conditional outlook: if larger independent evaluations reproduce end-to-end results and show that agents can test without damaging targets, autonomous penetration testing could become a regular part of application assurance. If benchmark contamination, fragile targets, noisy findings, or destructive behavior remain difficult to control, the strongest use may stay inside isolated labs with supervised escalation.",
+      "uncertainties": [
+        "The benchmark was designed, run, audited, and published by the product vendor; the report links no independent replication.",
+        "Thirty-seven targets are too few to establish performance across enterprise stacks, authentication models, defensive controls, or vulnerability classes not represented in the set.",
+        "One evaluation epoch with one named model and a ten-hour limit does not show variance across repeated runs, models, budgets, or tool configurations.",
+        "Recent CVEs and disabled runtime lookup reduce contamination risk but cannot prove that model training or prior data contained no relevant exploit information.",
+        "Two credited-looking captures depended on benchmark flaws, showing why a flag alone is insufficient evidence of the intended capability.",
+        "Two other runs made the target unavailable before proving success, which is a material operational failure even if exploitation occurred.",
+        "The benchmark did not evaluate the production guardrails that AWS says govern real engagements, so it does not establish their effectiveness.",
+        "The report does not provide an independent comparison with expert human testers, competing agents, or the time and cost of reviewing more than 1,200 additional findings."
+      ],
+      "analysis": "The headline number is less interesting than the corrections around it. AWS audited away two apparent successes and disclosed two runs where the agent broke the thing it was testing. That is what credible evaluation should surface. It also reveals the real product boundary: an autonomous attacker can demonstrate capability before it demonstrates judgment.",
+      "sources": [
+        {
+          "id": "aws-security-agent-cve-benchmark",
+          "title": "AWS Security Agent (now part of AWS Continuum) exploited 33 of 37 new real-world CVEs",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/security/aws-security-agent-now-part-of-aws-continuum-exploited-33-of-37-new-real-world-cves/",
+          "publishedAt": "2026-10-15",
+          "accessedAt": "2026-10-17"
+        }
+      ],
+      "sourceNote": "Primary technical report from AWS, the product vendor and benchmark author. The report publishes methodology, corrections, failures, and contamination limits, but supplies no independent replication or production-safety evaluation.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-17"
+      }
+    },
     {
       "id": "the-security-agent-entered-the-pull-request",
       "slug": "the-security-agent-entered-the-pull-request",
@@ -22,9 +128,9 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-10-15",
-      "updatedAt": "2026-10-16",
+      "updatedAt": "2026-10-17",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub released two generally available code-security features: AI Scan adds advisory findings to pull requests, while agentic autofix investigates default-branch alerts, proposes changes, reruns CodeQL, and opens a draft pull request.",
@@ -146,7 +252,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-14",
-      "updatedAt": "2026-10-16",
+      "updatedAt": "2026-10-17",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub introduced public-preview workflow dependency lockfiles, a CLI extension, Dependabot integration, and an enforceable policy for keeping Actions runs tied to reviewed commits.",
@@ -244,7 +350,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-14",
-      "updatedAt": "2026-10-16",
+      "updatedAt": "2026-10-17",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "Google DeepMind and Singapore GovTech described a privacy-oriented model and staged deployment plan for detecting locally specific scam conversations on typical smartphones.",
@@ -349,7 +455,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-13",
-      "updatedAt": "2026-10-16",
+      "updatedAt": "2026-10-17",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "Microsoft described a Microsoft 365 Copilot enforcement layer that distinguishes trusted from untrusted retrieved content and constrains how the latter enters model context.",
@@ -442,210 +548,106 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-10-14"
       }
-    },
-    {
-      "id": "the-model-moat-moved-into-the-control-plane",
-      "slug": "the-model-moat-moved-into-the-control-plane",
-      "title": "The model moat moved into the control plane.",
-      "summary": "Anthropic says new anti-distillation controls cut the reasoning data harvested from Claude on its platform by roughly 90–99%. The more durable signal is architectural: protecting a model now depends on identity, context provenance, traffic detection, account enforcement, and pricing—not only the model itself.",
-      "topic": "Runtime defenses against model distillation",
-      "category": "Security & Governance",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-12",
-      "updatedAt": "2026-10-16",
-      "author": "Dugi Selmanaj",
-      "visual": "security",
-      "scenario": "Anthropic described a layered response to industrial-scale attempts to extract Claude reasoning through fraudulent accounts, proxy networks, and repeated prompt variations.",
-      "facts": [
-        {
-          "text": "Anthropic published the report on 12 October 2026 and described distillation attacks as campaigns that collect model responses and reasoning traces to train another model.",
-          "sourceIds": [
-            "anthropic-distillation-defenses"
-          ],
-          "verifiedAt": "2026-10-13"
-        },
-        {
-          "text": "Anthropic says its early evidence indicates that the new measures reduced reasoning data harvested by distillers on its own platform by about 90–99%; later in the report it describes the observed volume as 10 to more than 100 times lower after the classifier was introduced.",
-          "sourceIds": [
-            "anthropic-distillation-defenses"
-          ],
-          "verifiedAt": "2026-10-13"
-        },
-        {
-          "text": "The reported defenses combine restrictions on where protected reasoning can move, a two-stage classifier for extraction attempts, stricter usage limits, account bans, and charges for certain requests blocked before a model responds.",
-          "sourceIds": [
-            "anthropic-distillation-defenses"
-          ],
-          "verifiedAt": "2026-10-13"
-        },
-        {
-          "text": "Anthropic says preserved thinking prevents API accounts created on or after 31 August 2026 from editing a model's prior context; it also says Claude Sonnet 5.5 reasoning transcripts can be accessed only by the organization that produced them.",
-          "sourceIds": [
-            "anthropic-distillation-defenses"
-          ],
-          "verifiedAt": "2026-10-13"
-        },
-        {
-          "text": "Anthropic reports a false-positive rate below 0.1% for its two-stage classifier and says the classifier catches all extraction techniques described in its September report on its most capable generally available models.",
-          "sourceIds": [
-            "anthropic-distillation-defenses"
-          ],
-          "verifiedAt": "2026-10-13"
-        },
-        {
-          "text": "Anthropic says it has banned tens of thousands of accounts associated with distillation, often within two hours of a campaign beginning.",
-          "sourceIds": [
-            "anthropic-distillation-defenses"
-          ],
-          "verifiedAt": "2026-10-13"
-        },
-        {
-          "text": "The company says the controls have required some legitimate developers to update integrations, can block benign requests, and can charge users for requests that are blocked before a response is returned.",
-          "sourceIds": [
-            "anthropic-distillation-defenses"
-          ],
-          "verifiedAt": "2026-10-13"
-        },
-        {
-          "text": "Anthropic states that it does not know how long the gains will last and has not yet observed a highly sophisticated, persistent attempt to circumvent the new defenses.",
-          "sourceIds": [
-            "anthropic-distillation-defenses"
-          ],
-          "verifiedAt": "2026-10-13"
-        }
-      ],
-      "changed": "A frontier-model provider moved anti-distillation defense from simple reasoning summarization toward a layered runtime system spanning context integrity, organization boundaries, classifiers, rate controls, account enforcement, and billing.",
-      "whyItMatters": "Model theft is becoming an abuse-operations problem as much as a model-safety problem. A provider can harden the model and still lose valuable training data through weak account creation, distributed traffic, transferable context, or permissive platform integrations. The defensive boundary now includes every place a request is identified, routed, stored, and charged.",
-      "technicalImpact": "Treat reasoning traces and high-value outputs as governed data. Bind context to organizations, detect coordinated extraction across accounts, isolate model-to-model access, preserve request provenance, and build rapid enforcement into API gateways. Platforms that resell model access need compatible abuse signals and offboarding paths or attackers can route around one provider's controls.",
-      "businessImpact": "Providers may have to reject paying traffic, absorb investigation costs, and impose integration changes on legitimate customers to protect model capability. Enterprise buyers should expect stronger identity checks, stricter context handling, blocked-request billing, and less portability for protected reasoning—each with support, privacy, and procurement consequences.",
-      "outlook": "Conditional outlook: if multiple providers adopt comparable controls and share reliable abuse indicators with cloud and inference partners, anti-distillation could become a standard layer of model-serving infrastructure. If attackers simply shift to third-party endpoints, synthetic identities, or extraction methods that do not require visible reasoning, the reported gains may remain local and temporary.",
-      "uncertainties": [
-        "The effectiveness figures come from Anthropic's own telemetry and estimation method; no independent audit, raw time series, or normalized baseline is available.",
-        "A reduction in extracted reasoning tokens does not directly measure how much capability an attacker can reproduce from the remaining data or from final answers alone.",
-        "Anthropic says it has not yet faced a highly sophisticated and persistent attempt against the completed system, so the result may overstate durability under stronger adversarial pressure.",
-        "The reported false-positive rate is provider-measured and does not show how errors are distributed across languages, customers, or unusual legitimate workflows.",
-        "Stronger organization binding and immutable context can reduce abuse while also breaking legitimate integrations and limiting portability.",
-        "Blocking traffic on Anthropic's platform may displace extraction to cloud resellers, other providers, stolen accounts, or different models rather than reduce the wider market for distilled capability."
-      ],
-      "analysis": "The headline number is tempting, but the architecture is the real story. Anthropic is treating model capability like a high-value service that needs fraud detection, tenant isolation, provenance, rate controls, and an abuse desk. The moat is no longer just in the weights. It is in the control plane around every token.",
-      "sources": [
-        {
-          "id": "anthropic-distillation-defenses",
-          "title": "Strengthening our defenses against distillation attacks",
-          "publisher": "Anthropic",
-          "url": "https://www.anthropic.com/research/distillation-defenses",
-          "publishedAt": "2026-10-12",
-          "accessedAt": "2026-10-13"
-        }
-      ],
-      "sourceNote": "Primary technical report from Anthropic. Attack prevalence, enforcement outcomes, false-positive rate, and the 90–99% reduction are provider-reported and have not been independently validated.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-13"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-10-16",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 17. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-10-17",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 18. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 17 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 18 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 17 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Long-horizon tool use exposes a gap between autonomous capability and safe operation",
+        "rationale": "The agent completed multi-step exploit chains, but two runs made targets unavailable before retrieving proof and two apparent successes used unintended benchmark paths. The arrow records greater operational reach together with a control problem, not production readiness.",
+        "storyId": "the-pentest-agent-broke-the-target"
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 17 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 18 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 17 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 18 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 17 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 18 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 17 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 18 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
         "direction": "up",
-        "dimension": "AI-assisted vulnerability detection and remediation embedded in repository workflow",
-        "rationale": "GitHub made both pull-request AI Scan and default-branch agentic autofix generally available. Movement reflects broader workflow integration and language coverage; advisory status, exclusions, and absent effectiveness metrics prevent a stronger assessment.",
-        "storyId": "the-security-agent-entered-the-pull-request"
+        "dimension": "Fresh, audited end-to-end exploitation by a security agent",
+        "rationale": "AWS reports 33 intended-path exploits across 37 recent live CVE targets after auditing every apparent success. Movement reflects demonstrated end-to-end capability; the small vendor-run benchmark, contamination risk, and absent independent replication prevent a stronger assessment.",
+        "storyId": "the-pentest-agent-broke-the-target"
       },
       {
         "area": "Governance",
-        "direction": "up",
-        "dimension": "AI security actions retained inside policy, budget, draft-PR, and human-review boundaries",
-        "rationale": "The releases expose AI findings separately, require administrative enablement for autofix, meter usage, and return generated repairs as draft pull requests. The arrow describes explicit controls, not proof that teams review them well.",
-        "storyId": "the-security-agent-entered-the-pull-request"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 18 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 17 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 18 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 17 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 18 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-10-16",
-    "title": "The security agent entered the pull request",
-    "date": "2026-10-16",
+    "slug": "2026-10-17",
+    "title": "The pentest agent found the bug—and broke the target",
+    "date": "2026-10-17",
     "status": "published",
-    "intro": "GitHub made one AI system available to inspect pull-request changes beyond CodeQL's current language coverage and another to remediate default-branch alerts across a codebase. The design stops before autonomous approval: findings are advisory and repairs arrive as drafts.",
-    "theme": "The practical enterprise pattern is becoming clearer. Use models to widen inspection and do expensive investigative work, use deterministic tools to test specific claims, and keep consequential approval in a governed workflow. The weak point is evidence: neither general availability nor a green scanner proves better security outcomes.",
+    "intro": "AWS put its security agent in front of 37 recent, live vulnerability targets and audited every result. Thirty-three followed the intended exploit path. Four other cases explain why the headline needs supervision: two used benchmark shortcuts and two took the target down.",
+    "theme": "Security agents are moving from advisory analysis toward long-running action against real systems. That raises the value of fresh targets, path-level audit, containment, and service-health evidence. Finding the vulnerability is only one part of a safe pentest.",
     "storyIds": [
+      "the-pentest-agent-broke-the-target",
       "the-security-agent-entered-the-pull-request",
       "the-workflow-got-a-lockfile",
       "the-scam-detector-stayed-on-the-phone",
-      "the-prompt-boundary-is-becoming-a-trust-boundary",
-      "the-model-moat-moved-into-the-control-plane"
+      "the-prompt-boundary-is-becoming-a-trust-boundary"
     ],
     "watchNext": [
-      "Independent precision and recall results for AI Scan across supported languages and frameworks.",
-      "Rates at which reviewers accept, dismiss, or substantially rewrite AI findings and agentic fixes.",
-      "Whether advisory PR findings can feed stronger policy without creating noisy merge gates.",
-      "Coverage plans for fork, Dependabot, pull-request-only, and non-default-branch findings.",
-      "Evidence that generated fixes preserve behavior and reduce risk beyond closing the original CodeQL alert."
+      "Independent replication on a larger and changing set of vulnerabilities.",
+      "Repeated-run variance across models, tool budgets, authentication states, and defensive controls.",
+      "Non-destructive success rates and evidence that production guardrails prevent service disruption.",
+      "Audited comparisons with expert human testers and competing systems.",
+      "Review cost and prioritization quality for the large set of findings outside the benchmark flags."
     ],
-    "closing": "The agent can investigate and propose. The repository still needs a person who understands what safe means."
+    "closing": "A security agent can win the exploit and still lose the operation."
   }
 }
