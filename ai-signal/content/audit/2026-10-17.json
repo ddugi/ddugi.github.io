@@ -4,7 +4,7 @@
     "start": "2026-10-16T06:55:49Z",
     "end": "2026-10-17T11:46:44Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, product, safety, and API publications",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -48,9 +48,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 18 adds one Important story from a vendor-published technical benchmark. Signal Map movement is limited to AI Security and Agents. It describes capability and operational reach, while explicitly withholding production-readiness, independent-validation, and safety claims.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
-    "live_edition_changed": false,
-    "verified_url": null
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/51",
+    "commit": "2cb4cd751d5857ca864e87e74108793015b4fc81",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }

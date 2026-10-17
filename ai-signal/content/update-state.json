@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-16T06:55:49Z",
-  "last_successful_commit": "afa10c5a7fd9410c783b37bc13de33aa703470a8",
+  "last_successful_update": "2026-10-17T11:48:30Z",
+  "last_successful_commit": "2cb4cd751d5857ca864e87e74108793015b4fc81",
   "last_published_story_ids": [
+    "the-pentest-agent-broke-the-target",
     "the-security-agent-entered-the-pull-request",
     "the-workflow-got-a-lockfile",
     "the-scam-detector-stayed-on-the-phone",
-    "the-prompt-boundary-is-becoming-a-trust-boundary",
-    "the-model-moat-moved-into-the-control-plane"
+    "the-prompt-boundary-is-becoming-a-trust-boundary"
   ],
   "initial_lookback_days": 7,
-  "note": "Edition 17 was published on 16 October 2026 with a source-backed analysis of GitHub AI Scan and agentic autofix. The story preserves the advisory, coverage, human-review, validation, and cost limitations."
+  "note": "Edition 18 was published on 17 October 2026 with a source-backed analysis of AWS Security Agent’s recent-CVE benchmark. The story preserves benchmark, contamination, independence, target-availability, and production-safety limitations."
 }
