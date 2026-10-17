@@ -1,0 +1,56 @@
+{
+  "run_date": "2026-10-17",
+  "research_window": {
+    "start": "2026-10-16T06:55:49Z",
+    "end": "2026-10-17T11:46:44Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, product, safety, and API publications",
+    "Anthropic newsroom, research, policy, and alignment publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog and engineering publications",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-pentest-agent-broke-the-target",
+      "source_publication_date": "2026-10-15",
+      "reason": "A methodology-rich AWS benchmark demonstrates recent live, end-to-end autonomous exploitation and publishes material negative evidence: two benchmark shortcuts and two target outages. The result supports a restrained signal about agent capability and the unresolved boundary between exploit success and safe operation. The 15 October source was discovered after the prior research cutoff and was evaluated in this run."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "AWS Trust in Depth for agent autonomy",
+      "source_publication_date": "2026-10-15",
+      "reason": "Useful architecture guidance that consolidates existing identity, policy, observability, and automated-reasoning controls rather than supplying a distinct new capability or measured deployment result."
+    },
+    {
+      "candidate": "AWS FreeRTOS security bulletins",
+      "source_publication_date": "2026-10-16",
+      "reason": "Actionable product-security notices, but the affected embedded-software vulnerabilities do not establish a broader AI, agent, cloud-infrastructure, or enterprise-governance signal for this publication."
+    },
+    {
+      "candidate": "NVIDIA and Hugging Face model and infrastructure releases",
+      "source_publication_date": "2026-10-16",
+      "reason": "Vendor and community launch material surfaced during the window, but no item combined independent evidence, clear enterprise consequence, and sufficient methodology to displace the accepted benchmark story."
+    },
+    {
+      "candidate": "OpenAI, Anthropic, Google DeepMind, Microsoft, Meta, and GitHub official updates",
+      "source_publication_date": "2026-10-16",
+      "reason": "No newly published item found in the research window met the threshold for a source-backed structural signal after deduplication against existing editions."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 18 adds one Important story from a vendor-published technical benchmark. Signal Map movement is limited to AI Security and Agents. It describes capability and operational reach, while explicitly withholding production-readiness, independent-validation, and safety claims.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": null
+  }
+}
