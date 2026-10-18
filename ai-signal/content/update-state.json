@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-17T11:48:30Z",
-  "last_successful_commit": "2cb4cd751d5857ca864e87e74108793015b4fc81",
+  "last_successful_update": "2026-10-18T11:39:50Z",
+  "last_successful_commit": "bcfec8ba46fdbd02b4853a2659684b6bd4e2a1b9",
   "last_published_story_ids": [
+    "the-license-policy-entered-the-merge-gate",
     "the-pentest-agent-broke-the-target",
     "the-security-agent-entered-the-pull-request",
     "the-workflow-got-a-lockfile",
-    "the-scam-detector-stayed-on-the-phone",
-    "the-prompt-boundary-is-becoming-a-trust-boundary"
+    "the-scam-detector-stayed-on-the-phone"
   ],
   "initial_lookback_days": 7,
-  "note": "Edition 18 was published on 17 October 2026 with a source-backed analysis of AWS Security Agent’s recent-CVE benchmark. The story preserves benchmark, contamination, independence, target-availability, and production-safety limitations."
+  "note": "Edition 19 was published on 18 October 2026 with a source-backed analysis of GitHub open-source license compliance. The story preserves metadata, exception-governance, availability, portability, and missing-outcome limitations."
 }
