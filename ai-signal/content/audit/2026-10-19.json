@@ -4,7 +4,7 @@
     "start": "2026-10-18T11:39:50Z",
     "end": "2026-10-19T06:59:36Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, product, safety, API, and developer publications",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -47,9 +47,9 @@
   "emerging_trends_detected": 0,
   "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised story. Edition 19 and its Signal Map remain unchanged; the completed research window and editorial rejections are recorded without manufacturing a headline.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/55",
+    "commit": "08fb3c761580216abf670902e3c42c6953e2bfe1",
     "live_edition_changed": false,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
