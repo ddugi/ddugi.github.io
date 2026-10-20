@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "19",
+    "edition": "20",
     "mode": "live",
-    "updatedAt": "2026-10-18"
+    "updatedAt": "2026-10-20"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,121 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-legacy-language-gap-narrowed",
+      "slug": "the-legacy-language-gap-narrowed",
+      "title": "The legacy-language gap narrowed.",
+      "summary": "OpenAI reports large gains on two new coding evaluations covering 20 programming languages and behavior-preserving COBOL migration. The strongest result is not that a model can translate old syntax. It is that models are being tested against observable behavior in languages that run essential systems—while production correctness, independent replication, and benchmark breadth remain open.",
+      "topic": "Coding models for low-resource and legacy programming languages",
+      "category": "Models",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-10-19",
+      "updatedAt": "2026-10-20",
+      "author": "Dugi Selmanaj",
+      "visual": "models",
+      "scenario": "OpenAI introduced MultiLangBench and a COBOL migration evaluation to test whether current models can build working software and preserve legacy behavior across languages with less training data and tooling support.",
+      "facts": [
+        {
+          "text": "OpenAI published its low-resource programming-language results on 19 October 2026 and described two evaluations: MultiLangBench for building SQLite-compatible engines across 20 languages, and a COBOL migration evaluation for behavior-preserving translation.",
+          "sourceIds": [
+            "openai-low-resource-languages",
+            "openai-multilangbench"
+          ],
+          "verifiedAt": "2026-10-20"
+        },
+        {
+          "text": "OpenAI reports that GPT-6 Astra at maximum reasoning effort averaged an 87.4% test pass rate across 20 MultiLangBench languages, compared with 26.8% for GPT-5.6 Sol, with improvements in every tested language.",
+          "sourceIds": [
+            "openai-low-resource-languages"
+          ],
+          "verifiedAt": "2026-10-20"
+        },
+        {
+          "text": "The reported MultiLangBench gains include COBOL from 10.9% to 72.1%, OCaml from 25.6% to 85.8%, Fortran from 21.4% to 83.5%, and Visual Basic from 27.5% to 89.4% when comparing GPT-5.6 Sol with GPT-6 Astra.",
+          "sourceIds": [
+            "openai-low-resource-languages"
+          ],
+          "verifiedAt": "2026-10-20"
+        },
+        {
+          "text": "OpenAI reports that GPT-6 Luna averaged 40.3% on MultiLangBench at maximum reasoning effort and an estimated $0.77 API cost per sample, compared with $3.48 for GPT-5.6 Sol—approximately 78% lower.",
+          "sourceIds": [
+            "openai-low-resource-languages"
+          ],
+          "verifiedAt": "2026-10-20"
+        },
+        {
+          "text": "On OpenAI's COBOL migration evaluation, GPT-6.1 Sol reportedly reached 86.6% accuracy at low reasoning effort versus 5.4% for GPT-5.6 Sol at the same setting, at 61% of the estimated API cost; higher reasoning effort reached 97.9%.",
+          "sourceIds": [
+            "openai-low-resource-languages"
+          ],
+          "verifiedAt": "2026-10-20"
+        },
+        {
+          "text": "The migration evaluation uses hidden tests and requires byte-for-byte parity on observable outputs; a migration counts as successful only when every test passes.",
+          "sourceIds": [
+            "openai-low-resource-languages"
+          ],
+          "verifiedAt": "2026-10-20"
+        },
+        {
+          "text": "The public MultiLangBench repository says its tests derive from SQLite 3.40.1's TCL suite, that 24,000 tests were converted, and that normal evaluation should use the 272 tests whose identifiers begin with 00, 01, or 02 unless a larger run is explicitly reported.",
+          "sourceIds": [
+            "openai-multilangbench"
+          ],
+          "verifiedAt": "2026-10-20"
+        },
+        {
+          "text": "The public evaluation setup gives the model SQLite documentation, removes SQLite implementations from the environment, prohibits internet access, and grades candidate database files against the reference SQLite binary.",
+          "sourceIds": [
+            "openai-multilangbench"
+          ],
+          "verifiedAt": "2026-10-20"
+        }
+      ],
+      "changed": "Evaluation moved beyond popular-language issue fixing into two harder enterprise-shaped questions: can a model build substantial behavior across languages with sparse training material, and can it migrate legacy programs without silently changing their outputs? OpenAI also released the MultiLangBench harness, making part of the claim inspectable instead of publishing only a scoreboard.",
+      "whyItMatters": "Legacy modernization fails when a rewrite compiles but changes a rounding rule, missing-record path, or decades-old business invariant. Testing exact observable behavior is closer to the real risk than measuring syntactic translation. If the reported gains transfer beyond the benchmark, engineering teams could use models to investigate and migrate systems that have limited documentation and shrinking expert capacity—but only with the old system serving as an executable specification.",
+      "technicalImpact": "Use coding models as migration workers inside a verification harness, not as authorities on legacy behavior. Capture characterization tests before rewriting, compare outputs at byte and business-rule level, preserve build and runtime constraints, and require domain experts to review mismatches. Re-run the public benchmark in the target environment and build repository-specific evaluations; a SQLite-compatible engine and small COBOL programs do not establish correctness on a production estate.",
+      "businessImpact": "Better support for COBOL, Fortran, Visual Basic, and other underrepresented languages could expand where AI-assisted maintenance and modernization are economically plausible. The value depends on verification cost, unavailable specifications, integration complexity, and expert review. A cheaper generated rewrite that creates reconciliation errors or operational risk is not a modernization saving.",
+      "outlook": "Conditional outlook: if independent teams reproduce these results and enterprise pilots show lower migration effort without increasing escaped defects, low-resource-language capability could become a practical modernization tool. If performance depends on narrow benchmark structures, familiar SQLite behavior, or small isolated programs, the gains may improve demonstrations long before they reduce the risk of replacing critical systems.",
+      "uncertainties": [
+        "The headline results were produced and published by the model provider; no independent replication is linked.",
+        "MultiLangBench measures construction of one SQLite-compatible system, which may not represent maintenance, debugging, dependency integration, or business-rule recovery in real repositories.",
+        "The repository documents a 272-test standard subset from 24,000 converted tests; the publication does not make run variance or sensitivity to test selection visible.",
+        "SQLite behavior and documentation are widely available, so removing runtime implementations and internet access does not eliminate training-data familiarity or benchmark-specific learning.",
+        "The publication releases MultiLangBench but does not link a public COBOL migration dataset and harness, limiting reproduction of the strongest migration result.",
+        "A 97.9% score near evaluation saturation can indicate strong capability, a narrow benchmark, or both; it does not quantify the severity of the remaining failures.",
+        "Byte-for-byte output parity covers tested observable behavior, not undocumented operational dependencies, performance, security, batch scheduling, data quality, or downstream contracts.",
+        "The cost comparisons are estimated API costs for benchmark samples and do not include test creation, expert review, failed migrations, integration, or production assurance."
+      ],
+      "analysis": "The useful idea is not 'AI understands COBOL now.' It is that legacy code should be judged by what it does, not whether a generated rewrite looks modern. OpenAI's numbers suggest the model gap is narrowing. The evaluation boundary says what still matters: executable tests, exact outputs, and experts who know which hidden behavior cannot be lost.",
+      "sources": [
+        {
+          "id": "openai-low-resource-languages",
+          "title": "Advancing coding in low-resource programming languages",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/low-resource-programming-languages/",
+          "publishedAt": "2026-10-19",
+          "accessedAt": "2026-10-20"
+        },
+        {
+          "id": "openai-multilangbench",
+          "title": "MultiLangBench: An eval based on SQLite that benchmarks language models in multiple languages",
+          "publisher": "OpenAI",
+          "url": "https://github.com/openai/MultiLangBench",
+          "publishedAt": "2026-10-19",
+          "accessedAt": "2026-10-20"
+        }
+      ],
+      "sourceNote": "Primary research publication and public evaluation repository from OpenAI, the evaluated models' provider. MultiLangBench is inspectable, but the COBOL migration evaluation is not linked as a reproducible public harness and neither result has independent validation here.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-20"
+      }
+    },
     {
       "id": "the-license-policy-entered-the-merge-gate",
       "slug": "the-license-policy-entered-the-merge-gate",
@@ -22,9 +137,9 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-10-16",
-      "updatedAt": "2026-10-18",
+      "updatedAt": "2026-10-20",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub connected an enterprise license policy to repository rulesets, pull-request annotations, delegated exception review, audit logs, SBOM data, and an API that tools and coding agents can query before selecting a package.",
@@ -130,7 +245,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-15",
-      "updatedAt": "2026-10-18",
+      "updatedAt": "2026-10-20",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "AWS evaluated its Security Agent against containerized targets built from 37 recent CVEs, then manually audited every apparent success to distinguish intended exploitation from benchmark shortcuts and operational failure.",
@@ -236,7 +351,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-15",
-      "updatedAt": "2026-10-18",
+      "updatedAt": "2026-10-20",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub released two generally available code-security features: AI Scan adds advisory findings to pull requests, while agentic autofix investigates default-branch alerts, proposes changes, reruns CodeQL, and opens a draft pull request.",
@@ -358,7 +473,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-14",
-      "updatedAt": "2026-10-18",
+      "updatedAt": "2026-10-20",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub introduced public-preview workflow dependency lockfiles, a CLI extension, Dependabot integration, and an enforceable policy for keeping Actions runs tied to reviewed commits.",
@@ -444,211 +559,106 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-10-15"
       }
-    },
-    {
-      "id": "the-scam-detector-stayed-on-the-phone",
-      "slug": "the-scam-detector-stayed-on-the-phone",
-      "title": "The scam detector stayed on the phone.",
-      "summary": "Google DeepMind and Singapore GovTech built a locally tuned scam-detection model intended to process conversations on users' devices. The useful signal is not a claimed detection score—the announcement gives none. It is a two-stage edge architecture that tries to improve safety without making private messages a cloud dataset.",
-      "topic": "On-device, locally adapted AI safety",
-      "category": "Security & Governance",
-      "signal": "Interesting",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-14",
-      "updatedAt": "2026-10-18",
-      "author": "Dugi Selmanaj",
-      "visual": "security",
-      "scenario": "Google DeepMind and Singapore GovTech described a privacy-oriented model and staged deployment plan for detecting locally specific scam conversations on typical smartphones.",
-      "facts": [
-        {
-          "text": "Google DeepMind published the announcement on 14 October 2026 and said it built the model with Singapore's Government Technology Agency under their National AI Partnership.",
-          "sourceIds": [
-            "deepmind-on-device-scam-detection"
-          ],
-          "verifiedAt": "2026-10-14"
-        },
-        {
-          "text": "The project fine-tuned a lightweight Gemma model on localized scam conversations covering impersonation of institutions, banks, public figures, and other regional schemes.",
-          "sourceIds": [
-            "deepmind-on-device-scam-detection"
-          ],
-          "verifiedAt": "2026-10-14"
-        },
-        {
-          "text": "Google says the planned application integration will process conversation data entirely on-device and will require user consent before accessing on-device conversations.",
-          "sourceIds": [
-            "deepmind-on-device-scam-detection"
-          ],
-          "verifiedAt": "2026-10-14"
-        },
-        {
-          "text": "The announced design uses a lightweight first-stage classifier to screen inbound messages and sends suspicious cases to a fine-tuned Gemma model for analysis of a larger multi-turn conversation snapshot.",
-          "sourceIds": [
-            "deepmind-on-device-scam-detection"
-          ],
-          "verifiedAt": "2026-10-14"
-        },
-        {
-          "text": "When the model detects manipulative conversational patterns, the intended product behavior is to display a real-time warning before a user shares sensitive information or funds.",
-          "sourceIds": [
-            "deepmind-on-device-scam-detection"
-          ],
-          "verifiedAt": "2026-10-14"
-        },
-        {
-          "text": "Google says fine-tuning occurred in a GovTech-managed GCP environment and excluded private or personally identifiable citizen data, using anonymized datasets derived from scam reports and intelligence feeds.",
-          "sourceIds": [
-            "deepmind-on-device-scam-detection"
-          ],
-          "verifiedAt": "2026-10-14"
-        },
-        {
-          "text": "Google says the model was tested against synthetic dialogues and local corpora, but the announcement publishes no detection accuracy, false-positive rate, latency, battery, or device-coverage result.",
-          "sourceIds": [
-            "deepmind-on-device-scam-detection"
-          ],
-          "verifiedAt": "2026-10-14"
-        },
-        {
-          "text": "Rollout inside citizen-facing applications remains future and phased; the announcement does not identify a public launch date or participating application.",
-          "sourceIds": [
-            "deepmind-on-device-scam-detection"
-          ],
-          "verifiedAt": "2026-10-14"
-        }
-      ],
-      "changed": "A government and model developer moved a localized conversational-safety task toward a two-stage edge pipeline: cheap screening first, deeper multi-turn analysis second, with planned processing kept on the user's device.",
-      "whyItMatters": "Fraud detection often asks users to trade message privacy for protection. On-device inference changes that system boundary. It can inspect context that an end-to-end encrypted service cannot read centrally, while localization acknowledges that social-engineering language and impersonation patterns differ by country and community.",
-      "technicalImpact": "Design edge safety as a cascade: keep the first stage cheap, invoke the larger local model selectively, expose a clear warning rather than taking autonomous financial action, and measure energy, latency, recall, and false alarms across representative devices. Keep training-data governance separate from runtime privacy and test how model updates reach devices without expanding telemetry.",
-      "businessImpact": "Banks, messaging providers, governments, and operating-system vendors gain a possible privacy-preserving intervention point before money or credentials leave the device. Adoption will depend on evidence the warnings are accurate, understandable, accessible, and resistant to alert fatigue—and on clear responsibility when the model misses a scam or blocks legitimate conversation.",
-      "outlook": "Conditional outlook: if phased deployment produces transparent effectiveness, battery, and false-positive results across ordinary phones, localized on-device safety models could become a reusable pattern for fraud prevention. If accuracy depends on narrow training data, updates lag new scams, or applications collect surrounding telemetry, the privacy and protection claims will weaken in practice.",
-      "uncertainties": [
-        "The model has been built but the citizen-facing rollout is described as future and phased; the announcement does not establish current public availability.",
-        "No quantitative detection, false-positive, latency, battery, memory, or device-compatibility results are published.",
-        "Google DeepMind and GovTech describe their own collaboration; no independent evaluation or red-team report is linked.",
-        "On-device inference prevents central access through the described model deployment, but the announcement does not specify what surrounding applications, operating systems, crash logs, or analytics may collect.",
-        "Anonymized reports and synthetic dialogues may not represent new scam tactics, multilingual code-switching, accessibility needs, or benign conversations that resemble manipulation.",
-        "Warnings can reduce harm only when users notice, understand, and trust them; repeated false alarms could create alert fatigue.",
-        "A localized classifier can be evaded as attackers adapt their wording, move to voice or images, or spread manipulation across channels the model cannot observe."
-      ],
-      "analysis": "The absence of a benchmark is a reason for restraint, not dismissal. The architecture answers a real design question: how can an encrypted conversation receive contextual protection without becoming readable to a central service? The answer is to move both the model and the privacy risk onto the device—then prove the trade-off in deployment.",
-      "sources": [
-        {
-          "id": "deepmind-on-device-scam-detection",
-          "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
-          "publisher": "Google DeepMind",
-          "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
-          "publishedAt": "2026-10-14",
-          "accessedAt": "2026-10-14"
-        }
-      ],
-      "sourceNote": "Primary project announcement from Google DeepMind. Architecture, data governance, privacy behavior, testing, and readiness are partner-reported; no quantitative or independent evaluation is provided.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-14"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-10-18",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 19. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-10-20",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 20. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 19 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Coding capability broadens across low-resource and legacy programming languages",
+        "rationale": "OpenAI reports large test-pass gains across 20 languages and on behavior-preserving COBOL migration, with a public MultiLangBench harness. Movement reflects broader evaluated capability; vendor authorship, one database-engine task, limited migration reproducibility, and no production evidence prevent a stronger assessment.",
+        "storyId": "the-legacy-language-gap-narrowed"
       },
       {
         "area": "Agents",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 19 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 19 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
-        "direction": "up",
-        "dimension": "Dependency license decisions move from inventory toward governed selection",
-        "rationale": "New and changed dependencies can be checked against one enterprise policy in the pull request, while SBOM and dependency-graph license data support later evidence. The arrow describes earlier policy enforcement, not proof of legal correctness.",
-        "storyId": "the-license-policy-entered-the-merge-gate"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 19 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 19 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Legacy modernization becomes a more plausible model-assisted workflow when behavior is executable",
+        "rationale": "The migration evaluation requires exact observable output parity and shows a large provider-reported gain. The arrow records increased technical plausibility, not demonstrated deployment: business rules, integrations, assurance cost, and expert review remain unresolved.",
+        "storyId": "the-legacy-language-gap-narrowed"
       },
       {
         "area": "AI Security",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 19 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Governance",
-        "direction": "up",
-        "dimension": "Machine-readable license policy enforced at merge and available before agent recommendations",
-        "rationale": "GitHub connected enterprise license policy to a required ruleset result, delegated exception review, audit events, and a package-compliance API. Movement reflects a concrete governance control; metadata limits, product context, and absent outcome evidence prevent a stronger assessment.",
-        "storyId": "the-license-policy-entered-the-merge-gate"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 19 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 19 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-10-18",
-    "title": "The license policy entered the merge gate",
-    "date": "2026-10-18",
+    "slug": "2026-10-20",
+    "title": "The legacy-language gap narrowed",
+    "date": "2026-10-20",
     "status": "published",
-    "intro": "GitHub turned open-source license policy into a repository ruleset result, added named exception ownership and audit events, and exposed a package check that coding agents can call before recommending a dependency.",
-    "theme": "Enterprise controls are moving earlier in the software path. A policy is more useful when tools can ask before generating a change and CI can enforce the answer on the real diff. The hard work remains outside the checkbox: correct metadata, product-specific rules, disciplined exceptions, and accountable human judgment.",
+    "intro": "OpenAI tested current models on building SQLite-compatible engines across 20 languages and on migrating COBOL while preserving exact outputs. The reported gains are large; the public harness makes one evaluation inspectable, while the strongest migration result remains harder to reproduce.",
+    "theme": "Coding models are reaching beyond the languages that dominate public repositories. For enterprise modernization, capability matters only when old behavior can be executed, compared, and reviewed. The model can propose the rewrite; the test harness and domain owner decide whether it is the same system.",
     "storyIds": [
+      "the-legacy-language-gap-narrowed",
       "the-license-policy-entered-the-merge-gate",
       "the-pentest-agent-broke-the-target",
       "the-security-agent-entered-the-pull-request",
-      "the-workflow-got-a-lockfile",
-      "the-scam-detector-stayed-on-the-phone"
+      "the-workflow-got-a-lockfile"
     ],
     "watchNext": [
-      "Measured false-positive and false-negative rates across package ecosystems and compound license expressions.",
-      "Exception volumes, expiry practices, reviewer workload, and time added to pull requests.",
-      "Evidence that coding agents query the compliance API consistently before selecting dependencies.",
-      "Portability of policy definitions and audit evidence beyond one repository platform.",
-      "Independent legal and operational assessments of whether merge-time checks reduce remediation after release."
+      "Independent MultiLangBench replications with repeated runs and the full converted test suite.",
+      "A public COBOL migration dataset, harness, and per-language failure analysis.",
+      "Repository-scale evaluations covering dependencies, build systems, batch jobs, data contracts, and operational constraints.",
+      "Enterprise pilots reporting expert-review time, escaped defects, rollback rates, and total migration cost.",
+      "Whether performance remains strong on proprietary code and business rules absent from public training data."
     ],
-    "closing": "A policy becomes operational when the system can ask before the package enters the codebase."
+    "closing": "A rewrite is modern only when the behavior survives."
   }
 }
