@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-19T07:01:35Z",
-  "last_successful_commit": "08fb3c761580216abf670902e3c42c6953e2bfe1",
+  "last_successful_update": "2026-10-20T08:48:31Z",
+  "last_successful_commit": "84bbcd7445b57a938eb71d5c44f2bdc8d6363a9f",
   "last_published_story_ids": [
+    "the-legacy-language-gap-narrowed",
     "the-license-policy-entered-the-merge-gate",
     "the-pentest-agent-broke-the-target",
     "the-security-agent-entered-the-pull-request",
-    "the-workflow-got-a-lockfile",
-    "the-scam-detector-stayed-on-the-phone"
+    "the-workflow-got-a-lockfile"
   ],
   "initial_lookback_days": 7,
-  "note": "The 19 October 2026 research window completed successfully. No development met the publication threshold, so Edition 19 and its Signal Map remain unchanged; five rejection decisions are recorded in the daily audit."
+  "note": "The 20 October 2026 research window completed successfully. Edition 20 published one new source-backed story on provider-reported coding gains across low-resource and legacy languages; required validation and the GitHub Pages deployment passed, and production was verified."
 }

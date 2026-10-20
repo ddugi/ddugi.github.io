@@ -4,7 +4,7 @@
     "start": "2026-10-19T07:01:35Z",
     "end": "2026-10-20T08:46:03Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, product, safety, API, developer publications, and the public MultiLangBench repository",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -62,5 +62,10 @@
   ],
   "emerging_trends_detected": 1,
   "notes": "Edition 20 adds one source-backed story about reported coding gains across low-resource and legacy languages. The publication treats the results as provider-reported benchmark evidence, keeps the public and non-public evaluation boundaries visible, and does not claim that benchmark success proves safe production modernization.",
-  "publication": null
+  "publication": {
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/57",
+    "commit": "84bbcd7445b57a938eb71d5c44f2bdc8d6363a9f",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
 }
