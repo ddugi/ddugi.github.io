@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "20",
+    "edition": "21",
     "mode": "live",
-    "updatedAt": "2026-10-20"
+    "updatedAt": "2026-10-21"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,114 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-package-install-got-a-firewall",
+      "slug": "the-package-install-got-a-firewall",
+      "title": "The package install got a firewall.",
+      "summary": "GitHub introduced a preview proxy that checks npm metadata and downloads before they reach CI runners, developer machines, or coding agents. The useful shift is from finding a poisoned dependency after installation to placing policy in the download path—while npm-only coverage, endpoint configuration, exception discipline, and unreported detection quality limit the claim.",
+      "topic": "Policy enforcement in the package-install path",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-10-20",
+      "updatedAt": "2026-10-21",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "GitHub placed a policy-enforcing proxy between npm clients—including CI hosts and coding agents—and the public registry so enterprises can evaluate a package before its metadata or archive reaches the endpoint.",
+      "facts": [
+        {
+          "text": "GitHub announced the package firewall public preview on 20 October 2026 for GitHub Enterprise Cloud customers, including Enterprise Cloud with data residency.",
+          "sourceIds": [
+            "github-package-firewall"
+          ],
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "text": "GitHub says the firewall sits between endpoints such as Actions runners or coding agents and upstream package repositories, inspecting both metadata requests and package downloads for signs of malicious activity.",
+          "sourceIds": [
+            "github-package-firewall"
+          ],
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "text": "Enterprise administrators can configure a cooldown period, checks against the GitHub Advisory Database for malware or vulnerability alerts, and supply-chain checks such as attestation downgrades.",
+          "sourceIds": [
+            "github-package-firewall"
+          ],
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "text": "Endpoints must be configured to send package requests through the firewall instead of directly to the upstream registry; the announcement does not describe transparent enforcement for unconfigured clients.",
+          "sourceIds": [
+            "github-package-firewall"
+          ],
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "text": "The firewall evaluates both package-list metadata requests and package downloads against the enterprise policy.",
+          "sourceIds": [
+            "github-package-firewall"
+          ],
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "text": "When the firewall blocks a package incorrectly, a user can request an exception through a workflow that GitHub compares with other GitHub Advanced Security features.",
+          "sourceIds": [
+            "github-package-firewall"
+          ],
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "text": "The public preview currently supports only npm packages.",
+          "sourceIds": [
+            "github-package-firewall"
+          ],
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "text": "GitHub says the preview is free while infrastructure scales; general availability is expected to use metered billing similar to GitHub Actions.",
+          "sourceIds": [
+            "github-package-firewall"
+          ],
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "changed": "Package risk moved into the installation path. Instead of relying only on lockfiles, advisory alerts, or post-install scanning, an enterprise can route metadata and archives through a policy checkpoint before a runner, workstation, or coding agent receives them. That makes dependency retrieval itself a controlled action.",
+      "whyItMatters": "A malicious package can execute install scripts and steal CI credentials before an application ever imports it. Coding agents increase the number and speed of dependency choices, while build runners often hold valuable tokens. A policy boundary in the download path can stop known-bad or suspicious packages closer to the moment of exposure and make exceptions explicit rather than leaving each endpoint to decide alone.",
+      "technicalImpact": "Treat the firewall as one layer in a package-control design. Route every eligible npm client through it, block direct registry egress where the environment allows, test cooldown and advisory policies against real builds, keep lockfiles and attestations, and export exception decisions into the audit trail. Preserve a controlled break-glass path for urgent security releases, and verify that agents cannot switch registries or fetch package archives by another route.",
+      "businessImpact": "Central enforcement can reduce repeated package-risk decisions across developer machines, CI, and agent sessions, and it can create a reviewable exception record. It also adds a provider dependency, a future metered cost, and a possible build-availability bottleneck. Enterprises need to measure blocked threats, false positives, build latency, bypasses, and exception workload before treating the preview as a production control.",
+      "outlook": "Conditional outlook: if GitHub expands ecosystem coverage, publishes useful detection and reliability evidence, and enterprises can close direct-registry bypass paths without disrupting builds, package firewalls could become a standard control for agentic and automated software delivery. If adoption remains npm-only, opt-in at each endpoint, or noisy enough to produce broad exceptions, the firewall will protect only the traffic that teams remember to route through it.",
+      "uncertainties": [
+        "The capability is in public preview and may change; GitHub gives no production service-level commitment in the announcement.",
+        "Only npm is supported, leaving other major language and container ecosystems outside the control.",
+        "Protection depends on endpoint configuration; clients or agents that can reach an upstream registry directly may bypass the firewall.",
+        "The announcement provides no detection rate, false-positive rate, blocked-package count, latency, availability, or customer outcome data.",
+        "Advisory and malware checks are only as current and complete as the underlying intelligence, while novel malicious packages may not yet be classified.",
+        "Cooldown periods can delay urgent legitimate releases, including security fixes, and may encourage overly broad exceptions.",
+        "Exception workflows preserve delivery but can become a standing bypass if scope, ownership, rationale, and expiry are weak.",
+        "A package that passes the firewall can still contain vulnerable or harmful behavior that the configured checks do not recognize.",
+        "GitHub describes its own preview; no independent evaluation or comparative package-proxy test is linked.",
+        "General-availability pricing is not published, so the operating cost at enterprise request volumes is unknown."
+      ],
+      "analysis": "The interesting part is where the decision now happens. A package install used to look like ordinary network traffic followed by a security finding. GitHub is turning the download into a governed request: inspect it, block it, or record an exception before the endpoint receives it. That is a stronger boundary—provided direct registry access is actually closed.",
+      "sources": [
+        {
+          "id": "github-package-firewall",
+          "title": "GitHub package firewall in public preview",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/",
+          "publishedAt": "2026-10-20",
+          "accessedAt": "2026-10-21"
+        }
+      ],
+      "sourceNote": "Primary product announcement from GitHub. The workflow, scope, availability, and preview limits are vendor-described; the post provides no independent effectiveness, performance, reliability, adoption, or cost evidence.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-21"
+      }
+    },
     {
       "id": "the-legacy-language-gap-narrowed",
       "slug": "the-legacy-language-gap-narrowed",
@@ -22,9 +130,9 @@
       "category": "Models",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-10-19",
-      "updatedAt": "2026-10-20",
+      "updatedAt": "2026-10-21",
       "author": "Dugi Selmanaj",
       "visual": "models",
       "scenario": "OpenAI introduced MultiLangBench and a COBOL migration evaluation to test whether current models can build working software and preserve legacy behavior across languages with less training data and tooling support.",
@@ -125,7 +233,7 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-20"
+        "reviewedAt": "2026-10-21"
       }
     },
     {
@@ -139,7 +247,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-16",
-      "updatedAt": "2026-10-20",
+      "updatedAt": "2026-10-21",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub connected an enterprise license policy to repository rulesets, pull-request annotations, delegated exception review, audit logs, SBOM data, and an API that tools and coding agents can query before selecting a package.",
@@ -231,7 +339,7 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-18"
+        "reviewedAt": "2026-10-21"
       }
     },
     {
@@ -245,7 +353,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-15",
-      "updatedAt": "2026-10-20",
+      "updatedAt": "2026-10-21",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "AWS evaluated its Security Agent against containerized targets built from 37 recent CVEs, then manually audited every apparent success to distinguish intended exploitation from benchmark shortcuts and operational failure.",
@@ -337,7 +445,7 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-17"
+        "reviewedAt": "2026-10-21"
       }
     },
     {
@@ -351,7 +459,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-15",
-      "updatedAt": "2026-10-20",
+      "updatedAt": "2026-10-21",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub released two generally available code-security features: AI Scan adds advisory findings to pull requests, while agentic autofix investigates default-branch alerts, proposes changes, reruns CodeQL, and opens a draft pull request.",
@@ -459,206 +567,108 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-16"
-      }
-    },
-    {
-      "id": "the-workflow-got-a-lockfile",
-      "slug": "the-workflow-got-a-lockfile",
-      "title": "The workflow got a lockfile.",
-      "summary": "GitHub Actions can now keep readable tags and branches in workflow files while executing the exact commits recorded in a dependency lockfile. The useful signal is bigger than a new CLI: CI dependencies are becoming a reviewable graph with runtime enforcement and organization-level policy.",
-      "topic": "Reproducible GitHub Actions dependencies",
-      "category": "Security & Governance",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-14",
-      "updatedAt": "2026-10-20",
-      "author": "Dugi Selmanaj",
-      "visual": "security",
-      "scenario": "GitHub introduced public-preview workflow dependency lockfiles, a CLI extension, Dependabot integration, and an enforceable policy for keeping Actions runs tied to reviewed commits.",
-      "facts": [
-        {
-          "text": "GitHub published the workflow dependency lockfile public preview on 14 October 2026 for GitHub Enterprise Cloud, Enterprise Cloud with data residency, Team, and Free plans.",
-          "sourceIds": [
-            "github-actions-lockfiles-preview"
-          ],
-          "verifiedAt": "2026-10-15"
-        },
-        {
-          "text": "The gh actions-lock extension generates .github/workflows/actions.lock with commits for direct and transitive action dependencies and reusable workflow dependencies.",
-          "sourceIds": [
-            "github-actions-lockfiles-preview"
-          ],
-          "verifiedAt": "2026-10-15"
-        },
-        {
-          "text": "An onboarded workflow must have lockfile entries for its dependencies, and GitHub Actions uses the recorded commits even when a referenced tag or branch moves.",
-          "sourceIds": [
-            "github-actions-lockfiles-preview"
-          ],
-          "verifiedAt": "2026-10-15"
-        },
-        {
-          "text": "The extension can verify in CI that the lockfile remains current without modifying repository files.",
-          "sourceIds": [
-            "github-actions-lockfiles-preview"
-          ],
-          "verifiedAt": "2026-10-15"
-        },
-        {
-          "text": "GitHub says Dependabot regenerates the matching lockfile entry when it opens an update for an action in an already onboarded workflow.",
-          "sourceIds": [
-            "github-actions-lockfiles-preview"
-          ],
-          "verifiedAt": "2026-10-15"
-        },
-        {
-          "text": "A Require lockfile policy is available in public preview for administrators to apply at enterprise, organization, or repository scope.",
-          "sourceIds": [
-            "github-actions-lockfiles-preview"
-          ],
-          "verifiedAt": "2026-10-15"
-        },
-        {
-          "text": "GitHub explicitly says locking does not determine whether a dependency is safe and tells users to review dependencies before locking them.",
-          "sourceIds": [
-            "github-actions-lockfiles-preview"
-          ],
-          "verifiedAt": "2026-10-15"
-        }
-      ],
-      "changed": "GitHub moved exact action pinning from a convention inside each workflow into a managed dependency graph. Teams can retain readable references, review the resolved commits, verify the graph in CI, update it with Dependabot, and require coverage through policy.",
-      "whyItMatters": "A CI workflow executes privileged third-party code before the product artifact exists. A moving tag can therefore change the build without changing the repository under review. Lockfiles make that hidden dependency graph visible, reproducible, and enforceable across teams instead of relying on every author to remember full commit SHAs.",
-      "technicalImpact": "Treat actions.lock as generated security evidence: create it with the supported CLI, require verification on pull requests, route changes to build-security reviewers, and keep updates paired with workflow changes. Roll out enforcement only after workflows are onboarded and update automation is reliable, because stale or missing entries can stop runs.",
-      "businessImpact": "Platform and security teams gain a common control for reducing unexpected CI dependency drift and explaining which code ran during a build. The cost moves into review and maintenance: organizations need owners for lockfile changes, staged policy rollout, and a response when an upstream action is compromised or must be updated urgently.",
-      "outlook": "Conditional outlook: if the preview proves reliable across large repositories and teams adopt review and update practices around it, workflow lockfiles could become the normal supply-chain boundary for hosted CI dependencies. If lockfiles create frequent friction, remain incomplete, or are approved without examining the resolved code, they will provide consistency without meaningful assurance.",
-      "uncertainties": [
-        "The capability and the Require lockfile policy are in public preview, so eligibility, behavior, and operational details can still change.",
-        "A locked commit can contain vulnerable or malicious code; reproducibility is not a safety verdict.",
-        "The announcement does not publish adoption data, blocked-attack counts, false-positive rates, or measured developer overhead.",
-        "Dependabot maintains entries only for workflows already onboarded, so teams still need a process for new workflows and dependencies.",
-        "Organization-wide enforcement can interrupt normal CI when lockfiles are stale, incomplete, or introduced before teams are ready.",
-        "Review quality remains a human and process dependency: a changed SHA is useful evidence only when someone investigates it.",
-        "The announcement establishes GitHub-hosted product behavior, not portability to other CI systems or a universal lockfile standard."
-      ],
-      "analysis": "Full-SHA pinning was already possible. The structural change is that GitHub is turning it into a dependency-management system: transitive resolution, verification, automated updates, and policy enforcement share one artifact. That closes a usability gap. It does not close the trust problem inside the commit.",
-      "sources": [
-        {
-          "id": "github-actions-lockfiles-preview",
-          "title": "GitHub Actions workflow lockfiles in public preview",
-          "publisher": "GitHub",
-          "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/",
-          "publishedAt": "2026-10-14",
-          "accessedAt": "2026-10-15"
-        }
-      ],
-      "sourceNote": "Primary product announcement from GitHub. Availability and behavior are vendor-described; the post supplies no adoption, attack-prevention, or developer-friction measurements and explicitly says locking does not establish dependency safety.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-15"
+        "reviewedAt": "2026-10-21"
       }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-10-20",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 20. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-10-21",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 21. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
-        "direction": "up",
-        "dimension": "Coding capability broadens across low-resource and legacy programming languages",
-        "rationale": "OpenAI reports large test-pass gains across 20 languages and on behavior-preserving COBOL migration, with a public MultiLangBench harness. Movement reflects broader evaluated capability; vendor authorship, one database-engine task, limited migration reproducibility, and no production evidence prevent a stronger assessment.",
-        "storyId": "the-legacy-language-gap-narrowed"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Agents",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
-        "direction": "up",
-        "dimension": "Legacy modernization becomes a more plausible model-assisted workflow when behavior is executable",
-        "rationale": "The migration evaluation requires exact observable output parity and shows a large provider-reported gain. The arrow records increased technical plausibility, not demonstrated deployment: business rules, integrations, assurance cost, and expert review remain unresolved.",
-        "storyId": "the-legacy-language-gap-narrowed"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "AI Security",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Dependency-install controls reach CI runners and coding agents",
+        "rationale": "GitHub placed malware, vulnerability, cooldown, and supply-chain checks in the npm request path for eligible endpoints. Movement reflects a new enforceable control point; public-preview status, npm-only scope, endpoint opt-in, and no effectiveness data prevent a stronger assessment.",
+        "storyId": "the-package-install-got-a-firewall"
       },
       {
         "area": "Governance",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Package exceptions become centralized policy decisions",
+        "rationale": "The firewall applies enterprise policy to metadata and downloads and offers a review path for blocked packages. The arrow records a more explicit decision boundary, while direct-registry bypass, broad exceptions, and unreported operational burden remain unresolved.",
+        "storyId": "the-package-install-got-a-firewall"
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 20 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-10-20",
-    "title": "The legacy-language gap narrowed",
-    "date": "2026-10-20",
+    "slug": "2026-10-21",
+    "title": "The package install got a firewall",
+    "date": "2026-10-21",
     "status": "published",
-    "intro": "OpenAI tested current models on building SQLite-compatible engines across 20 languages and on migrating COBOL while preserving exact outputs. The reported gains are large; the public harness makes one evaluation inspectable, while the strongest migration result remains harder to reproduce.",
-    "theme": "Coding models are reaching beyond the languages that dominate public repositories. For enterprise modernization, capability matters only when old behavior can be executed, compared, and reviewed. The model can propose the rewrite; the test harness and domain owner decide whether it is the same system.",
+    "intro": "GitHub put a preview policy proxy between npm clients and the public registry. It can evaluate metadata and archives before they reach CI runners, developer machines, or coding agents—but only when endpoints use it, and only for npm today.",
+    "theme": "Automated delivery and coding agents make dependency installation a higher-frequency security decision. The useful architectural move is to govern the request before the package reaches a credential-bearing endpoint, then keep every exception visible.",
     "storyIds": [
+      "the-package-install-got-a-firewall",
       "the-legacy-language-gap-narrowed",
       "the-license-policy-entered-the-merge-gate",
       "the-pentest-agent-broke-the-target",
-      "the-security-agent-entered-the-pull-request",
-      "the-workflow-got-a-lockfile"
+      "the-security-agent-entered-the-pull-request"
     ],
     "watchNext": [
-      "Independent MultiLangBench replications with repeated runs and the full converted test suite.",
-      "A public COBOL migration dataset, harness, and per-language failure analysis.",
-      "Repository-scale evaluations covering dependencies, build systems, batch jobs, data contracts, and operational constraints.",
-      "Enterprise pilots reporting expert-review time, escaped defects, rollback rates, and total migration cost.",
-      "Whether performance remains strong on proprietary code and business rules absent from public training data."
+      "Independent tests of malware detection, false positives, latency, and availability.",
+      "Support for package ecosystems beyond npm.",
+      "Controls that prevent direct-registry bypass from runners, workstations, and agents.",
+      "How exception ownership, scope, expiry, and audit evidence work at enterprise scale.",
+      "General-availability pricing and whether usage-based cost changes adoption."
     ],
-    "closing": "A rewrite is modern only when the behavior survives."
+    "closing": "A dependency can do damage before your code imports it."
   }
 }
