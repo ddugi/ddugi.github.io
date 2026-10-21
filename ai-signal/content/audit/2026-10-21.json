@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-10-21",
+  "research_window": {
+    "start": "2026-10-20T08:48:31Z",
+    "end": "2026-10-21T07:03:52Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, product, safety, API, and developer publications",
+    "Anthropic newsroom, research, policy, and alignment publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, compute, architecture, and technical publications",
+    "GitHub changelog, documentation, and engineering publications",
+    "NVIDIA official announcements and technical blog",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-package-install-got-a-firewall",
+      "source_publication_date": "2026-10-20",
+      "reason": "GitHub introduced a package-policy proxy in the installation path used by CI runners, developer machines, and coding agents. The control is materially relevant to enterprise software-supply-chain security and agent operations, while its preview status, npm-only scope, endpoint routing requirement, exception path, and missing effectiveness data can be reported precisely."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "OpenAI acquisition of Orchestra Bio",
+      "source_publication_date": "2026-10-20",
+      "reason": "A strategically relevant life-sciences acquisition and product direction, but the announcement provides no measured discovery, development, safety, or delivery outcome from the combined platform."
+    },
+    {
+      "candidate": "Amazon ECS Gateway public launch",
+      "source_publication_date": "2026-10-20",
+      "reason": "A useful managed-ingress capability for ECS, but the initial product announcement does not establish a broader AI, security, or platform-engineering shift with comparative operational evidence."
+    },
+    {
+      "candidate": "AWS Trainium2 linear-attention customer implementation",
+      "source_publication_date": "2026-10-20",
+      "reason": "Technically interesting fixed-state serving architecture, but the source is a provider and customer implementation article without sufficient independent, comparable evidence for a wider inference-infrastructure signal."
+    },
+    {
+      "candidate": "Microsoft digital-sovereignty announcements",
+      "source_publication_date": "2026-10-20",
+      "reason": "The material describes architecture and control direction, but does not provide a sufficiently specific new technical mechanism or measured result to support a distinct story."
+    },
+    {
+      "candidate": "GitHub branch-protection migration, secret-scanning fixes, and Dependabot API updates",
+      "source_publication_date": "2026-10-20",
+      "reason": "Useful governance and integration improvements, but incremental beside the package firewall and insufficient as separate structural signals."
+    },
+    {
+      "candidate": "Hugging Face community model, fairness, memory, TPU, and framework posts",
+      "source_publication_date": "2026-10-20",
+      "reason": "The reviewed items were project-specific releases or self-published experiments without enough independent methodology, cross-source confirmation, or demonstrated enterprise consequence for this edition."
+    },
+    {
+      "candidate": "Anthropic, Google DeepMind, NVIDIA, and Meta official updates after the prior cutoff",
+      "source_publication_date": "2026-10-21",
+      "reason": "No additional newly published primary-source development found before the research cutoff met the threshold for a new or materially revised story after deduplication."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 21 adds one source-backed story about GitHub's public-preview package firewall. The publication treats the proxy as a new enforcement point rather than evidence of measured security effectiveness and keeps npm-only coverage, direct-registry bypass, exception risk, provider dependence, and unknown operating cost visible.",
+  "publication": null
+}
