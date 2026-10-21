@@ -67,5 +67,50 @@
     "commit": "f2b69c75878948a62d60f7927612c35b22136ab5",
     "live_edition_changed": true,
     "verified_url": "https://ddugi.github.io/ai-signal/"
-  }
+  },
+  "follow_up_research": [
+    {
+      "research_window": {
+        "start": "2026-10-21T07:06:43Z",
+        "end": "2026-10-21T10:59:28Z"
+      },
+      "status": "completed",
+      "checked_primary_sources": [
+        "OpenAI official announcements and news index",
+        "Anthropic newsroom, research, and policy publications",
+        "Google and Google DeepMind AI and research publications",
+        "Microsoft and Azure official publications",
+        "AWS AI, security, compute, operations, and architecture publications",
+        "GitHub changelog and engineering publications",
+        "NVIDIA official announcements and technical blog",
+        "Meta AI and Meta Newsroom publications",
+        "Hugging Face official blog and organization publications"
+      ],
+      "accepted": [],
+      "rejected": [
+        {
+          "candidate": "AWS identity-source transition guidance",
+          "source_publication_date": "2026-10-20",
+          "reason": "A useful operational migration guide, but not a newly published AI, agent, security-control, or platform capability with wider structural evidence."
+        },
+        {
+          "candidate": "GitHub package firewall follow-up coverage",
+          "source_publication_date": "2026-10-20",
+          "reason": "Already published in Edition 21; no material new evidence, scope change, or independent evaluation appeared after the prior cutoff."
+        },
+        {
+          "candidate": "Hugging Face forum and community experiments",
+          "source_publication_date": "2026-10-21",
+          "reason": "Community discussions and small self-published experiments lacked authoritative methodology, independent verification, or demonstrated enterprise consequence."
+        },
+        {
+          "candidate": "OpenAI, Anthropic, Google DeepMind, Microsoft, GitHub, AWS, NVIDIA, Meta, and Hugging Face official updates after the prior cutoff",
+          "source_publication_date": "2026-10-21",
+          "reason": "No additional primary-source development found before the follow-up cutoff met the threshold for a new or materially revised story after deduplication."
+        }
+      ],
+      "emerging_trends_detected": 0,
+      "note": "No publishable development appeared after the Edition 21 deployment. The live edition and Signal Map remain unchanged; this follow-up preserves the completed research window without manufacturing a headline."
+    }
+  ]
 }
