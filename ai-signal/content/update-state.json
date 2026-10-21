@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-21T07:06:43Z",
-  "last_successful_commit": "f2b69c75878948a62d60f7927612c35b22136ab5",
+  "last_successful_update": "2026-10-21T10:59:28Z",
+  "last_successful_commit": "b1498e14b4b547f43c6d6ebfaa3d11251e9eea94",
   "last_published_story_ids": [
     "the-package-install-got-a-firewall",
     "the-legacy-language-gap-narrowed",
@@ -10,5 +10,5 @@
     "the-security-agent-entered-the-pull-request"
   ],
   "initial_lookback_days": 7,
-  "note": "The 21 October 2026 research window completed successfully. Edition 21 published one new source-backed story on GitHub package firewall; required validation and the GitHub Pages deployment passed, and production was verified."
+  "note": "The 21 October 2026 follow-up research window completed successfully at 10:59 UTC. No additional development met the publication threshold, so Edition 21 and its Signal Map remain unchanged; the checked sources and rejection decisions are recorded in the daily audit."
 }
