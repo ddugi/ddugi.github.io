@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "21",
+    "edition": "22",
     "mode": "live",
-    "updatedAt": "2026-10-21"
+    "updatedAt": "2026-10-22"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,140 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-agents-guardrails-moved-outside-the-agent",
+      "slug": "the-agents-guardrails-moved-outside-the-agent",
+      "title": "The agent’s guardrails moved outside the agent.",
+      "summary": "NVIDIA introduced an enterprise reference architecture around its open-source OpenShell runtime that separates an agent from the controls governing its files, processes, network access, and credentials. The useful shift is architectural: treat the agent as an untrusted workload and keep authority elsewhere—while the stack is early, vendor-led, and largely unevaluated outside NVIDIA’s own material.",
+      "topic": "Infrastructure-enforced security boundaries for autonomous agents",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-10-21",
+      "updatedAt": "2026-10-22",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "NVIDIA placed a separate supervisor, sandbox boundary, policy verifier, and optional hardware-isolated enforcement layer around long-running agents so the workload cannot grant itself access or quietly disable its own controls.",
+      "facts": [
+        {
+          "text": "NVIDIA announced the OpenShell Reference Architecture on 21 October 2026 as a design for building, running, observing, and governing enterprise agent workloads.",
+          "sourceIds": [
+            "nvidia-openshell-announcement"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "NVIDIA describes OpenShell as an open-source runtime that treats agent workloads as untrusted and grants access only when needed.",
+          "sourceIds": [
+            "nvidia-openshell-architecture"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "The published OpenShell design has four named components: a Gateway for sandbox lifecycle and policy, a separate Supervisor for outbound policy checks and credential mediation, a Sandbox for filesystem and process isolation, and a Policy Prover that checks proposed permissions against an organization-defined ceiling.",
+          "sourceIds": [
+            "nvidia-openshell-architecture"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "NVIDIA says Supervisor middleware can inspect, block, or modify content an agent sends or receives, while Gateway interceptors can add deployment-specific controls without changing the Gateway itself.",
+          "sourceIds": [
+            "nvidia-openshell-architecture"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "The reference architecture combines OpenShell with NVIDIA Vera CPUs for agent execution and offers NVIDIA Sentry on BlueField-4 DPUs as an additional hardware-isolated monitoring and enforcement layer.",
+          "sourceIds": [
+            "nvidia-openshell-announcement",
+            "nvidia-openshell-architecture",
+            "nvidia-sentry-runtime"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "NVIDIA describes Sentry’s DOCA Tower component as a transparent proxy that combines layer-4 destination controls, layer-7 inspection, TLS termination, and Open Policy Agent evaluation for agent traffic routed through the BlueField path.",
+          "sourceIds": [
+            "nvidia-sentry-runtime"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "NVIDIA says Sentry can correlate network requests with execution context obtained through out-of-band memory introspection and can use that context in access decisions and audit records.",
+          "sourceIds": [
+            "nvidia-sentry-runtime"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "The public NVIDIA/OpenShell repository published version 0.1.5 on 20 October 2026, one day before the reference-architecture announcement.",
+          "sourceIds": [
+            "nvidia-openshell-release"
+          ],
+          "verifiedAt": "2026-10-22"
+        }
+      ],
+      "changed": "Agent security was expressed as a runtime boundary rather than a prompt instruction or an application callback. OpenShell puts policy evaluation, credential mediation, and lifecycle control in components separated from the agent workload; the optional Sentry layer moves selected observation and enforcement into a hardware-isolated path. The agent can request an action, but the surrounding infrastructure decides whether it can happen.",
+      "whyItMatters": "A long-running agent may read untrusted content, install software, call tools, and handle credentials during the same task. If its guardrails live inside that process, a successful prompt injection or workload compromise can target the controls as well as the task. An external supervisor creates a clearer security boundary: the agent is assumed capable of making a bad request, and authority stays with infrastructure it does not administer.",
+      "technicalImpact": "Separate agent execution from policy and credentials. Run each workload in an isolated sandbox, deny direct egress, mediate approved destinations and credentials through a supervisor, require controlled review for policy expansion, and export logs from outside the workload. Verify every alternate network, local-model, tool, and secret path; a reference architecture protects only the routes that actually pass through its enforcement points.",
+      "businessImpact": "The design gives security and platform teams a familiar place to apply least privilege, separation of duties, audit, and revocation to autonomous work. It also adds infrastructure, policy-authoring, integration, and incident-response work. NVIDIA’s optional hardware layer may suit high-assurance environments, but it can increase cost and platform dependence before independent operating evidence exists.",
+      "outlook": "Conditional outlook: if OpenShell matures, interoperates with existing identity and policy systems, survives independent security testing, and shows that teams can operate its controls without constant exceptions, an external agent-runtime boundary could become a standard enterprise platform layer. If enforcement is easy to bypass, too costly outside NVIDIA infrastructure, or too complex to manage, the architecture may remain a high-assurance niche rather than a default agent runtime.",
+      "uncertainties": [
+        "OpenShell is at version 0.1.5, so interfaces, deployment assumptions, and policy behavior may change quickly.",
+        "The reference architecture, performance claims, and security description come from NVIDIA; no independent penetration test or comparative operational assessment is linked.",
+        "Sentry’s strongest isolation claims depend on BlueField-4 hardware and on traffic actually traversing the controlled path.",
+        "A separate supervisor reduces self-tampering risk but does not prove that policies are correct, complete, or free of exploitable parser and mediation flaws.",
+        "Allowlist and policy expansion can become a high-friction approval queue or a broad standing exception if ownership and expiry are weak.",
+        "The announcement names operating-system and infrastructure partners, but does not establish equivalent feature coverage or production readiness across them.",
+        "Runtime containment does not solve unsafe business logic, excessive authority granted by policy, poisoned tool output, model error, or poor human approval design.",
+        "The public material provides no customer incident reduction, false-positive rate, enforcement latency distribution, availability target, or total operating-cost evidence.",
+        "Hardware-isolated monitoring can strengthen the boundary while increasing dependence on a specific infrastructure stack.",
+        "Formal policy verification can show what a policy permits relative to a ceiling; it cannot prove that the ceiling itself reflects the right business decision."
+      ],
+      "analysis": "The important idea is not that NVIDIA built another agent framework. It is that the agent is no longer trusted to police itself. This looks more like container and network security: isolate the workload, keep credentials elsewhere, mediate every exit, and make wider authority an infrastructure decision. The architecture is early, but the boundary is the signal.",
+      "sources": [
+        {
+          "id": "nvidia-openshell-announcement",
+          "title": "NVIDIA Launches OpenShell Reference Architecture for Safe AI Agents",
+          "publisher": "NVIDIA",
+          "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+          "publishedAt": "2026-10-21",
+          "accessedAt": "2026-10-22"
+        },
+        {
+          "id": "nvidia-openshell-architecture",
+          "title": "How NVIDIA OpenShell Reference Architecture Secures and Governs AI Agent Workloads at Scale",
+          "publisher": "NVIDIA Developer Blog",
+          "url": "https://developer.nvidia.com/blog/how-nvidia-openshell-reference-architecture-secures-and-governs-ai-agent-workloads-at-scale/",
+          "publishedAt": "2026-10-21",
+          "accessedAt": "2026-10-22"
+        },
+        {
+          "id": "nvidia-sentry-runtime",
+          "title": "Inside NVIDIA Sentry: Secure AI Agents at Runtime",
+          "publisher": "NVIDIA Developer Blog",
+          "url": "https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/",
+          "publishedAt": "2026-10-21",
+          "accessedAt": "2026-10-22"
+        },
+        {
+          "id": "nvidia-openshell-release",
+          "title": "OpenShell v0.1.5",
+          "publisher": "NVIDIA on GitHub",
+          "url": "https://github.com/NVIDIA/OpenShell/releases/tag/v0.1.5",
+          "publishedAt": "2026-10-20",
+          "accessedAt": "2026-10-22"
+        }
+      ],
+      "sourceNote": "Primary NVIDIA announcement, technical explanations, and public software release. They verify what NVIDIA published and made available, but they do not independently establish security effectiveness, production reliability, partner feature parity, adoption, performance, or cost.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-22"
+      }
+    },
     {
       "id": "the-package-install-got-a-firewall",
       "slug": "the-package-install-got-a-firewall",
@@ -22,9 +156,9 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-10-20",
-      "updatedAt": "2026-10-21",
+      "updatedAt": "2026-10-22",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub placed a policy-enforcing proxy between npm clients—including CI hosts and coding agents—and the public registry so enterprises can evaluate a package before its metadata or archive reaches the endpoint.",
@@ -132,7 +266,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-19",
-      "updatedAt": "2026-10-21",
+      "updatedAt": "2026-10-22",
       "author": "Dugi Selmanaj",
       "visual": "models",
       "scenario": "OpenAI introduced MultiLangBench and a COBOL migration evaluation to test whether current models can build working software and preserve legacy behavior across languages with less training data and tooling support.",
@@ -247,7 +381,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-16",
-      "updatedAt": "2026-10-21",
+      "updatedAt": "2026-10-22",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub connected an enterprise license policy to repository rulesets, pull-request annotations, delegated exception review, audit logs, SBOM data, and an API that tools and coding agents can query before selecting a package.",
@@ -353,7 +487,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-15",
-      "updatedAt": "2026-10-21",
+      "updatedAt": "2026-10-22",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "AWS evaluated its Security Agent against containerized targets built from 37 recent CVEs, then manually audited every apparent success to distinguish intended exploitation from benchmark shortcuts and operational failure.",
@@ -447,228 +581,106 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-10-21"
       }
-    },
-    {
-      "id": "the-security-agent-entered-the-pull-request",
-      "slug": "the-security-agent-entered-the-pull-request",
-      "title": "The security agent entered the pull request.",
-      "summary": "GitHub made AI Scan for pull requests and agentic autofix for code-scanning alerts generally available. Detection, explanation, repair, and validation are moving into the repository workflow—but the AI finding is advisory, the repair opens a draft, and neither release turns model output into a security verdict.",
-      "topic": "AI-assisted code security inside repository workflows",
-      "category": "Security & Governance",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-15",
-      "updatedAt": "2026-10-21",
-      "author": "Dugi Selmanaj",
-      "visual": "security",
-      "scenario": "GitHub released two generally available code-security features: AI Scan adds advisory findings to pull requests, while agentic autofix investigates default-branch alerts, proposes changes, reruns CodeQL, and opens a draft pull request.",
-      "facts": [
-        {
-          "text": "GitHub announced general availability of AI Scan for pull requests and agentic autofix for code scanning alerts on 15 October 2026.",
-          "sourceIds": [
-            "github-ai-scan-ga",
-            "github-agentic-autofix-ga"
-          ],
-          "verifiedAt": "2026-10-16"
-        },
-        {
-          "text": "AI Scan complements CodeQL by examining pull-request changes in languages and frameworks that CodeQL does not currently cover, including PHP, Shell/Bash, Terraform HCL, Dockerfiles, JSP for Java, and Blazor for C#.",
-          "sourceIds": [
-            "github-ai-scan-ga"
-          ],
-          "verifiedAt": "2026-10-16"
-        },
-        {
-          "text": "When code scanning and the repository's effective AI Scan setting are enabled, AI Scan runs automatically on pull requests and labels its findings with an AI indicator alongside CodeQL results.",
-          "sourceIds": [
-            "github-ai-scan-ga"
-          ],
-          "verifiedAt": "2026-10-16"
-        },
-        {
-          "text": "GitHub says AI Scan findings can include a risk explanation and suggested autofix, but they are advisory, do not fail the code-scanning check, and cannot block a merge through ruleset requirements.",
-          "sourceIds": [
-            "github-ai-scan-ga"
-          ],
-          "verifiedAt": "2026-10-16"
-        },
-        {
-          "text": "AI Scan does not run on pull requests from forks or pull requests created by Dependabot.",
-          "sourceIds": [
-            "github-ai-scan-ga"
-          ],
-          "verifiedAt": "2026-10-16"
-        },
-        {
-          "text": "Agentic autofix explores relevant files, proposes a change, reruns CodeQL to check that the alert closes, iterates when needed, and opens a draft pull request for review.",
-          "sourceIds": [
-            "github-agentic-autofix-ga"
-          ],
-          "verifiedAt": "2026-10-16"
-        },
-        {
-          "text": "Users can assign one default-branch code-scanning alert or select up to 25 alerts for Copilot to address in one pull request; alerts found only on pull requests or other branches cannot be assigned to agentic autofix.",
-          "sourceIds": [
-            "github-agentic-autofix-ga"
-          ],
-          "verifiedAt": "2026-10-16"
-        },
-        {
-          "text": "Agentic autofix requires an enterprise policy, repository or organization enablement, and a Copilot billing method; it consumes Code Security AI Credits and GitHub Actions minutes.",
-          "sourceIds": [
-            "github-agentic-autofix-ga"
-          ],
-          "verifiedAt": "2026-10-16"
-        },
-        {
-          "text": "AI Scan is available for eligible public repositories without a Copilot license, while private and internal organization repositories require GitHub Code Security or GitHub Advanced Security and consume Code Security AI Credits.",
-          "sourceIds": [
-            "github-ai-scan-ga"
-          ],
-          "verifiedAt": "2026-10-16"
-        }
-      ],
-      "changed": "Two AI roles moved into the code-security loop: a pull-request reviewer that broadens language coverage, and a remediation agent that works across files, checks its proposed repair against CodeQL, and submits a draft pull request. GitHub kept both inside existing repository review, policy, and billing controls.",
-      "whyItMatters": "Security teams rarely lack alerts; they lack review time and safe ways to turn findings into tested changes. Putting detection and remediation beside the diff shortens that path and extends review to code CodeQL cannot currently analyze. The product boundary matters just as much: GitHub labels the new PR findings as advice and returns the repair to a human-controlled pull request.",
-      "technicalImpact": "Treat AI Scan as another evidence source, not a required check. Measure its findings by language, severity, precision, and reviewer disposition before changing triage policy. For agentic fixes, require ordinary tests, security review, least-privilege Actions permissions, and comparison against the original alert; a closed CodeQL alert shows that one detector no longer reports the pattern, not that application behavior remains correct.",
-      "businessImpact": "Engineering leaders can expand review coverage and reduce repetitive remediation work without handing the merge decision to the model. Adoption still carries usage costs, review load, platform eligibility, and governance work. Teams need to know who owns AI findings, when a suggested repair deserves escalation, and how budgets affect consistent coverage.",
-      "outlook": "Conditional outlook: if organizations publish credible precision, recall, remediation-success, and developer-time results, AI-assisted security review could become a normal repository participant across more languages. If advisory alerts create noise, exclusions leave important paths uncovered, or generated fixes are accepted because CodeQL turns green, the workflow may accelerate closure statistics more than security outcomes.",
-      "uncertainties": [
-        "GitHub publishes no precision, recall, false-positive, false-negative, remediation-success, or developer-time measurements for either generally available feature.",
-        "AI Scan findings cannot fail the code-scanning check or block a merge, so protection depends on people and processes noticing and acting on advisory results.",
-        "AI Scan excludes pull requests from forks and Dependabot, leaving documented coverage gaps in common contribution and dependency-update paths.",
-        "Rerunning CodeQL can confirm that a known alert closes, but it does not prove the repair preserves application behavior or introduces no different vulnerability.",
-        "Agentic autofix supports default-branch alerts; findings that exist only on a pull request or another branch cannot be assigned to it.",
-        "Both releases are described by the platform vendor; no independent evaluation is linked in either announcement.",
-        "Usage-based AI credits and Actions minutes can make coverage uneven when budgets, repository tiers, or administrative settings differ.",
-        "The detector, remediation agent, validation tool, and repository workflow share one platform, which increases convenience but makes independent review more important."
-      ],
-      "analysis": "The important boundary is visible in the product design. AI can inspect the diff, explain risk, search the codebase, propose a repair, and rerun a deterministic analyzer. It still produces advice and a draft. That is a useful operating model: automate the investigation, preserve the approval boundary, and never confuse a silent detector with a correct system.",
-      "sources": [
-        {
-          "id": "github-ai-scan-ga",
-          "title": "AI Scan for pull requests generally available",
-          "publisher": "GitHub",
-          "url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/",
-          "publishedAt": "2026-10-15",
-          "accessedAt": "2026-10-16"
-        },
-        {
-          "id": "github-agentic-autofix-ga",
-          "title": "Agentic autofix for code scanning alerts general availability",
-          "publisher": "GitHub",
-          "url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/",
-          "publishedAt": "2026-10-15",
-          "accessedAt": "2026-10-16"
-        }
-      ],
-      "sourceNote": "Two primary product announcements from GitHub. Availability, workflow behavior, and limitations are vendor-described; neither post supplies independent effectiveness, accuracy, remediation-quality, or developer-productivity evidence.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-21"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-10-21",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 21. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-10-22",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 22. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
         "direction": "up",
-        "dimension": "Dependency-install controls reach CI runners and coding agents",
-        "rationale": "GitHub placed malware, vulnerability, cooldown, and supply-chain checks in the npm request path for eligible endpoints. Movement reflects a new enforceable control point; public-preview status, npm-only scope, endpoint opt-in, and no effectiveness data prevent a stronger assessment.",
-        "storyId": "the-package-install-got-a-firewall"
+        "dimension": "Agent controls move outside the workload",
+        "rationale": "OpenShell separates sandboxing, outbound policy, credential mediation, and permission verification from the agent process, with an optional hardware-isolated enforcement path. Movement records a concrete runtime boundary; version 0.1.5 maturity, vendor-only evidence, bypass risk, and unknown operating outcomes prevent a stronger assessment.",
+        "storyId": "the-agents-guardrails-moved-outside-the-agent"
       },
       {
         "area": "Governance",
         "direction": "up",
-        "dimension": "Package exceptions become centralized policy decisions",
-        "rationale": "The firewall applies enterprise policy to metadata and downloads and offers a review path for blocked packages. The arrow records a more explicit decision boundary, while direct-registry bypass, broad exceptions, and unreported operational burden remain unresolved.",
-        "storyId": "the-package-install-got-a-firewall"
+        "dimension": "Agent authority becomes an infrastructure policy decision",
+        "rationale": "The reference architecture makes wider permissions, credentials, and lifecycle changes responsibilities of components outside the agent. The arrow reflects a clearer control boundary, while policy correctness, exception handling, identity integration, and independent validation remain unresolved.",
+        "storyId": "the-agents-guardrails-moved-outside-the-agent"
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 21 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-10-21",
-    "title": "The package install got a firewall",
-    "date": "2026-10-21",
+    "slug": "2026-10-22",
+    "title": "The agent’s guardrails moved outside the agent",
+    "date": "2026-10-22",
     "status": "published",
-    "intro": "GitHub put a preview policy proxy between npm clients and the public registry. It can evaluate metadata and archives before they reach CI runners, developer machines, or coding agents—but only when endpoints use it, and only for npm today.",
-    "theme": "Automated delivery and coding agents make dependency installation a higher-frequency security decision. The useful architectural move is to govern the request before the package reaches a credential-bearing endpoint, then keep every exception visible.",
+    "intro": "NVIDIA wrapped its open-source OpenShell runtime in an enterprise reference architecture that treats autonomous agents as untrusted workloads. Policy, credentials, lifecycle, and optional hardware enforcement sit outside the agent’s control.",
+    "theme": "The security question is shifting from whether an agent was told to behave to whether infrastructure can stop an unauthorized action. The architectural move is separation: let the agent propose work, but keep authority and evidence in a boundary the workload does not administer.",
     "storyIds": [
+      "the-agents-guardrails-moved-outside-the-agent",
       "the-package-install-got-a-firewall",
       "the-legacy-language-gap-narrowed",
       "the-license-policy-entered-the-merge-gate",
-      "the-pentest-agent-broke-the-target",
-      "the-security-agent-entered-the-pull-request"
+      "the-pentest-agent-broke-the-target"
     ],
     "watchNext": [
-      "Independent tests of malware detection, false positives, latency, and availability.",
-      "Support for package ecosystems beyond npm.",
-      "Controls that prevent direct-registry bypass from runners, workstations, and agents.",
-      "How exception ownership, scope, expiry, and audit evidence work at enterprise scale.",
-      "General-availability pricing and whether usage-based cost changes adoption."
+      "Independent security assessments of OpenShell’s sandbox, supervisor, and policy paths.",
+      "Whether non-NVIDIA infrastructure can implement the same boundary without losing key controls.",
+      "Production evidence for availability, policy latency, exception volume, and incident reduction.",
+      "Identity and delegated-authority integrations that keep raw credentials outside the agent process.",
+      "Tests that enumerate and close alternate egress, local-model, tool, and secret paths."
     ],
-    "closing": "A dependency can do damage before your code imports it."
+    "closing": "An agent can request authority. It should not be able to grant it."
   }
 }

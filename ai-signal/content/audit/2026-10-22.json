@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-10-22",
+  "research_window": {
+    "start": "2026-10-21T10:59:28Z",
+    "end": "2026-10-22T06:56:34Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, product, safety, API, and developer publications",
+    "Anthropic newsroom, research, policy, and alignment publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, compute, architecture, and technical publications",
+    "GitHub changelog, documentation, and engineering publications",
+    "NVIDIA newsroom, technical blog, documentation, and public GitHub releases",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-agents-guardrails-moved-outside-the-agent",
+      "source_publication_date": "2026-10-21",
+      "reason": "NVIDIA published both a concrete enterprise agent-security reference architecture and an inspectable early OpenShell release. Separating sandbox, policy, credentials, lifecycle, and optional hardware enforcement from an untrusted agent is a meaningful enterprise architecture signal, while maturity and evidence limits can be reported precisely."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub CLI expiring and auto-refreshing OAuth credentials",
+      "source_publication_date": "2026-10-21",
+      "reason": "A useful credential-hygiene preview for CLI users, but incremental and narrower than the agent-runtime control boundary selected for this edition."
+    },
+    {
+      "candidate": "NVIDIA Nemotron 3.5 retrieval model family",
+      "source_publication_date": "2026-10-21",
+      "reason": "The release includes open models and benchmark results, but the headline performance evidence is vendor-reported and does not yet establish a wider enterprise retrieval shift or independently measured production outcome."
+    },
+    {
+      "candidate": "NVIDIA and Google Cloud Vera Rubin infrastructure announcement",
+      "source_publication_date": "2026-10-21",
+      "reason": "The announcement describes planned availability and large future capacity, but general availability is stated as coming later and measured customer outcomes are not yet available."
+    },
+    {
+      "candidate": "NVIDIA RFD4-Proteina and Hugging Face demonstration",
+      "source_publication_date": "2026-10-21",
+      "reason": "A technically substantial protein-design release, but the reviewed material relies on provider-defined computational filters and does not yet provide experimental validation sufficient for this enterprise-focused edition."
+    },
+    {
+      "candidate": "IBM Granite Speech 5.0 release on Hugging Face",
+      "source_publication_date": "2026-10-21",
+      "reason": "Useful open-model improvements, but most comparative figures are self-reported or unofficial and do not yet show a structural change in enterprise speech deployment."
+    },
+    {
+      "candidate": "OpenAI, Anthropic, Google DeepMind, Microsoft, AWS, Meta, and other official updates after the prior cutoff",
+      "source_publication_date": "2026-10-22",
+      "reason": "No additional primary-source development found before the research cutoff met the threshold for a new or materially revised story after deduplication."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 22 adds one source-backed story about externalized agent runtime controls. The publication records the architectural boundary without treating NVIDIA’s security, performance, or partner claims as independently established outcomes.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}
