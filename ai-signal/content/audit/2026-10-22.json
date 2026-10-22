@@ -4,7 +4,7 @@
     "start": "2026-10-21T10:59:28Z",
     "end": "2026-10-22T06:56:34Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, product, safety, API, and developer publications",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -58,8 +58,8 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 22 adds one source-backed story about externalized agent runtime controls. The publication records the architectural boundary without treating NVIDIA’s security, performance, or partner claims as independently established outcomes.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/63",
+    "commit": "cfb6d9ec39f5f130fc2f48125b42cb630215f77f",
     "live_edition_changed": true,
     "verified_url": "https://ddugi.github.io/ai-signal/"
   }

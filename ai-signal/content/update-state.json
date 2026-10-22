@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-21T10:59:28Z",
-  "last_successful_commit": "b1498e14b4b547f43c6d6ebfaa3d11251e9eea94",
+  "last_successful_update": "2026-10-22T07:01:14Z",
+  "last_successful_commit": "cfb6d9ec39f5f130fc2f48125b42cb630215f77f",
   "last_published_story_ids": [
+    "the-agents-guardrails-moved-outside-the-agent",
     "the-package-install-got-a-firewall",
     "the-legacy-language-gap-narrowed",
     "the-license-policy-entered-the-merge-gate",
-    "the-pentest-agent-broke-the-target",
-    "the-security-agent-entered-the-pull-request"
+    "the-pentest-agent-broke-the-target"
   ],
   "initial_lookback_days": 7,
-  "note": "The 21 October 2026 follow-up research window completed successfully at 10:59 UTC. No additional development met the publication threshold, so Edition 21 and its Signal Map remain unchanged; the checked sources and rejection decisions are recorded in the daily audit."
+  "note": "The 22 October 2026 research window completed successfully. Edition 22 is live after protected validation and GitHub Pages deployment; the public homepage, featured story, source sections, conditional outlook, privacy page, and Cloudflare Analytics marker were verified in production."
 }
