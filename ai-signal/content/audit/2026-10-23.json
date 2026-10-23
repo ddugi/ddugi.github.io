@@ -1,0 +1,71 @@
+{
+  "run_date": "2026-10-23",
+  "research_window": {
+    "start": "2026-10-22T07:01:14Z",
+    "end": "2026-10-23T06:30:30Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, API changelog, developer guides, research, safety, and engineering publications",
+    "Anthropic newsroom, research, policy, and alignment publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, compute, architecture, and technical publications",
+    "GitHub changelog, documentation, and engineering publications",
+    "NVIDIA newsroom and technical blog",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-small-decision-got-its-own-api",
+      "source_publication_date": "2026-10-22",
+      "reason": "OpenAI moved a commonly repeated agent operation into a dedicated generally available endpoint with a concrete typed contract, published pricing, explicit regional controls, and production-oriented integration features. The architectural significance is clear while calibration and vendor-evidence limits can be reported precisely."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "OpenAI and Uber enterprise rollout",
+      "source_publication_date": "2026-10-22",
+      "reason": "A large deployment announcement, but it provides little independently inspectable technical evidence or measured outcome beyond adoption."
+    },
+    {
+      "candidate": "OpenAI distributed biological-reasoning research",
+      "source_publication_date": "2026-10-21",
+      "reason": "A substantial research demonstration, but the disease links remain hypotheses requiring laboratory validation and the strongest timing and quality comparisons are reported by the participating organizations."
+    },
+    {
+      "candidate": "OpenAI models planned for Google Cloud",
+      "source_publication_date": "2026-10-21",
+      "reason": "Strategically relevant model distribution, but general availability is still planned and the announcement provides no production adoption, reliability, performance, or cost evidence."
+    },
+    {
+      "candidate": "OpenAI Patch the Planet PHP disclosure coordination",
+      "source_publication_date": "2026-10-21",
+      "reason": "Security-relevant and consequential, but much of the exploit detail and project-specific evidence remains under coordinated disclosure; the provider’s broad impact characterization cannot yet be independently assessed from the public material."
+    },
+    {
+      "candidate": "OlmoEarth v1.3 satellite embeddings",
+      "source_publication_date": "2026-10-22",
+      "reason": "The open model, data, and explorer are useful research infrastructure, but current claims are project-reported and do not yet establish wider production adoption or independently measured operational impact."
+    },
+    {
+      "candidate": "Hugging Face community model and deployment posts",
+      "source_publication_date": "2026-10-22",
+      "reason": "The reviewed items were self-published releases or narrow experiments without sufficient independent methodology, comparable evidence, or demonstrated enterprise consequence for this edition."
+    },
+    {
+      "candidate": "Anthropic, Google DeepMind, Microsoft, AWS, GitHub, NVIDIA, and Meta official updates after the prior cutoff",
+      "source_publication_date": "2026-10-23",
+      "reason": "No additional primary-source development found before the research cutoff met the threshold for a new or materially revised story after deduplication."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 23 adds one source-backed story about typed bounded decisions as an agent orchestration primitive. The publication reports the endpoint contract and GA status without treating vendor speed claims, private customer comparisons, or confidence values as independent evidence of production correctness.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}

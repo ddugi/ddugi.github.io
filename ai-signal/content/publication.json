@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "22",
+    "edition": "23",
     "mode": "live",
-    "updatedAt": "2026-10-22"
+    "updatedAt": "2026-10-23"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,124 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-small-decision-got-its-own-api",
+      "slug": "the-small-decision-got-its-own-api",
+      "title": "The small decision got its own API.",
+      "summary": "OpenAI made a dedicated endpoint generally available for bounded choices, probabilities, and rubric scores. The useful shift is architectural: agents can route, classify, or escalate through a typed low-latency step instead of asking a full generative model every time—while calibration, threshold design, hot-path failure, and vendor-only performance evidence remain the real work.",
+      "topic": "Typed low-latency decisions inside agent workflows",
+      "category": "Agents",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-10-22",
+      "updatedAt": "2026-10-23",
+      "author": "Dugi Selmanaj",
+      "visual": "agents",
+      "scenario": "OpenAI separated recurring bounded decisions—continue, retry, route, score, or escalate—from open-ended generation and exposed them through a dedicated GPT-6 Luna endpoint with typed answers.",
+      "facts": [
+        {
+          "text": "OpenAI made the Decisions API generally available on 22 October 2026 through the dedicated /v1/decisions endpoint, currently using GPT-6 Luna.",
+          "sourceIds": [
+            "openai-decisions-ga",
+            "openai-api-changelog"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "The endpoint accepts shared text, image, or structured JSON evidence and supports between one and 400 questions in a request; the public beta limit was 200.",
+          "sourceIds": [
+            "openai-decisions-ga",
+            "openai-api-changelog"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "The API supports three bounded answer types: predicate returns a probability, choice selects from supplied values and includes probabilities and confidence, and score returns a probability-weighted result across ordered levels.",
+          "sourceIds": [
+            "openai-decisions-ga"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "OpenAI reports that Decisions can return typed answers up to ten times faster than GPT-6 Luna through the Responses API; the announcement does not publish a complete independent benchmark or latency distribution for that headline figure.",
+          "sourceIds": [
+            "openai-decisions-ga"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "The generally available release adds prompt caching, native JSON input, images in question instructions, organization usage reporting, Private Link, and native GPT-Live integration.",
+          "sourceIds": [
+            "openai-api-changelog"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "OpenAI lists the Decisions endpoint at $0.10 per million input tokens with no output-token charge, while noting that regional processing premiums and long-context multipliers can apply.",
+          "sourceIds": [
+            "openai-decisions-ga"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "OpenAI says the endpoint supports regional processing in the United States and Europe and is eligible for Zero Data Retention for qualifying customers.",
+          "sourceIds": [
+            "openai-decisions-ga"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "OpenAI’s announcement includes customer-reported examples from Box, Datadog, Ramp, Sierra, and Speak, but provides no shared test set or independently reproduced comparison across those workloads.",
+          "sourceIds": [
+            "openai-decisions-ga"
+          ],
+          "verifiedAt": "2026-10-23"
+        }
+      ],
+      "changed": "A common agent operation became a separate inference primitive. Applications can send evidence plus an explicit question contract and receive a probability, fixed choice, or rubric score, rather than generating prose and parsing it back into control flow. That creates a narrower interface for the frequent decisions between larger reasoning steps.",
+      "whyItMatters": "Agents spend much of their time making small choices: whether to continue, which queue should receive a request, whether a command looks risky, or when a human should review. Using a full generative response for each choice adds latency, cost, and output ambiguity. A typed endpoint can make those transitions cheaper to inspect and easier to test, but it also puts probabilistic model output directly in the path of real actions.",
+      "technicalImpact": "Define each decision around observable evidence and explicit allowed outcomes. Build a labeled evaluation set, measure calibration as well as accuracy, choose thresholds from the cost of both error types, and route uncertain or high-impact cases to deterministic checks or human review. Log the evidence, answer, confidence, threshold, model version, and resulting action. Add timeouts and a safe fallback because a fast decision service in the hot path is still a dependency.",
+      "businessImpact": "A dedicated low-cost decision layer can make high-volume classification, routing, and agent orchestration economically practical and more responsive. The saving is credible only when teams include evaluation, monitoring, review queues, failure handling, and the cost of wrong actions. A cheap inference call can create an expensive operational error if its threshold is poorly chosen.",
+      "outlook": "Conditional outlook: if independent evaluations show stable calibration and useful latency across real workloads, bounded decision endpoints could become a standard layer between agent reasoning and action. If teams treat confidence as correctness, skip workload-specific tests, or place the endpoint in irreversible flows without a safe fallback, faster decisions will mainly make mistakes happen sooner.",
+      "uncertainties": [
+        "The up-to-ten-times speed claim comes from OpenAI and is not accompanied by a public cross-workload benchmark, full latency distribution, or independent reproduction.",
+        "Customer examples use different baselines and private workloads, so their speed, cost, and accuracy claims are not directly comparable.",
+        "Only GPT-6 Luna is supported, creating model and provider concentration for applications that adopt the endpoint contract.",
+        "A probability or confidence value is not automatically calibrated for a team’s data, risk tolerance, or changing production distribution.",
+        "Bundling up to 400 independent questions improves reuse of shared evidence but does not support dependent decision chains in one request.",
+        "Low per-token pricing excludes evaluation creation, monitoring, human review, retries, integration, and the business cost of false decisions.",
+        "A dedicated service in the action path adds availability, timeout, rate-limit, and regional-capacity dependencies.",
+        "Typed answers reduce parsing ambiguity but do not prove that the question, choices, rubric, or supplied evidence encode the right policy.",
+        "Zero Data Retention, regional processing, and other controls have eligibility and configuration requirements that teams must verify for their own account and endpoint usage.",
+        "Pricing, supported models, and service behavior may change after general availability."
+      ],
+      "analysis": "The signal is not another cheaper model. It is the split between thinking and deciding. A large reasoning step can prepare context; a smaller typed call can choose the next branch. That is cleaner agent architecture—provided the team treats every probability as something to calibrate, monitor, and sometimes refuse to act on.",
+      "sources": [
+        {
+          "id": "openai-decisions-ga",
+          "title": "Build more responsive apps with the Decisions API",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/decisions-api/",
+          "publishedAt": "2026-10-22",
+          "accessedAt": "2026-10-23"
+        },
+        {
+          "id": "openai-api-changelog",
+          "title": "OpenAI API changelog — Decisions API generally available",
+          "publisher": "OpenAI Developers",
+          "url": "https://developers.openai.com/api/docs/changelog",
+          "publishedAt": "2026-10-22",
+          "accessedAt": "2026-10-23"
+        }
+      ],
+      "sourceNote": "Primary OpenAI product announcement and dated API changelog. They verify the API contract, availability, and published pricing, but the headline speed and customer outcome claims remain vendor- or customer-reported and are not independently reproduced here.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-23"
+      }
+    },
     {
       "id": "the-agents-guardrails-moved-outside-the-agent",
       "slug": "the-agents-guardrails-moved-outside-the-agent",
@@ -22,9 +140,9 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-10-21",
-      "updatedAt": "2026-10-22",
+      "updatedAt": "2026-10-23",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "NVIDIA placed a separate supervisor, sandbox boundary, policy verifier, and optional hardware-isolated enforcement layer around long-running agents so the workload cannot grant itself access or quietly disable its own controls.",
@@ -158,7 +276,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-20",
-      "updatedAt": "2026-10-22",
+      "updatedAt": "2026-10-23",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub placed a policy-enforcing proxy between npm clients—including CI hosts and coding agents—and the public registry so enterprises can evaluate a package before its metadata or archive reaches the endpoint.",
@@ -266,7 +384,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-19",
-      "updatedAt": "2026-10-22",
+      "updatedAt": "2026-10-23",
       "author": "Dugi Selmanaj",
       "visual": "models",
       "scenario": "OpenAI introduced MultiLangBench and a COBOL migration evaluation to test whether current models can build working software and preserve legacy behavior across languages with less training data and tooling support.",
@@ -381,7 +499,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-16",
-      "updatedAt": "2026-10-22",
+      "updatedAt": "2026-10-23",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub connected an enterprise license policy to repository rulesets, pull-request annotations, delegated exception review, audit logs, SBOM data, and an API that tools and coding agents can query before selecting a package.",
@@ -475,212 +593,106 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-10-21"
       }
-    },
-    {
-      "id": "the-pentest-agent-broke-the-target",
-      "slug": "the-pentest-agent-broke-the-target",
-      "title": "The pentest agent found the bug—and broke the target.",
-      "summary": "AWS tested an autonomous security agent against 37 recent, live vulnerability targets. An audit credited 33 intended end-to-end exploits, but two apparent wins came through benchmark flaws and two other runs crashed the target before retrieving proof. The useful signal is capability under audit—and the operational gap between finding a vulnerability and testing it safely.",
-      "topic": "Autonomous penetration testing against recent real-world vulnerabilities",
-      "category": "Security & Governance",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-15",
-      "updatedAt": "2026-10-22",
-      "author": "Dugi Selmanaj",
-      "visual": "security",
-      "scenario": "AWS evaluated its Security Agent against containerized targets built from 37 recent CVEs, then manually audited every apparent success to distinguish intended exploitation from benchmark shortcuts and operational failure.",
-      "facts": [
-        {
-          "text": "AWS published the benchmark report on 15 October 2026 and described testing AWS Security Agent against 37 recent real-world CVEs packaged as live containerized targets.",
-          "sourceIds": [
-            "aws-security-agent-cve-benchmark"
-          ],
-          "verifiedAt": "2026-10-17"
-        },
-        {
-          "text": "Each run began with an unauthenticated or low-privilege starting point, an endpoint URL, and a one-line hint; the agent was not given exploit code or a proof of concept.",
-          "sourceIds": [
-            "aws-security-agent-cve-benchmark"
-          ],
-          "verifiedAt": "2026-10-17"
-        },
-        {
-          "text": "AWS initially observed 35 flag captures, then credited 33 of 37 targets—89.2 percent—as genuine end-to-end exploits after auditing every sample against the intended vulnerability path.",
-          "sourceIds": [
-            "aws-security-agent-cve-benchmark"
-          ],
-          "verifiedAt": "2026-10-17"
-        },
-        {
-          "text": "Two initial flag captures were reclassified because the agent reached the flag through unintended benchmark paths rather than the target CVE.",
-          "sourceIds": [
-            "aws-security-agent-cve-benchmark"
-          ],
-          "verifiedAt": "2026-10-17"
-        },
-        {
-          "text": "In the two remaining unsuccessful samples, AWS says the agent found and exploited the vulnerability but made the target unavailable before it could read the flag.",
-          "sourceIds": [
-            "aws-security-agent-cve-benchmark"
-          ],
-          "verifiedAt": "2026-10-17"
-        },
-        {
-          "text": "AWS used a fixed pipeline with Claude Opus 5, one evaluation epoch, and a ten-hour cap per sample; the report says the benchmark covered eight vulnerability classes and included more than six multi-step exploit chains.",
-          "sourceIds": [
-            "aws-security-agent-cve-benchmark"
-          ],
-          "verifiedAt": "2026-10-17"
-        },
-        {
-          "text": "The report says a validation layer caught and labeled 159 false positives and that the agent surfaced more than 1,200 additional findings that were deduplicated.",
-          "sourceIds": [
-            "aws-security-agent-cve-benchmark"
-          ],
-          "verifiedAt": "2026-10-17"
-        },
-        {
-          "text": "AWS says it used recent CVEs and disabled runtime CVE lookup to reduce contamination risk, while explicitly acknowledging that those measures do not eliminate contamination.",
-          "sourceIds": [
-            "aws-security-agent-cve-benchmark"
-          ],
-          "verifiedAt": "2026-10-17"
-        }
-      ],
-      "changed": "The evidence moved beyond recognizing a vulnerability description or generating an isolated exploit. A tool-using agent was given live targets, worked across multi-step chains, and had each apparent success audited against the intended path. The audit also exposed benchmark shortcuts and runs that were technically effective but operationally destructive.",
-      "whyItMatters": "Enterprise penetration testing is not a capture-the-flag contest. A useful system must find real attack paths while respecting scope, preserving availability, producing reviewable evidence, and distinguishing a target defect from a test-harness shortcut. The result is evidence of stronger autonomous capability and, at the same time, evidence that capability can outrun safe operation.",
-      "technicalImpact": "Evaluate security agents with live, isolated targets and per-case audit rather than headline success counts alone. Record the exploit path, target health, false positives, duplicated findings, tool actions, and recovery behavior. Production use needs hard scope limits, disposable environments where possible, approval gates for destructive actions, monitoring, kill switches, and a human who can reject a technically valid but unsafe path.",
-      "businessImpact": "Security teams may gain a way to extend hands-on testing across more applications and longer attack chains. The buying question is broader than detection rate: leaders need evidence about service disruption, analyst review time, false-positive handling, containment, data access, and liability when an automated test changes or disables a system.",
-      "outlook": "Conditional outlook: if larger independent evaluations reproduce end-to-end results and show that agents can test without damaging targets, autonomous penetration testing could become a regular part of application assurance. If benchmark contamination, fragile targets, noisy findings, or destructive behavior remain difficult to control, the strongest use may stay inside isolated labs with supervised escalation.",
-      "uncertainties": [
-        "The benchmark was designed, run, audited, and published by the product vendor; the report links no independent replication.",
-        "Thirty-seven targets are too few to establish performance across enterprise stacks, authentication models, defensive controls, or vulnerability classes not represented in the set.",
-        "One evaluation epoch with one named model and a ten-hour limit does not show variance across repeated runs, models, budgets, or tool configurations.",
-        "Recent CVEs and disabled runtime lookup reduce contamination risk but cannot prove that model training or prior data contained no relevant exploit information.",
-        "Two credited-looking captures depended on benchmark flaws, showing why a flag alone is insufficient evidence of the intended capability.",
-        "Two other runs made the target unavailable before proving success, which is a material operational failure even if exploitation occurred.",
-        "The benchmark did not evaluate the production guardrails that AWS says govern real engagements, so it does not establish their effectiveness.",
-        "The report does not provide an independent comparison with expert human testers, competing agents, or the time and cost of reviewing more than 1,200 additional findings."
-      ],
-      "analysis": "The headline number is less interesting than the corrections around it. AWS audited away two apparent successes and disclosed two runs where the agent broke the thing it was testing. That is what credible evaluation should surface. It also reveals the real product boundary: an autonomous attacker can demonstrate capability before it demonstrates judgment.",
-      "sources": [
-        {
-          "id": "aws-security-agent-cve-benchmark",
-          "title": "AWS Security Agent (now part of AWS Continuum) exploited 33 of 37 new real-world CVEs",
-          "publisher": "Amazon Web Services",
-          "url": "https://aws.amazon.com/blogs/security/aws-security-agent-now-part-of-aws-continuum-exploited-33-of-37-new-real-world-cves/",
-          "publishedAt": "2026-10-15",
-          "accessedAt": "2026-10-17"
-        }
-      ],
-      "sourceNote": "Primary technical report from AWS, the product vendor and benchmark author. The report publishes methodology, corrections, failures, and contamination limits, but supplies no independent replication or production-safety evaluation.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-21"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-10-22",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 22. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-10-23",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 23. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Bounded decisions become a typed agent primitive",
+        "rationale": "The Decisions API separates probabilities, fixed choices, and rubric scores from open-ended generation and exposes them through a dedicated endpoint. Movement reflects a concrete orchestration primitive; calibration, private evaluation data, single-model support, and hot-path failure prevent a stronger assessment.",
+        "storyId": "the-small-decision-got-its-own-api"
       },
       {
         "area": "Inference",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "down",
+        "dimension": "Cost and latency for bounded decisions",
+        "rationale": "OpenAI lists input-only pricing for the endpoint and reports up to ten-times faster answers than the Responses API. The downward arrow records the intended cost-and-latency direction, while vendor-reported comparisons, workload variance, regional premiums, and total operating cost remain unresolved.",
+        "storyId": "the-small-decision-got-its-own-api"
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
-        "direction": "up",
-        "dimension": "Agent controls move outside the workload",
-        "rationale": "OpenShell separates sandboxing, outbound policy, credential mediation, and permission verification from the agent process, with an optional hardware-isolated enforcement path. Movement records a concrete runtime boundary; version 0.1.5 maturity, vendor-only evidence, bypass risk, and unknown operating outcomes prevent a stronger assessment.",
-        "storyId": "the-agents-guardrails-moved-outside-the-agent"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Governance",
-        "direction": "up",
-        "dimension": "Agent authority becomes an infrastructure policy decision",
-        "rationale": "The reference architecture makes wider permissions, credentials, and lifecycle changes responsibilities of components outside the agent. The arrow reflects a clearer control boundary, while policy correctness, exception handling, identity integration, and independent validation remain unresolved.",
-        "storyId": "the-agents-guardrails-moved-outside-the-agent"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 22 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-10-22",
-    "title": "The agent’s guardrails moved outside the agent",
-    "date": "2026-10-22",
+    "slug": "2026-10-23",
+    "title": "The small decision got its own API",
+    "date": "2026-10-23",
     "status": "published",
-    "intro": "NVIDIA wrapped its open-source OpenShell runtime in an enterprise reference architecture that treats autonomous agents as untrusted workloads. Policy, credentials, lifecycle, and optional hardware enforcement sit outside the agent’s control.",
-    "theme": "The security question is shifting from whether an agent was told to behave to whether infrastructure can stop an unauthorized action. The architectural move is separation: let the agent propose work, but keep authority and evidence in a boundary the workload does not administer.",
+    "intro": "OpenAI turned a recurring agent operation into a dedicated endpoint: provide evidence, ask a bounded question, and receive a probability, fixed choice, or rubric score without generating an open-ended response.",
+    "theme": "Agent stacks are beginning to separate expensive reasoning from frequent control-flow decisions. The useful architecture is a typed decision layer with evaluation, thresholds, logs, and safe fallbacks—not a confidence number wired directly to an irreversible action.",
     "storyIds": [
+      "the-small-decision-got-its-own-api",
       "the-agents-guardrails-moved-outside-the-agent",
       "the-package-install-got-a-firewall",
       "the-legacy-language-gap-narrowed",
-      "the-license-policy-entered-the-merge-gate",
-      "the-pentest-agent-broke-the-target"
+      "the-license-policy-entered-the-merge-gate"
     ],
     "watchNext": [
-      "Independent security assessments of OpenShell’s sandbox, supervisor, and policy paths.",
-      "Whether non-NVIDIA infrastructure can implement the same boundary without losing key controls.",
-      "Production evidence for availability, policy latency, exception volume, and incident reduction.",
-      "Identity and delegated-authority integrations that keep raw credentials outside the agent process.",
-      "Tests that enumerate and close alternate egress, local-model, tool, and secret paths."
+      "Independent latency, calibration, and accuracy tests across real agent workloads.",
+      "Whether additional models or providers adopt compatible bounded-decision interfaces.",
+      "Production patterns for threshold changes, abstention, human review, and rollback.",
+      "Failure behavior under timeouts, regional capacity limits, and degraded dependencies.",
+      "Total cost after evaluation, monitoring, review queues, and incorrect actions are included."
     ],
-    "closing": "An agent can request authority. It should not be able to grant it."
+    "closing": "A fast answer is useful. A calibrated decision is deployable."
   }
 }
