@@ -4,7 +4,7 @@
     "start": "2026-10-23T06:34:14Z",
     "end": "2026-10-24T07:02:13Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, API changelog, developer guides, research, safety, and engineering publications",
     "Anthropic newsroom, research, policy, and alignment publications",
@@ -58,8 +58,8 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 24 adds one source-backed story about external secret exposure becoming an event-driven incident input. The publication does not equate detection, validity state, or alert closure with credential revocation, removal, or proof of misuse.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/67",
+    "commit": "4e3fcb2253a340f1016941d1bc288d601f2a070c",
     "live_edition_changed": true,
     "verified_url": "https://ddugi.github.io/ai-signal/"
   }
