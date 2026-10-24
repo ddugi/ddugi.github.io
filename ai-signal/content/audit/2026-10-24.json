@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-10-24",
+  "research_window": {
+    "start": "2026-10-23T06:34:14Z",
+    "end": "2026-10-24T07:02:13Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, API changelog, developer guides, research, safety, and engineering publications",
+    "Anthropic newsroom, research, policy, and alignment publications",
+    "Google and Google DeepMind news and research publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, compute, architecture, and technical publications",
+    "GitHub changelog, documentation, and engineering publications",
+    "NVIDIA newsroom and technical blog",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-secret-alert-became-an-incident-feed",
+      "source_publication_date": "2026-10-23",
+      "reason": "GitHub connected attributed public-repository secret findings to continuous validity, reviewable triage state, an API, and real-time webhooks. The change creates a concrete operational response path while its remediation boundary and evidence limits can be stated precisely."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub enterprise installations for GitHub Apps generally available",
+      "source_publication_date": "2026-10-23",
+      "reason": "Useful governance API coverage, but primarily an access and administration expansion without measured adoption or outcome evidence; it does not displace the stronger external-secret response signal."
+    },
+    {
+      "candidate": "GitHub Copilot usage metrics from additional tools",
+      "source_publication_date": "2026-10-23",
+      "reason": "Reporting coverage improved, but the update adds instrumentation rather than a material change in AI capability, control, or operating model."
+    },
+    {
+      "candidate": "GitHub Copilot in Microsoft Teams",
+      "source_publication_date": "2026-10-23",
+      "reason": "A workflow integration announcement with limited technical evidence and no demonstrated enterprise outcome beyond product availability."
+    },
+    {
+      "candidate": "NVIDIA TensorRT Global Performance Tuner series",
+      "source_publication_date": "2026-10-23",
+      "reason": "Technically substantive vendor guidance, but it documents an optimization feature rather than a new independently evidenced structural development in the research window."
+    },
+    {
+      "candidate": "NVIDIA Microduck simulation tutorial",
+      "source_publication_date": "2026-10-23",
+      "reason": "A useful robotics demonstration, but a single tutorial does not establish broader adoption, comparative performance, or a structural shift."
+    },
+    {
+      "candidate": "OpenAI, Anthropic, Google DeepMind, Microsoft, AWS, Meta, and Hugging Face official updates after the prior cutoff",
+      "source_publication_date": "2026-10-24",
+      "reason": "No additional primary-source development found before the research cutoff met the publication threshold after deduplication."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 24 adds one source-backed story about external secret exposure becoming an event-driven incident input. The publication does not equate detection, validity state, or alert closure with credential revocation, removal, or proof of misuse.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}
