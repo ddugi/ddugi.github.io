@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "23",
+    "edition": "24",
     "mode": "live",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-24"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,114 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-secret-alert-became-an-incident-feed",
+      "slug": "the-secret-alert-became-an-incident-feed",
+      "title": "The secret alert became an incident feed.",
+      "summary": "GitHub added continuous validity checks, triage history, an API, and webhooks to public monitoring for exposed credentials. The useful shift is operational: a leak found outside an organization’s repositories can now enter the same event-driven response path as an internal security finding—while attribution, provider coverage, revocation, and public-preview limits remain unresolved.",
+      "topic": "Operational response to credentials exposed in public repositories",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-10-23",
+      "updatedAt": "2026-10-24",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "GitHub turned public monitoring from a list of attributed secret exposures into a managed alert stream with ongoing validity state, audit history, API access, and real-time webhooks.",
+      "facts": [
+        {
+          "text": "GitHub announced on 23 October 2026 that public monitoring now supports alert dismissals and reopening, activity timelines, filtering, ongoing validity checks, a REST API, and enterprise webhooks.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "Enterprise security teams can mark an alert Fixed or Dismissed, add an optional comment, reopen closed alerts, and review a timeline of actions and state changes.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "The alert list can be filtered by repository, committer, secret type, attribution method, and open or closed state.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "For supported providers, GitHub says it checks token validity continuously and labels a credential Active, Inactive, or Unknown.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "Enterprise admins and enterprise security managers can query attributed findings through GET /enterprises/{enterprise}/secret-scanning/public-monitoring-alerts.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "Enterprises can subscribe to the secret_scanning_public_monitoring_alert webhook to receive a notification when GitHub attributes a newly detected public leak to the organization.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "GitHub explicitly states that closing an alert does not revoke the credential or remove it from the public repository.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "Public monitoring remains in public preview for GitHub Enterprise Cloud and is included for customers with GitHub Advanced Security or GitHub Secret Protection.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        }
+      ],
+      "changed": "A finding about a credential exposed beyond the organization’s own repositories gained the mechanics of an incident feed. Teams can track state, inspect history, prioritize credentials that still appear active, query findings, and trigger response automation from a webhook. Detection is no longer confined to a dashboard someone must remember to visit.",
+      "whyItMatters": "A leaked credential is useful to an attacker immediately, while ownership and revocation often cross security, platform, and application teams. Continuous validity and event delivery can shorten the path from discovery to the person or system able to revoke it. The control still stops at the alert boundary: it does not revoke the credential, erase the public copy, or prove who exposed it.",
+      "technicalImpact": "Route the webhook into a durable incident queue, deduplicate repeated findings, map secret types to owners, and automate revocation only where ownership and blast radius are well understood. Treat Active as a prioritization signal rather than proof of exploitability, preserve the alert timeline as evidence, and reconcile closure in GitHub with the credential provider and source repository. Build a manual path for Unknown validity and attribution disputes.",
+      "businessImpact": "The feature can reduce discovery delay and give security teams a consistent workflow for credentials leaked in public code they do not control. Value depends on accurate attribution, broad provider support, clear ownership, and fast revocation. Enterprises also need to budget for investigation noise, cross-team escalation, and the possibility that an alert arrives after a credential has already been used.",
+      "outlook": "Conditional outlook: if attribution quality, validity coverage, and webhook reliability hold up at enterprise scale, external secret exposure could become a standard event stream feeding automated credential response. If provider coverage remains narrow, attribution is noisy, or teams mistake alert closure for remediation, the new workflow will organize findings without materially reducing exposure time.",
+      "uncertainties": [
+        "The feature remains in public preview, so behavior, availability, and interfaces may change.",
+        "GitHub does not publish detection recall, attribution accuracy, false-positive rates, webhook delivery guarantees, or time-to-detection measurements in the announcement.",
+        "Always-on validity checks apply only to supported secret providers, and an Unknown result does not establish whether a credential is safe or dangerous.",
+        "An Active label indicates that a token appears valid; it does not show whether it has been abused or what permissions and data it can reach.",
+        "Closing an alert does not revoke the credential or remove the public material, so response still depends on external systems and owners.",
+        "A credential may be copied before detection or revocation, leaving secondary exposure that the alert workflow cannot undo.",
+        "Attribution by membership or verified domain can be incomplete or disputed when contributors, contractors, forks, and organizational identities overlap.",
+        "The capability is limited to eligible GitHub Enterprise Cloud customers and does not provide a portable standard across source hosts.",
+        "Automated revocation can reduce exposure time but can also cause outages when ownership, dependencies, or rotation paths are unclear.",
+        "The announcement is a vendor description and provides no independent operational evaluation or customer outcome data."
+      ],
+      "analysis": "The important addition is not another secret alert. It is a route from an external finding into operations: validity state, ownership filters, an audit trail, an API, and a webhook. That makes public-code leakage automatable. The last mile still belongs to the enterprise—decide whether the token matters, revoke it safely, rotate dependents, and investigate whether anyone used it.",
+      "sources": [
+        {
+          "id": "github-public-monitoring-response",
+          "title": "Public monitoring adds triage, validity, API, and webhooks",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks/",
+          "publishedAt": "2026-10-23",
+          "accessedAt": "2026-10-24"
+        }
+      ],
+      "sourceNote": "Primary product announcement from GitHub. It verifies the workflow, API, webhook, availability, and explicit remediation boundary; it does not provide independent measurements for detection, attribution, delivery reliability, or incident outcomes.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-24"
+      }
+    },
     {
       "id": "the-small-decision-got-its-own-api",
       "slug": "the-small-decision-got-its-own-api",
@@ -22,9 +130,9 @@
       "category": "Agents",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-10-22",
-      "updatedAt": "2026-10-23",
+      "updatedAt": "2026-10-24",
       "author": "Dugi Selmanaj",
       "visual": "agents",
       "scenario": "OpenAI separated recurring bounded decisions—continue, retry, route, score, or escalate—from open-ended generation and exposed them through a dedicated GPT-6 Luna endpoint with typed answers.",
@@ -142,7 +250,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-21",
-      "updatedAt": "2026-10-23",
+      "updatedAt": "2026-10-24",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "NVIDIA placed a separate supervisor, sandbox boundary, policy verifier, and optional hardware-isolated enforcement layer around long-running agents so the workload cannot grant itself access or quietly disable its own controls.",
@@ -276,7 +384,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-20",
-      "updatedAt": "2026-10-23",
+      "updatedAt": "2026-10-24",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub placed a policy-enforcing proxy between npm clients—including CI hosts and coding agents—and the public registry so enterprises can evaluate a package before its metadata or archive reaches the endpoint.",
@@ -384,7 +492,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-19",
-      "updatedAt": "2026-10-23",
+      "updatedAt": "2026-10-24",
       "author": "Dugi Selmanaj",
       "visual": "models",
       "scenario": "OpenAI introduced MultiLangBench and a COBOL migration evaluation to test whether current models can build working software and preserve legacy behavior across languages with less training data and tooling support.",
@@ -487,212 +595,106 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-10-21"
       }
-    },
-    {
-      "id": "the-license-policy-entered-the-merge-gate",
-      "slug": "the-license-policy-entered-the-merge-gate",
-      "title": "The license policy entered the merge gate.",
-      "summary": "GitHub made enterprise-wide open-source license checks generally available as a ruleset condition. A dependency can now be checked before merge—and through an API before a coding agent recommends it. The useful shift is from after-the-fact inventory to a reviewable policy boundary, with exceptions and human ownership still visible.",
-      "topic": "Machine-readable open-source license policy in repository workflows",
-      "category": "Security & Governance",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-16",
-      "updatedAt": "2026-10-23",
-      "author": "Dugi Selmanaj",
-      "visual": "security",
-      "scenario": "GitHub connected an enterprise license policy to repository rulesets, pull-request annotations, delegated exception review, audit logs, SBOM data, and an API that tools and coding agents can query before selecting a package.",
-      "facts": [
-        {
-          "text": "GitHub announced general availability of open-source license compliance on 16 October 2026 for GitHub Enterprise Cloud customers, including data-resident Enterprise Cloud, on repositories with GitHub Code Security enabled.",
-          "sourceIds": [
-            "github-license-compliance-ga"
-          ],
-          "verifiedAt": "2026-10-18"
-        },
-        {
-          "text": "The capability introduces an enterprise-wide license policy that is activated for targeted repositories through a ruleset condition named Require license compliance results before merging.",
-          "sourceIds": [
-            "github-license-compliance-ga"
-          ],
-          "verifiedAt": "2026-10-18"
-        },
-        {
-          "text": "When a pull request adds or changes dependencies, the check compares each affected dependency with the enterprise policy and annotates noncompliant dependencies in the pull request.",
-          "sourceIds": [
-            "github-license-compliance-ga"
-          ],
-          "verifiedAt": "2026-10-18"
-        },
-        {
-          "text": "GitHub says a noncompliant dependency must be removed or replaced, covered by an amended policy, or granted a package exception before the annotation is resolved.",
-          "sourceIds": [
-            "github-license-compliance-ga"
-          ],
-          "verifiedAt": "2026-10-18"
-        },
-        {
-          "text": "A predefined Enterprise Open-Source License Manager role can be assigned to people or teams that review and approve closure requests; policy managers receive email notifications and can review requests in the enterprise console.",
-          "sourceIds": [
-            "github-license-compliance-ga"
-          ],
-          "verifiedAt": "2026-10-18"
-        },
-        {
-          "text": "License policy changes emit audit-log events, and GitHub provides API endpoints to download, update, and replace the enterprise policy.",
-          "sourceIds": [
-            "github-license-compliance-ga"
-          ],
-          "verifiedAt": "2026-10-18"
-        },
-        {
-          "text": "A package-compliance API can be queried before a package is selected, which GitHub describes as a way for coding agents to avoid recommending dependencies that violate organizational policy.",
-          "sourceIds": [
-            "github-license-compliance-ga"
-          ],
-          "verifiedAt": "2026-10-18"
-        },
-        {
-          "text": "For data-resident Enterprise Cloud customers, GitHub says license information now also populates the dependency graph and Software Bill of Materials exports.",
-          "sourceIds": [
-            "github-license-compliance-ga"
-          ],
-          "verifiedAt": "2026-10-18"
-        }
-      ],
-      "changed": "License governance moved from a report that someone inspects later into a repository control that can stop a merge, route exceptions to named owners, emit audit evidence, and answer a machine-readable preflight query. The same policy can therefore guide both a developer reviewing a pull request and an agent choosing a dependency.",
-      "whyItMatters": "An unacceptable license discovered after release creates legal review, replacement work, and uncertainty about shipped artifacts. A merge-time check moves that decision closer to the dependency change and gives the exception a visible owner. The agent API matters because it can prevent a disallowed recommendation before generated code reaches review instead of asking people to clean it up afterward.",
-      "technicalImpact": "Treat the enterprise policy as controlled configuration: define owners, test rules against representative repositories, stage the ruleset rollout, and export audit events to the system of record. Keep the pull-request result explainable and preserve a time-bounded exception path. Agents and internal developer portals should query the compliance API before suggesting packages, while CI remains the enforcement point for the actual diff.",
-      "businessImpact": "Central policy can reduce repeated license review and create consistent evidence across repositories, but it also concentrates decisions that vary by product, distribution model, and jurisdiction. Procurement, legal, security, and engineering need shared ownership of policy changes and exceptions; a fast merge gate with the wrong policy merely scales the wrong decision.",
-      "outlook": "Conditional outlook: if license metadata is accurate, exceptions remain reviewable, and agent tooling actually consults the policy before generating changes, machine-readable compliance could become a standard dependency-selection constraint. If organizations copy broad allowlists without product context or developers route around noisy checks, the control will produce friction without reliable legal assurance.",
-      "uncertainties": [
-        "The announcement provides no adoption, block-rate, false-positive, false-negative, exception-volume, or developer-time measurements.",
-        "GitHub describes platform behavior; no independent evaluation of policy accuracy or operational impact is linked.",
-        "A license identifier and centralized rule cannot determine every legal obligation, compatibility question, or product-specific distribution risk.",
-        "The quality of the result depends on dependency and license metadata being complete and current.",
-        "The announcement does not quantify how the check handles ambiguous, missing, compound, or changing license expressions across ecosystems.",
-        "Package exceptions are necessary for real organizations but can become a bypass path if ownership, expiry, rationale, and audit review are weak.",
-        "The agent-facing API enables policy-aware recommendations; it does not prove that coding agents call it consistently or avoid introducing equivalent code through another path.",
-        "Availability is limited to eligible Enterprise Cloud repositories with GitHub Code Security, so the control is not a portable open standard across hosting and CI platforms."
-      ],
-      "analysis": "The feature is less about detecting a license and more about deciding when that information becomes binding. GitHub placed the decision in the same governed path as code: policy, pull request, reviewer, exception, audit event. The interesting addition is a preflight API for agents. Generated code now has a chance to learn the rule before a human has to reject the package.",
-      "sources": [
-        {
-          "id": "github-license-compliance-ga",
-          "title": "Open source license compliance generally available",
-          "publisher": "GitHub",
-          "url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/",
-          "publishedAt": "2026-10-16",
-          "accessedAt": "2026-10-18"
-        }
-      ],
-      "sourceNote": "Primary product announcement from GitHub. Availability and workflow behavior are vendor-described; the post supplies no independent accuracy, adoption, exception-volume, legal-outcome, or developer-friction evidence.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-21"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-10-23",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 23. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-10-24",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 24. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 24 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
-        "direction": "up",
-        "dimension": "Bounded decisions become a typed agent primitive",
-        "rationale": "The Decisions API separates probabilities, fixed choices, and rubric scores from open-ended generation and exposes them through a dedicated endpoint. Movement reflects a concrete orchestration primitive; calibration, private evaluation data, single-model support, and hot-path failure prevent a stronger assessment.",
-        "storyId": "the-small-decision-got-its-own-api"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 24 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Inference",
-        "direction": "down",
-        "dimension": "Cost and latency for bounded decisions",
-        "rationale": "OpenAI lists input-only pricing for the endpoint and reports up to ten-times faster answers than the Responses API. The downward arrow records the intended cost-and-latency direction, while vendor-reported comparisons, workload variance, regional premiums, and total operating cost remain unresolved.",
-        "storyId": "the-small-decision-got-its-own-api"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 24 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 24 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 24 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 24 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 24 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Governance",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 24 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 24 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 23 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 24 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-10-23",
-    "title": "The small decision got its own API",
-    "date": "2026-10-23",
+    "slug": "2026-10-24",
+    "title": "The secret alert became an incident feed",
+    "date": "2026-10-24",
     "status": "published",
-    "intro": "OpenAI turned a recurring agent operation into a dedicated endpoint: provide evidence, ask a bounded question, and receive a probability, fixed choice, or rubric score without generating an open-ended response.",
-    "theme": "Agent stacks are beginning to separate expensive reasoning from frequent control-flow decisions. The useful architecture is a typed decision layer with evaluation, thresholds, logs, and safe fallbacks—not a confidence number wired directly to an irreversible action.",
+    "intro": "GitHub gave public monitoring the machinery of an operational security queue: ongoing validity state, triage history, filters, an API, and a webhook for newly attributed leaks.",
+    "theme": "Security controls are moving from dashboards into event-driven response paths. The useful boundary is explicit: detection can trigger action, but closing an alert is not revocation and an active token is not proof of abuse.",
     "storyIds": [
+      "the-secret-alert-became-an-incident-feed",
       "the-small-decision-got-its-own-api",
       "the-agents-guardrails-moved-outside-the-agent",
       "the-package-install-got-a-firewall",
-      "the-legacy-language-gap-narrowed",
-      "the-license-policy-entered-the-merge-gate"
+      "the-legacy-language-gap-narrowed"
     ],
     "watchNext": [
-      "Independent latency, calibration, and accuracy tests across real agent workloads.",
-      "Whether additional models or providers adopt compatible bounded-decision interfaces.",
-      "Production patterns for threshold changes, abstention, human review, and rollback.",
-      "Failure behavior under timeouts, regional capacity limits, and degraded dependencies.",
-      "Total cost after evaluation, monitoring, review queues, and incorrect actions are included."
+      "Independent measurements of detection delay, attribution accuracy, and alert volume.",
+      "Coverage and freshness of validity checks across credential providers.",
+      "Webhook delivery, deduplication, and retry behavior at enterprise scale.",
+      "Safe automation patterns for revocation, rotation, and dependent-service recovery.",
+      "Whether the capability progresses from public preview with clear service guarantees."
     ],
-    "closing": "A fast answer is useful. A calibrated decision is deployable."
+    "closing": "An alert can start the incident. It cannot finish the remediation."
   }
 }
