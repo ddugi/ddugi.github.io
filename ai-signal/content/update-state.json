@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-24T07:02:13Z",
-  "last_successful_commit": "4e3fcb2253a340f1016941d1bc288d601f2a070c",
+  "last_successful_update": "2026-10-25T08:01:14Z",
+  "last_successful_commit": "3bf09eff0f019bc18e76531990a0b32907ba5dc0",
   "last_published_story_ids": [
     "the-secret-alert-became-an-incident-feed",
     "the-small-decision-got-its-own-api",
@@ -10,5 +10,5 @@
     "the-legacy-language-gap-narrowed"
   ],
   "initial_lookback_days": 7,
-  "note": "The 24 October 2026 research window completed successfully. Edition 24 is live after protected validation and GitHub Pages deployment; the public homepage, featured story, weekly edition, dated source link, conditional outlook, privacy page, and Cloudflare Analytics marker were verified in production."
+  "note": "The 25 October 2026 research window completed successfully. No authoritative primary-source development met the publication threshold, so Edition 24 and the Signal Map remain unchanged; the audit, protected validation, GitHub Pages deployment, production pages, privacy page, and Cloudflare Analytics marker were verified."
 }
