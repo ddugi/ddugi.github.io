@@ -1,0 +1,50 @@
+{
+  "run_date": "2026-10-25",
+  "research_window": {
+    "start": "2026-10-24T07:02:13Z",
+    "end": "2026-10-25T08:01:14Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, API changelog, developer guides, research, safety, and engineering publications",
+    "Anthropic newsroom, research, policy, safeguards, and alignment publications",
+    "Google and Google DeepMind news, research, and model-card publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, compute, architecture, and technical publications",
+    "GitHub changelog, documentation, and engineering publications",
+    "NVIDIA newsroom and technical blog",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [],
+  "rejected": [
+    {
+      "candidate": "NVIDIA TensorRT Global Performance Tuner technical series",
+      "source_publication_date": "2026-10-23",
+      "reason": "The material predates the current research window and was already assessed; it documents an optimization feature but does not provide a new independently evidenced development requiring an update."
+    },
+    {
+      "candidate": "NVIDIA Microduck robot-learning simulation tutorial",
+      "source_publication_date": "2026-10-23",
+      "reason": "The tutorial predates the current window and remains a single vendor demonstration without comparative evidence or demonstrated broader adoption."
+    },
+    {
+      "candidate": "Hugging Face community agent, memory, retrieval, and model posts",
+      "source_publication_date": "2026-10-24",
+      "reason": "The reviewed items were community or organization self-publications without sufficient independent methodology, comparable evidence, or demonstrated enterprise consequence for a new signal."
+    },
+    {
+      "candidate": "OpenAI, Anthropic, Google DeepMind, Microsoft, AWS, GitHub, NVIDIA, Meta, and Hugging Face official updates after the prior cutoff",
+      "source_publication_date": "2026-10-25",
+      "reason": "No newly published primary-source development found before the research cutoff met the threshold for a new or materially revised story after deduplication."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised story. Edition 24 and its Signal Map remain unchanged; the completed research window and editorial rejections are recorded without manufacturing a headline.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}
