@@ -2,9 +2,9 @@
   "run_date": "2026-10-26",
   "research_window": {
     "start": "2026-10-25T08:01:14Z",
-    "end": "2026-10-26T08:01:06Z"
+    "end": "2026-10-26T08:56:47Z"
   },
-  "status": "deployed",
+  "status": "prepared",
   "checked_primary_sources": [
     "OpenAI official announcements, API changelog, developer guides, research, safety, and engineering publications",
     "Anthropic newsroom, research, policy, safeguards, and alignment publications",
@@ -42,13 +42,18 @@
       "candidate": "OpenAI, Anthropic, Google DeepMind, Microsoft, GitHub, NVIDIA, Meta, and other AWS official updates after the prior cutoff",
       "source_publication_date": "2026-10-26",
       "reason": "No additional newly published primary-source development found before the research cutoff met the threshold for a new or materially revised story after deduplication."
+    },
+    {
+      "candidate": "26 October follow-up scan across official AI, cloud, developer-platform, and infrastructure sources",
+      "source_publication_date": "2026-10-26",
+      "reason": "No new primary-source item published between 08:01:06Z and 08:56:47Z met the threshold for a new or materially revised story after deduplication."
     }
   ],
   "emerging_trends_detected": 0,
-  "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised story. Edition 24 and its Signal Map remain unchanged; the completed research window and editorial rejections are recorded without manufacturing a headline.",
+  "notes": "The scheduled research window and a user-requested follow-up scan both completed on 26 October. No authoritative primary-source development met the threshold for a new or materially revised story. Edition 24 and its Signal Map remain unchanged; the expanded window and editorial rejections are recorded without manufacturing a headline.",
   "publication": {
-    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/71",
-    "commit": "41b352540df0016cd6a5f10ffbf1159883fe3810",
+    "pull_request": null,
+    "commit": null,
     "live_edition_changed": false,
     "verified_url": "https://ddugi.github.io/ai-signal/"
   }
