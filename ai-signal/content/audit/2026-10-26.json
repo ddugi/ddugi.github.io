@@ -1,0 +1,55 @@
+{
+  "run_date": "2026-10-26",
+  "research_window": {
+    "start": "2026-10-25T08:01:14Z",
+    "end": "2026-10-26T08:01:06Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, API changelog, developer guides, research, safety, and engineering publications",
+    "Anthropic newsroom, research, policy, safeguards, and alignment publications",
+    "Google and Google DeepMind news, research, and model-card publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, public-sector, compute, architecture, and technical publications",
+    "GitHub changelog, documentation, and engineering publications",
+    "NVIDIA newsroom and technical blog",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [],
+  "rejected": [
+    {
+      "candidate": "AWS practical digital sovereignty landing-zone guidance",
+      "source_publication_date": "2026-10-25",
+      "reason": "A useful vendor reference architecture, but it presents established cloud controls and design guidance rather than a new capability, independently measured outcome, or structural AI-infrastructure change."
+    },
+    {
+      "candidate": "AWS AI governance guidance for healthcare and life-sciences security teams",
+      "source_publication_date": "2026-10-25",
+      "reason": "Practical governance guidance, but it is a vendor-authored operating pattern without new technical evidence, comparative results, or a concrete platform change that meets the publication threshold."
+    },
+    {
+      "candidate": "AWS AI-enabled genomic pattern-discovery proof of concept",
+      "source_publication_date": "2026-10-25",
+      "reason": "The proof of concept identifies signals for further research, but the reviewed primary material does not establish biological validation, independent reproduction, or a broader production shift."
+    },
+    {
+      "candidate": "Hugging Face community and organization model, agent, retrieval, and inference posts",
+      "source_publication_date": "2026-10-25",
+      "reason": "The reviewed posts were self-published experiments or releases without sufficient independent methodology, comparable evidence, or demonstrated enterprise consequence for a new signal."
+    },
+    {
+      "candidate": "OpenAI, Anthropic, Google DeepMind, Microsoft, GitHub, NVIDIA, Meta, and other AWS official updates after the prior cutoff",
+      "source_publication_date": "2026-10-26",
+      "reason": "No additional newly published primary-source development found before the research cutoff met the threshold for a new or materially revised story after deduplication."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised story. Edition 24 and its Signal Map remain unchanged; the completed research window and editorial rejections are recorded without manufacturing a headline.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}
