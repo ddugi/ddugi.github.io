@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-26T08:56:47Z",
-  "last_successful_commit": "54256b567005c8770f264dfd0fabfc523a49d3dc",
+  "last_successful_update": "2026-10-27T07:54:43Z",
+  "last_successful_commit": "e6cc22ecd44ab300d1a5809dc95ef04736390c8c",
   "last_published_story_ids": [
     "the-secret-alert-became-an-incident-feed",
     "the-small-decision-got-its-own-api",
@@ -10,5 +10,5 @@
     "the-legacy-language-gap-narrowed"
   ],
   "initial_lookback_days": 7,
-  "note": "The 26 October 2026 scheduled research window and user-requested follow-up both completed successfully. No authoritative primary-source development met the publication threshold, so Edition 24 and the Signal Map remain unchanged; protected validation, deployment, production pages, privacy, and analytics were verified."
+  "note": "The 27 October 2026 research window completed successfully. No authoritative primary-source development met the publication threshold, so Edition 24 and the Signal Map remain unchanged; the audit, protected validation, GitHub Pages deployment, production pages, privacy notice, and analytics integration were verified."
 }
