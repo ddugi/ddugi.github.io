@@ -1,0 +1,50 @@
+{
+  "run_date": "2026-10-27",
+  "research_window": {
+    "start": "2026-10-26T08:56:47Z",
+    "end": "2026-10-27T07:54:43Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, API changelog, developer guides, research, safety, and engineering publications",
+    "Anthropic newsroom, research, policy, safeguards, and alignment publications",
+    "Google and Google DeepMind news, research, and model-card publications",
+    "Microsoft and Azure official publications",
+    "AWS AI, security, public-sector, compute, architecture, weekly roundup, and technical publications",
+    "GitHub changelog, documentation, and engineering publications",
+    "NVIDIA newsroom and technical blog",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official and organization publications"
+  ],
+  "accepted": [],
+  "rejected": [
+    {
+      "candidate": "GPT-6.1 Terra in GitHub Copilot",
+      "source_publication_date": "2026-10-26",
+      "reason": "General availability across Copilot clients is useful distribution, but the announcement provides only a qualitative early-testing claim, no exact benchmark results, no reproducible evaluation, and no production adoption or outcome evidence."
+    },
+    {
+      "candidate": "AWS Weekly Roundup for 26 October",
+      "source_publication_date": "2026-10-26",
+      "reason": "The roundup aggregates previously announced services and technical posts; after deduplication it did not provide a new independently evidenced structural development for AI Signal."
+    },
+    {
+      "candidate": "Hugging Face community and organization model, NPU, retrieval, and inference posts",
+      "source_publication_date": "2026-10-26",
+      "reason": "The reviewed items were self-published experiments or releases without sufficient independent methodology, comparable evidence, or demonstrated enterprise consequence for a new signal."
+    },
+    {
+      "candidate": "OpenAI, Anthropic, Google DeepMind, Microsoft, AWS, GitHub, NVIDIA, Meta, and Hugging Face official updates after the prior cutoff",
+      "source_publication_date": "2026-10-27",
+      "reason": "No additional newly published primary-source development found before the research cutoff met the threshold for a new or materially revised story after deduplication."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "No authoritative primary-source development published inside the research window met the threshold for a new or materially revised story. Edition 24 and its Signal Map remain unchanged; the completed research window and editorial rejections are recorded without manufacturing a headline.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}
