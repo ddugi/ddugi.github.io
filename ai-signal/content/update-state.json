@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-27T07:54:43Z",
-  "last_successful_commit": "e6cc22ecd44ab300d1a5809dc95ef04736390c8c",
+  "last_successful_update": "2026-10-28T07:58:34Z",
+  "last_successful_commit": "ae32e1e9a0e73800177b541bb2bc3c27439958aa",
   "last_published_story_ids": [
+    "the-agent-got-its-own-badge",
     "the-secret-alert-became-an-incident-feed",
     "the-small-decision-got-its-own-api",
     "the-agents-guardrails-moved-outside-the-agent",
-    "the-package-install-got-a-firewall",
-    "the-legacy-language-gap-narrowed"
+    "the-package-install-got-a-firewall"
   ],
   "initial_lookback_days": 7,
-  "note": "The 27 October 2026 research window completed successfully. No authoritative primary-source development met the publication threshold, so Edition 24 and the Signal Map remain unchanged; the audit, protected validation, GitHub Pages deployment, production pages, privacy notice, and analytics integration were verified."
+  "note": "The 28 October 2026 research window published Edition 25 with GitHub Copilot server-to-server authentication as a workload-identity signal. Protected validation, GitHub Pages deployment, the new story, Weekly Signal, traceable Governance movement, privacy notice, and analytics integration were verified in production."
 }

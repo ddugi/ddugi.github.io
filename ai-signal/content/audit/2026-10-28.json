@@ -4,7 +4,7 @@
     "start": "2026-10-27T07:54:43Z",
     "end": "2026-10-28T07:58:34Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, security, engineering, and developer publications",
     "Anthropic newsroom, research, policy, and safeguards publications",
@@ -44,8 +44,8 @@
   "emerging_trends_detected": 0,
   "notes": "Edition 25 adds one source-backed governance signal and retains four previously approved stories. The Signal Map movement is tied only to the new workload-identity story and remains qualitative.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/77",
+    "commit": "ae32e1e9a0e73800177b541bb2bc3c27439958aa",
     "live_edition_changed": true,
     "verified_url": "https://ddugi.github.io/ai-signal/"
   }
