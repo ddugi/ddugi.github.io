@@ -1,0 +1,52 @@
+{
+  "run_date": "2026-10-28",
+  "research_window": {
+    "start": "2026-10-27T07:54:43Z",
+    "end": "2026-10-28T07:58:34Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, security, engineering, and developer publications",
+    "Anthropic newsroom, research, policy, and safeguards publications",
+    "Google and Google DeepMind news, research, and model publications",
+    "Microsoft Azure, Microsoft Learn, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, documentation, and engineering publications",
+    "NVIDIA newsroom, event, and technical publications",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official, organization, and community publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-agent-got-its-own-badge",
+      "candidate": "GitHub Copilot server-to-server authentication",
+      "source_publication_date": "2026-10-27",
+      "reason": "The release creates an explicit workload-identity path for organization-operated Copilot SDK services with short-lived tokens, organization policy, usage attribution, and revocation. The structural change is documented across a dated release and two primary administration references, with preview and control limits stated explicitly."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "OpenAI and Oracle expanded partnership and planned product suite",
+      "source_publication_date": "2026-10-27",
+      "reason": "The announcements contain several planned products, goals, and partner-reported usage figures, but insufficient independently testable product behavior or operating evidence for a separate signal in this edition."
+    },
+    {
+      "candidate": "Inference-only NPU pretraining experiment on Hugging Face",
+      "source_publication_date": "2026-10-27",
+      "reason": "The self-published experiment exposes weights and evaluation code, but it relies on a proprietary training stack under patent application and one small-model comparison; enterprise consequence and independent reproduction remain unestablished."
+    },
+    {
+      "candidate": "Other OpenAI, Anthropic, Google DeepMind, Microsoft, AWS, NVIDIA, Meta, and Hugging Face updates after the prior cutoff",
+      "source_publication_date": "2026-10-28",
+      "reason": "No additional primary-source development found before the research cutoff met the evidence and materiality threshold after deduplication."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "Edition 25 adds one source-backed governance signal and retains four previously approved stories. The Signal Map movement is tied only to the new workload-identity story and remains qualitative.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}
