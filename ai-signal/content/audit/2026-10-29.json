@@ -1,0 +1,57 @@
+{
+  "run_date": "2026-10-29",
+  "research_window": {
+    "start": "2026-10-28T07:58:34Z",
+    "end": "2026-10-29T07:59:40Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, security, engineering, and developer publications",
+    "Anthropic newsroom, research, policy, and safeguards publications",
+    "Google and Google DeepMind news, research, and model publications",
+    "Microsoft Azure, Microsoft Learn, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, documentation, releases, and engineering publications",
+    "NVIDIA newsroom, event, and technical publications",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official, organization, and community publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-agent-moved-into-ci",
+      "candidate": "GitHub Agentic Workflows generally available",
+      "source_publication_date": "2026-10-28",
+      "reason": "The release moves natural-language agent instructions into compiled GitHub Actions workflows with existing runner, policy, permission, logging, budget, and controlled-output boundaries. The dated primary release states the GA contract and product boundaries; vendor-only effectiveness claims are excluded."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub Copilot Fusion generally available",
+      "source_publication_date": "2026-10-28",
+      "reason": "The routing and orchestration release is relevant, but the performance evidence is vendor- and customer-reported, and the event overlaps prior model-routing signals without independent cross-workload evaluation."
+    },
+    {
+      "candidate": "GitHub AI Scan for repositories public preview",
+      "source_publication_date": "2026-10-28",
+      "reason": "The security preview lacks published precision, recall, false-positive, and independent evaluation evidence needed for a standalone signal today."
+    },
+    {
+      "candidate": "OpenAI future-of-the-firm essay, Meta university partnerships, and Hugging Face organization or community releases",
+      "source_publication_date": "2026-10-28",
+      "reason": "These were essays, partnership announcements, or self-published releases without enough verified product behavior or enterprise consequence for this edition."
+    },
+    {
+      "candidate": "Other Anthropic, Google DeepMind, Microsoft, AWS, NVIDIA, and primary-source updates after the prior cutoff",
+      "source_publication_date": "2026-10-29",
+      "reason": "No additional development found before the research cutoff met the materiality and evidence threshold after deduplication."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "Edition 26 adds one source-backed agent-infrastructure signal and retains four previously approved stories. The Signal Map movement is tied only to the new Agentic Workflows story and remains qualitative.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}

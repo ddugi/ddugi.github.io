@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "25",
+    "edition": "26",
     "mode": "live",
-    "updatedAt": "2026-10-28"
+    "updatedAt": "2026-10-29"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,113 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-agent-moved-into-ci",
+      "slug": "the-agent-moved-into-ci",
+      "title": "The agent moved into CI.",
+      "summary": "GitHub Agentic Workflows turns natural-language instructions into standard Actions workflows that run inside familiar repository controls. The useful shift is not that an agent can open an issue or pull request; it is that reasoning automation can be versioned, permissioned, budgeted, and reviewed like CI—while the GA label still does not prove that its decisions are correct or its safeguards complete.",
+      "topic": "Governed agent automation inside continuous integration",
+      "category": "Agents",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-10-28",
+      "updatedAt": "2026-10-29",
+      "author": "Dugi Selmanaj",
+      "visual": "agents",
+      "scenario": "A repository maintainer describes a recurring task in Markdown; GitHub compiles it into an Actions workflow that runs an agent with bounded permissions, budget controls, filtered inputs, and declared outputs.",
+      "facts": [
+        {
+          "text": "GitHub announced general availability of GitHub Agentic Workflows on 28 October 2026 and described the project as open source.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "Authors write workflow instructions in Markdown, and the gh-aw tool compiles them into standard GitHub Actions workflow files.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "The compiled workflows reuse GitHub Actions runner groups, policy constraints, logs, and other repository automation controls.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "GitHub says workflows can use GitHub Copilot or another supported coding agent selected by the operator.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "GitHub documents read-only permissions by default, sandboxed execution, an Agent Workflow Firewall, integrity filtering, safe outputs, and a separate threat-detection job as built-in safeguards.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "The GA release added support for Actions Runner Controller and Docker-in-Docker on self-hosted infrastructure, plus budget forecasting and additional model and provider choices.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "The GA release lists Cloud Hypervisor and NVX micro-VM execution, plus enclaves intended to reduce data leakage in cross-repository workflows, among its isolation options.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "GitHub says Agentic Workflows is available for repositories on GitHub Free, Team, and Enterprise, while the default Copilot CLI engine requires a Copilot license.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        }
+      ],
+      "changed": "An agent instruction can now enter the repository as reviewed Markdown and leave the compiler as an ordinary Actions workflow. Execution inherits existing runner and policy boundaries, while proposed writes pass through declared safe outputs instead of giving the reasoning process unrestricted repository access. GitHub has moved the agent from an external assistant into the CI control plane.",
+      "whyItMatters": "Teams already know how to review workflow files, restrict runners, inspect logs, and protect branches. Reusing those controls gives agent automation an operating model that is easier to audit than a separate bot with broad credentials. The announcement does not show that generated decisions are reliable, that prompt injection is eliminated, or that every organization will configure the boundaries correctly.",
+      "technicalImpact": "Treat the Markdown source and compiled YAML as security-sensitive code. Pin dependencies, review permission changes, cap per-run and daily spend, constrain network access, declare only the outputs the workflow needs, and keep the job that applies writes separate from the reasoning job. Self-hosted runner support expands deployment options but also transfers isolation, patching, and capacity responsibilities to the operator.",
+      "businessImpact": "Repository maintenance tasks such as issue triage, documentation updates, test analysis, and pull-request preparation can use the same approval and audit path as existing automation. That may lower integration friction, but the cost case depends on useful output, review burden, failure rates, and operational overhead that GitHub has not quantified independently.",
+      "outlook": "Conditional outlook: if independent testing shows that the isolation, integrity filters, safe outputs, and threat detection hold up under hostile repository content, reasoning workflows could become a normal extension of CI. If output remains noisy or operators routinely widen permissions to make tasks work, organizations may reproduce bot risk inside a more polished workflow wrapper.",
+      "uncertainties": [
+        "The general-availability announcement is a vendor source and provides no independent security assessment or cross-organization operating evidence.",
+        "The announcement names Cloud Hypervisor, NVX micro-VMs, and enclaves but does not publish comparative isolation tests, supported-host details, or escape-resistance evidence.",
+        "Read-only defaults and safe outputs reduce authority only when operators preserve narrow permissions and carefully review which outputs may write to the repository.",
+        "Integrity filtering and threat detection can reduce exposure to untrusted content but do not establish that prompt injection or malicious instructions are impossible.",
+        "A workflow can be technically secure and still make an incorrect diagnosis, create noisy issues, or propose a harmful change.",
+        "Compiling Markdown into YAML reduces authoring work but does not remove the need to review and version the generated workflow.",
+        "Support for self-hosted runners and Actions Runner Controller increases the operator's responsibility for isolation, patching, secrets, and capacity.",
+        "Budgets limit model spending; they do not bound the operational cost of review, false positives, or incorrect repository changes.",
+        "GitHub publishes customer-reported outcomes in the announcement, but those claims are not used here as verified performance evidence."
+      ],
+      "analysis": "The signal is not another agent demo. It is the packaging. Reasoning becomes repository automation: committed as text, compiled into a known runtime, restricted by permissions, observed through logs, and separated from the mechanism that performs writes. That is a more credible enterprise boundary than asking whether an agent sounds smart. It is still a boundary, not a guarantee.",
+      "sources": [
+        {
+          "id": "github-agentic-workflows-ga",
+          "title": "GitHub Agentic Workflows generally available",
+          "publisher": "GitHub Changelog",
+          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+          "publishedAt": "2026-10-28",
+          "accessedAt": "2026-10-29"
+        }
+      ],
+      "sourceNote": "Primary GitHub release announcement. It verifies product availability, workflow structure, stated safeguards, runner support, licensing, and preview boundaries; it does not independently establish security effectiveness, reliability, adoption, or business outcomes.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-29"
+      }
+    },
     {
       "id": "the-agent-got-its-own-badge",
       "slug": "the-agent-got-its-own-badge",
@@ -22,9 +129,9 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-10-27",
-      "updatedAt": "2026-10-28",
+      "updatedAt": "2026-10-29",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "A service built with the GitHub Copilot SDK authenticates through a GitHub App installation token, so its requests no longer depend on whichever employee happens to be signed in.",
@@ -148,7 +255,7 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-28"
+        "reviewedAt": "2026-10-29"
       }
     },
     {
@@ -162,7 +269,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-23",
-      "updatedAt": "2026-10-28",
+      "updatedAt": "2026-10-29",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub turned public monitoring from a list of attributed secret exposures into a managed alert stream with ongoing validity state, audit history, API access, and real-time webhooks.",
@@ -256,7 +363,7 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-28"
+        "reviewedAt": "2026-10-29"
       }
     },
     {
@@ -270,7 +377,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-22",
-      "updatedAt": "2026-10-28",
+      "updatedAt": "2026-10-29",
       "author": "Dugi Selmanaj",
       "visual": "agents",
       "scenario": "OpenAI separated recurring bounded decisions—continue, retry, route, score, or escalate—from open-ended generation and exposed them through a dedicated GPT-6 Luna endpoint with typed answers.",
@@ -374,7 +481,7 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-28"
+        "reviewedAt": "2026-10-29"
       }
     },
     {
@@ -388,7 +495,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-21",
-      "updatedAt": "2026-10-28",
+      "updatedAt": "2026-10-29",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "NVIDIA placed a separate supervisor, sandbox boundary, policy verifier, and optional hardware-isolated enforcement layer around long-running agents so the workload cannot grant itself access or quietly disable its own controls.",
@@ -508,216 +615,108 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-28"
-      }
-    },
-    {
-      "id": "the-package-install-got-a-firewall",
-      "slug": "the-package-install-got-a-firewall",
-      "title": "The package install got a firewall.",
-      "summary": "GitHub introduced a preview proxy that checks npm metadata and downloads before they reach CI runners, developer machines, or coding agents. The useful shift is from finding a poisoned dependency after installation to placing policy in the download path—while npm-only coverage, endpoint configuration, exception discipline, and unreported detection quality limit the claim.",
-      "topic": "Policy enforcement in the package-install path",
-      "category": "Security & Governance",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-20",
-      "updatedAt": "2026-10-28",
-      "author": "Dugi Selmanaj",
-      "visual": "security",
-      "scenario": "GitHub placed a policy-enforcing proxy between npm clients—including CI hosts and coding agents—and the public registry so enterprises can evaluate a package before its metadata or archive reaches the endpoint.",
-      "facts": [
-        {
-          "text": "GitHub announced the package firewall public preview on 20 October 2026 for GitHub Enterprise Cloud customers, including Enterprise Cloud with data residency.",
-          "sourceIds": [
-            "github-package-firewall"
-          ],
-          "verifiedAt": "2026-10-21"
-        },
-        {
-          "text": "GitHub says the firewall sits between endpoints such as Actions runners or coding agents and upstream package repositories, inspecting both metadata requests and package downloads for signs of malicious activity.",
-          "sourceIds": [
-            "github-package-firewall"
-          ],
-          "verifiedAt": "2026-10-21"
-        },
-        {
-          "text": "Enterprise administrators can configure a cooldown period, checks against the GitHub Advisory Database for malware or vulnerability alerts, and supply-chain checks such as attestation downgrades.",
-          "sourceIds": [
-            "github-package-firewall"
-          ],
-          "verifiedAt": "2026-10-21"
-        },
-        {
-          "text": "Endpoints must be configured to send package requests through the firewall instead of directly to the upstream registry; the announcement does not describe transparent enforcement for unconfigured clients.",
-          "sourceIds": [
-            "github-package-firewall"
-          ],
-          "verifiedAt": "2026-10-21"
-        },
-        {
-          "text": "The firewall evaluates both package-list metadata requests and package downloads against the enterprise policy.",
-          "sourceIds": [
-            "github-package-firewall"
-          ],
-          "verifiedAt": "2026-10-21"
-        },
-        {
-          "text": "When the firewall blocks a package incorrectly, a user can request an exception through a workflow that GitHub compares with other GitHub Advanced Security features.",
-          "sourceIds": [
-            "github-package-firewall"
-          ],
-          "verifiedAt": "2026-10-21"
-        },
-        {
-          "text": "The public preview currently supports only npm packages.",
-          "sourceIds": [
-            "github-package-firewall"
-          ],
-          "verifiedAt": "2026-10-21"
-        },
-        {
-          "text": "GitHub says the preview is free while infrastructure scales; general availability is expected to use metered billing similar to GitHub Actions.",
-          "sourceIds": [
-            "github-package-firewall"
-          ],
-          "verifiedAt": "2026-10-21"
-        }
-      ],
-      "changed": "Package risk moved into the installation path. Instead of relying only on lockfiles, advisory alerts, or post-install scanning, an enterprise can route metadata and archives through a policy checkpoint before a runner, workstation, or coding agent receives them. That makes dependency retrieval itself a controlled action.",
-      "whyItMatters": "A malicious package can execute install scripts and steal CI credentials before an application ever imports it. Coding agents increase the number and speed of dependency choices, while build runners often hold valuable tokens. A policy boundary in the download path can stop known-bad or suspicious packages closer to the moment of exposure and make exceptions explicit rather than leaving each endpoint to decide alone.",
-      "technicalImpact": "Treat the firewall as one layer in a package-control design. Route every eligible npm client through it, block direct registry egress where the environment allows, test cooldown and advisory policies against real builds, keep lockfiles and attestations, and export exception decisions into the audit trail. Preserve a controlled break-glass path for urgent security releases, and verify that agents cannot switch registries or fetch package archives by another route.",
-      "businessImpact": "Central enforcement can reduce repeated package-risk decisions across developer machines, CI, and agent sessions, and it can create a reviewable exception record. It also adds a provider dependency, a future metered cost, and a possible build-availability bottleneck. Enterprises need to measure blocked threats, false positives, build latency, bypasses, and exception workload before treating the preview as a production control.",
-      "outlook": "Conditional outlook: if GitHub expands ecosystem coverage, publishes useful detection and reliability evidence, and enterprises can close direct-registry bypass paths without disrupting builds, package firewalls could become a standard control for agentic and automated software delivery. If adoption remains npm-only, opt-in at each endpoint, or noisy enough to produce broad exceptions, the firewall will protect only the traffic that teams remember to route through it.",
-      "uncertainties": [
-        "The capability is in public preview and may change; GitHub gives no production service-level commitment in the announcement.",
-        "Only npm is supported, leaving other major language and container ecosystems outside the control.",
-        "Protection depends on endpoint configuration; clients or agents that can reach an upstream registry directly may bypass the firewall.",
-        "The announcement provides no detection rate, false-positive rate, blocked-package count, latency, availability, or customer outcome data.",
-        "Advisory and malware checks are only as current and complete as the underlying intelligence, while novel malicious packages may not yet be classified.",
-        "Cooldown periods can delay urgent legitimate releases, including security fixes, and may encourage overly broad exceptions.",
-        "Exception workflows preserve delivery but can become a standing bypass if scope, ownership, rationale, and expiry are weak.",
-        "A package that passes the firewall can still contain vulnerable or harmful behavior that the configured checks do not recognize.",
-        "GitHub describes its own preview; no independent evaluation or comparative package-proxy test is linked.",
-        "General-availability pricing is not published, so the operating cost at enterprise request volumes is unknown."
-      ],
-      "analysis": "The interesting part is where the decision now happens. A package install used to look like ordinary network traffic followed by a security finding. GitHub is turning the download into a governed request: inspect it, block it, or record an exception before the endpoint receives it. That is a stronger boundary—provided direct registry access is actually closed.",
-      "sources": [
-        {
-          "id": "github-package-firewall",
-          "title": "GitHub package firewall in public preview",
-          "publisher": "GitHub",
-          "url": "https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/",
-          "publishedAt": "2026-10-20",
-          "accessedAt": "2026-10-21"
-        }
-      ],
-      "sourceNote": "Primary product announcement from GitHub. The workflow, scope, availability, and preview limits are vendor-described; the post provides no independent effectiveness, performance, reliability, adoption, or cost evidence.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-28"
+        "reviewedAt": "2026-10-29"
       }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-10-28",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 25. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-10-29",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 26. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 25 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 26 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 25 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Reasoning becomes governed repository automation",
+        "rationale": "GitHub Agentic Workflows compiles Markdown instructions into Actions workflows that reuse repository permissions, policies, runners, logs, budgets, and controlled outputs. Movement remains moderate because security effectiveness lacks independent evaluation and safe operation depends on configuration and review.",
+        "storyId": "the-agent-moved-into-ci"
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 25 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 26 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 25 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 26 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 25 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 26 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 25 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 26 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 25 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 26 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Governance",
-        "direction": "up",
-        "dimension": "Agents gain workload-owned identity",
-        "rationale": "GitHub Apps can now authenticate Copilot SDK services with short-lived installation tokens, organization policy, usage attribution, and a revocation path. Movement remains moderate because the feature is preview, budgets are organization-wide, and attribution is CSV-only.",
-        "storyId": "the-agent-got-its-own-badge"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 26 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 25 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 26 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 25 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 26 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-10-28",
-    "title": "The agent got its own badge",
-    "date": "2026-10-28",
+    "slug": "2026-10-29",
+    "title": "The agent moved into CI",
+    "date": "2026-10-29",
     "status": "published",
-    "intro": "GitHub separated a shared Copilot service from the employee who happened to be signed in, giving the workload short-lived credentials, organization policy, billing attribution, and a revocation path.",
-    "theme": "Agent governance is becoming ordinary workload governance. Identity can move out of a human session, but model access, downstream authorization, cost control, and operational safety remain separate boundaries.",
+    "intro": "GitHub put reasoning automation inside the repository workflow model: authored in Markdown, compiled to Actions, bounded by permissions, and routed through controlled outputs.",
+    "theme": "The structural move is from agent as external bot to agent as governed workload. CI provides familiar controls, but it cannot prove the reasoning is correct or the requested change is useful.",
     "storyIds": [
+      "the-agent-moved-into-ci",
       "the-agent-got-its-own-badge",
       "the-secret-alert-became-an-incident-feed",
       "the-small-decision-got-its-own-api",
-      "the-agents-guardrails-moved-outside-the-agent",
-      "the-package-install-got-a-firewall"
+      "the-agents-guardrails-moved-outside-the-agent"
     ],
     "watchNext": [
-      "Whether server-to-server authentication reaches general availability with a stable support contract.",
-      "App-level budgets, dashboards, alerts, and faster attribution than CSV exports.",
-      "Operational evidence for token refresh, runtime restart, and authentication availability at scale.",
-      "Finer emergency controls that stop Copilot requests without removing unrelated app access.",
-      "Patterns that connect workload identity to least-privilege authorization for repositories, tools, and external APIs."
+      "Independent testing of integrity filters, the Agent Workflow Firewall, safe outputs, and threat detection against hostile repository content.",
+      "Failure, rollback, false-positive, and reviewer-burden evidence from production deployments.",
+      "Independent evidence for micro-VM isolation across hosted and self-hosted environments.",
+      "How operators review and version compiled YAML when the Markdown source changes.",
+      "Whether organizations preserve narrow permissions or widen them to make complex workflows succeed."
     ],
-    "closing": "A separate badge makes the agent accountable. It does not make every action safe."
+    "closing": "Putting the agent inside CI makes it governable. It does not make it right."
   }
 }
