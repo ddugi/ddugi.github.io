@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-28T07:58:34Z",
-  "last_successful_commit": "ae32e1e9a0e73800177b541bb2bc3c27439958aa",
+  "last_successful_update": "2026-10-29T07:59:40Z",
+  "last_successful_commit": "43b4cdb24658ba082aae1cd998d99ed99a06cafe",
   "last_published_story_ids": [
+    "the-agent-moved-into-ci",
     "the-agent-got-its-own-badge",
     "the-secret-alert-became-an-incident-feed",
     "the-small-decision-got-its-own-api",
-    "the-agents-guardrails-moved-outside-the-agent",
-    "the-package-install-got-a-firewall"
+    "the-agents-guardrails-moved-outside-the-agent"
   ],
   "initial_lookback_days": 7,
-  "note": "The 28 October 2026 research window published Edition 25 with GitHub Copilot server-to-server authentication as a workload-identity signal. Protected validation, GitHub Pages deployment, the new story, Weekly Signal, traceable Governance movement, privacy notice, and analytics integration were verified in production."
+  "note": "The 29 October 2026 research window published Edition 26 with GitHub Agentic Workflows GA as a governed-agent-in-CI signal. Protected validation, GitHub Pages deployment, the new story, Weekly Signal, traceable Agents movement, privacy notice, and Cloudflare analytics integration were verified in production."
 }

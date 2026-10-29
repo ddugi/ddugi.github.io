@@ -4,7 +4,7 @@
     "start": "2026-10-28T07:58:34Z",
     "end": "2026-10-29T07:59:40Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, security, engineering, and developer publications",
     "Anthropic newsroom, research, policy, and safeguards publications",
@@ -49,9 +49,9 @@
   "emerging_trends_detected": 0,
   "notes": "Edition 26 adds one source-backed agent-infrastructure signal and retains four previously approved stories. The Signal Map movement is tied only to the new Agentic Workflows story and remains qualitative.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/79",
+    "commit": "43b4cdb24658ba082aae1cd998d99ed99a06cafe",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
