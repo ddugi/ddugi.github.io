@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-10-30T08:01:52Z",
-  "last_successful_commit": "43b4cdb24658ba082aae1cd998d99ed99a06cafe",
+  "last_successful_commit": "1576b6786a5537ff20d25a0590688ca98ee5ae92",
   "last_published_story_ids": [
     "the-agent-moved-into-ci",
     "the-agent-got-its-own-badge",
@@ -10,5 +10,5 @@
     "the-agents-guardrails-moved-outside-the-agent"
   ],
   "initial_lookback_days": 7,
-  "note": "The 30 October 2026 research window completed with no new signal meeting the evidence and materiality threshold. Edition 26 remains live; the audit records the checked primary sources and rejected candidates without manufacturing a headline."
+  "note": "The 30 October 2026 research window completed with no new signal meeting the evidence and materiality threshold. Edition 26, its public audit, the research cursor, privacy notice, and Cloudflare analytics integration were verified in production after protected validation and GitHub Pages deployment."
 }

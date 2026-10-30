@@ -4,7 +4,7 @@
     "start": "2026-10-29T07:59:40Z",
     "end": "2026-10-30T08:01:52Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, safety, security, research, engineering, and developer publications",
     "Anthropic newsroom, research, policy, and safeguards publications",
@@ -42,9 +42,9 @@
   "emerging_trends_detected": 0,
   "notes": "No new story passed the publication threshold. Edition 26 and its traceable Agents movement remain unchanged; this audit records the completed research window and editorial rejections without manufacturing a headline.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/81",
+    "commit": "1576b6786a5537ff20d25a0590688ca98ee5ae92",
     "live_edition_changed": false,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
