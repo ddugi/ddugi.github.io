@@ -4,7 +4,7 @@
     "start": "2026-10-30T08:01:52Z",
     "end": "2026-10-31T08:04:58Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, safety, security, research, engineering, and developer publications",
     "Anthropic newsroom, research, policy, safeguards, and IETF standards contributions",
@@ -49,9 +49,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 27 publishes one source-backed governance signal. The Signal Map movement is linked only to the accepted story; future implementation, standards status, conformance, and enforcement remain explicitly unresolved.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/83",
+    "commit": "cc9e8495c5ca42a93320a3d9510f43d24499e95d",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }

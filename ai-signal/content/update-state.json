@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-10-31T08:04:58Z",
-  "last_successful_commit": "1576b6786a5537ff20d25a0590688ca98ee5ae92",
+  "last_successful_commit": "cc9e8495c5ca42a93320a3d9510f43d24499e95d",
   "last_published_story_ids": [
     "the-opt-out-got-a-common-language",
     "the-agent-moved-into-ci",
@@ -10,5 +10,5 @@
     "the-small-decision-got-its-own-api"
   ],
   "initial_lookback_days": 7,
-  "note": "The 31 October 2026 research window produced Edition 27: a primary-source-backed signal on the shared robots.txt training-preference token supported by OpenAI, Google, Microsoft, and Anthropic. Publication and production verification are pending protected validation."
+  "note": "The 31 October 2026 research window produced and deployed Edition 27: a primary-source-backed signal on the shared robots.txt training-preference token supported by OpenAI, Google, Microsoft, and Anthropic. Protected validation, GitHub Pages deployment, and the live homepage, story, and weekly edition were verified in production."
 }
