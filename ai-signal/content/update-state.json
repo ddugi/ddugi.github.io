@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-30T08:01:52Z",
+  "last_successful_update": "2026-10-31T08:04:58Z",
   "last_successful_commit": "1576b6786a5537ff20d25a0590688ca98ee5ae92",
   "last_published_story_ids": [
+    "the-opt-out-got-a-common-language",
     "the-agent-moved-into-ci",
     "the-agent-got-its-own-badge",
     "the-secret-alert-became-an-incident-feed",
-    "the-small-decision-got-its-own-api",
-    "the-agents-guardrails-moved-outside-the-agent"
+    "the-small-decision-got-its-own-api"
   ],
   "initial_lookback_days": 7,
-  "note": "The 30 October 2026 research window completed with no new signal meeting the evidence and materiality threshold. Edition 26, its public audit, the research cursor, privacy notice, and Cloudflare analytics integration were verified in production after protected validation and GitHub Pages deployment."
+  "note": "The 31 October 2026 research window produced Edition 27: a primary-source-backed signal on the shared robots.txt training-preference token supported by OpenAI, Google, Microsoft, and Anthropic. Publication and production verification are pending protected validation."
 }
