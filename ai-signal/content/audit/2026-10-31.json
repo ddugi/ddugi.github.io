@@ -1,0 +1,57 @@
+{
+  "run_date": "2026-10-31",
+  "research_window": {
+    "start": "2026-10-30T08:01:52Z",
+    "end": "2026-10-31T08:04:58Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, safety, security, research, engineering, and developer publications",
+    "Anthropic newsroom, research, policy, safeguards, and IETF standards contributions",
+    "Google and Google DeepMind news, research, model, safety, and Search Central publications",
+    "Microsoft Azure, Bing, Microsoft Learn, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, documentation, releases, and engineering publications",
+    "NVIDIA newsroom, event, and technical publications",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official, organization, and community publications",
+    "IETF AI Preferences drafts and mailing-list records"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-opt-out-got-a-common-language",
+      "source_publication_date": "2026-10-30",
+      "reason": "A same-day IETF draft plus independent first-party commitments from OpenAI, Google, Microsoft, and Anthropic establish a cross-provider governance direction. The story is publishable because the common token, scope, provider timelines, and limitations are all traceable to primary sources."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "NVIDIA NemoClaw specialized-agent blueprint walkthrough",
+      "source_publication_date": "2026-10-30",
+      "reason": "The post is a useful implementation guide but largely extends the OpenShell and NemoClaw runtime-governance signal already published in Edition 21; it does not add enough independent evidence or a materially new product boundary for another story."
+    },
+    {
+      "candidate": "NVIDIA validated Kubernetes runtime for Dynamo",
+      "source_publication_date": "2026-10-30",
+      "reason": "The AICR recipe is technically substantive, but this source is a deployment walkthrough rather than a newly evidenced structural change. No independent production, reliability, or operating-outcome data supports a separate signal today."
+    },
+    {
+      "candidate": "OpenAI fair-use court-brief compilation",
+      "source_publication_date": "2026-10-30",
+      "reason": "The page is advocacy in active litigation rather than a technical, product, security, infrastructure, or governance implementation change. It provides no new operating control for the publication to assess."
+    },
+    {
+      "candidate": "Other AWS, Meta, GitHub, Hugging Face, Anthropic, Google DeepMind, and Microsoft updates after the prior cutoff",
+      "source_publication_date": "2026-10-31",
+      "reason": "No additional primary-source development found before the research cutoff met the evidence and materiality threshold after deduplication."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 27 publishes one source-backed governance signal. The Signal Map movement is linked only to the accepted story; future implementation, standards status, conformance, and enforcement remain explicitly unresolved.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
