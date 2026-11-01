@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-01T08:00:02Z",
-  "last_successful_commit": "cc9e8495c5ca42a93320a3d9510f43d24499e95d",
+  "last_successful_commit": "d5d301cf8083403cc3d0c224c0bd70931083a2c8",
   "last_published_story_ids": [
     "the-opt-out-got-a-common-language",
     "the-agent-moved-into-ci",
@@ -10,5 +10,5 @@
     "the-small-decision-got-its-own-api"
   ],
   "initial_lookback_days": 7,
-  "note": "The 1 November 2026 research window completed with no new signal meeting the evidence and materiality threshold. Edition 27 remains unchanged; the daily editorial audit and research cursor are prepared for protected validation and production verification."
+  "note": "The 1 November 2026 research window completed with no new signal meeting the evidence and materiality threshold. Edition 27 remains unchanged; the daily audit, protected validation, GitHub Pages deployment, research cursor, and production homepage were verified successfully."
 }
