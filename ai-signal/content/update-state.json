@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-01T08:00:02Z",
+  "last_successful_update": "2026-11-02T08:01:20Z",
   "last_successful_commit": "d5d301cf8083403cc3d0c224c0bd70931083a2c8",
   "last_published_story_ids": [
     "the-opt-out-got-a-common-language",
@@ -10,5 +10,5 @@
     "the-small-decision-got-its-own-api"
   ],
   "initial_lookback_days": 7,
-  "note": "The 1 November 2026 research window completed with no new signal meeting the evidence and materiality threshold. Edition 27 remains unchanged; the daily audit, protected validation, GitHub Pages deployment, research cursor, and production homepage were verified successfully."
+  "note": "The 2 November 2026 research window is prepared for protected validation. No new signal met the evidence and materiality threshold, so Edition 27 remains unchanged."
 }
