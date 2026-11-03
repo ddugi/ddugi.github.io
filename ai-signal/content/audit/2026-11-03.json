@@ -1,0 +1,57 @@
+{
+  "run_date": "2026-11-03",
+  "research_window": {
+    "start": "2026-11-02T08:01:20Z",
+    "end": "2026-11-03T08:13:45Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, engineering, safety, security, and developer publications",
+    "Anthropic newsroom, research, policy, safeguards, and standards publications",
+    "Google and Google DeepMind news, research, model, safety, and developer publications",
+    "Microsoft Azure, Microsoft Research, security, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom and technical publications",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official, organization, and community publications",
+    "IETF Datatracker drafts and standards records"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-agent-fleet-hit-git",
+      "source_publication_date": "2026-11-02",
+      "reason": "OpenAI published a detailed production architecture and operating results for Pando after Codex-driven concurrency strained its monorepo service. GitHub independently described the same agent-scale write, read-fan-out, and coordination pressure, giving the story both a new dated event and a corroborated structural direction."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "OpenAI LifeVal everyday-task evaluation",
+      "source_publication_date": "2026-11-02",
+      "reason": "The evaluation is methodologically relevant, but one lab's new benchmark does not yet establish a broader change in model capability, adoption, or evaluation practice. The reported results and task design need independent use or follow-on evidence before becoming a structural signal."
+    },
+    {
+      "candidate": "OpenAI Grid Protectors Program",
+      "source_publication_date": "2026-11-02",
+      "reason": "The program describes planned demand-response commitments and one future campus agreement, but much of the impact remains prospective and company-reported. It does not yet provide operating evidence across sites sufficient for an AI-infrastructure signal."
+    },
+    {
+      "candidate": "GitHub repository-protection status in security risk assessments",
+      "source_publication_date": "2026-11-02",
+      "reason": "This is a useful enterprise security improvement, but it adds context to an existing assessment workflow rather than changing a control boundary or establishing a wider structural shift."
+    },
+    {
+      "candidate": "Other Anthropic, Google DeepMind, Microsoft, AWS, NVIDIA, Meta, Hugging Face, and IETF developments after the prior cutoff",
+      "source_publication_date": "2026-11-03",
+      "reason": "No additional primary-source development found before the research cutoff met the evidence and materiality threshold after exact-date verification and deduplication."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 28 publishes one source-backed infrastructure signal. The Signal Map movement is linked only to the accepted story; vendor-reported measurements, extreme-workload applicability, consistency trade-offs, and Pando's unavailable product status remain explicit.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
