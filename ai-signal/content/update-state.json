@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-03T08:13:45Z",
-  "last_successful_commit": "1b9463ff83c738c8f5d0f89264ed6f4c8257a128",
+  "last_successful_commit": "22de0eaf926a8b95def1cc3769648a4bbdec3179",
   "last_published_story_ids": [
     "the-agent-fleet-hit-git",
     "the-opt-out-got-a-common-language",
@@ -10,5 +10,5 @@
     "the-secret-alert-became-an-incident-feed"
   ],
   "initial_lookback_days": 7,
-  "note": "The 3 November 2026 research window is prepared for protected validation. Edition 28 adds one source-backed infrastructure signal about source control at agent scale."
+  "note": "The 3 November 2026 research window published Edition 28 with one source-backed infrastructure signal about source control at agent scale. The daily audit, protected validation, GitHub Pages deployment, research cursor, homepage, story page, source link, and active Cloudflare Web Analytics beacon were verified successfully."
 }
