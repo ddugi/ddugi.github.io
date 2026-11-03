@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "27",
+    "edition": "28",
     "mode": "live",
-    "updatedAt": "2026-10-31"
+    "updatedAt": "2026-11-03"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,113 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-agent-fleet-hit-git",
+      "slug": "the-agent-fleet-hit-git",
+      "title": "The agent fleet hit Git.",
+      "summary": "OpenAI rebuilt its source-control backend after concurrent Codex work overwhelmed the assumptions behind its monorepo service. GitHub is redesigning its own Git infrastructure around the same pressure. The signal is not that Git is obsolete; it is that agent-scale development turns source control into distributed systems infrastructure.",
+      "topic": "Source control infrastructure for concurrent coding agents",
+      "category": "Infrastructure",
+      "signal": "Structural Shift",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-11-02",
+      "updatedAt": "2026-11-03",
+      "author": "Dugi Selmanaj",
+      "visual": "infrastructure",
+      "scenario": "One engineer supervises many coding agents. Each agent creates branches, pushes checkpoints, triggers CI, fetches shared history, and competes to merge. A workflow that felt fast for humans becomes an infrastructure bottleneck when the same actions happen continuously and in parallel.",
+      "facts": [
+        {
+          "text": "OpenAI published Pando on 2 November 2026 as a Git-compatible repository backend that now serves all development in its monorepo.",
+          "sourceIds": [
+            "openai-pando"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "OpenAI says increased parallel work from Codex produced more branches, pushes, merges, fetches, clones, and CI fan-out, while its previous source-control system at times fell below 90% reliability.",
+          "sourceIds": [
+            "openai-pando"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "Pando stores incoming packfiles as immutable blobs, records versioned reference metadata, serializes updates to each reference, and relaxes repository-wide point-in-time consistency so unrelated branches can move independently.",
+          "sourceIds": [
+            "openai-pando"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "OpenAI reports that moving to Pando reduced median push latency by nearly 80%, improved merge reliability, and enabled delivery of about one petabyte of Git data per day; these are first-party production measurements, not independent benchmarks.",
+          "sourceIds": [
+            "openai-pando"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "OpenAI says Pando began serving production traffic in April 2026, was built in ten weeks, retains the Git protocol and client workflow, and has contributed several client improvements upstream or through a public Git patch tracker.",
+          "sourceIds": [
+            "openai-pando"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "GitHub separately said on 6 October 2026 that agentic development was driving a Git architecture redesign focused on concurrent writes, CI read fan-out, storage and compute separation, background maintenance, and preserving branch protection and audit controls.",
+          "sourceIds": [
+            "github-agent-scale-git"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "GitHub reported that pushes grew from 0.69 billion to 3.35 billion per month between September 2025 and August 2026 and that developers and agents made 7.38 billion commits in September 2026; GitHub did not separate the human and agent shares of those totals.",
+          "sourceIds": [
+            "github-agent-scale-git"
+          ],
+          "verifiedAt": "2026-11-03"
+        }
+      ],
+      "changed": "A large AI lab has put an agent-driven Git bottleneck into production evidence, architecture, and operating trade-offs. A major code-hosting platform is rebuilding around the same workload shape. Source control is moving from a background developer utility toward a capacity-planned platform for concurrent automated writers and the CI reads they trigger.",
+      "whyItMatters": "Coding agents do not merely type faster. They multiply branches, checkpoints, pushes, validations, and fetches, so a small reduction in per-action latency compounds across a fleet. That changes where engineering teams can hit limits: repository coordination, merge queues, object storage, CI fan-out, scanning, and audit systems may become the constraint before model inference does.",
+      "technicalImpact": "Measure pushes, fetches, merge-queue delay, CI fan-out, pack generation, scanning latency, and contention per reference before blaming Git itself. Separate read scaling from write coordination where volume justifies it, keep branch-level correctness explicit, move maintenance off the serving path, and test failure recovery. Preserve standard clients and governance controls unless workload evidence supports a different trade-off.",
+      "businessImpact": "Agent programs can create infrastructure cost and delivery friction outside the model bill. Platform teams may need capacity plans for source control, CI, security scanning, review, and merge queues as agent concurrency grows. Most organizations will not need a new Git backend; they may first need fewer redundant agent actions, better batching, repository boundaries, and limits on parallel work.",
+      "outlook": "Conditional outlook: if sustained agent concurrency spreads beyond the busiest engineering organizations, code hosts and internal developer platforms will expose more controls for write throughput, CI fan-out, agent identity, merge scheduling, and repository observability. If most teams remain far below these volumes, Pando-style architecture will stay specialized and conventional hosted Git will remain sufficient.",
+      "uncertainties": [
+        "Pando's performance and reliability figures are reported by OpenAI and have not been independently reproduced.",
+        "OpenAI's monorepo and GitHub's highest-volume repositories are extreme workloads; their bottlenecks may not generalize to ordinary engineering teams.",
+        "Pando is an internal production system, not a generally available product, and OpenAI only says it is exploring ways to share the technology.",
+        "Pando deliberately gives up a repository-wide point-in-time view of all references during Git operations; other workloads may require stronger consistency.",
+        "GitHub's redesign corroborates the workload direction but uses a different architecture and was described as work in progress.",
+        "GitHub's activity totals combine developers and agents, so they do not quantify how much of the growth agents caused.",
+        "Higher source-control throughput does not solve review quality, unsafe changes, merge correctness, CI cost, secret exposure, or excessive agent work.",
+        "Software teams can often reduce pressure through batching, concurrency limits, shallow or partial clones, caching, repository design, and CI changes before replacing backend infrastructure."
+      ],
+      "analysis": "The structural signal is workload shape. Two organizations are changing the machinery beneath Git because automated contributors turn occasional human actions into continuous parallel traffic. OpenAI's most useful choice was compatibility: it changed the backend while keeping the protocol, client, and review model. The lesson is to scale the control plane around agents without discarding the controls people already trust.",
+      "sources": [
+        {
+          "id": "openai-pando",
+          "title": "Scaling Git at OpenAI",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/scaling-git-at-openai/",
+          "publishedAt": "2026-11-02",
+          "accessedAt": "2026-11-03"
+        },
+        {
+          "id": "github-agent-scale-git",
+          "title": "Building Git infrastructure for agent-scale development",
+          "publisher": "GitHub",
+          "url": "https://github.blog/engineering/building-git-infrastructure-for-agent-scale-development/",
+          "publishedAt": "2026-10-06",
+          "accessedAt": "2026-11-03"
+        }
+      ],
+      "sourceNote": "Two first-party engineering accounts establish the shared workload direction. OpenAI provides the dated Pando architecture and internal production results; GitHub independently describes similar agent-driven pressure at hosting-platform scale. Neither source proves that typical organizations need a new source-control backend, and OpenAI's measurements remain vendor-reported.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-03"
+      }
+    },
     {
       "id": "the-opt-out-got-a-common-language",
       "slug": "the-opt-out-got-a-common-language",
@@ -22,9 +129,9 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-10-30",
-      "updatedAt": "2026-10-31",
+      "updatedAt": "2026-11-03",
       "author": "Dugi Selmanaj",
       "visual": "governance",
       "scenario": "A publisher places one purpose-specific group in robots.txt. Participating AI providers read the same path rules as a preference about training use, while crawler access, search visibility, and grounding remain separate controls.",
@@ -165,7 +272,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-28",
-      "updatedAt": "2026-10-31",
+      "updatedAt": "2026-11-03",
       "author": "Dugi Selmanaj",
       "visual": "agents",
       "scenario": "A repository maintainer describes a recurring task in Markdown; GitHub compiles it into an Actions workflow that runs an agent with bounded permissions, budget controls, filtered inputs, and declared outputs.",
@@ -272,7 +379,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-27",
-      "updatedAt": "2026-10-31",
+      "updatedAt": "2026-11-03",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "A service built with the GitHub Copilot SDK authenticates through a GitHub App installation token, so its requests no longer depend on whichever employee happens to be signed in.",
@@ -410,7 +517,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-23",
-      "updatedAt": "2026-10-31",
+      "updatedAt": "2026-11-03",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "GitHub turned public monitoring from a list of attributed secret exposures into a managed alert stream with ongoing validity state, audit history, API access, and real-time webhooks.",
@@ -506,224 +613,106 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-10-29"
       }
-    },
-    {
-      "id": "the-small-decision-got-its-own-api",
-      "slug": "the-small-decision-got-its-own-api",
-      "title": "The small decision got its own API.",
-      "summary": "OpenAI made a dedicated endpoint generally available for bounded choices, probabilities, and rubric scores. The useful shift is architectural: agents can route, classify, or escalate through a typed low-latency step instead of asking a full generative model every time—while calibration, threshold design, hot-path failure, and vendor-only performance evidence remain the real work.",
-      "topic": "Typed low-latency decisions inside agent workflows",
-      "category": "Agents",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-22",
-      "updatedAt": "2026-10-31",
-      "author": "Dugi Selmanaj",
-      "visual": "agents",
-      "scenario": "OpenAI separated recurring bounded decisions—continue, retry, route, score, or escalate—from open-ended generation and exposed them through a dedicated GPT-6 Luna endpoint with typed answers.",
-      "facts": [
-        {
-          "text": "OpenAI made the Decisions API generally available on 22 October 2026 through the dedicated /v1/decisions endpoint, currently using GPT-6 Luna.",
-          "sourceIds": [
-            "openai-decisions-ga",
-            "openai-api-changelog"
-          ],
-          "verifiedAt": "2026-10-23"
-        },
-        {
-          "text": "The endpoint accepts shared text, image, or structured JSON evidence and supports between one and 400 questions in a request; the public beta limit was 200.",
-          "sourceIds": [
-            "openai-decisions-ga",
-            "openai-api-changelog"
-          ],
-          "verifiedAt": "2026-10-23"
-        },
-        {
-          "text": "The API supports three bounded answer types: predicate returns a probability, choice selects from supplied values and includes probabilities and confidence, and score returns a probability-weighted result across ordered levels.",
-          "sourceIds": [
-            "openai-decisions-ga"
-          ],
-          "verifiedAt": "2026-10-23"
-        },
-        {
-          "text": "OpenAI reports that Decisions can return typed answers up to ten times faster than GPT-6 Luna through the Responses API; the announcement does not publish a complete independent benchmark or latency distribution for that headline figure.",
-          "sourceIds": [
-            "openai-decisions-ga"
-          ],
-          "verifiedAt": "2026-10-23"
-        },
-        {
-          "text": "The generally available release adds prompt caching, native JSON input, images in question instructions, organization usage reporting, Private Link, and native GPT-Live integration.",
-          "sourceIds": [
-            "openai-api-changelog"
-          ],
-          "verifiedAt": "2026-10-23"
-        },
-        {
-          "text": "OpenAI lists the Decisions endpoint at $0.10 per million input tokens with no output-token charge, while noting that regional processing premiums and long-context multipliers can apply.",
-          "sourceIds": [
-            "openai-decisions-ga"
-          ],
-          "verifiedAt": "2026-10-23"
-        },
-        {
-          "text": "OpenAI says the endpoint supports regional processing in the United States and Europe and is eligible for Zero Data Retention for qualifying customers.",
-          "sourceIds": [
-            "openai-decisions-ga"
-          ],
-          "verifiedAt": "2026-10-23"
-        },
-        {
-          "text": "OpenAI’s announcement includes customer-reported examples from Box, Datadog, Ramp, Sierra, and Speak, but provides no shared test set or independently reproduced comparison across those workloads.",
-          "sourceIds": [
-            "openai-decisions-ga"
-          ],
-          "verifiedAt": "2026-10-23"
-        }
-      ],
-      "changed": "A common agent operation became a separate inference primitive. Applications can send evidence plus an explicit question contract and receive a probability, fixed choice, or rubric score, rather than generating prose and parsing it back into control flow. That creates a narrower interface for the frequent decisions between larger reasoning steps.",
-      "whyItMatters": "Agents spend much of their time making small choices: whether to continue, which queue should receive a request, whether a command looks risky, or when a human should review. Using a full generative response for each choice adds latency, cost, and output ambiguity. A typed endpoint can make those transitions cheaper to inspect and easier to test, but it also puts probabilistic model output directly in the path of real actions.",
-      "technicalImpact": "Define each decision around observable evidence and explicit allowed outcomes. Build a labeled evaluation set, measure calibration as well as accuracy, choose thresholds from the cost of both error types, and route uncertain or high-impact cases to deterministic checks or human review. Log the evidence, answer, confidence, threshold, model version, and resulting action. Add timeouts and a safe fallback because a fast decision service in the hot path is still a dependency.",
-      "businessImpact": "A dedicated low-cost decision layer can make high-volume classification, routing, and agent orchestration economically practical and more responsive. The saving is credible only when teams include evaluation, monitoring, review queues, failure handling, and the cost of wrong actions. A cheap inference call can create an expensive operational error if its threshold is poorly chosen.",
-      "outlook": "Conditional outlook: if independent evaluations show stable calibration and useful latency across real workloads, bounded decision endpoints could become a standard layer between agent reasoning and action. If teams treat confidence as correctness, skip workload-specific tests, or place the endpoint in irreversible flows without a safe fallback, faster decisions will mainly make mistakes happen sooner.",
-      "uncertainties": [
-        "The up-to-ten-times speed claim comes from OpenAI and is not accompanied by a public cross-workload benchmark, full latency distribution, or independent reproduction.",
-        "Customer examples use different baselines and private workloads, so their speed, cost, and accuracy claims are not directly comparable.",
-        "Only GPT-6 Luna is supported, creating model and provider concentration for applications that adopt the endpoint contract.",
-        "A probability or confidence value is not automatically calibrated for a team’s data, risk tolerance, or changing production distribution.",
-        "Bundling up to 400 independent questions improves reuse of shared evidence but does not support dependent decision chains in one request.",
-        "Low per-token pricing excludes evaluation creation, monitoring, human review, retries, integration, and the business cost of false decisions.",
-        "A dedicated service in the action path adds availability, timeout, rate-limit, and regional-capacity dependencies.",
-        "Typed answers reduce parsing ambiguity but do not prove that the question, choices, rubric, or supplied evidence encode the right policy.",
-        "Zero Data Retention, regional processing, and other controls have eligibility and configuration requirements that teams must verify for their own account and endpoint usage.",
-        "Pricing, supported models, and service behavior may change after general availability."
-      ],
-      "analysis": "The signal is not another cheaper model. It is the split between thinking and deciding. A large reasoning step can prepare context; a smaller typed call can choose the next branch. That is cleaner agent architecture—provided the team treats every probability as something to calibrate, monitor, and sometimes refuse to act on.",
-      "sources": [
-        {
-          "id": "openai-decisions-ga",
-          "title": "Build more responsive apps with the Decisions API",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/decisions-api/",
-          "publishedAt": "2026-10-22",
-          "accessedAt": "2026-10-23"
-        },
-        {
-          "id": "openai-api-changelog",
-          "title": "OpenAI API changelog — Decisions API generally available",
-          "publisher": "OpenAI Developers",
-          "url": "https://developers.openai.com/api/docs/changelog",
-          "publishedAt": "2026-10-22",
-          "accessedAt": "2026-10-23"
-        }
-      ],
-      "sourceNote": "Primary OpenAI product announcement and dated API changelog. They verify the API contract, availability, and published pricing, but the headline speed and customer outcome claims remain vendor- or customer-reported and are not independently reproduced here.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-29"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-10-31",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 27. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-11-03",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 28. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 27 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 28 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 27 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up-strong",
+        "dimension": "Agent workloads are reshaping source-control infrastructure",
+        "rationale": "OpenAI put a Git-compatible backend for agent-driven concurrency into production, while GitHub independently described an agent-scale Git redesign. Movement is strong because both identify the same write, read-fan-out, and coordination pressure; applicability beyond high-volume repositories remains uncertain.",
+        "storyId": "the-agent-fleet-hit-git"
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 27 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 28 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 27 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 28 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 27 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 28 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 27 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 28 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 27 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 28 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Governance",
-        "direction": "up",
-        "dimension": "Websites gain a shared language for training preferences",
-        "rationale": "Four major AI providers backed the same purpose-specific robots.txt token, giving publishers one path-aware expression of training intent. Movement remains moderate because the mechanism is voluntary, the document is an individual Internet-Draft, and provider support is staggered rather than fully deployed.",
-        "storyId": "the-opt-out-got-a-common-language"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 28 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 27 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 28 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 27 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 28 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-10-31",
-    "title": "The opt-out got a common language",
-    "date": "2026-10-31",
+    "slug": "2026-11-03",
+    "title": "The agent fleet hit Git",
+    "date": "2026-11-03",
     "status": "published",
-    "intro": "OpenAI, Google, Microsoft, and Anthropic aligned around one robots.txt token for generative-AI training preferences, turning a vendor list into a possible shared policy layer.",
-    "theme": "The structural move is from crawler-specific instructions toward a portable statement of purpose. The token can communicate intent across providers; it cannot enforce that intent, replace access controls, or settle licensing and grounding questions.",
+    "intro": "OpenAI rebuilt the backend beneath Git after concurrent Codex work strained its monorepo service. GitHub is redesigning around the same workload shape.",
+    "theme": "Agents multiply repository operations as well as code. The infrastructure shift is toward independently scalable reads and writes while keeping familiar Git clients, review, protection, and audit controls.",
     "storyIds": [
+      "the-agent-fleet-hit-git",
       "the-opt-out-got-a-common-language",
       "the-agent-moved-into-ci",
       "the-agent-got-its-own-badge",
-      "the-secret-alert-became-an-incident-feed",
-      "the-small-decision-got-its-own-api"
+      "the-secret-alert-became-an-incident-feed"
     ],
     "watchNext": [
-      "Whether the proposal advances from an individual Internet-Draft into working-group consensus and eventually a stable standard.",
-      "Production implementation dates and public conformance tests across OpenAI, Google, Microsoft, Anthropic, and other providers.",
-      "How providers handle path precedence, missing preferences, explicit vendor overrides, and changes over time.",
-      "Whether publisher tooling exposes training, crawling, search, and grounding as clearly separate controls.",
-      "Observable compliance, dispute mechanisms, and the treatment of content collected before a preference changes."
+      "Whether OpenAI publishes Pando code, specifications, reproducible benchmarks, or a supported product.",
+      "How GitHub's new architecture performs in production and which controls become available to ordinary organizations.",
+      "Independent measurements separating human activity from agent-generated pushes, commits, CI runs, and merge contention.",
+      "Whether agent platforms add batching, concurrency budgets, identity, and repository-aware scheduling before infrastructure is saturated.",
+      "Failure and consistency behavior when many agents update related branches and converge on protected main."
     ],
-    "closing": "A common preference is useful. It is still a request, not a lock."
+    "closing": "The model wrote more code. The repository became the queue."
   }
 }

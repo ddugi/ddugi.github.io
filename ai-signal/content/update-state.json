@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-02T08:01:20Z",
+  "last_successful_update": "2026-11-03T08:13:45Z",
   "last_successful_commit": "1b9463ff83c738c8f5d0f89264ed6f4c8257a128",
   "last_published_story_ids": [
+    "the-agent-fleet-hit-git",
     "the-opt-out-got-a-common-language",
     "the-agent-moved-into-ci",
     "the-agent-got-its-own-badge",
-    "the-secret-alert-became-an-incident-feed",
-    "the-small-decision-got-its-own-api"
+    "the-secret-alert-became-an-incident-feed"
   ],
   "initial_lookback_days": 7,
-  "note": "The 2 November 2026 research window completed with no new signal meeting the evidence and materiality threshold. Edition 27 remains unchanged; the daily audit, protected validation, GitHub Pages deployment, research cursor, production homepage, and active Cloudflare Web Analytics beacon were verified successfully."
+  "note": "The 3 November 2026 research window is prepared for protected validation. Edition 28 adds one source-backed infrastructure signal about source control at agent scale."
 }
