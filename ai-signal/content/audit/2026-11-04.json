@@ -1,0 +1,57 @@
+{
+  "run_date": "2026-11-04",
+  "research_window": {
+    "start": "2026-11-03T08:13:45Z",
+    "end": "2026-11-04T08:41:45Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, engineering, safety, security, and developer publications",
+    "Anthropic newsroom, research, policy, safeguards, and standards publications",
+    "Google and Google DeepMind news, research, model, safety, and developer publications",
+    "Microsoft Azure, Microsoft Research, security, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom and technical publications",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official, organization, and community publications",
+    "IETF Datatracker drafts and standards records"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-agent-left-the-code-editor",
+      "source_publication_date": "2026-11-03",
+      "reason": "OpenAI and Google DeepMind published same-day, technically specific workflows for agents operating CAD, electronics, simulation, chemistry, and scientific-data tools. NVIDIA's earlier simulation account corroborates the architecture pattern, while all three sources preserve meaningful human-review and validation limits."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub Dependabot support for Agent Package Manager",
+      "source_publication_date": "2026-11-03",
+      "reason": "The integration is useful supply-chain maintenance, but it extends an existing dependency-update workflow and does not provide evidence of a wider control, adoption, or infrastructure shift by itself."
+    },
+    {
+      "candidate": "OpenAI corporate-affairs appointment",
+      "source_publication_date": "2026-11-03",
+      "reason": "The personnel announcement does not change a model, product, engineering control, security boundary, infrastructure layer, or governance implementation relevant to AI Signal."
+    },
+    {
+      "candidate": "Hugging Face StateBench, Palette, CWE-bench v2, and integration-contract posts",
+      "source_publication_date": "2026-11-03",
+      "reason": "The posts are useful project and evaluation releases, but each currently rests on its authors' evidence without enough adoption, independent reproduction, or cross-provider impact to support a separate structural signal."
+    },
+    {
+      "candidate": "Other Anthropic, Microsoft, AWS, Meta, IETF, and late-window provider developments",
+      "source_publication_date": "2026-11-04",
+      "reason": "No additional primary-source development found before the research cutoff met the evidence and materiality threshold after exact-date verification and deduplication."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 29 publishes one source-backed agent signal. The Signal Map movement is linked only to the accepted story; provider bias, selected demonstrations, expert review, manufacturability, scientific uncertainty, and physical validation remain explicit.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
