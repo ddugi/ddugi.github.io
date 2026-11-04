@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-04T08:41:45Z",
-  "last_successful_commit": "22de0eaf926a8b95def1cc3769648a4bbdec3179",
+  "last_successful_commit": "532d262e13ac972f9c1b4a541e64350a8c190245",
   "last_published_story_ids": [
     "the-agent-left-the-code-editor",
     "the-agent-fleet-hit-git",
@@ -10,5 +10,5 @@
     "the-agent-got-its-own-badge"
   ],
   "initial_lookback_days": 7,
-  "note": "The 4 November 2026 research window is prepared for protected validation. Edition 29 adds one source-backed signal about agents operating specialist engineering and scientific tools."
+  "note": "The 4 November 2026 research window published Edition 29 with one source-backed signal about agents operating specialist engineering and scientific tools. The daily audit, protected validation, GitHub Pages deployment, research cursor, homepage, story page, source link, and active Cloudflare Web Analytics beacon were verified successfully."
 }
