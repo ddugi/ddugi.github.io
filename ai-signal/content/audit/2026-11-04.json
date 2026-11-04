@@ -4,7 +4,7 @@
     "start": "2026-11-03T08:13:45Z",
     "end": "2026-11-04T08:41:45Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, engineering, safety, security, and developer publications",
     "Anthropic newsroom, research, policy, safeguards, and standards publications",
@@ -49,9 +49,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 29 publishes one source-backed agent signal. The Signal Map movement is linked only to the accepted story; provider bias, selected demonstrations, expert review, manufacturability, scientific uncertainty, and physical validation remain explicit.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/91",
+    "commit": "532d262e13ac972f9c1b4a541e64350a8c190245",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
