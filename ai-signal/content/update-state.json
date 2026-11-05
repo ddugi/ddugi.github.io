@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-05T09:32:41Z",
-  "last_successful_commit": "532d262e13ac972f9c1b4a541e64350a8c190245",
+  "last_successful_commit": "805ca446ef5430162a878fbc0d6ca2ebaa26460a",
   "last_published_story_ids": [
     "the-agent-joined-on-call-read-only",
     "the-agent-left-the-code-editor",
@@ -10,5 +10,5 @@
     "the-agent-moved-into-ci"
   ],
   "initial_lookback_days": 7,
-  "note": "The 5 November 2026 research window prepared Edition 30 with one source-backed signal about least-privilege operational agents. Publication remains pending protected validation, merge, GitHub Pages deployment, production verification, and the deployment-record update."
+  "note": "The 5 November 2026 research window published Edition 30 with one source-backed signal about least-privilege operational agents. The daily audit, protected validation, GitHub Pages deployment, research cursor, homepage, story page, source link, privacy page, and active Cloudflare Web Analytics beacon were verified successfully."
 }
