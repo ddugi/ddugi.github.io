@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-04T08:41:45Z",
+  "last_successful_update": "2026-11-05T09:32:41Z",
   "last_successful_commit": "532d262e13ac972f9c1b4a541e64350a8c190245",
   "last_published_story_ids": [
+    "the-agent-joined-on-call-read-only",
     "the-agent-left-the-code-editor",
     "the-agent-fleet-hit-git",
     "the-opt-out-got-a-common-language",
-    "the-agent-moved-into-ci",
-    "the-agent-got-its-own-badge"
+    "the-agent-moved-into-ci"
   ],
   "initial_lookback_days": 7,
-  "note": "The 4 November 2026 research window published Edition 29 with one source-backed signal about agents operating specialist engineering and scientific tools. The daily audit, protected validation, GitHub Pages deployment, research cursor, homepage, story page, source link, and active Cloudflare Web Analytics beacon were verified successfully."
+  "note": "The 5 November 2026 research window prepared Edition 30 with one source-backed signal about least-privilege operational agents. Publication remains pending protected validation, merge, GitHub Pages deployment, production verification, and the deployment-record update."
 }
