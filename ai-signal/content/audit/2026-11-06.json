@@ -4,7 +4,7 @@
     "start": "2026-11-05T09:32:41Z",
     "end": "2026-11-06T07:56:35Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, engineering, safety, security, system cards, and developer publications",
     "Anthropic newsroom, research, policy, safeguards, and standards publications",
@@ -60,9 +60,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 31 prepares one source-backed structural AI-security signal. The map movement is linked only to the accepted story; first-party measurement, validation failures, external-evaluation limits, disclosure overload, patch gaps, restricted access, and misuse risk remain explicit.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/95",
+    "commit": "69c33537879617f9d3d731e60c698abe811e31b1",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
