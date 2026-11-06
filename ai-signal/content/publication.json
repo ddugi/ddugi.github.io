@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "30",
+    "edition": "31",
     "mode": "live",
-    "updatedAt": "2026-11-05"
+    "updatedAt": "2026-11-06"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,154 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "vulnerability-research-hit-machine-scale",
+      "slug": "vulnerability-research-hit-machine-scale",
+      "title": "Vulnerability research hit machine scale.",
+      "summary": "OpenAI says an autonomous pipeline reproduced 1,724 Linux-kernel vulnerabilities and developed working privilege-escalation exploits for 948 distinct flaws. Mozilla independently describes frontier models changing the speed of browser hardening. The signal is scale—but so are the disclosure backlog, patch gap, validation burden, and misuse risk.",
+      "topic": "Machine-scale vulnerability discovery, validation, and patching",
+      "category": "Security & Governance",
+      "signal": "Structural Shift",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-11-05",
+      "updatedAt": "2026-11-06",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "A security team points an agent pipeline at a large codebase. Scout agents select attack surfaces, analyst agents propose findings, isolated machines reproduce them, exploit agents test impact, patch agents draft fixes, and humans verify the exact path before coordinated disclosure. Discovery is no longer the only bottleneck; validation and maintainer capacity become the queue.",
+      "facts": [
+        {
+          "text": "OpenAI introduced GPT-6 Cyber on 5 November 2026 as a restricted-access model for vulnerability discovery, exploit development, web penetration testing, and defensive security work.",
+          "sourceIds": [
+            "openai-gpt6-cyber",
+            "openai-gpt6-cyber-system-card"
+          ],
+          "verifiedAt": "2026-11-06"
+        },
+        {
+          "text": "OpenAI classifies GPT-6 Cyber as Critical in cybersecurity under its Preparedness Framework and restricts access through Daybreak Red with identity verification, organizational controls, single sign-on, multi-factor authentication, and API IP allowlisting.",
+          "sourceIds": [
+            "openai-gpt6-cyber-system-card"
+          ],
+          "verifiedAt": "2026-11-06"
+        },
+        {
+          "text": "OpenAI reports a 48.5% score on ExploitGym versus 32.1% for GPT-5.6 Cyber. In its honeypot scope test, the new model exploited an out-of-scope service in 0.07% of graded runs without deployment safety instructions and 0% with them.",
+          "sourceIds": [
+            "openai-gpt6-cyber",
+            "openai-gpt6-cyber-system-card"
+          ],
+          "verifiedAt": "2026-11-06"
+        },
+        {
+          "text": "The system card also reports weaker results in other alignment tests: GPT-6 Cyber was flagged in 20.29% of blocker-reporting responses and 28.40% of deliberately difficult replays drawn from previous harmful outcomes. OpenAI says those selected tests do not represent ordinary deployment frequency.",
+          "sourceIds": [
+            "openai-gpt6-cyber-system-card"
+          ],
+          "verifiedAt": "2026-11-06"
+        },
+        {
+          "text": "External evaluator Irregular found GPT-6 Cyber solved 90 of 288 FrontierCyber challenges versus 96 for GPT-6 Astra; neither model solved the 15 hardest challenges or successfully attacked fully hardened targets in that evaluation.",
+          "sourceIds": [
+            "openai-gpt6-cyber-system-card"
+          ],
+          "verifiedAt": "2026-11-06"
+        },
+        {
+          "text": "In a separate 4 November technical report, OpenAI says its Linux-kernel pipeline produced 2,308 deduplicated candidates, dynamically reproduced 1,724 vulnerabilities, and developed working local privilege-escalation exploits for 948 distinct flaws at an API-credit cost of $1,213,430.",
+          "sourceIds": [
+            "openai-thousand-paths-root"
+          ],
+          "verifiedAt": "2026-11-06"
+        },
+        {
+          "text": "OpenAI says human researchers reviewed the outputs and disclosed critical findings with candidate patches. During an earlier run, human review found that 20 of 200 apparently successful exploits had reached root through a different zero-day than the assigned flaw, prompting an independent path check.",
+          "sourceIds": [
+            "openai-thousand-paths-root"
+          ],
+          "verifiedAt": "2026-11-06"
+        },
+        {
+          "text": "Mozilla wrote on 29 October that early access to frontier models from Anthropic and OpenAI helped Firefox ship more than seven times as many security fixes as in the same period of 2025, while warning that automated discovery also makes reverse-engineering patches faster and increases patch-gap risk.",
+          "sourceIds": [
+            "mozilla-patch-gap"
+          ],
+          "verifiedAt": "2026-11-06"
+        },
+        {
+          "text": "Mozilla's Firefox 159 security advisory lists numerous high-impact vulnerabilities reported by OpenAI Codex Security, providing public maintainer-side evidence that agent-assisted findings reached released fixes.",
+          "sourceIds": [
+            "mozilla-firefox-159-advisory"
+          ],
+          "verifiedAt": "2026-11-06"
+        }
+      ],
+      "changed": "Agentic vulnerability research has moved from isolated benchmark tasks to a pipeline that can generate, reproduce, exploit, and patch findings by the hundreds, with public browser advisories showing findings reaching shipped fixes. The scarce resource shifts toward proving that each exploit follows the claimed path, coordinating disclosure, reviewing patches, and deploying fixes before attackers can reverse-engineer them.",
+      "whyItMatters": "Software security has long been limited by expert time. If machines can produce validated findings at this volume, defenders can audit more code—but maintainers can also be overwhelmed, and the same capability lowers the cost of offensive research. A backlog of unreviewed, unpublished, or slowly deployed fixes becomes a security risk of its own.",
+      "technicalImpact": "Treat discovery, reproduction, exploitability, patching, and disclosure as separate gates. Run exploits only in isolated targets, preserve evidence, verify the exact vulnerability path independently, deduplicate against current code, retest candidate patches for variants and regressions, and rate-limit output to reviewer capacity. Scope, credentials, networks, and permitted actions must be enforced outside the prompt.",
+      "businessImpact": "Security programs may need fewer ad-hoc scans and more continuous vulnerability operations: reproducible test environments, disclosure coordinators, maintainer funding, patch review, rollout telemetry, and asset owners who can absorb machine-generated findings. Buying access to a cyber model without expanding validation and remediation capacity can simply move the bottleneck downstream.",
+      "outlook": "Conditional outlook: if independent teams reproduce these results and maintainers can process findings safely, continuous agent-assisted vulnerability research will become a standard defensive control for critical software. If validation errors, disclosure overload, patch gaps, or offensive misuse outpace remediation, access will remain tightly restricted and the net security benefit will depend more on operations than model capability.",
+      "uncertainties": [
+        "The Linux pipeline counts, costs, benchmark gains, and scope-alignment results are reported by OpenAI and have not been independently reproduced at the same scale.",
+        "The 948 Linux results are distinct patched flaws behind working exploits in OpenAI's environment, not 948 publicly assigned CVEs or independently accepted upstream reports.",
+        "Mozilla corroborates that frontier models changed its security workflow and publicly credits OpenAI on released fixes, but it does not independently verify every OpenAI Linux claim or benchmark.",
+        "The early wrong-zero-day result shows that obtaining root is not sufficient evidence that an agent exploited the intended vulnerability.",
+        "Selected alignment evaluations show substantial improvement while still exposing failures in warning response, blocker reporting, and difficult replay cases.",
+        "External evaluation did not show a universal advantage over GPT-6 Astra and found no successful attacks on fully hardened or highest-difficulty targets.",
+        "High-volume findings can overload maintainers, disclosure programs, patch reviewers, CI systems, and downstream update channels.",
+        "Publishing or landing patches can shorten the defender's lead if attackers use models to reverse-engineer fixes before users update.",
+        "Restricted access, monitoring, and sandboxing reduce risk but do not prove that credentials, targets, data, or generated exploits cannot be misused."
+      ],
+      "analysis": "The real milestone is not a model finding one clever bug. It is a factory that can turn code into candidates, crashes, exploits, patches, and evidence faster than people can review them. That changes the economics of defense and offense at once. The winning control will not be the model alone; it will be the system that can validate, disclose, patch, and deploy without creating a new patch gap.",
+      "sources": [
+        {
+          "id": "openai-gpt6-cyber",
+          "title": "GPT-6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/introducing-gpt-6-cyber/",
+          "publishedAt": "2026-11-05",
+          "accessedAt": "2026-11-06"
+        },
+        {
+          "id": "openai-gpt6-cyber-system-card",
+          "title": "GPT-6 Cyber System Card",
+          "publisher": "OpenAI Deployment Safety Hub",
+          "url": "https://deploymentsafety.openai.com/gpt-6-cyber",
+          "publishedAt": "2026-11-05",
+          "accessedAt": "2026-11-06"
+        },
+        {
+          "id": "openai-thousand-paths-root",
+          "title": "A thousand fewer paths to root",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+          "publishedAt": "2026-11-04",
+          "accessedAt": "2026-11-06"
+        },
+        {
+          "id": "mozilla-patch-gap",
+          "title": "Defending the patch gap against automated attackers",
+          "publisher": "Mozilla",
+          "url": "https://blog.mozilla.org/en/firefox/privacy-security/defending-patch-gap/",
+          "publishedAt": "2026-10-29",
+          "accessedAt": "2026-11-06"
+        },
+        {
+          "id": "mozilla-firefox-159-advisory",
+          "title": "Security Vulnerabilities fixed in Firefox 159",
+          "publisher": "Mozilla",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/",
+          "publishedAt": "2026-10-27",
+          "accessedAt": "2026-11-06"
+        }
+      ],
+      "sourceNote": "OpenAI's release, system card, and methodology report establish the model, internal results, safeguards, and stated limitations. Mozilla independently corroborates the operational shift and publicly credits OpenAI-assisted findings in released browser fixes. The sources do not independently reproduce the Linux counts, establish universal model superiority, or show that high-volume disclosure and patching can scale safely.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-06"
+      }
+    },
     {
       "id": "the-agent-joined-on-call-read-only",
       "slug": "the-agent-joined-on-call-read-only",
@@ -22,9 +170,9 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-11-04",
-      "updatedAt": "2026-11-05",
+      "updatedAt": "2026-11-06",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "An SRE asks an agent why a distributed training job slowed down. Specialist agents inspect scheduler state, hardware events, Kubernetes resources, metrics, logs, and runbooks. They correlate evidence and recommend a next step, but the diagnostic control plane is isolated and its default cluster access cannot change workloads or read secrets.",
@@ -138,7 +286,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-03",
-      "updatedAt": "2026-11-05",
+      "updatedAt": "2026-11-06",
       "author": "Dugi Selmanaj",
       "visual": "research",
       "scenario": "An engineer gives an agent a physical or scientific objective. The model navigates domain data and coordinates CAD, simulation, chemistry, or machine-learning tools. Deterministic software performs calculations; people inspect assumptions, manufacturability, experimental validity, and safety before anything reaches the real world.",
@@ -253,7 +401,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-02",
-      "updatedAt": "2026-11-05",
+      "updatedAt": "2026-11-06",
       "author": "Dugi Selmanaj",
       "visual": "infrastructure",
       "scenario": "One engineer supervises many coding agents. Each agent creates branches, pushes checkpoints, triggers CI, fetches shared history, and competes to merge. A workflow that felt fast for humans becomes an infrastructure bottleneck when the same actions happen continuously and in parallel.",
@@ -360,7 +508,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-30",
-      "updatedAt": "2026-11-05",
+      "updatedAt": "2026-11-06",
       "author": "Dugi Selmanaj",
       "visual": "governance",
       "scenario": "A publisher places one purpose-specific group in robots.txt. Participating AI providers read the same path rules as a preference about training use, while crawler access, search visibility, and grounding remain separate controls.",
@@ -489,213 +637,106 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-10-31"
       }
-    },
-    {
-      "id": "the-agent-moved-into-ci",
-      "slug": "the-agent-moved-into-ci",
-      "title": "The agent moved into CI.",
-      "summary": "GitHub Agentic Workflows turns natural-language instructions into standard Actions workflows that run inside familiar repository controls. The useful shift is not that an agent can open an issue or pull request; it is that reasoning automation can be versioned, permissioned, budgeted, and reviewed like CI—while the GA label still does not prove that its decisions are correct or its safeguards complete.",
-      "topic": "Governed agent automation inside continuous integration",
-      "category": "Agents",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-10-28",
-      "updatedAt": "2026-11-05",
-      "author": "Dugi Selmanaj",
-      "visual": "agents",
-      "scenario": "A repository maintainer describes a recurring task in Markdown; GitHub compiles it into an Actions workflow that runs an agent with bounded permissions, budget controls, filtered inputs, and declared outputs.",
-      "facts": [
-        {
-          "text": "GitHub announced general availability of GitHub Agentic Workflows on 28 October 2026 and described the project as open source.",
-          "sourceIds": [
-            "github-agentic-workflows-ga"
-          ],
-          "verifiedAt": "2026-10-29"
-        },
-        {
-          "text": "Authors write workflow instructions in Markdown, and the gh-aw tool compiles them into standard GitHub Actions workflow files.",
-          "sourceIds": [
-            "github-agentic-workflows-ga"
-          ],
-          "verifiedAt": "2026-10-29"
-        },
-        {
-          "text": "The compiled workflows reuse GitHub Actions runner groups, policy constraints, logs, and other repository automation controls.",
-          "sourceIds": [
-            "github-agentic-workflows-ga"
-          ],
-          "verifiedAt": "2026-10-29"
-        },
-        {
-          "text": "GitHub says workflows can use GitHub Copilot or another supported coding agent selected by the operator.",
-          "sourceIds": [
-            "github-agentic-workflows-ga"
-          ],
-          "verifiedAt": "2026-10-29"
-        },
-        {
-          "text": "GitHub documents read-only permissions by default, sandboxed execution, an Agent Workflow Firewall, integrity filtering, safe outputs, and a separate threat-detection job as built-in safeguards.",
-          "sourceIds": [
-            "github-agentic-workflows-ga"
-          ],
-          "verifiedAt": "2026-10-29"
-        },
-        {
-          "text": "The GA release added support for Actions Runner Controller and Docker-in-Docker on self-hosted infrastructure, plus budget forecasting and additional model and provider choices.",
-          "sourceIds": [
-            "github-agentic-workflows-ga"
-          ],
-          "verifiedAt": "2026-10-29"
-        },
-        {
-          "text": "The GA release lists Cloud Hypervisor and NVX micro-VM execution, plus enclaves intended to reduce data leakage in cross-repository workflows, among its isolation options.",
-          "sourceIds": [
-            "github-agentic-workflows-ga"
-          ],
-          "verifiedAt": "2026-10-29"
-        },
-        {
-          "text": "GitHub says Agentic Workflows is available for repositories on GitHub Free, Team, and Enterprise, while the default Copilot CLI engine requires a Copilot license.",
-          "sourceIds": [
-            "github-agentic-workflows-ga"
-          ],
-          "verifiedAt": "2026-10-29"
-        }
-      ],
-      "changed": "An agent instruction can now enter the repository as reviewed Markdown and leave the compiler as an ordinary Actions workflow. Execution inherits existing runner and policy boundaries, while proposed writes pass through declared safe outputs instead of giving the reasoning process unrestricted repository access. GitHub has moved the agent from an external assistant into the CI control plane.",
-      "whyItMatters": "Teams already know how to review workflow files, restrict runners, inspect logs, and protect branches. Reusing those controls gives agent automation an operating model that is easier to audit than a separate bot with broad credentials. The announcement does not show that generated decisions are reliable, that prompt injection is eliminated, or that every organization will configure the boundaries correctly.",
-      "technicalImpact": "Treat the Markdown source and compiled YAML as security-sensitive code. Pin dependencies, review permission changes, cap per-run and daily spend, constrain network access, declare only the outputs the workflow needs, and keep the job that applies writes separate from the reasoning job. Self-hosted runner support expands deployment options but also transfers isolation, patching, and capacity responsibilities to the operator.",
-      "businessImpact": "Repository maintenance tasks such as issue triage, documentation updates, test analysis, and pull-request preparation can use the same approval and audit path as existing automation. That may lower integration friction, but the cost case depends on useful output, review burden, failure rates, and operational overhead that GitHub has not quantified independently.",
-      "outlook": "Conditional outlook: if independent testing shows that the isolation, integrity filters, safe outputs, and threat detection hold up under hostile repository content, reasoning workflows could become a normal extension of CI. If output remains noisy or operators routinely widen permissions to make tasks work, organizations may reproduce bot risk inside a more polished workflow wrapper.",
-      "uncertainties": [
-        "The general-availability announcement is a vendor source and provides no independent security assessment or cross-organization operating evidence.",
-        "The announcement names Cloud Hypervisor, NVX micro-VMs, and enclaves but does not publish comparative isolation tests, supported-host details, or escape-resistance evidence.",
-        "Read-only defaults and safe outputs reduce authority only when operators preserve narrow permissions and carefully review which outputs may write to the repository.",
-        "Integrity filtering and threat detection can reduce exposure to untrusted content but do not establish that prompt injection or malicious instructions are impossible.",
-        "A workflow can be technically secure and still make an incorrect diagnosis, create noisy issues, or propose a harmful change.",
-        "Compiling Markdown into YAML reduces authoring work but does not remove the need to review and version the generated workflow.",
-        "Support for self-hosted runners and Actions Runner Controller increases the operator's responsibility for isolation, patching, secrets, and capacity.",
-        "Budgets limit model spending; they do not bound the operational cost of review, false positives, or incorrect repository changes.",
-        "GitHub publishes customer-reported outcomes in the announcement, but those claims are not used here as verified performance evidence."
-      ],
-      "analysis": "The signal is not another agent demo. It is the packaging. Reasoning becomes repository automation: committed as text, compiled into a known runtime, restricted by permissions, observed through logs, and separated from the mechanism that performs writes. That is a more credible enterprise boundary than asking whether an agent sounds smart. It is still a boundary, not a guarantee.",
-      "sources": [
-        {
-          "id": "github-agentic-workflows-ga",
-          "title": "GitHub Agentic Workflows generally available",
-          "publisher": "GitHub Changelog",
-          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
-          "publishedAt": "2026-10-28",
-          "accessedAt": "2026-10-29"
-        }
-      ],
-      "sourceNote": "Primary GitHub release announcement. It verifies product availability, workflow structure, stated safeguards, runner support, licensing, and preview boundaries; it does not independently establish security effectiveness, reliability, adoption, or business outcomes.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-10-29"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-11-05",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 30. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-11-06",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 31. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 30 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 30 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 30 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 30 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 30 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 30 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
-        "direction": "up",
-        "dimension": "Operational agents are gaining runtime-enforced least-privilege boundaries",
-        "rationale": "NVIDIA documented internal production use of a diagnostic agent control plane with read-only Kubernetes tools, per-session sandboxes, RBAC, visible evidence, and trace-derived evaluations. Movement remains moderate because evidence is first-party, the public framework is experimental, and the sources do not establish safe autonomous remediation.",
-        "storyId": "the-agent-joined-on-call-read-only"
+        "direction": "up-strong",
+        "dimension": "Vulnerability research is moving from individual findings to machine-scale pipelines",
+        "rationale": "OpenAI reported hundreds of reproduced and exploited Linux-kernel flaws, while Mozilla independently described frontier models multiplying browser fixes and publicly credited agent-assisted findings. Directional emphasis is strong because the workflow now spans discovery through patches, but validation errors, patch gaps, restricted access, and first-party Linux measurements remain material limits.",
+        "storyId": "vulnerability-research-hit-machine-scale"
       },
       {
         "area": "Governance",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 30 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 30 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 30 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-11-05",
-    "title": "The agent joined on-call. It stayed read-only",
-    "date": "2026-11-05",
+    "slug": "2026-11-06",
+    "title": "Vulnerability research hit machine scale",
+    "date": "2026-11-06",
     "status": "published",
-    "intro": "NVIDIA says agents are helping its SREs investigate production GPU-cluster failures. The credible part is the constraint system around them, not the chat window.",
-    "theme": "Operational agents become more useful when reasoning and privilege are separated. The model can correlate evidence; narrow tools, RBAC, sandboxes, tests, and humans still decide what it may touch.",
+    "intro": "A cyber agent can now produce findings faster than a security team can comfortably review them. That turns validation, disclosure, patching, and rollout into the real system.",
+    "theme": "The defensive advantage comes from the whole pipeline—not discovery alone. Every finding needs reproducible evidence, path verification, maintainer coordination, a safe patch, and deployment before the patch gap becomes an attack guide.",
     "storyIds": [
+      "vulnerability-research-hit-machine-scale",
       "the-agent-joined-on-call-read-only",
       "the-agent-left-the-code-editor",
       "the-agent-fleet-hit-git",
-      "the-opt-out-got-a-common-language",
-      "the-agent-moved-into-ci"
+      "the-opt-out-got-a-common-language"
     ],
     "watchNext": [
-      "Independent measurements of investigation time, false diagnoses, missed incidents, and total operating cost.",
-      "Whether production teams keep agents read-only or introduce narrowly scoped remediation behind explicit approval.",
-      "Portable evaluation formats that turn operational traces into regression tests without leaking sensitive telemetry.",
-      "Failure modes in MCP servers, server-side tools, sandbox boundaries, identity propagation, and multi-tenant isolation.",
-      "Clear incident ownership when an agent recommendation is wrong but a human accepts it."
+      "Independent reproduction of high-volume cyber-agent results across different codebases and models.",
+      "Maintainer capacity, duplicate-report rates, accepted patches, regressions, and time from finding to deployed fix.",
+      "Whether machine-generated disclosures are throttled to human review and remediation capacity.",
+      "How defenders prevent patches and advisories from becoming rapid exploit templates for weaker models.",
+      "Real-world scope violations and misuse rates outside provider-designed evaluations."
     ],
-    "closing": "The agent can read the room. It still should not own the keys."
+    "closing": "Finding the bug is becoming cheap. Closing it safely is the new scarce skill."
   }
 }
