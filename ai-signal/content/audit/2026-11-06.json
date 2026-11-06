@@ -1,0 +1,68 @@
+{
+  "run_date": "2026-11-06",
+  "research_window": {
+    "start": "2026-11-05T09:32:41Z",
+    "end": "2026-11-06T07:56:35Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, engineering, safety, security, system cards, and developer publications",
+    "Anthropic newsroom, research, policy, safeguards, and standards publications",
+    "Google and Google DeepMind news, research, model, safety, and developer publications",
+    "Microsoft Azure, Microsoft Research, security, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom and technical publications",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official, organization, and community publications",
+    "Mozilla security blog and Firefox security advisories",
+    "IETF Datatracker drafts and standards records"
+  ],
+  "accepted": [
+    {
+      "story_id": "vulnerability-research-hit-machine-scale",
+      "source_publication_date": "2026-11-05",
+      "reason": "OpenAI released a restricted cyber-specialized model, a detailed system card, and an evidence-rich vulnerability pipeline; Mozilla independently corroborates the shift and publicly credits agent-assisted findings in released fixes. The combined evidence supports a structural signal about machine-scale vulnerability operations, while negative evaluations and operational limits remain explicit."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "OpenAI acquisition of Pierre Computer Company",
+      "source_publication_date": "2026-11-04",
+      "reason": "The proposed acquisition may strengthen Codex review and source-control tooling, but closing remains conditional and no completed product or measured workflow change exists yet."
+    },
+    {
+      "candidate": "OpenAI Images 2.6",
+      "source_publication_date": "2026-11-04",
+      "reason": "The release adds image-generation and editing features, but the available announcement does not establish a wider enterprise, infrastructure, or governance shift for this edition."
+    },
+    {
+      "candidate": "GitHub secret-scanning detector upgrades and SpaceX partnership",
+      "source_publication_date": "2026-11-05",
+      "reason": "The update improves an established security control but is incremental and does not independently support a broader signal beyond the accepted cyber-automation story."
+    },
+    {
+      "candidate": "GitHub pull-request overview public preview",
+      "source_publication_date": "2026-11-05",
+      "reason": "The interface preview changes collaboration presentation, not the underlying AI, infrastructure, security, or governance operating model."
+    },
+    {
+      "candidate": "Google DeepMind Gemini Omni 1.2 Flash",
+      "source_publication_date": "2026-11-05",
+      "reason": "The model update extends media-generation capability, but the research window did not provide sufficient independent evidence of adoption, economics, or structural impact."
+    },
+    {
+      "candidate": "Other Anthropic, Microsoft, AWS, NVIDIA, Meta, Hugging Face, IETF, and late-window provider developments",
+      "source_publication_date": "2026-11-06",
+      "reason": "No additional primary-source development found before the cutoff met the evidence and materiality threshold after exact-date verification and deduplication."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 31 prepares one source-backed structural AI-security signal. The map movement is linked only to the accepted story; first-party measurement, validation failures, external-evaluation limits, disclosure overload, patch gaps, restricted access, and misuse risk remain explicit.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
