@@ -1,0 +1,68 @@
+{
+  "run_date": "2026-11-07",
+  "research_window": {
+    "start": "2026-11-06T07:56:35Z",
+    "end": "2026-11-07T08:04:51Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, engineering, safety, security, system cards, and developer publications",
+    "Anthropic newsroom, research, policy, safeguards, and standards publications",
+    "Google and Google DeepMind news, research, model, safety, and developer publications",
+    "Microsoft Azure, Microsoft Research, security, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, engineering, architecture, documentation, releases, and security publications",
+    "NVIDIA newsroom and technical publications",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official, organization, and community publications",
+    "Mozilla security blog and Firefox security advisories",
+    "IETF Datatracker drafts and standards records"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-agent-fleet-hit-git",
+      "source_publication_date": "2026-11-05",
+      "reason": "A newly indexed GitHub engineering deep dive materially strengthened the existing agent-scale Git story with a concrete limited-preview design, internal concurrency tests, and explicit storage, consensus, cache, compaction, and roadmap boundaries. The existing story was updated rather than duplicated."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub Copilot code-review API management and overview updates",
+      "source_publication_date": "2026-11-06",
+      "reason": "The controls improve administration of an existing review product but do not independently establish a new architecture or adoption shift."
+    },
+    {
+      "candidate": "GitHub Copilot impact dashboard usage additions",
+      "source_publication_date": "2026-11-06",
+      "reason": "Additional chat and agent-usage reporting is operationally useful but remains an incremental measurement feature without a distinct structural signal."
+    },
+    {
+      "candidate": "GitHub Copilot weekly release bundle",
+      "source_publication_date": "2026-11-06",
+      "reason": "The bundled product improvements are heterogeneous and do not support one evidence-backed structural conclusion beyond existing stories."
+    },
+    {
+      "candidate": "GitHub integration in Slack and Teams general availability",
+      "source_publication_date": "2026-11-06",
+      "reason": "General availability expands distribution but does not by itself demonstrate material enterprise outcomes or a new agent operating model."
+    },
+    {
+      "candidate": "OpenAI Australian university adoption announcement",
+      "source_publication_date": "2026-11-05",
+      "reason": "The first-party adoption account does not provide enough independent learning-outcome evidence or technical detail for a separate signal."
+    },
+    {
+      "candidate": "Other Anthropic, Google, Microsoft, AWS, NVIDIA, Meta, Hugging Face, Mozilla, IETF, and late-window provider developments",
+      "source_publication_date": "2026-11-07",
+      "reason": "No additional primary-source development found before the cutoff met the evidence and materiality threshold after exact-date verification and deduplication."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 32 updates an existing structural infrastructure signal rather than publishing a duplicate. The source predates the cursor by publication date but was newly indexed and discovered in this run; the audit records that timing explicitly. The map movement is linked only to the updated story, with preview status, synthetic-test limits, roadmap boundaries, and extreme-workload bias preserved.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
