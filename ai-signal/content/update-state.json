@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-06T07:56:35Z",
+  "last_successful_update": "2026-11-07T08:04:51Z",
   "last_successful_commit": "69c33537879617f9d3d731e60c698abe811e31b1",
   "last_published_story_ids": [
+    "the-agent-fleet-hit-git",
     "vulnerability-research-hit-machine-scale",
     "the-agent-joined-on-call-read-only",
     "the-agent-left-the-code-editor",
-    "the-agent-fleet-hit-git",
     "the-opt-out-got-a-common-language"
   ],
   "initial_lookback_days": 7,
-  "note": "The 6 November 2026 research window published Edition 31 with one source-backed structural signal about machine-scale vulnerability operations. The daily audit, protected validation, GitHub Pages deployment, research cursor, homepage, story page, source links, privacy page, and active Cloudflare Web Analytics beacon were verified successfully."
+  "note": "The 7 November 2026 research window prepared Edition 32 with a material update to the existing agent-scale Git signal. Publication remains pending protected validation, merge, GitHub Pages deployment, production verification, and the deployment-record update."
 }

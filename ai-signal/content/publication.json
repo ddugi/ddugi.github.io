@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "31",
+    "edition": "32",
     "mode": "live",
-    "updatedAt": "2026-11-06"
+    "updatedAt": "2026-11-07"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,174 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-agent-fleet-hit-git",
+      "slug": "the-agent-fleet-hit-git",
+      "title": "The agent fleet hit Git.",
+      "summary": "OpenAI rebuilt its source-control backend after concurrent Codex work overwhelmed its monorepo service. GitHub has now published the storage architecture behind the same bet: disposable compute, object storage, per-reference consensus, and separate maintenance workers. The signal is no longer just traffic growth; source control is becoming distributed systems infrastructure for automated writers.",
+      "topic": "Source-control infrastructure for thousands of concurrent coding agents",
+      "category": "Infrastructure",
+      "signal": "Structural Shift",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-11-02",
+      "updatedAt": "2026-11-07",
+      "author": "Dugi Selmanaj",
+      "visual": "infrastructure",
+      "scenario": "One engineer supervises many coding agents. Each agent creates branches, pushes checkpoints, triggers CI, fetches shared history, and competes to merge. A workflow that felt fast for humans becomes an infrastructure bottleneck when the same actions happen continuously and in parallel.",
+      "facts": [
+        {
+          "text": "OpenAI published Pando on 2 November 2026 as a Git-compatible repository backend that now serves all development in its monorepo.",
+          "sourceIds": [
+            "openai-pando"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "OpenAI says increased parallel work from Codex produced more branches, pushes, merges, fetches, clones, and CI fan-out, while its previous source-control system at times fell below 90% reliability.",
+          "sourceIds": [
+            "openai-pando"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "Pando stores incoming packfiles as immutable blobs, records versioned reference metadata, serializes updates to each reference, and relaxes repository-wide point-in-time consistency so unrelated branches can move independently.",
+          "sourceIds": [
+            "openai-pando"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "OpenAI reports that moving to Pando reduced median push latency by nearly 80%, improved merge reliability, and enabled delivery of about one petabyte of Git data per day; these are first-party production measurements, not independent benchmarks.",
+          "sourceIds": [
+            "openai-pando"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "OpenAI says Pando began serving production traffic in April 2026, was built in ten weeks, retains the Git protocol and client workflow, and has contributed several client improvements upstream or through a public Git patch tracker.",
+          "sourceIds": [
+            "openai-pando"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "GitHub separately said on 6 October 2026 that agentic development was driving a Git architecture redesign focused on concurrent writes, CI read fan-out, storage and compute separation, background maintenance, and preserving branch protection and audit controls.",
+          "sourceIds": [
+            "github-agent-scale-git"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "GitHub reported that pushes grew from 0.69 billion to 3.35 billion per month between September 2025 and August 2026 and that developers and agents made 7.38 billion commits in September 2026; GitHub did not separate the human and agent shares of those totals.",
+          "sourceIds": [
+            "github-agent-scale-git"
+          ],
+          "verifiedAt": "2026-11-03"
+        },
+        {
+          "text": "GitHub published the end-state design of its new Git storage architecture on 5 November 2026 and says it is available in limited private preview, with broader rollout planned for early 2027.",
+          "sourceIds": [
+            "github-rubicon-git-storage"
+          ],
+          "verifiedAt": "2026-11-07"
+        },
+        {
+          "text": "In internal testing, GitHub says the system supported 5,000 concurrent agents on one repository and 7,200 pushes per second while maintaining consistently low read latency; these are vendor-run load tests, not public production measurements.",
+          "sourceIds": [
+            "github-rubicon-git-storage"
+          ],
+          "verifiedAt": "2026-11-07"
+        },
+        {
+          "text": "GitHub's architecture stores pack data in Azure Blob Storage, keeps authoritative reference and pack-manifest state in a replicated compare-and-swap log called Ref-CAS, and serves requests through disposable virtual replicas whose local disks are rebuildable caches.",
+          "sourceIds": [
+            "github-rubicon-git-storage"
+          ],
+          "verifiedAt": "2026-11-07"
+        },
+        {
+          "text": "Ref-CAS orders updates per reference instead of serializing the whole repository. GitHub says reference-state transactions can run in the tens of thousands per second because agents usually push to separate branches and therefore do not contend.",
+          "sourceIds": [
+            "github-rubicon-git-storage"
+          ],
+          "verifiedAt": "2026-11-07"
+        },
+        {
+          "text": "Dedicated compaction and garbage-collection workers operate directly against durable storage rather than consuming the compute that serves reads and writes, allowing maintenance throughput to scale separately.",
+          "sourceIds": [
+            "github-rubicon-git-storage"
+          ],
+          "verifiedAt": "2026-11-07"
+        },
+        {
+          "text": "GitHub says requests to one high-traffic repository grew from an average of 44 million per day in March 2026 to 181 million in May, while noting that its busiest repositories still receive at most dozens of writes per second today.",
+          "sourceIds": [
+            "github-rubicon-git-storage"
+          ],
+          "verifiedAt": "2026-11-07"
+        },
+        {
+          "text": "GitHub lists clone-free agent reads, an atomic commit API, event streams, partial replicas, and global replicas as planned follow-on work rather than generally available capabilities.",
+          "sourceIds": [
+            "github-rubicon-git-storage"
+          ],
+          "verifiedAt": "2026-11-07"
+        }
+      ],
+      "changed": "OpenAI's production Pando account established that agent concurrency can overwhelm conventional repository assumptions. GitHub has now supplied the hosting-platform architecture and internal load target: thousands of concurrent writers on one repository, independently scalable reads and writes, and background maintenance removed from the request path. The existing signal has moved from design intent to a concrete limited-preview system.",
+      "whyItMatters": "Coding agents multiply branches, checkpoints, pushes, fetches, CI runs, and security scans. GitHub's design shows that the pressure is not solved by a faster disk or a larger server; object storage, reference ordering, caching, compaction, and tenant fairness must scale independently. Most teams will never need this backend, but every platform team will feel some version of its fan-out problem.",
+      "technicalImpact": "Measure write concurrency, reference contention, fetch amplification, merge delay, CI fan-out, pack growth, compaction, and cache behavior before changing architecture. At extreme scale, keep immutable objects in durable object storage, order only the reference state that requires consensus, make serving nodes disposable, and move compaction and garbage collection off the request path. Preserve branch protection, audit, and standard Git clients across the change.",
+      "businessImpact": "The model bill is only one part of agent-scale development. Source control, CI, review, scanning, storage, and merge coordination become capacity-planned platform services. Hosted providers may absorb the deepest storage redesign; enterprises still need budgets, concurrency limits, repository boundaries, and observability so agent activity does not turn into hidden infrastructure cost or reviewer overload.",
+      "outlook": "Conditional outlook: if GitHub's limited preview reproduces its internal tests under diverse customer workloads, code hosts will expose more agent-native operations such as atomic multi-file commits, event streams, server-side context access, and lighter clones. If sustained concurrency remains concentrated in a small number of extreme repositories, the architecture will matter mainly inside hosting platforms while ordinary teams gain more from batching and limits.",
+      "uncertainties": [
+        "Pando's performance and reliability figures are reported by OpenAI and have not been independently reproduced.",
+        "OpenAI's monorepo and GitHub's highest-volume repositories are extreme workloads; their bottlenecks may not generalize to ordinary engineering teams.",
+        "Pando is an internal production system, not a generally available product, and OpenAI only says it is exploring ways to share the technology.",
+        "Pando deliberately gives up a repository-wide point-in-time view of all references during Git operations; other workloads may require stronger consistency.",
+        "GitHub's redesign corroborates the workload direction but uses a different architecture and was described as work in progress.",
+        "GitHub's activity totals combine developers and agents, so they do not quantify how much of the growth agents caused.",
+        "Higher source-control throughput does not solve review quality, unsafe changes, merge correctness, CI cost, secret exposure, or excessive agent work.",
+        "Software teams can often reduce pressure through batching, concurrency limits, shallow or partial clones, caching, repository design, and CI changes before replacing backend infrastructure.",
+        "GitHub's 5,000-agent and 7,200-push-per-second figures come from internal testing; the source does not provide a reproducible public benchmark or customer workload distribution.",
+        "The new architecture is in limited private preview, so broad production reliability, operational cost, and migration behavior remain unproven publicly.",
+        "The high-traffic repository example shows read growth but does not isolate the share caused by agents, CI, users, or other automation.",
+        "Clone-free work, atomic commit APIs, event streams, partial replicas, and global replicas are roadmap items and should not be described as shipped features."
+      ],
+      "analysis": "The design principle is wonderfully small: coordinate only what must agree. Git objects are immutable; branch pointers are not. Once GitHub split those responsibilities, storage, request serving, and maintenance could scale on separate tracks. That is the broader agent-infrastructure lesson—automated work turns every unnecessary shared lock into a product limit.",
+      "sources": [
+        {
+          "id": "openai-pando",
+          "title": "Scaling Git at OpenAI",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/scaling-git-at-openai/",
+          "publishedAt": "2026-11-02",
+          "accessedAt": "2026-11-03"
+        },
+        {
+          "id": "github-agent-scale-git",
+          "title": "Building Git infrastructure for agent-scale development",
+          "publisher": "GitHub",
+          "url": "https://github.blog/engineering/building-git-infrastructure-for-agent-scale-development/",
+          "publishedAt": "2026-10-06",
+          "accessedAt": "2026-11-03"
+        },
+        {
+          "id": "github-rubicon-git-storage",
+          "title": "Inside GitHub's new Git storage architecture",
+          "publisher": "GitHub",
+          "url": "https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/",
+          "publishedAt": "2026-11-05",
+          "accessedAt": "2026-11-07"
+        }
+      ],
+      "sourceNote": "OpenAI and GitHub provide independent first-party production and architecture accounts of the same workload direction. GitHub adds specific internal load tests and a limited-preview design; OpenAI adds production reliability and latency results. Neither source proves that ordinary repositories need this scale, and both organizations are unusually large agent users with vendor incentives.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-07"
+      }
+    },
     {
       "id": "vulnerability-research-hit-machine-scale",
       "slug": "vulnerability-research-hit-machine-scale",
@@ -22,9 +190,9 @@
       "category": "Security & Governance",
       "signal": "Structural Shift",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-11-05",
-      "updatedAt": "2026-11-06",
+      "updatedAt": "2026-11-07",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "A security team points an agent pipeline at a large codebase. Scout agents select attack surfaces, analyst agents propose findings, isolated machines reproduce them, exploit agents test impact, patch agents draft fixes, and humans verify the exact path before coordinated disclosure. Discovery is no longer the only bottleneck; validation and maintainer capacity become the queue.",
@@ -172,7 +340,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-04",
-      "updatedAt": "2026-11-06",
+      "updatedAt": "2026-11-07",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "An SRE asks an agent why a distributed training job slowed down. Specialist agents inspect scheduler state, hardware events, Kubernetes resources, metrics, logs, and runbooks. They correlate evidence and recommend a next step, but the diagnostic control plane is isolated and its default cluster access cannot change workloads or read secrets.",
@@ -286,7 +454,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-03",
-      "updatedAt": "2026-11-06",
+      "updatedAt": "2026-11-07",
       "author": "Dugi Selmanaj",
       "visual": "research",
       "scenario": "An engineer gives an agent a physical or scientific objective. The model navigates domain data and coordinates CAD, simulation, chemistry, or machine-learning tools. Deterministic software performs calculations; people inspect assumptions, manufacturability, experimental validity, and safety before anything reaches the real world.",
@@ -391,113 +559,6 @@
       }
     },
     {
-      "id": "the-agent-fleet-hit-git",
-      "slug": "the-agent-fleet-hit-git",
-      "title": "The agent fleet hit Git.",
-      "summary": "OpenAI rebuilt its source-control backend after concurrent Codex work overwhelmed the assumptions behind its monorepo service. GitHub is redesigning its own Git infrastructure around the same pressure. The signal is not that Git is obsolete; it is that agent-scale development turns source control into distributed systems infrastructure.",
-      "topic": "Source control infrastructure for concurrent coding agents",
-      "category": "Infrastructure",
-      "signal": "Structural Shift",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-02",
-      "updatedAt": "2026-11-06",
-      "author": "Dugi Selmanaj",
-      "visual": "infrastructure",
-      "scenario": "One engineer supervises many coding agents. Each agent creates branches, pushes checkpoints, triggers CI, fetches shared history, and competes to merge. A workflow that felt fast for humans becomes an infrastructure bottleneck when the same actions happen continuously and in parallel.",
-      "facts": [
-        {
-          "text": "OpenAI published Pando on 2 November 2026 as a Git-compatible repository backend that now serves all development in its monorepo.",
-          "sourceIds": [
-            "openai-pando"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "OpenAI says increased parallel work from Codex produced more branches, pushes, merges, fetches, clones, and CI fan-out, while its previous source-control system at times fell below 90% reliability.",
-          "sourceIds": [
-            "openai-pando"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "Pando stores incoming packfiles as immutable blobs, records versioned reference metadata, serializes updates to each reference, and relaxes repository-wide point-in-time consistency so unrelated branches can move independently.",
-          "sourceIds": [
-            "openai-pando"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "OpenAI reports that moving to Pando reduced median push latency by nearly 80%, improved merge reliability, and enabled delivery of about one petabyte of Git data per day; these are first-party production measurements, not independent benchmarks.",
-          "sourceIds": [
-            "openai-pando"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "OpenAI says Pando began serving production traffic in April 2026, was built in ten weeks, retains the Git protocol and client workflow, and has contributed several client improvements upstream or through a public Git patch tracker.",
-          "sourceIds": [
-            "openai-pando"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "GitHub separately said on 6 October 2026 that agentic development was driving a Git architecture redesign focused on concurrent writes, CI read fan-out, storage and compute separation, background maintenance, and preserving branch protection and audit controls.",
-          "sourceIds": [
-            "github-agent-scale-git"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "GitHub reported that pushes grew from 0.69 billion to 3.35 billion per month between September 2025 and August 2026 and that developers and agents made 7.38 billion commits in September 2026; GitHub did not separate the human and agent shares of those totals.",
-          "sourceIds": [
-            "github-agent-scale-git"
-          ],
-          "verifiedAt": "2026-11-03"
-        }
-      ],
-      "changed": "A large AI lab has put an agent-driven Git bottleneck into production evidence, architecture, and operating trade-offs. A major code-hosting platform is rebuilding around the same workload shape. Source control is moving from a background developer utility toward a capacity-planned platform for concurrent automated writers and the CI reads they trigger.",
-      "whyItMatters": "Coding agents do not merely type faster. They multiply branches, checkpoints, pushes, validations, and fetches, so a small reduction in per-action latency compounds across a fleet. That changes where engineering teams can hit limits: repository coordination, merge queues, object storage, CI fan-out, scanning, and audit systems may become the constraint before model inference does.",
-      "technicalImpact": "Measure pushes, fetches, merge-queue delay, CI fan-out, pack generation, scanning latency, and contention per reference before blaming Git itself. Separate read scaling from write coordination where volume justifies it, keep branch-level correctness explicit, move maintenance off the serving path, and test failure recovery. Preserve standard clients and governance controls unless workload evidence supports a different trade-off.",
-      "businessImpact": "Agent programs can create infrastructure cost and delivery friction outside the model bill. Platform teams may need capacity plans for source control, CI, security scanning, review, and merge queues as agent concurrency grows. Most organizations will not need a new Git backend; they may first need fewer redundant agent actions, better batching, repository boundaries, and limits on parallel work.",
-      "outlook": "Conditional outlook: if sustained agent concurrency spreads beyond the busiest engineering organizations, code hosts and internal developer platforms will expose more controls for write throughput, CI fan-out, agent identity, merge scheduling, and repository observability. If most teams remain far below these volumes, Pando-style architecture will stay specialized and conventional hosted Git will remain sufficient.",
-      "uncertainties": [
-        "Pando's performance and reliability figures are reported by OpenAI and have not been independently reproduced.",
-        "OpenAI's monorepo and GitHub's highest-volume repositories are extreme workloads; their bottlenecks may not generalize to ordinary engineering teams.",
-        "Pando is an internal production system, not a generally available product, and OpenAI only says it is exploring ways to share the technology.",
-        "Pando deliberately gives up a repository-wide point-in-time view of all references during Git operations; other workloads may require stronger consistency.",
-        "GitHub's redesign corroborates the workload direction but uses a different architecture and was described as work in progress.",
-        "GitHub's activity totals combine developers and agents, so they do not quantify how much of the growth agents caused.",
-        "Higher source-control throughput does not solve review quality, unsafe changes, merge correctness, CI cost, secret exposure, or excessive agent work.",
-        "Software teams can often reduce pressure through batching, concurrency limits, shallow or partial clones, caching, repository design, and CI changes before replacing backend infrastructure."
-      ],
-      "analysis": "The structural signal is workload shape. Two organizations are changing the machinery beneath Git because automated contributors turn occasional human actions into continuous parallel traffic. OpenAI's most useful choice was compatibility: it changed the backend while keeping the protocol, client, and review model. The lesson is to scale the control plane around agents without discarding the controls people already trust.",
-      "sources": [
-        {
-          "id": "openai-pando",
-          "title": "Scaling Git at OpenAI",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/scaling-git-at-openai/",
-          "publishedAt": "2026-11-02",
-          "accessedAt": "2026-11-03"
-        },
-        {
-          "id": "github-agent-scale-git",
-          "title": "Building Git infrastructure for agent-scale development",
-          "publisher": "GitHub",
-          "url": "https://github.blog/engineering/building-git-infrastructure-for-agent-scale-development/",
-          "publishedAt": "2026-10-06",
-          "accessedAt": "2026-11-03"
-        }
-      ],
-      "sourceNote": "Two first-party engineering accounts establish the shared workload direction. OpenAI provides the dated Pando architecture and internal production results; GitHub independently describes similar agent-driven pressure at hosting-platform scale. Neither source proves that typical organizations need a new source-control backend, and OpenAI's measurements remain vendor-reported.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-03"
-      }
-    },
-    {
       "id": "the-opt-out-got-a-common-language",
       "slug": "the-opt-out-got-a-common-language",
       "title": "The opt-out got a common language.",
@@ -508,7 +569,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-10-30",
-      "updatedAt": "2026-11-06",
+      "updatedAt": "2026-11-07",
       "author": "Dugi Selmanaj",
       "visual": "governance",
       "scenario": "A publisher places one purpose-specific group in robots.txt. Participating AI providers read the same path rules as a preference about training use, while crawler access, search visibility, and grounding remain separate controls.",
@@ -641,102 +702,102 @@
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-11-06",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 31. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-11-07",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 32. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 32 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 32 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 32 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 32 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 32 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 32 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
-        "direction": "up-strong",
-        "dimension": "Vulnerability research is moving from individual findings to machine-scale pipelines",
-        "rationale": "OpenAI reported hundreds of reproduced and exploited Linux-kernel flaws, while Mozilla independently described frontier models multiplying browser fixes and publicly credited agent-assisted findings. Directional emphasis is strong because the workflow now spans discovery through patches, but validation errors, patch gaps, restricted access, and first-party Linux measurements remain material limits.",
-        "storyId": "vulnerability-research-hit-machine-scale"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 32 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Governance",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 32 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 32 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 31 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up-strong",
+        "dimension": "Source control is being rebuilt for thousands of concurrent automated writers",
+        "rationale": "GitHub disclosed a limited-preview architecture with per-reference consensus, disposable serving nodes, object storage, and independent maintenance workers, plus internal tests at 5,000 agents and 7,200 pushes per second. OpenAI's production Pando account independently supports the workload direction. Emphasis remains bounded by vendor-run tests, preview status, and extreme-workload bias.",
+        "storyId": "the-agent-fleet-hit-git"
       }
     ]
   },
   "weekly": {
-    "slug": "2026-11-06",
-    "title": "Vulnerability research hit machine scale",
-    "date": "2026-11-06",
+    "slug": "2026-11-07",
+    "title": "The agent fleet hit Git — now we can see the storage layer",
+    "date": "2026-11-07",
     "status": "published",
-    "intro": "A cyber agent can now produce findings faster than a security team can comfortably review them. That turns validation, disclosure, patching, and rollout into the real system.",
-    "theme": "The defensive advantage comes from the whole pipeline—not discovery alone. Every finding needs reproducible evidence, path verification, maintainer coordination, a safe patch, and deployment before the patch gap becomes an attack guide.",
+    "intro": "GitHub has published the machinery behind agent-scale source control. The clever part is not making every component faster. It is making fewer components wait for each other.",
+    "theme": "Automated contributors turn occasional pushes into sustained distributed-systems traffic. Immutable objects, mutable references, serving compute, and maintenance now scale on separate paths while Git clients and protections stay familiar.",
     "storyIds": [
+      "the-agent-fleet-hit-git",
       "vulnerability-research-hit-machine-scale",
       "the-agent-joined-on-call-read-only",
       "the-agent-left-the-code-editor",
-      "the-agent-fleet-hit-git",
       "the-opt-out-got-a-common-language"
     ],
     "watchNext": [
-      "Independent reproduction of high-volume cyber-agent results across different codebases and models.",
-      "Maintainer capacity, duplicate-report rates, accepted patches, regressions, and time from finding to deployed fix.",
-      "Whether machine-generated disclosures are throttled to human review and remediation capacity.",
-      "How defenders prevent patches and advisories from becoming rapid exploit templates for weaker models.",
-      "Real-world scope violations and misuse rates outside provider-designed evaluations."
+      "Customer evidence from the limited preview, including latency, failure recovery, tenant fairness, and operating cost.",
+      "Whether 5,000-agent synthetic tests resemble real repository behavior once CI, scanning, review, and merge queues are included.",
+      "The rollout and governance model for atomic commits, event streams, and server-side context access.",
+      "How repository hosts prevent agent traffic from starving human developers or smaller tenants.",
+      "When batching, concurrency limits, and repository design outperform deeper infrastructure changes."
     ],
-    "closing": "Finding the bug is becoming cheap. Closing it safely is the new scarce skill."
+    "closing": "Git did not become obsolete. Its bottlenecks became visible."
   }
 }
