@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-07T08:04:51Z",
-  "last_successful_commit": "69c33537879617f9d3d731e60c698abe811e31b1",
+  "last_successful_update": "2026-11-08T08:03:33Z",
+  "last_successful_commit": "2d39aaf32b809bc9d9bb995a9c5d54cd2c555c47",
   "last_published_story_ids": [
+    "the-benchmark-left-the-textbook",
     "the-agent-fleet-hit-git",
     "vulnerability-research-hit-machine-scale",
     "the-agent-joined-on-call-read-only",
-    "the-agent-left-the-code-editor",
-    "the-opt-out-got-a-common-language"
+    "the-agent-left-the-code-editor"
   ],
   "initial_lookback_days": 7,
-  "note": "The 7 November 2026 research window prepared Edition 32 with a material update to the existing agent-scale Git signal. Publication remains pending protected validation, merge, GitHub Pages deployment, production verification, and the deployment-record update."
+  "note": "The 8 November 2026 research window prepared Edition 33 with one source-backed signal about scientific-agent evaluation moving toward raw evidence and end-to-end work products. Edition 32 deployment was recorded. Edition 33 publication remains pending protected validation, merge, GitHub Pages deployment, production verification, and the final deployment-record update."
 }

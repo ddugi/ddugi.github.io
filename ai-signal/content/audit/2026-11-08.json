@@ -1,0 +1,72 @@
+{
+  "run_date": "2026-11-08",
+  "research_window": {
+    "start": "2026-11-07T08:04:51Z",
+    "end": "2026-11-08T08:03:33Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, engineering, safety, security, system cards, and developer publications",
+    "Anthropic newsroom, research, policy, safeguards, standards, and threat-intelligence publications",
+    "Google and Google DeepMind news, research, model, safety, and developer publications",
+    "Microsoft Azure, Microsoft Research, security, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, engineering, architecture, documentation, releases, and security publications",
+    "NVIDIA newsroom and technical publications",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official, organization, and community publications",
+    "arXiv primary research records relevant to accepted candidates"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-benchmark-left-the-textbook",
+      "source_publication_date": "2026-11-06",
+      "reason": "A newly indexed OpenAI/Ligo benchmark materially advances evaluation from curated questions toward raw wet-lab evidence. An independently authored open bioimage benchmark supports the broader direction while providing counterevidence on reliability and reproducibility limits. The signal is the evaluation design, not a vendor model score."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "GitHub developer guide to agentic engineering",
+      "source_publication_date": "2026-11-06",
+      "reason": "Useful synthesis of existing GitHub capabilities, but an editorial guide rather than a new independently measurable product or architecture change."
+    },
+    {
+      "candidate": "AWS and Okta agent-access implementation guide",
+      "source_publication_date": "2026-11-06",
+      "reason": "A practical integration pattern, but it does not announce a distinct new control or provide deployment evidence sufficient for a separate signal."
+    },
+    {
+      "candidate": "AWS Greenlight autonomous SOC customer account",
+      "source_publication_date": "2026-11-06",
+      "reason": "The reported automation rate is a vendor-hosted customer claim without independent case evidence or enough failure-rate context for publication."
+    },
+    {
+      "candidate": "AWS Taxbit role-aware assistant customer account",
+      "source_publication_date": "2026-11-06",
+      "reason": "Useful architecture detail, but a single vendor customer story does not establish a broader enterprise shift."
+    },
+    {
+      "candidate": "AWS remote Claude Code on Bedrock AgentCore tutorial",
+      "source_publication_date": "2026-11-06",
+      "reason": "A technical how-to for existing services rather than a newly verified capability or structural change."
+    },
+    {
+      "candidate": "OpenAI Australian university adoption announcement",
+      "source_publication_date": "2026-11-05",
+      "reason": "Still lacks independent learning-outcome evidence or technical detail adequate for a source-backed signal."
+    },
+    {
+      "candidate": "Other Anthropic, Google, Microsoft, AWS, GitHub, NVIDIA, Meta, and Hugging Face developments before the cutoff",
+      "source_publication_date": "2026-11-08",
+      "reason": "No additional primary-source development met the materiality, exact-date, evidence, and deduplication threshold during this window."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "The accepted OpenAI source was published before the research cursor but was newly indexed and discovered during this run. It is paired with an older independent primary research record to test whether the broader direction is supported beyond one vendor announcement. The Signal Map movement is linked only to the published story and is moderate rather than strong because live-lab reliability, public reproducibility, human baselines, and production outcomes remain unproven.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
