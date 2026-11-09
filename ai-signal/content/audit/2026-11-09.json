@@ -4,7 +4,7 @@
     "start": "2026-11-08T08:03:33Z",
     "end": "2026-11-09T08:06:24Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, engineering, safety, security, system cards, and developer publications",
     "Anthropic newsroom, research, engineering, policy, safeguards, standards, and threat-intelligence publications",
@@ -58,9 +58,9 @@
   "emerging_trends_detected": 1,
   "notes": "The accepted Anthropic source predates the research cursor but was newly indexed and discovered during this run. GitHub's earlier product announcement provides independent provider corroboration of the architecture direction. The Signal Map movement is linked only to the accepted story; first-party measurement, implementation differences, drift, hidden state, privacy, conflict, and maintenance cost remain explicit.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/100",
+    "commit": "9680a0e9f73a531d7b6f1b5422243bc201ee4f41",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/stories/memory-moved-to-the-night-shift/"
   }
 }
