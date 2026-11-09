@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-08T08:03:33Z",
-  "last_successful_commit": "2d39aaf32b809bc9d9bb995a9c5d54cd2c555c47",
+  "last_successful_commit": "4522052fcc4a1be77c6d70a53de8d3433b3969f6",
   "last_published_story_ids": [
     "the-benchmark-left-the-textbook",
     "the-agent-fleet-hit-git",
@@ -10,5 +10,5 @@
     "the-agent-left-the-code-editor"
   ],
   "initial_lookback_days": 7,
-  "note": "The 8 November 2026 research window prepared Edition 33 with one source-backed signal about scientific-agent evaluation moving toward raw evidence and end-to-end work products. Edition 32 deployment was recorded. Edition 33 publication remains pending protected validation, merge, GitHub Pages deployment, production verification, and the final deployment-record update."
+  "note": "The 8 November 2026 research window published Edition 33 with one source-backed signal about scientific-agent evaluation moving toward raw evidence and end-to-end work products. The daily audit, protected validation, GitHub Pages deployment, research cursor, homepage, story page, source links, Signal Map traceability, privacy page, and active Cloudflare Web Analytics beacon were verified successfully."
 }

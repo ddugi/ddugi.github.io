@@ -4,7 +4,7 @@
     "start": "2026-11-07T08:04:51Z",
     "end": "2026-11-08T08:03:33Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, engineering, safety, security, system cards, and developer publications",
     "Anthropic newsroom, research, policy, safeguards, standards, and threat-intelligence publications",
@@ -64,9 +64,9 @@
   "emerging_trends_detected": 1,
   "notes": "The accepted OpenAI source was published before the research cursor but was newly indexed and discovered during this run. It is paired with an older independent primary research record to test whether the broader direction is supported beyond one vendor announcement. The Signal Map movement is linked only to the published story and is moderate rather than strong because live-lab reliability, public reproducibility, human baselines, and production outcomes remain unproven.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/98",
+    "commit": "4522052fcc4a1be77c6d70a53de8d3433b3969f6",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/stories/the-benchmark-left-the-textbook/"
   }
 }
