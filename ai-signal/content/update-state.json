@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-08T08:03:33Z",
+  "last_successful_update": "2026-11-09T08:06:24Z",
   "last_successful_commit": "4522052fcc4a1be77c6d70a53de8d3433b3969f6",
   "last_published_story_ids": [
+    "memory-moved-to-the-night-shift",
     "the-benchmark-left-the-textbook",
     "the-agent-fleet-hit-git",
     "vulnerability-research-hit-machine-scale",
-    "the-agent-joined-on-call-read-only",
-    "the-agent-left-the-code-editor"
+    "the-agent-joined-on-call-read-only"
   ],
   "initial_lookback_days": 7,
-  "note": "The 8 November 2026 research window published Edition 33 with one source-backed signal about scientific-agent evaluation moving toward raw evidence and end-to-end work products. The daily audit, protected validation, GitHub Pages deployment, research cursor, homepage, story page, source links, Signal Map traceability, privacy page, and active Cloudflare Web Analytics beacon were verified successfully."
+  "note": "The 9 November 2026 research window prepared Edition 34 with one source-backed structural signal about agent memory becoming a maintained runtime subsystem. Publication remains pending protected validation, merge, GitHub Pages deployment, production verification, and the deployment-record update."
 }

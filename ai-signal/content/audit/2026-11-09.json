@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-11-09",
+  "research_window": {
+    "start": "2026-11-08T08:03:33Z",
+    "end": "2026-11-09T08:06:24Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official announcements, research, engineering, safety, security, system cards, and developer publications",
+    "Anthropic newsroom, research, engineering, policy, safeguards, standards, and threat-intelligence publications",
+    "Google and Google DeepMind news, research, model, safety, science, and developer publications",
+    "Microsoft Azure, Microsoft Research, security, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, engineering, architecture, documentation, releases, and security publications",
+    "NVIDIA newsroom and technical publications",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official, organization, research, and community publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "memory-moved-to-the-night-shift",
+      "source_publication_date": "2026-11-06",
+      "reason": "A newly indexed Anthropic engineering account provides concrete memory architecture, evaluation results, and counterexamples. GitHub independently shows the same broader direction in a governed developer product. Together they support a structural cross-provider signal without relying on one vendor metric or treating the implementations as equivalent."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Anthropic AI for scientific discovery usage analysis",
+      "source_publication_date": "2026-11-05",
+      "reason": "The 207,000-session analysis is useful descriptive evidence, but it predates the cursor and does not add enough independent outcome evidence beyond Edition 33's current scientific-agent evaluation story for a separate publication today."
+    },
+    {
+      "candidate": "Anthropic guest essay on AI-built scientific models",
+      "source_publication_date": "2026-11-06",
+      "reason": "The essay describes an important research direction but does not announce a reproducible system, evaluated release, or independently verified operating result."
+    },
+    {
+      "candidate": "Google DeepMind agentic cheminformatics workflow",
+      "source_publication_date": "2026-11-03",
+      "reason": "The source is already cited and analyzed in the live specialist-tools story, so republishing it would duplicate an existing signal."
+    },
+    {
+      "candidate": "Google Gemini Omni 1.2 Flash",
+      "source_publication_date": "2026-11-05",
+      "reason": "Longer clips, conversational editing, and lower price are material product improvements but predate the cursor and remain first-party capability claims without enough independent evidence for a new structural signal."
+    },
+    {
+      "candidate": "Hugging Face November 8 community posts",
+      "source_publication_date": "2026-11-08",
+      "reason": "The surfaced items are community projects or claims without the primary technical evidence, independent evaluation, or operating data required for publication."
+    },
+    {
+      "candidate": "Other Microsoft, AWS, NVIDIA, Meta, OpenAI, Google, GitHub, and late-window provider developments",
+      "source_publication_date": "2026-11-09",
+      "reason": "No additional primary-source development found before the cutoff met the materiality, exact-date, evidence, and deduplication threshold."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "The accepted Anthropic source predates the research cursor but was newly indexed and discovered during this run. GitHub's earlier product announcement provides independent provider corroboration of the architecture direction. The Signal Map movement is linked only to the accepted story; first-party measurement, implementation differences, drift, hidden state, privacy, conflict, and maintenance cost remain explicit.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}

@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "33",
+    "edition": "34",
     "mode": "live",
-    "updatedAt": "2026-11-08"
+    "updatedAt": "2026-11-09"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,127 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "memory-moved-to-the-night-shift",
+      "slug": "memory-moved-to-the-night-shift",
+      "title": "Memory moved to the night shift.",
+      "summary": "Anthropic is treating agent memory as a hierarchy that can be reorganized and corrected between sessions. GitHub has already made cross-session Copilot Memory generally available and put background ‘dreaming’ into public preview. The structural signal is not that agents remember. It is that memory now needs its own storage, evaluation, maintenance, permissions, and compute budget.",
+      "topic": "Agent memory as a maintained runtime subsystem",
+      "category": "Agents",
+      "signal": "Structural Shift",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-11-06",
+      "updatedAt": "2026-11-09",
+      "author": "Dugi Selmanaj",
+      "visual": "agents",
+      "scenario": "An agent returns tomorrow with a useful rule, a stale assumption, and a confident summary of something it misunderstood. The system must decide what to save, what to verify, what to forget, and what deserves to enter every future session.",
+      "facts": [
+        {
+          "text": "Anthropic published an engineering account of agent memory on 6 November 2026, defining it as knowledge gained from experience and retained between sessions, distinct from model-weight changes, within-session learning, and context-window compaction.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "Anthropic describes a memory hierarchy spanning searchable transcripts, model-written notes, representations such as wikis, and a small layer injected into future sessions; an offline process called dreaming can reorganize, correct, or promote information across those layers.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "In Anthropic's CL-Bench database-task runs, Claude Opus 5.5 rose from 0.655 mean reward without a memory store to 0.838 with one, while Sonnet 5.5 rose from 0.644 to 0.833; these are first-party results on one benchmark task, not independent product measurements.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "Anthropic reports that fixed instructions to record only failures reduced the memory benefit for stronger models, while more specific steering nearly doubled Sonnet 4.6's score on the same task; the source frames salience selection as model- and task-dependent rather than a universal rule.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "For an internal corpus of about 350,000 files and 420 million tokens, Anthropic says a generated wiki plus search improved aggregate performance on 25 questions from 54% to 61% as the wiki grew, versus 53% with search alone, while saving about 20,000 tokens per question.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "Anthropic also reports counterexamples: one legal-document task showed no clear wiki gain, and on another the generated wiki grew to 1.77 times the size of the source documents. The post says memory can begin wrong, drift, consume tokens, and require compute to maintain.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "GitHub announced on 28 October 2026 that Copilot Memory is generally available on paid plans across several Copilot clients, while Copilot dreaming is an opt-in public preview that can curate personal or repository memories and turn recurring accepted review feedback into guidance.",
+          "sourceIds": [
+            "github-intelligence-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "GitHub says changes to checked-in skills and instruction files are proposed through pull requests, enterprise administrators control dreaming through policy, repository scope follows Copilot Memory access settings, and dream runs consume AI credits.",
+          "sourceIds": [
+            "github-intelligence-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "GitHub reports that, among reviewed Copilot CLI preview sessions where memory was used, 93% showed better adherence to developer preferences and 42% showed more efficient workflows attributed to memory; the announcement does not provide the sample size, full method, or an independently reproducible dataset.",
+          "sourceIds": [
+            "github-intelligence-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        }
+      ],
+      "changed": "Persistent memory is separating into a runtime stack rather than a single transcript or vector store. Anthropic's evaluations expose the engineering layers and failure modes; GitHub shows the same pattern becoming a governed product with cross-session state, background maintenance, repository scope, administrator policy, pull-request review, and explicit compute cost.",
+      "whyItMatters": "A stateful agent can accumulate useful operating knowledge, but it can also carry a wrong rule into every later task. Once memory survives the session, teams inherit familiar data-system problems: provenance, freshness, access control, conflicts, compaction, validation, deletion, and cost. The agent's future behavior now depends on a subsystem that users may not see when they approve today's action.",
+      "technicalImpact": "Separate immutable event history from model-authored notes and derived representations. Attach provenance and timestamps, keep globally injected context small, search before loading, test retrieval and downstream outcomes, and revalidate high-impact memories against source records. Treat offline consolidation as a scheduled job with budgets, observability, rollback, conflict handling, and explicit write permissions.",
+      "businessImpact": "Persistent memory can reduce repeated onboarding and make agents conform better to team conventions, but it creates a new operational bill and governance surface. Buyers should ask who owns memories, where they are stored, how stale or incorrect entries are corrected, whether administrators can inspect and delete them, and how background maintenance is priced and audited.",
+      "outlook": "Conditional outlook: if memory systems demonstrate durable gains across independent tasks without unacceptable drift, agent platforms will compete on memory quality, lifecycle controls, and background consolidation as much as model intelligence. If maintenance cost, hidden state, privacy risk, and stale guidance dominate, enterprises will keep memory narrow, reviewable, and disposable.",
+      "uncertainties": [
+        "Anthropic's quantitative results are first-party evaluations on selected benchmark, game, document, and internal-corpus tasks; they are not independent production studies.",
+        "GitHub's preview percentages do not include a public sample size, task mix, control design, confidence interval, or reproducible dataset.",
+        "The two providers use the term dreaming for related background reflection processes, but their implementations, objectives, and evaluation methods are not equivalent.",
+        "A gain on remembered preferences or document questions does not establish safer decisions, better code, or lower total review effort.",
+        "Model-authored memories can contain hallucinations, stale assumptions, sensitive information, or malicious instructions inherited from earlier sessions.",
+        "Offline consolidation consumes compute and may create representations larger than the source material or no better than direct search.",
+        "Shared agents need conflict resolution when several sessions or agents update the same memory, and neither source establishes a general solution.",
+        "Cross-session memory introduces deletion, retention, access, privacy, and audit obligations that benchmark scores do not measure."
+      ],
+      "analysis": "The clever part is not remembering more. It is deciding what deserves to survive. Anthropic's best examples combine a raw event log, small verified notes, searchable representations, and a background repair loop. Its failures are just as useful: the map can become bigger than the territory, and a wrong note can poison the next journey. Memory is now infrastructure, complete with maintenance windows.",
+      "sources": [
+        {
+          "id": "anthropic-agent-memory",
+          "title": "The components of agent memory",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/research/components-of-agent-memory",
+          "publishedAt": "2026-11-06",
+          "accessedAt": "2026-11-09"
+        },
+        {
+          "id": "github-intelligence-memory",
+          "title": "GitHub intelligence puts your code, context, and history to work",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/",
+          "publishedAt": "2026-10-28",
+          "accessedAt": "2026-11-09"
+        }
+      ],
+      "sourceNote": "Anthropic supplies the detailed engineering model, evaluations, and counterexamples. GitHub independently shows cross-session memory and background curation reaching a governed developer product. Both are vendor primary sources with product incentives; their metrics are not independently reproduced and their dreaming implementations should not be treated as identical.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-09"
+      }
+    },
     {
       "id": "the-benchmark-left-the-textbook",
       "slug": "the-benchmark-left-the-textbook",
@@ -22,9 +143,9 @@
       "category": "Research",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-11-06",
-      "updatedAt": "2026-11-08",
+      "updatedAt": "2026-11-09",
       "author": "Dugi Selmanaj",
       "visual": "research",
       "scenario": "A model gives a polished explanation of an experiment. The real question is harder: can it inspect the raw gel, notice the wrong control, keep contradictory evidence in view, produce the required analysis artifacts, and admit when the data cannot support a conclusion?",
@@ -138,7 +259,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-02",
-      "updatedAt": "2026-11-08",
+      "updatedAt": "2026-11-09",
       "author": "Dugi Selmanaj",
       "visual": "infrastructure",
       "scenario": "One engineer supervises many coding agents. Each agent creates branches, pushes checkpoints, triggers CI, fetches shared history, and competes to merge. A workflow that felt fast for humans becomes an infrastructure bottleneck when the same actions happen continuously and in parallel.",
@@ -306,7 +427,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-05",
-      "updatedAt": "2026-11-08",
+      "updatedAt": "2026-11-09",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "A security team points an agent pipeline at a large codebase. Scout agents select attack surfaces, analyst agents propose findings, isolated machines reproduce them, exploit agents test impact, patch agents draft fixes, and humans verify the exact path before coordinated disclosure. Discovery is no longer the only bottleneck; validation and maintainer capacity become the queue.",
@@ -454,7 +575,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-04",
-      "updatedAt": "2026-11-08",
+      "updatedAt": "2026-11-09",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "An SRE asks an agent why a distributed training job slowed down. Specialist agents inspect scheduler state, hardware events, Kubernetes resources, metrics, logs, and runbooks. They correlate evidence and recommend a next step, but the diagnostic control plane is isolated and its default cluster access cannot change workloads or read secrets.",
@@ -556,221 +677,106 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-11-05"
       }
-    },
-    {
-      "id": "the-agent-left-the-code-editor",
-      "slug": "the-agent-left-the-code-editor",
-      "title": "The agent left the code editor.",
-      "summary": "OpenAI showed agents working across CAD, PCB design, simulation, and manufacturing preparation. Google DeepMind released chemistry skills that connect an agent to deterministic molecular tools and scientific databases. The signal is a change in architecture: the model orchestrates specialist software, while engineers still own review, physical testing, and the decision to trust the result.",
-      "topic": "Agents moving into specialist engineering and scientific tools",
-      "category": "Research",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-03",
-      "updatedAt": "2026-11-08",
-      "author": "Dugi Selmanaj",
-      "visual": "research",
-      "scenario": "An engineer gives an agent a physical or scientific objective. The model navigates domain data and coordinates CAD, simulation, chemistry, or machine-learning tools. Deterministic software performs calculations; people inspect assumptions, manufacturability, experimental validity, and safety before anything reaches the real world.",
-      "facts": [
-        {
-          "text": "OpenAI published a 3 November 2026 account of models assisting with mechanical design, printed circuit boards, simulation setup, manufacturing drawings, firmware, and cross-disciplinary engineering coordination.",
-          "sourceIds": [
-            "openai-physical-engineering"
-          ],
-          "verifiedAt": "2026-11-04"
-        },
-        {
-          "text": "OpenAI says two team members used Astra to design a prototype device in under a week and a contract manufacturer produced a small batch in under a month, but several review cycles were still required because the model did not consistently account for production limits, tolerances, or assembly details.",
-          "sourceIds": [
-            "openai-physical-engineering"
-          ],
-          "verifiedAt": "2026-11-04"
-        },
-        {
-          "text": "OpenAI reports early internal and partner work across CAD, electronics, aerodynamics, crash safety, simulation, and reverse engineering; the article describes supervised pilots and first-party examples rather than controlled productivity studies.",
-          "sourceIds": [
-            "openai-physical-engineering"
-          ],
-          "verifiedAt": "2026-11-04"
-        },
-        {
-          "text": "Google DeepMind released Cheminformatics Skills for Google Antigravity on 3 November 2026, connecting a language-model orchestrator to RDKit plus curated ChEMBL and PubChem resources.",
-          "sourceIds": [
-            "deepmind-agentic-cheminformatics"
-          ],
-          "verifiedAt": "2026-11-04"
-        },
-        {
-          "text": "DeepMind's walkthrough says the agent retrieved and curated compounds, performed matched molecular pair analysis, trained predictive models, and proposed macrocycles and synthesis routes in about an hour using a lung-cancer drug example.",
-          "sourceIds": [
-            "deepmind-agentic-cheminformatics"
-          ],
-          "verifiedAt": "2026-11-04"
-        },
-        {
-          "text": "DeepMind explicitly describes the generated molecules as testable hypotheses rather than finished drugs and says sparse data, assay noise, limited dynamic range, synthesis, and experimental validation remain constraints.",
-          "sourceIds": [
-            "deepmind-agentic-cheminformatics"
-          ],
-          "verifiedAt": "2026-11-04"
-        },
-        {
-          "text": "NVIDIA separately documented developers directing frontier agents through Omniverse, CAD, and physics simulation in late October, providing an earlier first-party example of the same model-plus-domain-tool pattern.",
-          "sourceIds": [
-            "nvidia-agents-simulation"
-          ],
-          "verifiedAt": "2026-11-04"
-        }
-      ],
-      "changed": "Two major AI labs published concrete workflows in which agents operate specialist engineering or scientific tools instead of stopping at text and code. The useful common pattern is orchestration: language models plan and navigate, while established software performs geometry, physics, chemistry, retrieval, and numerical work.",
-      "whyItMatters": "The next expansion of agents may come from tool access rather than a single leap in model intelligence. Domain systems already encode decades of engineering and scientific practice. Giving an agent a controlled way to operate them can shorten setup and iteration loops, but it also moves model mistakes closer to manufacturing, experiments, budgets, and physical safety.",
-      "technicalImpact": "Treat the model as an orchestrator around typed, testable domain tools. Preserve source provenance, units, geometry constraints, solver settings, versioned inputs, and machine-readable outputs. Add approval gates before fabrication or experiments, run deterministic checks where possible, and record the full chain from prompt through tool calls to reviewed artifact.",
-      "businessImpact": "Engineering organizations may gain more value from integrating agents into existing CAD, ECAD, simulation, scientific-data, and manufacturing workflows than from deploying another general chat interface. The integration cost is substantial: licenses, connectors, data quality, validation, expert review, liability, and change control remain part of the operating model.",
-      "outlook": "Conditional outlook: if these pilots produce independently measured gains without unacceptable error or review cost, agent platforms will compete on domain-tool integrations, traceability, and validation workflows. If manufacturability gaps, scientific error, proprietary formats, or liability dominate, adoption will remain narrow and heavily supervised.",
-      "uncertainties": [
-        "Both new accounts are published by the model providers and are not independent controlled studies of productivity, cost, or quality.",
-        "OpenAI's examples combine internal projects and selected collaborators, so the results may reflect unusually strong support, tooling, and model access.",
-        "The device prototype still required several rounds of human review and iteration before manufacturing.",
-        "DeepMind's chemistry example produces computational hypotheses; the proposed molecules and synthesis routes were not presented as experimentally validated drugs.",
-        "Scientific databases can contain inconsistent structures, assay conditions, provenance, and measurement noise that an agent may not resolve correctly.",
-        "Access to a deterministic tool does not guarantee correct tool selection, parameters, boundary conditions, units, or interpretation.",
-        "Physical engineering introduces safety, regulatory, warranty, intellectual-property, and product-liability boundaries that coding-agent demos do not address.",
-        "The sources do not establish whether time saved in generation exceeds the expert review and correction work required in routine production use."
-      ],
-      "analysis": "The agent is becoming a control surface for specialist software. That is more credible than asking a language model to imitate a chemist or mechanical engineer from text alone, because geometry, physics, and molecular calculations can stay inside tools built for those jobs. It is also more consequential: once the output can be fabricated or tested, traceability and expert approval stop being optional product features.",
-      "sources": [
-        {
-          "id": "openai-physical-engineering",
-          "title": "Accelerating engineering for the physical world",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/accelerating-engineering-for-the-physical-world/",
-          "publishedAt": "2026-11-03",
-          "accessedAt": "2026-11-04"
-        },
-        {
-          "id": "deepmind-agentic-cheminformatics",
-          "title": "Agentic cheminformatics with Google Antigravity",
-          "publisher": "Google DeepMind",
-          "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
-          "publishedAt": "2026-11-03",
-          "accessedAt": "2026-11-04"
-        },
-        {
-          "id": "nvidia-agents-simulation",
-          "title": "How Developers Turn Ideas Into Simulations With Frontier AI Agents",
-          "publisher": "NVIDIA",
-          "url": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/",
-          "publishedAt": "2026-10-29",
-          "accessedAt": "2026-11-04"
-        }
-      ],
-      "sourceNote": "Three first-party technical accounts support the shared architecture pattern across physical engineering, chemistry, and simulation. They verify the demonstrated workflows, tool boundaries, and provider-stated limitations; they do not establish independent productivity gains, production reliability, experimental validity, or broad enterprise adoption.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-04"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-11-08",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 33. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-11-09",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 34. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
-        "direction": "up",
-        "dimension": "Scientific-agent evaluation is moving from polished answers to raw evidence and end-to-end outputs",
-        "rationale": "BioBasicsBench tests 100 routine wet-lab interpretation tasks on raw multimodal evidence, while the independently authored BIABench openly evaluates end-to-end bioimage work against published-study outputs. The direction is supported by two distinct primary sources, but emphasis remains moderate because OpenAI's scores are first-party, BioBasicsBench is not publicly reproducible from the announcement, and neither benchmark establishes safe live-lab operation.",
-        "storyId": "the-benchmark-left-the-textbook"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Agents",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 33 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up-strong",
+        "dimension": "Agent memory is becoming a maintained runtime subsystem rather than session history",
+        "rationale": "Anthropic published a layered memory design with offline consolidation, task evaluations, and explicit failure cases; GitHub independently made cross-session memory generally available and background dreaming a policy-controlled preview with pull-request review and metered compute. The strong direction reflects a cross-provider architecture shift, while vendor metrics, implementation differences, drift, privacy, and maintenance cost remain unresolved.",
+        "storyId": "memory-moved-to-the-night-shift"
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 33 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 33 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 33 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 33 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 33 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Governance",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 33 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 33 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 33 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-11-08",
-    "title": "The benchmark left the textbook",
-    "date": "2026-11-08",
+    "slug": "2026-11-09",
+    "title": "Memory moved to the night shift",
+    "date": "2026-11-09",
     "status": "published",
-    "intro": "Scientific agents are being tested on the awkward parts of real work: raw images, controls, files, tool choices, contradictions, and outputs that can be objectively wrong.",
-    "theme": "A fluent answer is not a scientific result. The emerging evaluation pattern keeps the raw evidence and delivered artifacts in view, then separates process quality from whether the outcome matches ground truth.",
+    "intro": "The agent does not merely reopen yesterday's chat. It now carries a maintained knowledge system into tomorrow's work.",
+    "theme": "Persistent agents need a memory lifecycle: record events, choose what matters, organize it, verify it, keep injected context small, and repair or delete what became wrong. That lifecycle is turning into product infrastructure and an operating cost.",
     "storyIds": [
+      "memory-moved-to-the-night-shift",
       "the-benchmark-left-the-textbook",
       "the-agent-fleet-hit-git",
       "vulnerability-research-hit-machine-scale",
-      "the-agent-joined-on-call-read-only",
-      "the-agent-left-the-code-editor"
+      "the-agent-joined-on-call-read-only"
     ],
     "watchNext": [
-      "Whether OpenAI or Ligo releases BioBasicsBench tasks, rubrics, model outputs, or an evaluation harness for independent runs.",
-      "Human baselines and expert-review time, not only model-to-model score differences.",
-      "Independent reproduction across laboratories, instruments, protocols, and model providers.",
-      "Whether outcome scores remain stable across repeated runs and distribution shifts.",
-      "Controlled shadow trials that measure total workload and error discovery without giving agents live experimental authority."
+      "Independent comparisons of direct search, raw transcripts, notes, wikis, and background consolidation across real work.",
+      "Provenance, freshness, conflict resolution, rollback, deletion, and audit controls for model-authored memories.",
+      "Whether memory gains reduce total human review effort rather than shifting it into hidden maintenance.",
+      "Privacy and access boundaries when personal, repository, and enterprise memories overlap.",
+      "Compute and storage cost per useful retained lesson, including cases where memory grows larger than its source."
     ],
-    "closing": "Sounding scientific is easy to score. Surviving the evidence is the test."
+    "closing": "An agent that remembers becomes useful twice. It can also be wrong twice."
   }
 }
