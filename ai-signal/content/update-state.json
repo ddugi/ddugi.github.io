@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-09T08:06:24Z",
-  "last_successful_commit": "4522052fcc4a1be77c6d70a53de8d3433b3969f6",
+  "last_successful_commit": "9680a0e9f73a531d7b6f1b5422243bc201ee4f41",
   "last_published_story_ids": [
     "memory-moved-to-the-night-shift",
     "the-benchmark-left-the-textbook",
@@ -10,5 +10,5 @@
     "the-agent-joined-on-call-read-only"
   ],
   "initial_lookback_days": 7,
-  "note": "The 9 November 2026 research window prepared Edition 34 with one source-backed structural signal about agent memory becoming a maintained runtime subsystem. Publication remains pending protected validation, merge, GitHub Pages deployment, production verification, and the deployment-record update."
+  "note": "The 9 November 2026 research window published Edition 34 with one source-backed structural signal about agent memory becoming a maintained runtime subsystem. Protected validation, main-branch quality gates, GitHub Pages deployment, production content, source links, Signal Map traceability, and analytics presence were verified successfully."
 }
