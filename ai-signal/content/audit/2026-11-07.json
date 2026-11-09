@@ -4,7 +4,7 @@
     "start": "2026-11-06T07:56:35Z",
     "end": "2026-11-07T08:04:51Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official announcements, research, engineering, safety, security, system cards, and developer publications",
     "Anthropic newsroom, research, policy, safeguards, and standards publications",
@@ -60,9 +60,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 32 updates an existing structural infrastructure signal rather than publishing a duplicate. The source predates the cursor by publication date but was newly indexed and discovered in this run; the audit records that timing explicitly. The map movement is linked only to the updated story, with preview status, synthetic-test limits, roadmap boundaries, and extreme-workload bias preserved.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/97",
+    "commit": "2d39aaf32b809bc9d9bb995a9c5d54cd2c555c47",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/stories/the-agent-fleet-hit-git/"
   }
 }
