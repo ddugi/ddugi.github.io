@@ -1,0 +1,77 @@
+{
+  "run_date": "2026-11-10",
+  "research_window": {
+    "start": "2026-11-09T08:06:24Z",
+    "end": "2026-11-10T07:55:54Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official news, safety, research, engineering, security, system-card, and developer publications",
+    "Anthropic newsroom, research, engineering, safeguards, standards, and threat-intelligence publications",
+    "Google and Google DeepMind AI infrastructure, research, model, safety, and developer publications",
+    "Microsoft Azure, Microsoft Research, security, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom and technical publications",
+    "Meta AI and Meta Newsroom publications",
+    "Hugging Face official, organization, research, and community publications",
+    "Government of Canada and GOV.UK AI-safety statements"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-kill-switch-became-a-control-plane",
+      "source_publication_date": "2026-11-09",
+      "reason": "OpenAI disclosed a deployed, reusable runtime-control architecture with workload identity, safety-case binding, centralized inference authorization, revocation, a bounded post-decision stop interval, and fail-closed behavior. A same-day multi-party declaration supplies governance context without being treated as independent validation."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "AWS AgentCore memory write validation",
+      "source_publication_date": "2026-11-09",
+      "reason": "The pattern is useful but directly overlaps Edition 34's maintained-memory story, remains a customer-deployed reference architecture, and uses a small curated scenario set with acknowledged implementation defects in an independent reproduction."
+    },
+    {
+      "candidate": "Anthropic Claude Fable and Mythos 5.2",
+      "source_publication_date": "2026-11-09",
+      "reason": "The model release and access-control strategy are material, but performance evidence is predominantly first-party and the Control Room story provides the more reusable cross-enterprise engineering shift."
+    },
+    {
+      "candidate": "Google TPU 8tx, TPU 8i Max, TPU Sync, and Cloud Pathways",
+      "source_publication_date": "2026-11-09",
+      "reason": "The stack is a coherent stateful-agent infrastructure signal, but the new systems lack pricing, regional availability, and a shipping schedule; reported transfer improvements are internal controlled tests on older TPU hardware."
+    },
+    {
+      "candidate": "Anthropic electronics-design prototypes",
+      "source_publication_date": "2026-11-09",
+      "reason": "The physical artifacts are concrete, but humans manufactured and tested them, the prototypes remain uncertified and incompletely validated, and the evidence is first-party with a commercial partner."
+    },
+    {
+      "candidate": "Amazon and Hugging Face HOPE MoE pruning",
+      "source_publication_date": "2026-11-09",
+      "reason": "The method and released code are technically interesting, but the underlying paper predates the window and no production serving latency, energy, or cost result establishes operating impact."
+    },
+    {
+      "candidate": "NVIDIA CoRL robotics stack",
+      "source_publication_date": "2026-11-09",
+      "reason": "The integrated training, simulation, and evaluation direction is notable, but the evidence remains first-party, simulation-heavy, and preview or early-access stage without physical-world reliability or economics."
+    },
+    {
+      "candidate": "ChatGPT Enterprise in AWS Marketplace and downstream Fable 5.2 availability",
+      "source_publication_date": "2026-11-09",
+      "reason": "These are procurement or distribution announcements rather than independent evidence of a structural technical change."
+    },
+    {
+      "candidate": "GitHub Actions workflow-log secret scanning",
+      "source_publication_date": "2026-11-09",
+      "reason": "The opt-in preview is useful security hygiene but is not an AI-specific structural development and lacks operating evidence for a lead signal."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Official sources establish the calendar date 9 November 2026 but do not expose publication times that prove strict ordering after the prior 08:06:24Z cursor. The accepted story therefore states that limitation explicitly. The Signal Map movement is tied only to the accepted story; the Paris Call is policy context, not independent reliability proof or a separate map movement.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
