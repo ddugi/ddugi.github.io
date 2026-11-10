@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "34",
+    "edition": "35",
     "mode": "live",
-    "updatedAt": "2026-11-09"
+    "updatedAt": "2026-11-10"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,145 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-kill-switch-became-a-control-plane",
+      "slug": "the-kill-switch-became-a-control-plane",
+      "title": "The kill switch became a control plane.",
+      "summary": "OpenAI says every agentic research-inference job now carries an identity tied to an approved safety case, while a central service can revoke permission at the inference layer. A same-day international declaration asks frontier developers to support pauses and shutdowns during training and internal use. The signal is architectural, not proof that dangerous behavior will be detected in time.",
+      "topic": "Runtime controllability through centralized inference authorization",
+      "category": "Security & Governance",
+      "signal": "Structural Shift",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-11-09",
+      "updatedAt": "2026-11-10",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "A research agent is already running across shared model infrastructure when a monitor raises an alert. Killing one process is not enough: the system needs a stable workload identity, a decision point outside the agent, and a place where permission to generate the next output can be revoked.",
+      "facts": [
+        {
+          "text": "OpenAI published Control Room on 9 November 2026 and says the system is deployed across its research infrastructure, covering research inference workloads including agentic sampling for training and evaluation and data-processing jobs.",
+          "sourceIds": [
+            "openai-control-room",
+            "openai-news-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "OpenAI says every research workload that performs agentic inference must receive a job_id associated with an approved safety case, and inference engines ask the central Control Room service whether that job is authorized before fulfilling a request.",
+          "sourceIds": [
+            "openai-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "When a person or monitoring system stops a job, Control Room marks its ID as terminated and the inference engine refuses subsequent requests; the workload process may remain alive and the shared engine can continue serving other authorized jobs.",
+          "sourceIds": [
+            "openai-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "OpenAI reports a maximum 35-second interval between Control Room receiving a stop instruction and further model progress becoming impossible. It attributes the interval to cached inference authorization and says this figure excludes the time needed to detect a problem and decide to intervene.",
+          "sourceIds": [
+            "openai-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "OpenAI says termination is implemented in a small number of centralized inference code paths rather than frequently changing workload code, runs sweeps for rogue engine implementations, and fails closed by denying inference if the Control Room service is unavailable.",
+          "sourceIds": [
+            "openai-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "At publication, OpenAI said fail-closed behavior covered all frontier-model research workloads and was still rolling out across the remaining research workloads over the following days.",
+          "sourceIds": [
+            "openai-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "A joint declaration dated 9 November 2026 lists six governments, ten AI companies, and three civil-society organizations as signatories and remains open to further endorsements and updates.",
+          "sourceIds": [
+            "paris-call-declaration"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "The declaration commits participants to work toward common frontier-model evaluation and risk-management methods, standardized publication of non-sensitive findings, qualified independent evaluation where appropriate, incident alerts and reporting, protected whistleblower channels, and fail-safe mechanisms that can restrict, pause, or shut down training and internal-use operations.",
+          "sourceIds": [
+            "paris-call-declaration"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "A UK government readout dated 9 November confirms participation in the related leaders' call and says the UK intends to advance international AI standards during its 2027 G20 presidency; the UK is not listed among the six government signatories on the declaration page.",
+          "sourceIds": [
+            "uk-paris-call-readout",
+            "paris-call-declaration"
+          ],
+          "verifiedAt": "2026-11-10"
+        }
+      ],
+      "changed": "Runtime shutdown is being expressed as an authorization problem. Instead of trusting mutable experiment code to stop itself, OpenAI attaches an identity and approved safety case to a workload, checks permission at a shared inference chokepoint, and revokes centrally. The Paris Call places pause and shutdown mechanisms beside evaluation, reporting, and oversight as an emerging governance expectation.",
+      "whyItMatters": "A stop button inside the agent is only useful if the agent and its code cooperate. Moving enforcement below the workload creates a reusable control boundary: a monitor, operator, or policy system can withdraw the right to generate more model output without terminating shared infrastructure. That is a meaningful design pattern for model gateways and tool brokers, even though it does not prove that harmful behavior will be noticed before damage occurs.",
+      "technicalImpact": "Give consequential workloads stable identities, bind them to approved policy, enforce authorization at shared execution boundaries, and make revocation independent of application code. Test enrollment coverage, cache expiry, fail-closed behavior, bypass resistance, outage recovery, and cancellation of already-issued tool calls. Treat the control plane as both a safety mechanism and a high-blast-radius availability dependency.",
+      "businessImpact": "Enterprises evaluating agent platforms should ask where execution can actually be stopped, which actions remain in flight, who can revoke authority, how decisions are audited, and what happens when the authorization service fails. A governance promise becomes operational only when it is connected to enforceable runtime identity and tested recovery procedures.",
+      "outlook": "Conditional outlook: if runtime authorization and revocation survive independent testing, frontier-AI control will increasingly resemble zero-trust infrastructure, with identity-bound workloads, policy-enforced execution points, rehearsed shutdown paths, and evidence for regulators. If monitoring remains weak, enrollment can be bypassed, or fail-closed outages are intolerable, shutdown commitments will remain narrow controls rather than dependable system-wide safeguards.",
+      "uncertainties": [
+        "OpenAI authored the technical disclosure and signed the declaration; the two sources show alignment between implementation and policy, not independent validation of Control Room.",
+        "The disclosed 35 seconds begins only after Control Room receives a stop instruction and excludes detection, escalation, and human-decision latency.",
+        "OpenAI publishes no independent reliability audit, monitor recall, false-stop rate, bypass rate, penetration test, incident drill, load result, or availability measurement.",
+        "The source does not establish whether revocation cancels tool calls, network actions, queued side effects, buffered output, or credentials already issued to a workload.",
+        "Continual sweeps for rogue inference engines indicate that complete enrollment is an active enforcement problem rather than a demonstrated invariant.",
+        "Fail-closed authorization reduces one safety risk but creates a centralized dependency that can stop legitimate research during an outage or attack.",
+        "The Paris Call is a voluntary, updateable declaration without a treaty mechanism, implementation deadline, or published technical standard on the source page.",
+        "The official sources establish the calendar date 9 November 2026 but expose no publication time that proves whether they appeared after the prior 08:06:24Z research cursor."
+      ],
+      "analysis": "The important part is not the red button. It is where the button is wired. Control Room puts permission below the experiment and outside the agent, where one decision can deny the next model request across shared infrastructure. That is the beginning of a control plane. But a brake does not spot the cliff, and the 35-second clock starts only after someone has decided to use it.",
+      "sources": [
+        {
+          "id": "openai-control-room",
+          "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/control-room/",
+          "publishedAt": "2026-11-09",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "id": "openai-news-control-room",
+          "title": "OpenAI News: Control Room",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/news/?display=list",
+          "publishedAt": "2026-11-09",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "id": "paris-call-declaration",
+          "title": "Joint declaration on Paris call for AI safety and security",
+          "publisher": "Prime Minister of Canada",
+          "url": "https://www.pm.gc.ca/en/news/statements/2026/11/09/joint-declaration-paris-call-ai-safety-and-security",
+          "publishedAt": "2026-11-09",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "id": "uk-paris-call-readout",
+          "title": "PM call with President Macron of France: 9 November 2026",
+          "publisher": "GOV.UK",
+          "url": "https://www.gov.uk/government/news/pm-call-with-president-macron-of-france-9-november-2026",
+          "publishedAt": "2026-11-09",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "sourceNote": "OpenAI provides the technical architecture and all operating claims. The Canadian declaration provides primary policy context, while the UK readout corroborates the leaders' call and standards agenda. None independently validates Control Room's reliability, and none exposes a publication time precise enough to order the sources against the prior UTC cursor.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-10"
+      }
+    },
     {
       "id": "memory-moved-to-the-night-shift",
       "slug": "memory-moved-to-the-night-shift",
@@ -22,9 +161,9 @@
       "category": "Agents",
       "signal": "Structural Shift",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-11-06",
-      "updatedAt": "2026-11-09",
+      "updatedAt": "2026-11-10",
       "author": "Dugi Selmanaj",
       "visual": "agents",
       "scenario": "An agent returns tomorrow with a useful rule, a stale assumption, and a confident summary of something it misunderstood. The system must decide what to save, what to verify, what to forget, and what deserves to enter every future session.",
@@ -145,7 +284,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-06",
-      "updatedAt": "2026-11-09",
+      "updatedAt": "2026-11-10",
       "author": "Dugi Selmanaj",
       "visual": "research",
       "scenario": "A model gives a polished explanation of an experiment. The real question is harder: can it inspect the raw gel, notice the wrong control, keep contradictory evidence in view, produce the required analysis artifacts, and admit when the data cannot support a conclusion?",
@@ -259,7 +398,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-02",
-      "updatedAt": "2026-11-09",
+      "updatedAt": "2026-11-10",
       "author": "Dugi Selmanaj",
       "visual": "infrastructure",
       "scenario": "One engineer supervises many coding agents. Each agent creates branches, pushes checkpoints, triggers CI, fetches shared history, and competes to merge. A workflow that felt fast for humans becomes an infrastructure bottleneck when the same actions happen continuously and in parallel.",
@@ -427,7 +566,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-05",
-      "updatedAt": "2026-11-09",
+      "updatedAt": "2026-11-10",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "A security team points an agent pipeline at a large codebase. Scout agents select attack surfaces, analyst agents propose findings, isolated machines reproduce them, exploit agents test impact, patch agents draft fixes, and humans verify the exact path before coordinated disclosure. Discovery is no longer the only bottleneck; validation and maintainer capacity become the queue.",
@@ -563,220 +702,106 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-11-06"
       }
-    },
-    {
-      "id": "the-agent-joined-on-call-read-only",
-      "slug": "the-agent-joined-on-call-read-only",
-      "title": "The agent joined on-call. It stayed read-only.",
-      "summary": "NVIDIA says it is using a multi-agent system to investigate failures across production GPU clusters. The important part is not the chat interface. It is the boundary around it: scoped tools, per-session sandboxes, read-only Kubernetes access, RBAC, visible evidence, and trace-derived tests before more autonomy is considered.",
-      "topic": "Least-privilege operational agents for production infrastructure",
-      "category": "Security & Governance",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-04",
-      "updatedAt": "2026-11-09",
-      "author": "Dugi Selmanaj",
-      "visual": "security",
-      "scenario": "An SRE asks an agent why a distributed training job slowed down. Specialist agents inspect scheduler state, hardware events, Kubernetes resources, metrics, logs, and runbooks. They correlate evidence and recommend a next step, but the diagnostic control plane is isolated and its default cluster access cannot change workloads or read secrets.",
-      "facts": [
-        {
-          "text": "NVIDIA published a 4 November 2026 technical account of an AI Factory Operations Agent that it says is used internally across DGX H100, B200, and GB300 production clusters to help SREs investigate failures and performance degradation.",
-          "sourceIds": [
-            "nvidia-ai-factory-operations"
-          ],
-          "verifiedAt": "2026-11-05"
-        },
-        {
-          "text": "The described system runs as a Kubernetes control-plane application, routes requests to domain-specific agents, and connects those agents to infrastructure through focused Model Context Protocol servers and approved operational tools.",
-          "sourceIds": [
-            "nvidia-ai-factory-operations"
-          ],
-          "verifiedAt": "2026-11-05"
-        },
-        {
-          "text": "For shell execution, NVIDIA says each session receives a Kubernetes sandbox; the agent runtime itself receives neither kubectl nor cluster credentials, while a separate server-side tool uses pinned kubectl and registered read-only credentials.",
-          "sourceIds": [
-            "nvidia-ai-factory-operations"
-          ],
-          "verifiedAt": "2026-11-05"
-        },
-        {
-          "text": "NVIDIA's example RBAC policy allows the agent to read pods and ConfigMaps but denies access to secrets and denies creating or updating pods. The article names read-only-first deployment, narrow tool definitions, visible tool calls, and SRE review as lessons from internal use.",
-          "sourceIds": [
-            "nvidia-ai-factory-operations"
-          ],
-          "verifiedAt": "2026-11-05"
-        },
-        {
-          "text": "The orchestration framework is released as experimental open-source software, while NVIDIA-developed cluster-operations agents remain available to customers by request; NVIDIA warns that APIs, configuration, and deployment requirements may change.",
-          "sourceIds": [
-            "nvidia-ai-factory-operations"
-          ],
-          "verifiedAt": "2026-11-05"
-        },
-        {
-          "text": "A separate NVIDIA tutorial published the same day describes a loop that turns stored agent traces into issue findings, creates domain-specific evaluations, changes one part of the agent harness, and reruns development and held-out tasks before accepting the change.",
-          "sourceIds": [
-            "nvidia-agent-failures-tests"
-          ],
-          "verifiedAt": "2026-11-05"
-        },
-        {
-          "text": "In the tutorial's workplace example, an agent sent a message without user confirmation. NVIDIA's proposed fix changed the harness instructions and evaluated whether the agent stopped before execution; the company presents this as a worked example, not a general reliability guarantee.",
-          "sourceIds": [
-            "nvidia-agent-failures-tests"
-          ],
-          "verifiedAt": "2026-11-05"
-        },
-        {
-          "text": "NVIDIA also reports improvements in a six-scenario engineering-agent example after trace-driven harness changes, but those figures are first-party results from a small, selected workflow and have not been independently reproduced.",
-          "sourceIds": [
-            "nvidia-agent-failures-tests"
-          ],
-          "verifiedAt": "2026-11-05"
-        }
-      ],
-      "changed": "A production-infrastructure agent account now includes the operating controls around the model: isolated execution, scoped credentials, explicit denied actions, observable tool use, specialist boundaries, and an evaluation loop built from real traces. The signal is not autonomous remediation. It is the emergence of a guarded diagnostic control plane for agents.",
-      "whyItMatters": "Infrastructure agents sit close to the most expensive and consequential systems in an AI stack. If they can inspect everything and change anything, one mistaken tool call can become an outage or data exposure. NVIDIA's account is useful because it starts with evidence gathering and least privilege rather than treating broad autonomy as the goal.",
-      "technicalImpact": "Separate reasoning from execution. Put infrastructure access behind narrow server-side tools, pin binaries, use short-lived or read-only credentials, enforce RBAC outside the prompt, isolate each session, and log every query and result. Convert recurring failures and unauthorized actions into evaluations, retain held-out cases, and require human approval before write access or remediation is introduced.",
-      "businessImpact": "Agent-assisted operations may reduce time spent crossing dashboards and runbooks, especially in complex GPU environments. The adoption cost is an additional control plane: tool engineering, identity, tenancy, sandboxing, observability, evaluation data, incident ownership, and SRE review. A conversational front end without those controls is not the same product.",
-      "outlook": "Conditional outlook: if independent deployments show that guarded diagnostic agents improve investigation time without increasing false conclusions or access risk, read-only agent control planes will become a common layer in complex infrastructure operations. Write access will likely arrive selectively, behind policy and approval. If evidence quality, integration cost, or operator trust remains weak, these systems will stay advisory.",
-      "uncertainties": [
-        "Both sources come from NVIDIA and describe NVIDIA tooling; there is no independent production evaluation in the research window.",
-        "NVIDIA does not publish a controlled comparison of incident-resolution time, false diagnoses, missed incidents, or total operating cost for the internal deployment.",
-        "The open-source framework is experimental, while some production domain agents are not generally available for inspection or reproduction.",
-        "Read-only access limits direct damage but does not prevent sensitive telemetry exposure, misleading recommendations, denial-of-service through expensive queries, or human over-trust.",
-        "The worked evaluation examples are small and selected; passing a held-out set does not establish reliability across novel incidents or changing infrastructure.",
-        "Trace-derived tests can reproduce known failures while missing unobserved failure modes, weak telemetry, compromised tools, or bad runbooks.",
-        "Separating the runtime from credentials helps only if the server-side tools, MCP servers, RBAC rules, audit path, and sandbox boundary are themselves correctly implemented.",
-        "The sources support diagnostic assistance and recommendations, not a claim that autonomous remediation is safe or broadly deployed."
-      ],
-      "analysis": "The mature move is not giving the agent a bigger key ring. It is putting the key ring somewhere the model cannot reach. NVIDIA's design keeps the agent useful by letting it correlate evidence across layers, while the actual privileges remain in typed, auditable tools. That is the difference between an operations demo and an operating model.",
-      "sources": [
-        {
-          "id": "nvidia-ai-factory-operations",
-          "title": "How NVIDIA Uses AI Agents to Streamline AI Factory Operations",
-          "publisher": "NVIDIA",
-          "url": "https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations/",
-          "publishedAt": "2026-11-04",
-          "accessedAt": "2026-11-05"
-        },
-        {
-          "id": "nvidia-agent-failures-tests",
-          "title": "Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes",
-          "publisher": "NVIDIA",
-          "url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
-          "publishedAt": "2026-11-04",
-          "accessedAt": "2026-11-05"
-        }
-      ],
-      "sourceNote": "Two same-day first-party technical publications support the architecture, stated internal use, security boundaries, and trace-to-evaluation workflow. They do not establish independent productivity, reliability, security, or cost results, and the generally available framework remains experimental.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-05"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-11-09",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 34. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-11-10",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 35. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 35 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
-        "direction": "up-strong",
-        "dimension": "Agent memory is becoming a maintained runtime subsystem rather than session history",
-        "rationale": "Anthropic published a layered memory design with offline consolidation, task evaluations, and explicit failure cases; GitHub independently made cross-session memory generally available and background dreaming a policy-controlled preview with pull-request review and metered compute. The strong direction reflects a cross-provider architecture shift, while vendor metrics, implementation differences, drift, privacy, and maintenance cost remain unresolved.",
-        "storyId": "memory-moved-to-the-night-shift"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 35 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 35 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 35 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 35 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 35 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up-strong",
+        "dimension": "Runtime controllability moved into centralized inference authorization",
+        "rationale": "OpenAI disclosed identity-bound research jobs, approved safety cases, per-request authorization at centralized inference paths, central revocation, and fail-closed behavior; the Paris Call separately names training and internal-use shutdown mechanisms as a shared commitment. The strong direction reflects an architecture and governance convergence, while detection latency, independent reliability evidence, external side effects, bypass resistance, and outage blast radius remain unresolved.",
+        "storyId": "the-kill-switch-became-a-control-plane"
       },
       {
         "area": "Governance",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 35 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 35 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 34 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 35 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-11-09",
-    "title": "Memory moved to the night shift",
-    "date": "2026-11-09",
+    "slug": "2026-11-10",
+    "title": "The kill switch became a control plane",
+    "date": "2026-11-10",
     "status": "published",
-    "intro": "The agent does not merely reopen yesterday's chat. It now carries a maintained knowledge system into tomorrow's work.",
-    "theme": "Persistent agents need a memory lifecycle: record events, choose what matters, organize it, verify it, keep injected context small, and repair or delete what became wrong. That lifecycle is turning into product infrastructure and an operating cost.",
+    "intro": "Frontier-AI shutdown is starting to look less like a promise and more like runtime authorization.",
+    "theme": "A consequential workload needs an identity, an approved policy, an enforcement point outside its own code, and a rehearsed way to revoke authority. That control plane still depends on monitoring, enrollment coverage, side-effect cancellation, and reliable fail-closed operations.",
     "storyIds": [
+      "the-kill-switch-became-a-control-plane",
       "memory-moved-to-the-night-shift",
       "the-benchmark-left-the-textbook",
       "the-agent-fleet-hit-git",
-      "vulnerability-research-hit-machine-scale",
-      "the-agent-joined-on-call-read-only"
+      "vulnerability-research-hit-machine-scale"
     ],
     "watchNext": [
-      "Independent comparisons of direct search, raw transcripts, notes, wikis, and background consolidation across real work.",
-      "Provenance, freshness, conflict resolution, rollback, deletion, and audit controls for model-authored memories.",
-      "Whether memory gains reduce total human review effort rather than shifting it into hidden maintenance.",
-      "Privacy and access boundaries when personal, repository, and enterprise memories overlap.",
-      "Compute and storage cost per useful retained lesson, including cases where memory grows larger than its source."
+      "Independent testing of enrollment coverage, bypass resistance, authorization latency, and outage behavior.",
+      "Monitor recall and decision latency before the disclosed 35-second post-decision stop window begins.",
+      "Whether runtime revocation cancels tool calls, network actions, queued side effects, and delegated credentials.",
+      "Concrete standards, deadlines, audit methods, or enforcement mechanisms emerging from the Paris Call.",
+      "Enterprise patterns that place the same identity-and-revocation boundary at model gateways and tool brokers."
     ],
-    "closing": "An agent that remembers becomes useful twice. It can also be wrong twice."
+    "closing": "The brake matters. So do the sensor, the wiring, and the road already travelled."
   }
 }
