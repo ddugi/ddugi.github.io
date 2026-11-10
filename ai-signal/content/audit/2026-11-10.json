@@ -4,7 +4,7 @@
     "start": "2026-11-09T08:06:24Z",
     "end": "2026-11-10T07:55:54Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official news, safety, research, engineering, security, system-card, and developer publications",
     "Anthropic newsroom, research, engineering, safeguards, standards, and threat-intelligence publications",
@@ -69,9 +69,9 @@
   "emerging_trends_detected": 1,
   "notes": "Official sources establish the calendar date 9 November 2026 but do not expose publication times that prove strict ordering after the prior 08:06:24Z cursor. The accepted story therefore states that limitation explicitly. The Signal Map movement is tied only to the accepted story; the Paris Call is policy context, not independent reliability proof or a separate map movement.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/102",
+    "commit": "9d996f6482558504ddfc7c87806f0acdc71cbf6e",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/stories/the-kill-switch-became-a-control-plane/"
   }
 }
