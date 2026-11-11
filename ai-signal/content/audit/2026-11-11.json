@@ -4,7 +4,7 @@
     "start": "2026-11-10T07:55:54Z",
     "end": "2026-11-11T09:02:27Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official news, alignment research, safety, engineering, security, system-card, and developer publications",
     "Anthropic newsroom, research, engineering, safeguards, standards, and threat-intelligence publications",
@@ -79,9 +79,9 @@
   "emerging_trends_detected": 1,
   "notes": "Official sources establish the calendar date 10 November 2026 but do not expose publication times proving strict ordering after the prior 07:55:54Z cursor. The accepted story states that limitation explicitly. The only Signal Map movement is tied to the accepted story, and the downward direction is limited because the source's own appendix weakens the proxy-to-evasion link.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/104",
+    "commit": "dc1bdf6b68075a16cd270730472cd7ace91c18e8",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/stories/the-reasoning-trace-lost-its-guarantee/"
   }
 }
