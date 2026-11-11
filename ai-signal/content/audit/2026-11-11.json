@@ -1,0 +1,87 @@
+{
+  "run_date": "2026-11-11",
+  "research_window": {
+    "start": "2026-11-10T07:55:54Z",
+    "end": "2026-11-11T09:02:27Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official news, alignment research, safety, engineering, security, system-card, and developer publications",
+    "Anthropic newsroom, research, engineering, safeguards, standards, and threat-intelligence publications",
+    "Google and Google DeepMind model, robotics, research, safety, and developer publications",
+    "Microsoft Azure, Microsoft Research, security, and developer publications",
+    "AWS AI, security, architecture, and technical publications",
+    "GitHub changelog, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom and technical publications",
+    "Meta AI and Meta Engineering publications",
+    "Hugging Face official, organization, research, and community publications",
+    "UK government procurement security policies and standards"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-reasoning-trace-lost-its-guarantee",
+      "source_publication_date": "2026-11-10",
+      "reason": "OpenAI reports controlled evidence that pretraining progress, reinforcement learning, and model-generated training data can increase no-CoT capability or CoT controllability. The story is materially distinct from Edition 35 because it addresses observability rather than runtime revocation and preserves the study's counterexample and proxy limitations."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Microsoft Research Lazarus weight-reprogramming attack",
+      "source_publication_date": "2026-11-10",
+      "reason": "The sparse backdoor mechanism is material, but it begins with checkpoint write access, lacks independent replication and established peer review in the reviewed sources, and several proposed scanning and signing controls remain planned or exploratory."
+    },
+    {
+      "candidate": "DWP AI and machine-learning security standard SS-040",
+      "source_publication_date": "2026-11-10",
+      "reason": "The procurement-evidence framing is useful, but the standard is departmental rather than UK-wide law, applies only when incorporated into contract schedules, allows governed exceptions, and provides no adoption, cost, audit, or effectiveness evidence."
+    },
+    {
+      "candidate": "Google Gemini 4 Carbon availability",
+      "source_publication_date": "2026-11-10",
+      "reason": "The frontier coordinator angle is plausible, but benchmark leadership is mixed, cyber access is restricted, and orchestration reliability is demonstrated rather than independently measured."
+    },
+    {
+      "candidate": "Google DeepMind Gemini Robotics 2.5",
+      "source_publication_date": "2026-11-10",
+      "reason": "The bounded automotive pilot is credible, but access is partner-only and the source omits sample counts, confidence intervals, intervention frequency, and uptime needed to support a broader autonomy signal."
+    },
+    {
+      "candidate": "Meta Your Algorithm preferences architecture",
+      "source_publication_date": "2026-11-10",
+      "reason": "Editable preferences as shared recommender state are technically interesting, but the source provides no experiment size, quality lift, latency, or user-satisfaction evidence."
+    },
+    {
+      "candidate": "Hugging Face decision-model interface",
+      "source_publication_date": "2026-11-10",
+      "reason": "A cross-runtime typed probability API is useful, but classification and zero-shot scoring are established techniques and the source lacks adoption, calibration, latency, or cost evidence."
+    },
+    {
+      "candidate": "AWS Bedrock tokenomics data-lake sample",
+      "source_publication_date": "2026-11-10",
+      "reason": "The deployable reference architecture is useful but is not a new managed capability, and centralizing full prompts and completions creates substantial privacy and governance burdens."
+    },
+    {
+      "candidate": "Git security vulnerability release",
+      "source_publication_date": "2026-11-10",
+      "reason": "The six patches matter to repository automation, but connecting conventional Git vulnerabilities to AI agents would be editorial inference and overlaps the live agent-scale Git story."
+    },
+    {
+      "candidate": "Google DeepMind AlphaProof Code",
+      "source_publication_date": "2026-11-10",
+      "reason": "The technical result overlaps the recently rotated machine-scale vulnerability-research story and is presented as a case study within the broader Carbon launch."
+    },
+    {
+      "candidate": "Older AG2 and GPUStack advisories plus smaller product availability changes",
+      "source_publication_date": "2026-11-10",
+      "reason": "The advisories' underlying disclosures predate the cursor, while the remaining seat-management, marketplace, hosted-agent, and model-availability items are incremental distribution or procurement changes without lead-level evidence."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Official sources establish the calendar date 10 November 2026 but do not expose publication times proving strict ordering after the prior 07:55:54Z cursor. The accepted story states that limitation explicitly. The only Signal Map movement is tied to the accepted story, and the downward direction is limited because the source's own appendix weakens the proxy-to-evasion link.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
