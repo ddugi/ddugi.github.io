@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-11-12",
+  "research_window": {
+    "start": "2026-11-11T09:02:27Z",
+    "end": "2026-11-12T07:55:43Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official news, alignment research, safety, engineering, security, system-card, and developer publications",
+    "Anthropic newsroom, research, engineering, safeguards, standards, and threat-intelligence publications",
+    "Google and Google DeepMind model, robotics, research, safety, and developer publications",
+    "Microsoft Azure, Microsoft Research, security, legal, and developer publications",
+    "AWS AI, security bulletins, architecture, API, and technical publications",
+    "GitHub changelog, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom, research, and technical publications",
+    "Meta AI and Meta Engineering publications",
+    "Hugging Face official, organization, research, and community publications",
+    "NIST and CISA publications and advisories"
+  ],
+  "accepted": [],
+  "rejected": [
+    {
+      "candidate": "Meta Intelligent Delivery compute allocation system",
+      "source_publication_date": "2026-11-11",
+      "reason": "The hierarchy for allocating ranking compute across regions, hosts, and delivery stages is technically substantial, but the reported performance is a first-party aggregate accumulated since 2017, the causal contribution of individual mechanisms is not isolated, and the evidence is specific to Meta's advertising stack. It does not yet justify a broader AI-infrastructure signal."
+    },
+    {
+      "candidate": "AWS eMudhra trust-bundle remediation update",
+      "source_publication_date": "2026-11-11",
+      "reason": "The 11 November bulletin update materially clarifies Lambda runtime remediation for a serious certificate-authority key failure, but the underlying disclosure and revocations predate the research window. The update is operationally important rather than a new structural AI, cloud, or security direction."
+    },
+    {
+      "candidate": "NVIDIA runtime AI inventory validation guidance",
+      "source_publication_date": "2026-11-11",
+      "reason": "Runtime inventory is useful for validating GPU platforms, but the surfaced material is vendor guidance tied to NVIDIA's DSX stack and provides no independent deployment, failure-rate, or interoperability evidence."
+    },
+    {
+      "candidate": "Hugging Face BotPsy on-device assistant and token-pooling articles",
+      "source_publication_date": "2026-11-11",
+      "reason": "Both are community or guide-style publications. Neither supplies independent evaluation or production evidence strong enough to establish a material platform shift, and publishing them would elevate project-level claims into broader conclusions."
+    },
+    {
+      "candidate": "GitHub issue types and fields for personal repositories",
+      "source_publication_date": "2026-11-11",
+      "reason": "General availability improves planning for individual developers and maintainers, but it is an incremental collaboration feature without a meaningful AI, infrastructure, security, or enterprise-governance signal."
+    },
+    {
+      "candidate": "Microsoft Fourth Circuit privacy ruling commentary",
+      "source_publication_date": "2026-11-11",
+      "reason": "The ruling and Microsoft's account are important for press privacy, but they do not produce a distinct technical control, AI-governance mechanism, or enterprise architecture change within AI Signal's current scope."
+    },
+    {
+      "candidate": "Other OpenAI, Anthropic, Google DeepMind, Microsoft, AWS, GitHub, NVIDIA, Meta, Hugging Face, NIST, and CISA developments after the prior cutoff",
+      "source_publication_date": "2026-11-12",
+      "reason": "No additional primary-source development found before the research cutoff met the exact-date, evidence, materiality, and deduplication threshold."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "No candidate cleared the publication threshold. Edition 36 and its traceable Models movement remain unchanged; this audit records the completed research window without manufacturing a headline. Most official sources expose a calendar date but not a publication time precise enough to prove strict ordering against the 09:02:27Z cursor.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": null
+  }
+}
