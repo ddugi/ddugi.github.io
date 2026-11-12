@@ -4,7 +4,7 @@
     "start": "2026-11-11T09:02:27Z",
     "end": "2026-11-12T07:55:43Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official news, alignment research, safety, engineering, security, system-card, and developer publications",
     "Anthropic newsroom, research, engineering, safeguards, standards, and threat-intelligence publications",
@@ -58,9 +58,9 @@
   "emerging_trends_detected": 0,
   "notes": "No candidate cleared the publication threshold. Edition 36 and its traceable Models movement remain unchanged; this audit records the completed research window without manufacturing a headline. Most official sources expose a calendar date but not a publication time precise enough to prove strict ordering against the 09:02:27Z cursor.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/106",
+    "commit": "293697cbeec2079d494303b1cb8c01ceebfc3880",
     "live_edition_changed": false,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }

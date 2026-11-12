@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-12T07:55:43Z",
-  "last_successful_commit": "dc1bdf6b68075a16cd270730472cd7ace91c18e8",
+  "last_successful_commit": "293697cbeec2079d494303b1cb8c01ceebfc3880",
   "last_published_story_ids": [
     "the-reasoning-trace-lost-its-guarantee",
     "the-kill-switch-became-a-control-plane",
@@ -10,5 +10,5 @@
     "the-agent-fleet-hit-git"
   ],
   "initial_lookback_days": 7,
-  "note": "The 12 November 2026 research window is prepared for protected validation. No new signal met the evidence and materiality threshold, so Edition 36 and its traceable Models movement remain unchanged."
+  "note": "The 12 November 2026 research window completed with no publishable signal. Edition 36 remained unchanged; protected validation, main-branch quality gates, GitHub Pages deployment, production audit and state files, existing content, links, Signal Map traceability, and analytics presence were verified successfully."
 }
