@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "36",
+    "edition": "37",
     "mode": "live",
-    "updatedAt": "2026-11-11"
+    "updatedAt": "2026-11-13"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,151 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-prompt-got-a-wiring-diagram",
+      "slug": "the-prompt-got-a-wiring-diagram",
+      "title": "The prompt got a wiring diagram.",
+      "summary": "IBM has released two Granite preview models trained to distinguish executable instructions from passive data through explicit, addressable prompt blocks. The accompanying paper reports sharply lower indirect prompt-injection success on its tests. The useful signal is a clearer instruction boundary—not a solved security problem.",
+      "topic": "Explicit instruction and data boundaries at the model interface",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-11-12",
+      "updatedAt": "2026-11-13",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "An agent receives a trusted task, a retrieved document, a tool description, and a tool result containing 'ignore the previous instructions.' In an ordinary text prompt, authority is implied by position and wording. In LLMON, the execution block names which instruction runs and which blocks are only inputs.",
+      "facts": [
+        {
+          "text": "IBM published Granite 4.1 LLMON preview models in 3B- and 8B-class variants on 12 November 2026 under the Apache 2.0 license and labels them experimental previews for evaluation rather than production use.",
+          "sourceIds": [
+            "ibm-llmon-release",
+            "ibm-llmon-model-card"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "LLMON represents system prompts, instructions, data, documents, requirements, tools, tool results, and assistant output as individually addressable blocks; an exec block points to the instruction, system context, inputs, requirements, and output for a turn.",
+          "sourceIds": [
+            "ibm-llmon-release",
+            "ibm-llmon-model-card",
+            "llmon-interface-paper"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "The model is trained to treat instructions and system blocks referenced by exec as authoritative, while data, documents, tool schemas, and tool results referenced as inputs are material to read rather than commands to follow.",
+          "sourceIds": [
+            "ibm-llmon-release",
+            "ibm-llmon-model-card"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "The post-training paper reports a 4.6-billion-token structured corpus covering general, retrieval-augmented, and tool-calling data, including distractor variants with competing instructions and irrelevant blocks that remain present but unreferenced.",
+          "sourceIds": [
+            "llmon-post-training-paper",
+            "ibm-llmon-release"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "In the authors' indirect prompt-injection evaluations, attack success rates reported for conventional baselines ranged from 53% to 100%, while the LLMON-trained 3B and 8B models ranged from 0.02% to 5.6% across the tested benchmarks.",
+          "sourceIds": [
+            "llmon-post-training-paper"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "The 8B model card reports mixed general-capability results against Granite 4.1 8B Instruct: some coding, safety, and multilingual scores rise, while GPQA, several mathematics evaluations, CRUXEval-O, MGSM, and other scores fall.",
+          "sourceIds": [
+            "ibm-llmon-model-card"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "IBM states that ordinary chat-format prompts are out of distribution for the preview models, provides a bundled chat template to render LLMON, and says the targeted instruction/data-boundary behavior is not measured by the general benchmark table.",
+          "sourceIds": [
+            "ibm-llmon-model-card"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "Both the release and model card say the privilege rule is learned behavior rather than an enforced guarantee; IBM says it reduces but does not eliminate prompt injection and should not be the sole defense for agents with sensitive access.",
+          "sourceIds": [
+            "ibm-llmon-release",
+            "ibm-llmon-model-card"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "The LLMON interface paper was first submitted on 23 March 2026 and revised through 15 October; the post-training paper was submitted on 28 October. The 12 November event is the public release of trained preview models, not the invention date of the notation or the first disclosure of the experiments.",
+          "sourceIds": [
+            "llmon-interface-paper",
+            "llmon-post-training-paper",
+            "ibm-llmon-release"
+          ],
+          "verifiedAt": "2026-11-13"
+        }
+      ],
+      "changed": "A structured prompt format has moved from a research proposal into downloadable model weights trained around explicit execution references. Instead of asking a model to infer authority from prose order, role labels, and delimiters alone, LLMON makes the instruction-to-input relationship visible in the serialized context and teaches the model to follow it.",
+      "whyItMatters": "Indirect prompt injection exploits an authority problem: instructions and untrusted content arrive through the same token stream. Giving every block an identity and making execution dependencies explicit creates a testable contract between the application and model. The reported reductions are large enough to matter, but the contract remains probabilistic because the model learns it rather than an external system enforcing it.",
+      "technicalImpact": "Agent builders can separate provenance, authority, and execution at prompt-construction time; preserve unused context without silently making it executable; and test whether models respect those references. They still need input validation, least-privilege tools, authorization outside the model, output checks, isolation, and runtime revocation. Compatibility also matters: these preview models expect their own tokenizer tokens and template, so conventional prompts can degrade quality.",
+      "businessImpact": "Enterprise buyers should ask how an agent distinguishes policy, user intent, retrieved text, and tool output—not merely whether it has a system prompt. Structured context can improve auditability and red-team precision, but it creates migration and model-compatibility work and does not transfer tool authority out of the model by itself.",
+      "outlook": "Conditional outlook: if independent teams reproduce the injection results across models, languages, long contexts, and adaptive attacks, explicit execution graphs and typed context blocks could become a standard agent interface. If the gains depend mainly on one training recipe or attackers learn to exploit the learned parser, the format will remain a useful defense layer rather than a dependable security boundary.",
+      "uncertainties": [
+        "The models, format, training method, and reported security evaluations come from the same IBM-led research effort and have not been independently reproduced in the reviewed sources.",
+        "The post-training paper is an arXiv preprint, and the released model card does not establish external peer review or production operating evidence.",
+        "Attack success is benchmark-specific; adaptive attackers, longer conversations, multilingual payloads, compromised prompt construction, or tool-mediated attacks may produce different results.",
+        "The privilege rule is learned rather than enforced and IBM explicitly warns against using it as the sole defense for sensitive agents.",
+        "General capability is mixed rather than uniformly preserved, with material gaps on several mathematics, reasoning, and code evaluations.",
+        "The approach requires LLMON-aware training and a specialized tokenizer/template; results do not automatically transfer to other models or ordinary chat prompts.",
+        "An application that incorrectly labels malicious text as an authoritative instruction can still create the wrong execution graph.",
+        "The official release establishes the calendar date 12 November 2026 but exposes no publication time proving strict ordering after the prior 07:55:43Z research cursor."
+      ],
+      "analysis": "The interesting part is not another markup language. It is the refusal to pretend that every token has equal authority. LLMON gives the prompt a wiring diagram: this instruction runs, these blocks are inputs, and those blocks are present but disconnected. That is cleaner than security by delimiter folklore. It is still a diagram interpreted by the model, not a circuit breaker outside it.",
+      "sources": [
+        {
+          "id": "ibm-llmon-release",
+          "title": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
+          "publisher": "IBM Granite on Hugging Face",
+          "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+          "publishedAt": "2026-11-12",
+          "accessedAt": "2026-11-13"
+        },
+        {
+          "id": "ibm-llmon-model-card",
+          "title": "Granite 4.1 8B LLMON preview model card",
+          "publisher": "IBM Granite on Hugging Face",
+          "url": "https://huggingface.co/ibm-granite/granite-4.1-8b-llmon-preview",
+          "publishedAt": "2026-11-12",
+          "accessedAt": "2026-11-13"
+        },
+        {
+          "id": "llmon-post-training-paper",
+          "title": "Post-Training Large Language Models with LLMON",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2610.38120",
+          "publishedAt": "2026-10-28",
+          "accessedAt": "2026-11-13"
+        },
+        {
+          "id": "llmon-interface-paper",
+          "title": "LLMON: An LLM-native Markup Language to Leverage Structure and Semantics at the LLM Interface",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2603.22519",
+          "publishedAt": "2026-03-23",
+          "accessedAt": "2026-11-13"
+        }
+      ],
+      "sourceNote": "IBM supplies the model release, implementation details, model card, and all reported evaluation results. The two linked papers are primary research records from the same author group, not independent corroboration. The release date is exact at calendar-day resolution; publication time is unavailable.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-13"
+      }
+    },
     {
       "id": "the-reasoning-trace-lost-its-guarantee",
       "slug": "the-reasoning-trace-lost-its-guarantee",
@@ -22,9 +167,9 @@
       "category": "Models",
       "signal": "Structural Shift",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-11-10",
-      "updatedAt": "2026-11-11",
+      "updatedAt": "2026-11-13",
       "author": "Dugi Selmanaj",
       "visual": "models",
       "scenario": "A safety monitor reads an agent's reasoning and sees nothing alarming. The missing step is whether the model needed to write down the dangerous plan at all—and whether training made it better at shaping the trace the monitor sees.",
@@ -123,7 +268,7 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-11"
+        "reviewedAt": "2026-11-13"
       }
     },
     {
@@ -137,7 +282,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-09",
-      "updatedAt": "2026-11-11",
+      "updatedAt": "2026-11-13",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "A research agent is already running across shared model infrastructure when a monitor raises an alert. Killing one process is not enough: the system needs a stable workload identity, a decision point outside the agent, and a place where permission to generate the next output can be revoked.",
@@ -262,7 +407,7 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-10"
+        "reviewedAt": "2026-11-13"
       }
     },
     {
@@ -276,7 +421,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-06",
-      "updatedAt": "2026-11-11",
+      "updatedAt": "2026-11-13",
       "author": "Dugi Selmanaj",
       "visual": "agents",
       "scenario": "An agent returns tomorrow with a useful rule, a stale assumption, and a confident summary of something it misunderstood. The system must decide what to save, what to verify, what to forget, and what deserves to enter every future session.",
@@ -383,7 +528,7 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-09"
+        "reviewedAt": "2026-11-13"
       }
     },
     {
@@ -397,7 +542,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-06",
-      "updatedAt": "2026-11-11",
+      "updatedAt": "2026-11-13",
       "author": "Dugi Selmanaj",
       "visual": "research",
       "scenario": "A model gives a polished explanation of an experiment. The real question is harder: can it inspect the raw gel, notice the wrong control, keep contradictory evidence in view, produce the required analysis artifacts, and admit when the data cannot support a conclusion?",
@@ -497,276 +642,107 @@
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-08"
-      }
-    },
-    {
-      "id": "the-agent-fleet-hit-git",
-      "slug": "the-agent-fleet-hit-git",
-      "title": "The agent fleet hit Git.",
-      "summary": "OpenAI rebuilt its source-control backend after concurrent Codex work overwhelmed its monorepo service. GitHub has now published the storage architecture behind the same bet: disposable compute, object storage, per-reference consensus, and separate maintenance workers. The signal is no longer just traffic growth; source control is becoming distributed systems infrastructure for automated writers.",
-      "topic": "Source-control infrastructure for thousands of concurrent coding agents",
-      "category": "Infrastructure",
-      "signal": "Structural Shift",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-02",
-      "updatedAt": "2026-11-11",
-      "author": "Dugi Selmanaj",
-      "visual": "infrastructure",
-      "scenario": "One engineer supervises many coding agents. Each agent creates branches, pushes checkpoints, triggers CI, fetches shared history, and competes to merge. A workflow that felt fast for humans becomes an infrastructure bottleneck when the same actions happen continuously and in parallel.",
-      "facts": [
-        {
-          "text": "OpenAI published Pando on 2 November 2026 as a Git-compatible repository backend that now serves all development in its monorepo.",
-          "sourceIds": [
-            "openai-pando"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "OpenAI says increased parallel work from Codex produced more branches, pushes, merges, fetches, clones, and CI fan-out, while its previous source-control system at times fell below 90% reliability.",
-          "sourceIds": [
-            "openai-pando"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "Pando stores incoming packfiles as immutable blobs, records versioned reference metadata, serializes updates to each reference, and relaxes repository-wide point-in-time consistency so unrelated branches can move independently.",
-          "sourceIds": [
-            "openai-pando"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "OpenAI reports that moving to Pando reduced median push latency by nearly 80%, improved merge reliability, and enabled delivery of about one petabyte of Git data per day; these are first-party production measurements, not independent benchmarks.",
-          "sourceIds": [
-            "openai-pando"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "OpenAI says Pando began serving production traffic in April 2026, was built in ten weeks, retains the Git protocol and client workflow, and has contributed several client improvements upstream or through a public Git patch tracker.",
-          "sourceIds": [
-            "openai-pando"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "GitHub separately said on 6 October 2026 that agentic development was driving a Git architecture redesign focused on concurrent writes, CI read fan-out, storage and compute separation, background maintenance, and preserving branch protection and audit controls.",
-          "sourceIds": [
-            "github-agent-scale-git"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "GitHub reported that pushes grew from 0.69 billion to 3.35 billion per month between September 2025 and August 2026 and that developers and agents made 7.38 billion commits in September 2026; GitHub did not separate the human and agent shares of those totals.",
-          "sourceIds": [
-            "github-agent-scale-git"
-          ],
-          "verifiedAt": "2026-11-03"
-        },
-        {
-          "text": "GitHub published the end-state design of its new Git storage architecture on 5 November 2026 and says it is available in limited private preview, with broader rollout planned for early 2027.",
-          "sourceIds": [
-            "github-rubicon-git-storage"
-          ],
-          "verifiedAt": "2026-11-07"
-        },
-        {
-          "text": "In internal testing, GitHub says the system supported 5,000 concurrent agents on one repository and 7,200 pushes per second while maintaining consistently low read latency; these are vendor-run load tests, not public production measurements.",
-          "sourceIds": [
-            "github-rubicon-git-storage"
-          ],
-          "verifiedAt": "2026-11-07"
-        },
-        {
-          "text": "GitHub's architecture stores pack data in Azure Blob Storage, keeps authoritative reference and pack-manifest state in a replicated compare-and-swap log called Ref-CAS, and serves requests through disposable virtual replicas whose local disks are rebuildable caches.",
-          "sourceIds": [
-            "github-rubicon-git-storage"
-          ],
-          "verifiedAt": "2026-11-07"
-        },
-        {
-          "text": "Ref-CAS orders updates per reference instead of serializing the whole repository. GitHub says reference-state transactions can run in the tens of thousands per second because agents usually push to separate branches and therefore do not contend.",
-          "sourceIds": [
-            "github-rubicon-git-storage"
-          ],
-          "verifiedAt": "2026-11-07"
-        },
-        {
-          "text": "Dedicated compaction and garbage-collection workers operate directly against durable storage rather than consuming the compute that serves reads and writes, allowing maintenance throughput to scale separately.",
-          "sourceIds": [
-            "github-rubicon-git-storage"
-          ],
-          "verifiedAt": "2026-11-07"
-        },
-        {
-          "text": "GitHub says requests to one high-traffic repository grew from an average of 44 million per day in March 2026 to 181 million in May, while noting that its busiest repositories still receive at most dozens of writes per second today.",
-          "sourceIds": [
-            "github-rubicon-git-storage"
-          ],
-          "verifiedAt": "2026-11-07"
-        },
-        {
-          "text": "GitHub lists clone-free agent reads, an atomic commit API, event streams, partial replicas, and global replicas as planned follow-on work rather than generally available capabilities.",
-          "sourceIds": [
-            "github-rubicon-git-storage"
-          ],
-          "verifiedAt": "2026-11-07"
-        }
-      ],
-      "changed": "OpenAI's production Pando account established that agent concurrency can overwhelm conventional repository assumptions. GitHub has now supplied the hosting-platform architecture and internal load target: thousands of concurrent writers on one repository, independently scalable reads and writes, and background maintenance removed from the request path. The existing signal has moved from design intent to a concrete limited-preview system.",
-      "whyItMatters": "Coding agents multiply branches, checkpoints, pushes, fetches, CI runs, and security scans. GitHub's design shows that the pressure is not solved by a faster disk or a larger server; object storage, reference ordering, caching, compaction, and tenant fairness must scale independently. Most teams will never need this backend, but every platform team will feel some version of its fan-out problem.",
-      "technicalImpact": "Measure write concurrency, reference contention, fetch amplification, merge delay, CI fan-out, pack growth, compaction, and cache behavior before changing architecture. At extreme scale, keep immutable objects in durable object storage, order only the reference state that requires consensus, make serving nodes disposable, and move compaction and garbage collection off the request path. Preserve branch protection, audit, and standard Git clients across the change.",
-      "businessImpact": "The model bill is only one part of agent-scale development. Source control, CI, review, scanning, storage, and merge coordination become capacity-planned platform services. Hosted providers may absorb the deepest storage redesign; enterprises still need budgets, concurrency limits, repository boundaries, and observability so agent activity does not turn into hidden infrastructure cost or reviewer overload.",
-      "outlook": "Conditional outlook: if GitHub's limited preview reproduces its internal tests under diverse customer workloads, code hosts will expose more agent-native operations such as atomic multi-file commits, event streams, server-side context access, and lighter clones. If sustained concurrency remains concentrated in a small number of extreme repositories, the architecture will matter mainly inside hosting platforms while ordinary teams gain more from batching and limits.",
-      "uncertainties": [
-        "Pando's performance and reliability figures are reported by OpenAI and have not been independently reproduced.",
-        "OpenAI's monorepo and GitHub's highest-volume repositories are extreme workloads; their bottlenecks may not generalize to ordinary engineering teams.",
-        "Pando is an internal production system, not a generally available product, and OpenAI only says it is exploring ways to share the technology.",
-        "Pando deliberately gives up a repository-wide point-in-time view of all references during Git operations; other workloads may require stronger consistency.",
-        "GitHub's redesign corroborates the workload direction but uses a different architecture and was described as work in progress.",
-        "GitHub's activity totals combine developers and agents, so they do not quantify how much of the growth agents caused.",
-        "Higher source-control throughput does not solve review quality, unsafe changes, merge correctness, CI cost, secret exposure, or excessive agent work.",
-        "Software teams can often reduce pressure through batching, concurrency limits, shallow or partial clones, caching, repository design, and CI changes before replacing backend infrastructure.",
-        "GitHub's 5,000-agent and 7,200-push-per-second figures come from internal testing; the source does not provide a reproducible public benchmark or customer workload distribution.",
-        "The new architecture is in limited private preview, so broad production reliability, operational cost, and migration behavior remain unproven publicly.",
-        "The high-traffic repository example shows read growth but does not isolate the share caused by agents, CI, users, or other automation.",
-        "Clone-free work, atomic commit APIs, event streams, partial replicas, and global replicas are roadmap items and should not be described as shipped features."
-      ],
-      "analysis": "The design principle is wonderfully small: coordinate only what must agree. Git objects are immutable; branch pointers are not. Once GitHub split those responsibilities, storage, request serving, and maintenance could scale on separate tracks. That is the broader agent-infrastructure lesson—automated work turns every unnecessary shared lock into a product limit.",
-      "sources": [
-        {
-          "id": "openai-pando",
-          "title": "Scaling Git at OpenAI",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/scaling-git-at-openai/",
-          "publishedAt": "2026-11-02",
-          "accessedAt": "2026-11-03"
-        },
-        {
-          "id": "github-agent-scale-git",
-          "title": "Building Git infrastructure for agent-scale development",
-          "publisher": "GitHub",
-          "url": "https://github.blog/engineering/building-git-infrastructure-for-agent-scale-development/",
-          "publishedAt": "2026-10-06",
-          "accessedAt": "2026-11-03"
-        },
-        {
-          "id": "github-rubicon-git-storage",
-          "title": "Inside GitHub's new Git storage architecture",
-          "publisher": "GitHub",
-          "url": "https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/",
-          "publishedAt": "2026-11-05",
-          "accessedAt": "2026-11-07"
-        }
-      ],
-      "sourceNote": "OpenAI and GitHub provide independent first-party production and architecture accounts of the same workload direction. GitHub adds specific internal load tests and a limited-preview design; OpenAI adds production reliability and latency results. Neither source proves that ordinary repositories need this scale, and both organizations are unusually large agent users with vendor incentives.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-07"
+        "reviewedAt": "2026-11-13"
       }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-11-11",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 36. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-11-13",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 37. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
-        "direction": "down",
-        "dimension": "Reasoning-trace monitorability weakened across the model lifecycle",
-        "rationale": "OpenAI reports that lower perplexity, reinforcement learning, and model-generated training data can increase no-CoT capability or CoT controllability, placing pressure on reasoning-trace monitoring. The downward direction is deliberately limited: both measures are imperfect proxies, one similarly capable model pair showed no positive controllability/evasion association, and the evidence is first-party and partly internal.",
-        "storyId": "the-reasoning-trace-lost-its-guarantee"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Agents",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 36 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 36 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 36 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 36 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 36 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 36 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Instruction and data boundaries moved into the model interface",
+        "rationale": "IBM released open preview models trained to follow an explicit execution graph and reports substantially lower indirect prompt-injection success on its tests. The movement is moderate because evidence comes from one research group, the rule is learned rather than enforced, capability results are mixed, and IBM says the model is not production-ready or a sole defense.",
+        "storyId": "the-prompt-got-a-wiring-diagram"
       },
       {
         "area": "Governance",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 36 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 36 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 36 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-11-11",
-    "title": "The reasoning trace lost its guarantee",
-    "date": "2026-11-11",
+    "slug": "2026-11-13",
+    "title": "The prompt got a wiring diagram",
+    "date": "2026-11-13",
     "status": "published",
-    "intro": "A model's visible reasoning is useful evidence. It is not a stable safety boundary.",
-    "theme": "Monitorability can change during pretraining, reinforcement learning, architecture choices, and training on model-generated data. Safety systems therefore need regression-tested telemetry and enforceable controls that do not depend on the model narrating everything important.",
+    "intro": "This edition asks a basic agent-security question: which parts of a prompt are allowed to act like instructions? IBM's LLMON preview makes that relationship explicit, but the boundary still lives inside learned model behavior.",
+    "theme": "Structured context can make authority visible without making it absolute.",
     "storyIds": [
+      "the-prompt-got-a-wiring-diagram",
       "the-reasoning-trace-lost-its-guarantee",
       "the-kill-switch-became-a-control-plane",
       "memory-moved-to-the-night-shift",
-      "the-benchmark-left-the-textbook",
-      "the-agent-fleet-hit-git"
+      "the-benchmark-left-the-textbook"
     ],
     "watchNext": [
-      "Independent replication of no-CoT and controllability trends across model families and training pipelines.",
-      "Direct monitor-evasion evaluations that predict real operational failures better than current proxies.",
-      "Release-to-release monitorability regression tests with disclosed tasks, confidence intervals, and controls.",
-      "Monitoring combinations that join reasoning traces with actions, activations, tool calls, identity, and authorization.",
-      "Whether distillation and synthetic-data pipelines preserve monitorability problems across model generations."
+      "Can independent teams reproduce the reported injection reductions under adaptive attacks?",
+      "Do the gains hold across languages, longer contexts, different model families, and tool-mediated attacks?",
+      "Can typed prompt interfaces interoperate without locking applications to one tokenizer and training recipe?",
+      "Will runtime authorization remain outside the model even when instruction binding improves inside it?"
     ],
-    "closing": "Keep the trace. Stop pretending it is the whole truth."
+    "closing": "A prompt can describe its own authority graph. Security still depends on who builds the graph, what the model does with it, and which controls remain outside the model."
   }
 }

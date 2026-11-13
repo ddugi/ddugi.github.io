@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-12T07:55:43Z",
+  "last_successful_update": "2026-11-13T07:59:49Z",
   "last_successful_commit": "293697cbeec2079d494303b1cb8c01ceebfc3880",
   "last_published_story_ids": [
+    "the-prompt-got-a-wiring-diagram",
     "the-reasoning-trace-lost-its-guarantee",
     "the-kill-switch-became-a-control-plane",
     "memory-moved-to-the-night-shift",
-    "the-benchmark-left-the-textbook",
-    "the-agent-fleet-hit-git"
+    "the-benchmark-left-the-textbook"
   ],
   "initial_lookback_days": 7,
-  "note": "The 12 November 2026 research window completed with no publishable signal. Edition 36 remained unchanged; protected validation, main-branch quality gates, GitHub Pages deployment, production audit and state files, existing content, links, Signal Map traceability, and analytics presence were verified successfully."
+  "note": "The 13 November 2026 research window prepared Edition 37 with one source-backed AI Security signal about explicit instruction and data boundaries at the model interface. The edition awaits protected validation and production deployment."
 }

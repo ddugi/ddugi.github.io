@@ -1,0 +1,73 @@
+{
+  "run_date": "2026-11-13",
+  "research_window": {
+    "start": "2026-11-12T07:55:43Z",
+    "end": "2026-11-13T07:59:49Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official news, safety, research, engineering, security, system-card, and developer publications",
+    "Anthropic newsroom, research, engineering, safeguards, standards, and threat-intelligence publications",
+    "Google and Google DeepMind model, robotics, research, safety, and developer publications",
+    "Microsoft Azure, Microsoft Research, security, internal-adoption, and developer publications",
+    "AWS AI, security, architecture, API, and technical publications",
+    "GitHub changelog, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom, research, and technical publications",
+    "Meta AI and Meta Engineering publications",
+    "Hugging Face official, organization, model-card, research, and community publications",
+    "IBM Granite model cards and linked arXiv primary research records",
+    "NIST and CISA publications and advisories"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-prompt-got-a-wiring-diagram",
+      "source_publication_date": "2026-11-12",
+      "reason": "IBM moved an explicit instruction/data execution graph from prior research into downloadable Granite preview models, backed by a released model card and a primary paper reporting large reductions in indirect prompt-injection success. The story is publishable because it treats the result as an important defense layer rather than a solved security boundary and preserves mixed capability results, compatibility costs, date provenance, lack of independent replication, and IBM's own production warning."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "NVIDIA FOVI-Dex foveated robot-learning research",
+      "source_publication_date": "2026-11-12",
+      "reason": "The reported vision-token and training-throughput gains are technically interesting, but the reviewed source covers one dexterous grasping setup and workshop publication without enough independent replication, task diversity, real-world trial detail, or operating evidence to support a broader robotics signal."
+    },
+    {
+      "candidate": "OpenAI children-safety research pledge",
+      "source_publication_date": "2026-11-12",
+      "reason": "The funding commitment and promise to publish negative or inconclusive findings are constructive, but no measurement tools, study protocol, results, governance detail, or enforceable product control have yet been released."
+    },
+    {
+      "candidate": "Microsoft-sponsored IDC Frontier Firms survey",
+      "source_publication_date": "2026-11-12",
+      "reason": "The survey includes explicit association-not-causation language, but its ROI and maturity findings remain self-reported, sponsor-commissioned, and partly defined by the same adoption behaviors used to describe leading firms. It is useful market context rather than a verified structural signal."
+    },
+    {
+      "candidate": "GitHub Cloudflare-token secret scanning and monitoring-link changes",
+      "source_publication_date": "2026-11-12",
+      "reason": "Both improve operational security, but they are incremental detector and navigation updates rather than a new control architecture; the live publication already covers secret-scanning evolution at a broader level."
+    },
+    {
+      "candidate": "Salesforce SOV-Transcribe-1 open speech model",
+      "source_publication_date": "2026-11-12",
+      "reason": "The Apache-licensed weights and entity-aware speech focus are useful, but the performance claims are publisher-authored, benchmark rankings are snapshot-dependent, and the release lacks independent production evidence sufficient for lead coverage."
+    },
+    {
+      "candidate": "Hugging Face 3D fine-tuning guide and other community model releases",
+      "source_publication_date": "2026-11-12",
+      "reason": "The items provide useful implementation material or project-level releases, but they do not establish a sufficiently broad, independently supported change in enterprise AI, infrastructure, security, or governance."
+    },
+    {
+      "candidate": "Other Anthropic, Google DeepMind, AWS, Meta, NIST, and CISA developments after the prior cutoff",
+      "source_publication_date": "2026-11-13",
+      "reason": "No additional primary-source development found before the research cutoff met the exact-date, evidence, materiality, and deduplication threshold."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 37 adds one source-backed AI Security movement tied only to the accepted LLMON story. The movement is moderate rather than strong because the released models are experimental, the rule is learned rather than enforced, capability results are mixed, and all direct evidence comes from the IBM-led effort. Official sources establish 12 November 2026 at calendar-day resolution but do not expose publication times proving strict ordering after the 07:55:43Z cursor.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
