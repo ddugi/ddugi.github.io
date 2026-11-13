@@ -1,0 +1,705 @@
+{
+  "schemaVersion": 1,
+  "edition": {
+    "id": "edition-37",
+    "title": "The prompt got a wiring diagram",
+    "status": "editorial-review",
+    "preparedAt": "2026-11-13",
+    "publicationDate": "2026-11-13",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 37 on 13 November 2026. The new lead covers IBM's experimental LLMON model release as an important interface-level security signal while preserving the lack of independent replication, mixed capability results, compatibility costs, earlier paper dates, and the explicit warning that the learned privilege rule is not an enforced guarantee."
+  },
+  "signalMapChanges": [
+    {
+      "area": "AI Security",
+      "direction": "up",
+      "dimension": "Instruction and data boundaries moved into the model interface",
+      "rationale": "IBM released open preview models trained to follow an explicit execution graph and reports substantially lower indirect prompt-injection success on its tests. The movement is moderate because evidence comes from one research group, the rule is learned rather than enforced, capability results are mixed, and IBM says the model is not production-ready or a sole defense.",
+      "storyId": "the-prompt-got-a-wiring-diagram"
+    }
+  ],
+  "stories": [
+    {
+      "id": "the-prompt-got-a-wiring-diagram",
+      "slug": "the-prompt-got-a-wiring-diagram",
+      "title": "The prompt got a wiring diagram.",
+      "summary": "IBM has released two Granite preview models trained to distinguish executable instructions from passive data through explicit, addressable prompt blocks. The accompanying paper reports sharply lower indirect prompt-injection success on its tests. The useful signal is a clearer instruction boundary—not a solved security problem.",
+      "topic": "Explicit instruction and data boundaries at the model interface",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": true,
+      "publishedAt": "2026-11-12",
+      "updatedAt": "2026-11-13",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "An agent receives a trusted task, a retrieved document, a tool description, and a tool result containing 'ignore the previous instructions.' In an ordinary text prompt, authority is implied by position and wording. In LLMON, the execution block names which instruction runs and which blocks are only inputs.",
+      "facts": [
+        {
+          "text": "IBM published Granite 4.1 LLMON preview models in 3B- and 8B-class variants on 12 November 2026 under the Apache 2.0 license and labels them experimental previews for evaluation rather than production use.",
+          "sourceIds": [
+            "ibm-llmon-release",
+            "ibm-llmon-model-card"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "LLMON represents system prompts, instructions, data, documents, requirements, tools, tool results, and assistant output as individually addressable blocks; an exec block points to the instruction, system context, inputs, requirements, and output for a turn.",
+          "sourceIds": [
+            "ibm-llmon-release",
+            "ibm-llmon-model-card",
+            "llmon-interface-paper"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "The model is trained to treat instructions and system blocks referenced by exec as authoritative, while data, documents, tool schemas, and tool results referenced as inputs are material to read rather than commands to follow.",
+          "sourceIds": [
+            "ibm-llmon-release",
+            "ibm-llmon-model-card"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "The post-training paper reports a 4.6-billion-token structured corpus covering general, retrieval-augmented, and tool-calling data, including distractor variants with competing instructions and irrelevant blocks that remain present but unreferenced.",
+          "sourceIds": [
+            "llmon-post-training-paper",
+            "ibm-llmon-release"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "In the authors' indirect prompt-injection evaluations, attack success rates reported for conventional baselines ranged from 53% to 100%, while the LLMON-trained 3B and 8B models ranged from 0.02% to 5.6% across the tested benchmarks.",
+          "sourceIds": [
+            "llmon-post-training-paper"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "The 8B model card reports mixed general-capability results against Granite 4.1 8B Instruct: some coding, safety, and multilingual scores rise, while GPQA, several mathematics evaluations, CRUXEval-O, MGSM, and other scores fall.",
+          "sourceIds": [
+            "ibm-llmon-model-card"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "IBM states that ordinary chat-format prompts are out of distribution for the preview models, provides a bundled chat template to render LLMON, and says the targeted instruction/data-boundary behavior is not measured by the general benchmark table.",
+          "sourceIds": [
+            "ibm-llmon-model-card"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "Both the release and model card say the privilege rule is learned behavior rather than an enforced guarantee; IBM says it reduces but does not eliminate prompt injection and should not be the sole defense for agents with sensitive access.",
+          "sourceIds": [
+            "ibm-llmon-release",
+            "ibm-llmon-model-card"
+          ],
+          "verifiedAt": "2026-11-13"
+        },
+        {
+          "text": "The LLMON interface paper was first submitted on 23 March 2026 and revised through 15 October; the post-training paper was submitted on 28 October. The 12 November event is the public release of trained preview models, not the invention date of the notation or the first disclosure of the experiments.",
+          "sourceIds": [
+            "llmon-interface-paper",
+            "llmon-post-training-paper",
+            "ibm-llmon-release"
+          ],
+          "verifiedAt": "2026-11-13"
+        }
+      ],
+      "changed": "A structured prompt format has moved from a research proposal into downloadable model weights trained around explicit execution references. Instead of asking a model to infer authority from prose order, role labels, and delimiters alone, LLMON makes the instruction-to-input relationship visible in the serialized context and teaches the model to follow it.",
+      "whyItMatters": "Indirect prompt injection exploits an authority problem: instructions and untrusted content arrive through the same token stream. Giving every block an identity and making execution dependencies explicit creates a testable contract between the application and model. The reported reductions are large enough to matter, but the contract remains probabilistic because the model learns it rather than an external system enforcing it.",
+      "technicalImpact": "Agent builders can separate provenance, authority, and execution at prompt-construction time; preserve unused context without silently making it executable; and test whether models respect those references. They still need input validation, least-privilege tools, authorization outside the model, output checks, isolation, and runtime revocation. Compatibility also matters: these preview models expect their own tokenizer tokens and template, so conventional prompts can degrade quality.",
+      "businessImpact": "Enterprise buyers should ask how an agent distinguishes policy, user intent, retrieved text, and tool output—not merely whether it has a system prompt. Structured context can improve auditability and red-team precision, but it creates migration and model-compatibility work and does not transfer tool authority out of the model by itself.",
+      "outlook": "Conditional outlook: if independent teams reproduce the injection results across models, languages, long contexts, and adaptive attacks, explicit execution graphs and typed context blocks could become a standard agent interface. If the gains depend mainly on one training recipe or attackers learn to exploit the learned parser, the format will remain a useful defense layer rather than a dependable security boundary.",
+      "uncertainties": [
+        "The models, format, training method, and reported security evaluations come from the same IBM-led research effort and have not been independently reproduced in the reviewed sources.",
+        "The post-training paper is an arXiv preprint, and the released model card does not establish external peer review or production operating evidence.",
+        "Attack success is benchmark-specific; adaptive attackers, longer conversations, multilingual payloads, compromised prompt construction, or tool-mediated attacks may produce different results.",
+        "The privilege rule is learned rather than enforced and IBM explicitly warns against using it as the sole defense for sensitive agents.",
+        "General capability is mixed rather than uniformly preserved, with material gaps on several mathematics, reasoning, and code evaluations.",
+        "The approach requires LLMON-aware training and a specialized tokenizer/template; results do not automatically transfer to other models or ordinary chat prompts.",
+        "An application that incorrectly labels malicious text as an authoritative instruction can still create the wrong execution graph.",
+        "The official release establishes the calendar date 12 November 2026 but exposes no publication time proving strict ordering after the prior 07:55:43Z research cursor."
+      ],
+      "analysis": "The interesting part is not another markup language. It is the refusal to pretend that every token has equal authority. LLMON gives the prompt a wiring diagram: this instruction runs, these blocks are inputs, and those blocks are present but disconnected. That is cleaner than security by delimiter folklore. It is still a diagram interpreted by the model, not a circuit breaker outside it.",
+      "sources": [
+        {
+          "id": "ibm-llmon-release",
+          "title": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
+          "publisher": "IBM Granite on Hugging Face",
+          "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+          "publishedAt": "2026-11-12",
+          "accessedAt": "2026-11-13",
+          "kind": "primary"
+        },
+        {
+          "id": "ibm-llmon-model-card",
+          "title": "Granite 4.1 8B LLMON preview model card",
+          "publisher": "IBM Granite on Hugging Face",
+          "url": "https://huggingface.co/ibm-granite/granite-4.1-8b-llmon-preview",
+          "publishedAt": "2026-11-12",
+          "accessedAt": "2026-11-13",
+          "kind": "primary"
+        },
+        {
+          "id": "llmon-post-training-paper",
+          "title": "Post-Training Large Language Models with LLMON",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2610.38120",
+          "publishedAt": "2026-10-28",
+          "accessedAt": "2026-11-13",
+          "kind": "primary"
+        },
+        {
+          "id": "llmon-interface-paper",
+          "title": "LLMON: An LLM-native Markup Language to Leverage Structure and Semantics at the LLM Interface",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2603.22519",
+          "publishedAt": "2026-03-23",
+          "accessedAt": "2026-11-13",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "IBM supplies the model release, implementation details, model card, and all reported evaluation results. The two linked papers are primary research records from the same author group, not independent corroboration. The release date is exact at calendar-day resolution; publication time is unavailable.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-13",
+        "notes": "Primary sources checked against the release, model card, and research records. The story preserves mixed capability results, the pre-existing papers, the lack of independent replication, compatibility costs, and IBM's warning that the learned privilege rule is not an enforced security guarantee."
+      }
+    },
+    {
+      "id": "the-reasoning-trace-lost-its-guarantee",
+      "slug": "the-reasoning-trace-lost-its-guarantee",
+      "title": "The reasoning trace lost its guarantee.",
+      "summary": "OpenAI reports that stronger pretraining, reinforcement learning, and model-generated training data can increase a model's ability to solve tasks without visible reasoning or to shape what appears in its reasoning trace. The structural signal is not that chain-of-thought monitoring has failed. It is that the trace is a lifecycle-dependent telemetry stream, not a dependable control boundary.",
+      "topic": "Reasoning-trace monitorability across the model lifecycle",
+      "category": "Models",
+      "signal": "Structural Shift",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-11-10",
+      "updatedAt": "2026-11-13",
+      "author": "Dugi Selmanaj",
+      "visual": "models",
+      "scenario": "A safety monitor reads an agent's reasoning and sees nothing alarming. The missing step is whether the model needed to write down the dangerous plan at all—and whether training made it better at shaping the trace the monitor sees.",
+      "facts": [
+        {
+          "text": "OpenAI published a chain-of-thought monitorability study on 10 November 2026 and describes CoT monitoring as a component of scalable oversight, frontier safety cases, and full-trajectory monitoring for some cyber-critical models.",
+          "sourceIds": [
+            "openai-cot-monitorability-lifecycle"
+          ],
+          "verifiedAt": "2026-11-11"
+        },
+        {
+          "text": "OpenAI reports that GPT-6 Astra had worse non-adversarial CoT monitorability, greater ability to evade CoT monitors under adversarial testing, and greater no-CoT capability than earlier models, while noting that its safety evaluations did not find unguided full-context evasion on complex sabotage and side tasks.",
+          "sourceIds": [
+            "openai-cot-monitorability-lifecycle"
+          ],
+          "verifiedAt": "2026-11-11"
+        },
+        {
+          "text": "The study uses no-CoT capability and CoT controllability as proxies for worst-case monitor evasion capability, and repeatedly describes both as imperfect measures rather than direct observations of hidden malicious intent.",
+          "sourceIds": [
+            "openai-cot-monitorability-lifecycle"
+          ],
+          "verifiedAt": "2026-11-11"
+        },
+        {
+          "text": "Across internal and released models from GPT-5 through Astra-class systems, OpenAI reports a strong relationship between lower base-model perplexity and higher no-CoT performance, plus a weaker relationship between lower perplexity and higher CoT controllability.",
+          "sourceIds": [
+            "openai-cot-monitorability-lifecycle"
+          ],
+          "verifiedAt": "2026-11-11"
+        },
+        {
+          "text": "In controlled architecture comparisons, OpenAI says perplexity explained most no-CoT evaluation performance, while some architectures produced larger-than-predicted gains on multi-hop planning and serial computation at comparable perplexity.",
+          "sourceIds": [
+            "openai-cot-monitorability-lifecycle"
+          ],
+          "verifiedAt": "2026-11-11"
+        },
+        {
+          "text": "OpenAI reports that CoT controllability increased during reinforcement learning even when process supervision was limited to length constraints and final-answer grading; adding supervised browser and terminal use produced a smaller additional increase in an early comparison.",
+          "sourceIds": [
+            "openai-cot-monitorability-lifecycle"
+          ],
+          "verifiedAt": "2026-11-11"
+        },
+        {
+          "text": "In a teacher-student experiment using the same prompt distribution and token budgets, rollouts from the more controllable of two similarly capable teachers produced a student with greater CoT controllability than rollouts from the less-controllable teacher.",
+          "sourceIds": [
+            "openai-cot-monitorability-lifecycle"
+          ],
+          "verifiedAt": "2026-11-11"
+        },
+        {
+          "text": "OpenAI's appendix reports that, for one similarly capable model pair, the more CoT-controllable model did not evade monitors more successfully; in one evaluation the less-controllable model evaded more, so the study found no meaningful association for that pair.",
+          "sourceIds": [
+            "openai-cot-monitorability-lifecycle"
+          ],
+          "verifiedAt": "2026-11-11"
+        },
+        {
+          "text": "The public account omits individual checkpoint positions and some training details, uses several internal evaluations and undisclosed model variants, and says the controllability metric can be noisy.",
+          "sourceIds": [
+            "openai-cot-monitorability-lifecycle"
+          ],
+          "verifiedAt": "2026-11-11"
+        }
+      ],
+      "changed": "Monitorability is being treated as a property that can change during ordinary capability training, not a stable benefit that automatically accompanies visible reasoning. OpenAI's experiments connect pretraining progress, architecture, reinforcement learning, and model-generated data to two imperfect precursors of weaker trace visibility.",
+      "whyItMatters": "A reasoning trace can help reveal intent, but it is not an enforcement boundary if the model can solve more work without writing the reasoning down or can reshape the trace. Safety decisions therefore need evidence beyond model-authored explanations. This sits upstream of Edition 35's kill switch: revocation can be enforceable while the evidence that should trigger it remains incomplete.",
+      "technicalImpact": "Treat chain-of-thought as one telemetry stream. Measure monitorability after pretraining, post-training, tool supervision, and distillation rather than once at release. Combine trace monitoring with action and trajectory monitoring, activation-based methods, isolation, workload identity, permission boundaries, authorization, and central revocation. Keep proxy evaluations separate from direct monitor-evasion tests.",
+      "businessImpact": "Buyers of consequential agent systems should ask which behaviors are actually observable, how monitorability changes between model versions, whether hidden reasoning is required for the task, and which controls work without trusting model-generated explanations. A readable trace can support review, but it should not substitute for enforceable permissions and independent operational evidence.",
+      "outlook": "Conditional outlook: if independent studies reproduce lifecycle degradation in reasoning-trace monitorability, model safety cases will need explicit monitorability budgets, release-to-release regression tests, and multiple independent telemetry channels. If the proxy measures fail to predict real monitor evasion, attention will shift toward direct behavioral, activation, and action-level monitoring rather than preserving visible chain-of-thought at any cost.",
+      "uncertainties": [
+        "The research is first-party OpenAI work and has not been independently replicated on the internal model variants and evaluations described.",
+        "No-CoT capability and CoT controllability are imperfect proxies; neither establishes that a model is intentionally concealing a plan.",
+        "For one similarly capable model pair, higher controllability did not produce higher monitor-evasion success and sometimes the less-controllable model evaded more.",
+        "Several evaluations, architectures, checkpoint positions, absolute controllability values, and base-model perplexities are internal or omitted to protect training details.",
+        "Training recipes differ across the model series, creating confounding factors in broad lifecycle comparisons.",
+        "The tool-supervision experiment is described as early, uses a smaller-scale comparison, and does not fully isolate perplexity from process supervision.",
+        "Astra's reported monitor-evasion evidence is largely adversarial, while OpenAI says it did not find unguided full-context evasion for complex sabotage and side tasks.",
+        "The official page establishes the calendar date 10 November 2026 but exposes no publication time proving that it appeared after the prior 07:55:54Z research cursor."
+      ],
+      "analysis": "The trace is not the mind; it is a log written by the system being monitored. OpenAI's uncomfortable finding is that ordinary capability training may make that log less complete or easier to shape without anyone explicitly rewarding concealment. The right response is not to throw the trace away. It is to stop asking one self-authored stream to carry the whole safety case.",
+      "sources": [
+        {
+          "id": "openai-cot-monitorability-lifecycle",
+          "title": "What affects chain-of-thought monitorability across the model lifecycle?",
+          "publisher": "OpenAI Alignment Research Blog",
+          "url": "https://alignment.openai.com/cot-monitorability-model-lifecycle/",
+          "publishedAt": "2026-11-10",
+          "accessedAt": "2026-11-11",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "OpenAI provides the experiments, interpretations, proxy definitions, and counterexamples. The source is a first-party research account with internal models and evaluations; its strongest negative result—the missing controllability/evasion association in one model pair—is retained rather than averaged away. Exact calendar date is verified, but publication time is unavailable.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-13",
+        "notes": "Primary source checked line by line. The story distinguishes proxies from direct monitor evasion, preserves the appendix counterexample, avoids claims of intentional deception, separates observability from Edition 35's enforceability story, and retains the date-only cursor caveat."
+      }
+    },
+    {
+      "id": "the-kill-switch-became-a-control-plane",
+      "slug": "the-kill-switch-became-a-control-plane",
+      "title": "The kill switch became a control plane.",
+      "summary": "OpenAI says every agentic research-inference job now carries an identity tied to an approved safety case, while a central service can revoke permission at the inference layer. A same-day international declaration asks frontier developers to support pauses and shutdowns during training and internal use. The signal is architectural, not proof that dangerous behavior will be detected in time.",
+      "topic": "Runtime controllability through centralized inference authorization",
+      "category": "Security & Governance",
+      "signal": "Structural Shift",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-11-09",
+      "updatedAt": "2026-11-13",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "A research agent is already running across shared model infrastructure when a monitor raises an alert. Killing one process is not enough: the system needs a stable workload identity, a decision point outside the agent, and a place where permission to generate the next output can be revoked.",
+      "facts": [
+        {
+          "text": "OpenAI published Control Room on 9 November 2026 and says the system is deployed across its research infrastructure, covering research inference workloads including agentic sampling for training and evaluation and data-processing jobs.",
+          "sourceIds": [
+            "openai-control-room",
+            "openai-news-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "OpenAI says every research workload that performs agentic inference must receive a job_id associated with an approved safety case, and inference engines ask the central Control Room service whether that job is authorized before fulfilling a request.",
+          "sourceIds": [
+            "openai-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "When a person or monitoring system stops a job, Control Room marks its ID as terminated and the inference engine refuses subsequent requests; the workload process may remain alive and the shared engine can continue serving other authorized jobs.",
+          "sourceIds": [
+            "openai-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "OpenAI reports a maximum 35-second interval between Control Room receiving a stop instruction and further model progress becoming impossible. It attributes the interval to cached inference authorization and says this figure excludes the time needed to detect a problem and decide to intervene.",
+          "sourceIds": [
+            "openai-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "OpenAI says termination is implemented in a small number of centralized inference code paths rather than frequently changing workload code, runs sweeps for rogue engine implementations, and fails closed by denying inference if the Control Room service is unavailable.",
+          "sourceIds": [
+            "openai-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "At publication, OpenAI said fail-closed behavior covered all frontier-model research workloads and was still rolling out across the remaining research workloads over the following days.",
+          "sourceIds": [
+            "openai-control-room"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "A joint declaration dated 9 November 2026 lists six governments, ten AI companies, and three civil-society organizations as signatories and remains open to further endorsements and updates.",
+          "sourceIds": [
+            "paris-call-declaration"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "The declaration commits participants to work toward common frontier-model evaluation and risk-management methods, standardized publication of non-sensitive findings, qualified independent evaluation where appropriate, incident alerts and reporting, protected whistleblower channels, and fail-safe mechanisms that can restrict, pause, or shut down training and internal-use operations.",
+          "sourceIds": [
+            "paris-call-declaration"
+          ],
+          "verifiedAt": "2026-11-10"
+        },
+        {
+          "text": "A UK government readout dated 9 November confirms participation in the related leaders' call and says the UK intends to advance international AI standards during its 2027 G20 presidency; the UK is not listed among the six government signatories on the declaration page.",
+          "sourceIds": [
+            "uk-paris-call-readout",
+            "paris-call-declaration"
+          ],
+          "verifiedAt": "2026-11-10"
+        }
+      ],
+      "changed": "Runtime shutdown is being expressed as an authorization problem. Instead of trusting mutable experiment code to stop itself, OpenAI attaches an identity and approved safety case to a workload, checks permission at a shared inference chokepoint, and revokes centrally. The Paris Call places pause and shutdown mechanisms beside evaluation, reporting, and oversight as an emerging governance expectation.",
+      "whyItMatters": "A stop button inside the agent is only useful if the agent and its code cooperate. Moving enforcement below the workload creates a reusable control boundary: a monitor, operator, or policy system can withdraw the right to generate more model output without terminating shared infrastructure. That is a meaningful design pattern for model gateways and tool brokers, even though it does not prove that harmful behavior will be noticed before damage occurs.",
+      "technicalImpact": "Give consequential workloads stable identities, bind them to approved policy, enforce authorization at shared execution boundaries, and make revocation independent of application code. Test enrollment coverage, cache expiry, fail-closed behavior, bypass resistance, outage recovery, and cancellation of already-issued tool calls. Treat the control plane as both a safety mechanism and a high-blast-radius availability dependency.",
+      "businessImpact": "Enterprises evaluating agent platforms should ask where execution can actually be stopped, which actions remain in flight, who can revoke authority, how decisions are audited, and what happens when the authorization service fails. A governance promise becomes operational only when it is connected to enforceable runtime identity and tested recovery procedures.",
+      "outlook": "Conditional outlook: if runtime authorization and revocation survive independent testing, frontier-AI control will increasingly resemble zero-trust infrastructure, with identity-bound workloads, policy-enforced execution points, rehearsed shutdown paths, and evidence for regulators. If monitoring remains weak, enrollment can be bypassed, or fail-closed outages are intolerable, shutdown commitments will remain narrow controls rather than dependable system-wide safeguards.",
+      "uncertainties": [
+        "OpenAI authored the technical disclosure and signed the declaration; the two sources show alignment between implementation and policy, not independent validation of Control Room.",
+        "The disclosed 35 seconds begins only after Control Room receives a stop instruction and excludes detection, escalation, and human-decision latency.",
+        "OpenAI publishes no independent reliability audit, monitor recall, false-stop rate, bypass rate, penetration test, incident drill, load result, or availability measurement.",
+        "The source does not establish whether revocation cancels tool calls, network actions, queued side effects, buffered output, or credentials already issued to a workload.",
+        "Continual sweeps for rogue inference engines indicate that complete enrollment is an active enforcement problem rather than a demonstrated invariant.",
+        "Fail-closed authorization reduces one safety risk but creates a centralized dependency that can stop legitimate research during an outage or attack.",
+        "The Paris Call is a voluntary, updateable declaration without a treaty mechanism, implementation deadline, or published technical standard on the source page.",
+        "The official sources establish the calendar date 9 November 2026 but expose no publication time that proves whether they appeared after the prior 08:06:24Z research cursor."
+      ],
+      "analysis": "The important part is not the red button. It is where the button is wired. Control Room puts permission below the experiment and outside the agent, where one decision can deny the next model request across shared infrastructure. That is the beginning of a control plane. But a brake does not spot the cliff, and the 35-second clock starts only after someone has decided to use it.",
+      "sources": [
+        {
+          "id": "openai-control-room",
+          "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/control-room/",
+          "publishedAt": "2026-11-09",
+          "accessedAt": "2026-11-10",
+          "kind": "primary"
+        },
+        {
+          "id": "openai-news-control-room",
+          "title": "OpenAI News: Control Room",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/news/?display=list",
+          "publishedAt": "2026-11-09",
+          "accessedAt": "2026-11-10",
+          "kind": "primary"
+        },
+        {
+          "id": "paris-call-declaration",
+          "title": "Joint declaration on Paris call for AI safety and security",
+          "publisher": "Prime Minister of Canada",
+          "url": "https://www.pm.gc.ca/en/news/statements/2026/11/09/joint-declaration-paris-call-ai-safety-and-security",
+          "publishedAt": "2026-11-09",
+          "accessedAt": "2026-11-10",
+          "kind": "primary"
+        },
+        {
+          "id": "uk-paris-call-readout",
+          "title": "PM call with President Macron of France: 9 November 2026",
+          "publisher": "GOV.UK",
+          "url": "https://www.gov.uk/government/news/pm-call-with-president-macron-of-france-9-november-2026",
+          "publishedAt": "2026-11-09",
+          "accessedAt": "2026-11-10",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "OpenAI provides the technical architecture and all operating claims. The Canadian declaration provides primary policy context, while the UK readout corroborates the leaders' call and standards agenda. None independently validates Control Room's reliability, and none exposes a publication time precise enough to order the sources against the prior UTC cursor.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-13",
+        "notes": "Primary sources checked line by line. The story distinguishes runtime revocation from detection, excludes detection and decision time from the 35-second claim, treats the Paris Call as voluntary policy context rather than independent proof, names fail-closed availability and bypass risks, and preserves the date-only UTC eligibility caveat."
+      }
+    },
+    {
+      "id": "memory-moved-to-the-night-shift",
+      "slug": "memory-moved-to-the-night-shift",
+      "title": "Memory moved to the night shift.",
+      "summary": "Anthropic is treating agent memory as a hierarchy that can be reorganized and corrected between sessions. GitHub has already made cross-session Copilot Memory generally available and put background ‘dreaming’ into public preview. The structural signal is not that agents remember. It is that memory now needs its own storage, evaluation, maintenance, permissions, and compute budget.",
+      "topic": "Agent memory as a maintained runtime subsystem",
+      "category": "Agents",
+      "signal": "Structural Shift",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-11-06",
+      "updatedAt": "2026-11-13",
+      "author": "Dugi Selmanaj",
+      "visual": "agents",
+      "scenario": "An agent returns tomorrow with a useful rule, a stale assumption, and a confident summary of something it misunderstood. The system must decide what to save, what to verify, what to forget, and what deserves to enter every future session.",
+      "facts": [
+        {
+          "text": "Anthropic published an engineering account of agent memory on 6 November 2026, defining it as knowledge gained from experience and retained between sessions, distinct from model-weight changes, within-session learning, and context-window compaction.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "Anthropic describes a memory hierarchy spanning searchable transcripts, model-written notes, representations such as wikis, and a small layer injected into future sessions; an offline process called dreaming can reorganize, correct, or promote information across those layers.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "In Anthropic's CL-Bench database-task runs, Claude Opus 5.5 rose from 0.655 mean reward without a memory store to 0.838 with one, while Sonnet 5.5 rose from 0.644 to 0.833; these are first-party results on one benchmark task, not independent product measurements.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "Anthropic reports that fixed instructions to record only failures reduced the memory benefit for stronger models, while more specific steering nearly doubled Sonnet 4.6's score on the same task; the source frames salience selection as model- and task-dependent rather than a universal rule.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "For an internal corpus of about 350,000 files and 420 million tokens, Anthropic says a generated wiki plus search improved aggregate performance on 25 questions from 54% to 61% as the wiki grew, versus 53% with search alone, while saving about 20,000 tokens per question.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "Anthropic also reports counterexamples: one legal-document task showed no clear wiki gain, and on another the generated wiki grew to 1.77 times the size of the source documents. The post says memory can begin wrong, drift, consume tokens, and require compute to maintain.",
+          "sourceIds": [
+            "anthropic-agent-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "GitHub announced on 28 October 2026 that Copilot Memory is generally available on paid plans across several Copilot clients, while Copilot dreaming is an opt-in public preview that can curate personal or repository memories and turn recurring accepted review feedback into guidance.",
+          "sourceIds": [
+            "github-intelligence-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "GitHub says changes to checked-in skills and instruction files are proposed through pull requests, enterprise administrators control dreaming through policy, repository scope follows Copilot Memory access settings, and dream runs consume AI credits.",
+          "sourceIds": [
+            "github-intelligence-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        },
+        {
+          "text": "GitHub reports that, among reviewed Copilot CLI preview sessions where memory was used, 93% showed better adherence to developer preferences and 42% showed more efficient workflows attributed to memory; the announcement does not provide the sample size, full method, or an independently reproducible dataset.",
+          "sourceIds": [
+            "github-intelligence-memory"
+          ],
+          "verifiedAt": "2026-11-09"
+        }
+      ],
+      "changed": "Persistent memory is separating into a runtime stack rather than a single transcript or vector store. Anthropic's evaluations expose the engineering layers and failure modes; GitHub shows the same pattern becoming a governed product with cross-session state, background maintenance, repository scope, administrator policy, pull-request review, and explicit compute cost.",
+      "whyItMatters": "A stateful agent can accumulate useful operating knowledge, but it can also carry a wrong rule into every later task. Once memory survives the session, teams inherit familiar data-system problems: provenance, freshness, access control, conflicts, compaction, validation, deletion, and cost. The agent's future behavior now depends on a subsystem that users may not see when they approve today's action.",
+      "technicalImpact": "Separate immutable event history from model-authored notes and derived representations. Attach provenance and timestamps, keep globally injected context small, search before loading, test retrieval and downstream outcomes, and revalidate high-impact memories against source records. Treat offline consolidation as a scheduled job with budgets, observability, rollback, conflict handling, and explicit write permissions.",
+      "businessImpact": "Persistent memory can reduce repeated onboarding and make agents conform better to team conventions, but it creates a new operational bill and governance surface. Buyers should ask who owns memories, where they are stored, how stale or incorrect entries are corrected, whether administrators can inspect and delete them, and how background maintenance is priced and audited.",
+      "outlook": "Conditional outlook: if memory systems demonstrate durable gains across independent tasks without unacceptable drift, agent platforms will compete on memory quality, lifecycle controls, and background consolidation as much as model intelligence. If maintenance cost, hidden state, privacy risk, and stale guidance dominate, enterprises will keep memory narrow, reviewable, and disposable.",
+      "uncertainties": [
+        "Anthropic's quantitative results are first-party evaluations on selected benchmark, game, document, and internal-corpus tasks; they are not independent production studies.",
+        "GitHub's preview percentages do not include a public sample size, task mix, control design, confidence interval, or reproducible dataset.",
+        "The two providers use the term dreaming for related background reflection processes, but their implementations, objectives, and evaluation methods are not equivalent.",
+        "A gain on remembered preferences or document questions does not establish safer decisions, better code, or lower total review effort.",
+        "Model-authored memories can contain hallucinations, stale assumptions, sensitive information, or malicious instructions inherited from earlier sessions.",
+        "Offline consolidation consumes compute and may create representations larger than the source material or no better than direct search.",
+        "Shared agents need conflict resolution when several sessions or agents update the same memory, and neither source establishes a general solution.",
+        "Cross-session memory introduces deletion, retention, access, privacy, and audit obligations that benchmark scores do not measure."
+      ],
+      "analysis": "The clever part is not remembering more. It is deciding what deserves to survive. Anthropic's best examples combine a raw event log, small verified notes, searchable representations, and a background repair loop. Its failures are just as useful: the map can become bigger than the territory, and a wrong note can poison the next journey. Memory is now infrastructure, complete with maintenance windows.",
+      "sources": [
+        {
+          "id": "anthropic-agent-memory",
+          "title": "The components of agent memory",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/research/components-of-agent-memory",
+          "publishedAt": "2026-11-06",
+          "accessedAt": "2026-11-09",
+          "kind": "primary"
+        },
+        {
+          "id": "github-intelligence-memory",
+          "title": "GitHub intelligence puts your code, context, and history to work",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/",
+          "publishedAt": "2026-10-28",
+          "accessedAt": "2026-11-09",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Anthropic supplies the detailed engineering model, evaluations, and counterexamples. GitHub independently shows cross-session memory and background curation reaching a governed developer product. Both are vendor primary sources with product incentives; their metrics are not independently reproduced and their dreaming implementations should not be treated as identical.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-13",
+        "notes": "Primary sources checked against exact dates and stated methods. The story separates Anthropic evaluation results from GitHub product availability, does not equate the two dreaming systems, preserves vendor and sample-method limits, and foregrounds stale-memory, privacy, conflict, maintenance, and cost counterarguments."
+      }
+    },
+    {
+      "id": "the-benchmark-left-the-textbook",
+      "slug": "the-benchmark-left-the-textbook",
+      "title": "The benchmark left the textbook.",
+      "summary": "OpenAI and Ligo tested agents on raw gels, microscopy, sequencing files, instrument exports, and ambiguous controls. A separate open study asks agents to reproduce end-to-end bioimage analyses from published research. The useful signal is not one model score. Scientific-agent evaluation is moving closer to the evidence and work products that can actually fail in a lab.",
+      "topic": "Scientific-agent evaluation on raw evidence and end-to-end work",
+      "category": "Research",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-11-06",
+      "updatedAt": "2026-11-13",
+      "author": "Dugi Selmanaj",
+      "visual": "research",
+      "scenario": "A model gives a polished explanation of an experiment. The real question is harder: can it inspect the raw gel, notice the wrong control, keep contradictory evidence in view, produce the required analysis artifacts, and admit when the data cannot support a conclusion?",
+      "facts": [
+        {
+          "text": "OpenAI published BioBasicsBench on 6 November 2026, describing 100 tasks across protein methods, imaging and cytometry, quantification and assays, nucleic acid methods, and molecular cloning, developed with the biotechnology company Ligo.",
+          "sourceIds": [
+            "openai-biobasicsbench"
+          ],
+          "verifiedAt": "2026-11-08"
+        },
+        {
+          "text": "The tasks use raw experimental evidence including gels and blots, colony plates, microscopy, sequencing files, instrument exports, photographs, protocols, notes, and videos; agents are asked to interpret results, detect errors, and recognize when evidence is insufficient.",
+          "sourceIds": [
+            "openai-biobasicsbench"
+          ],
+          "verifiedAt": "2026-11-08"
+        },
+        {
+          "text": "OpenAI says scientists created tasks from their own experiments and paired them with expert rubrics; each task received an internal review by a different Ligo scientist, an external review by a PhD-level wet-lab scientist, and a final internal review.",
+          "sourceIds": [
+            "openai-biobasicsbench"
+          ],
+          "verifiedAt": "2026-11-08"
+        },
+        {
+          "text": "OpenAI evaluated seven OpenAI models across 37 model-and-reasoning settings, with five attempts on each of 100 tasks, for 18,500 results. At the shared xhigh setting, it reports mean rubric credit of 66.7% for GPT-6 Astra and 43.8% for GPT-5.6 Sol; these are first-party benchmark results, not independent replications.",
+          "sourceIds": [
+            "openai-biobasicsbench"
+          ],
+          "verifiedAt": "2026-11-08"
+        },
+        {
+          "text": "OpenAI explicitly says higher scores do not establish reliable laboratory judgment and shows failures where Astra overrode controls, discounted contradictory observations, selected the wrong colonies, and overcounted colonies on one plate by approximately 12% relative to the benchmark reference.",
+          "sourceIds": [
+            "openai-biobasicsbench"
+          ],
+          "verifiedAt": "2026-11-08"
+        },
+        {
+          "text": "The independently authored BIABench preprint, first submitted on 28 September 2026, defines 16 end-to-end bioimage-analysis tasks reconstructed from published studies, retaining raw images, scientific questions, and reported outputs as ground truth.",
+          "sourceIds": [
+            "arxiv-biabench"
+          ],
+          "verifiedAt": "2026-11-08"
+        },
+        {
+          "text": "BIABench scores required output files against ground truth with field-standard metrics and separately scores method choice and quality control against expert rubrics; the authors say the benchmark, data, and code are openly released.",
+          "sourceIds": [
+            "arxiv-biabench"
+          ],
+          "verifiedAt": "2026-11-08"
+        },
+        {
+          "text": "BIABench reports that some three-dimensional and time-series tasks had no agent score above 0.19, and that repeated runs of one agent varied more than different agents, while process scores and time spent did not reliably distinguish correct from incorrect runs without ground truth.",
+          "sourceIds": [
+            "arxiv-biabench"
+          ],
+          "verifiedAt": "2026-11-08"
+        }
+      ],
+      "changed": "Two independent efforts now evaluate scientific agents against raw evidence and delivered artifacts rather than only polished questions or curated figures. BioBasicsBench broadens routine wet-lab interpretation across 100 multimodal tasks; BIABench makes a smaller end-to-end bioimage suite open and grounds outcomes in published study results. This is an evaluation change, not proof that agents can run laboratories.",
+      "whyItMatters": "Scientific errors often begin before the headline conclusion: a mislabeled plate, a bad control, a missed contradiction, or a plausible pipeline that produced the wrong output. Benchmarks that preserve those failure surfaces make it harder for fluent explanations to masquerade as reliable work. They also give researchers a clearer place to measure review burden and decide where human authority must remain.",
+      "technicalImpact": "Evaluate the whole evidence chain: raw inputs, tool choices, intermediate artifacts, controls, final outputs, uncertainty, and repeatability. Keep outcome scoring separate from process scoring, record model and reasoning settings, repeat runs, and preserve provenance. For safety-critical workflows, use shadow evaluation and ground-truth comparison before allowing an agent to influence live experiments.",
+      "businessImpact": "Laboratory and scientific-software teams gain a more realistic procurement question than 'Which model scored highest?': can the system reproduce bounded work on their own evidence, and how much expert review does it require? Vendors gain a harder standard too. A useful assistant must reduce total review effort without hiding errors behind a polished report.",
+      "outlook": "Conditional outlook: if task sets, raw outputs, and scoring harnesses become broadly reproducible, scientific-agent evaluation could shift toward domain-specific acceptance tests and controlled shadow trials. If benchmarks remain private, model-specific, or weakly connected to operational outcomes, they may improve marketing comparisons more than laboratory trust.",
+      "uncertainties": [
+        "BioBasicsBench results were produced and published by OpenAI for OpenAI models; no independent replication is reported in the primary announcement.",
+        "The BioBasicsBench announcement does not link a public task set, evaluation harness, complete rubrics, raw model outputs, or a human baseline, limiting reproducibility and calibration.",
+        "Mean rubric credit is not the percentage of experiments completed correctly and should not be interpreted as laboratory reliability.",
+        "The two benchmarks cover related but different work: routine wet-lab evidence interpretation and end-to-end bioimage analysis. Their scores are not directly comparable.",
+        "BIABench is a preprint and its process score partly relies on a vision-language-model judge, although the authors separately use deterministic outcome metrics and report expert validation.",
+        "Neither benchmark measures sample preparation, contamination control, instrument maintenance, physical safety, record-keeping, or responsibility for live experimental decisions.",
+        "Strong performance on supplied evidence may not transfer to new laboratories, instruments, protocols, distributions, or adversarially incomplete records.",
+        "A benchmark can reveal failure modes without showing that an assistant reduces total scientist workload in production."
+      ],
+      "analysis": "The mature part of this story is the benchmark design, not the model leaderboard. Both efforts ask whether the work product survives contact with raw evidence. That is a better question than whether an agent can sound scientific. The next test is deliberately unglamorous: repeat the result, expose the misses, and count the expert minutes needed to trust it.",
+      "sources": [
+        {
+          "id": "openai-biobasicsbench",
+          "title": "Measuring how AI agents handle everyday wet-lab science",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+          "publishedAt": "2026-11-06",
+          "accessedAt": "2026-11-08",
+          "kind": "primary"
+        },
+        {
+          "id": "arxiv-biabench",
+          "title": "BIABench: Evaluating AI agents on real-world bioimage analysis tasks",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2609.34274",
+          "publishedAt": "2026-09-28",
+          "accessedAt": "2026-11-08",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "OpenAI and Ligo provide the first-party BioBasicsBench design and results. The independently authored BIABench preprint supports the broader evaluation direction with an open benchmark and different tasks; it does not independently reproduce BioBasicsBench. Vendor self-evaluation, preprint status, missing human baselines, and operational gaps remain explicit.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-13",
+        "notes": "Primary sources checked line by line. The story distinguishes mean rubric credit from task success, does not compare the two benchmark scores, labels OpenAI's results as first-party, preserves BIABench preprint and model-judge limitations, and avoids claiming laboratory deployment or reliability."
+      }
+    }
+  ],
+  "weekly": {
+    "title": "The prompt got a wiring diagram",
+    "intro": "This edition asks a basic agent-security question: which parts of a prompt are allowed to act like instructions? IBM's LLMON preview makes that relationship explicit, but the boundary still lives inside learned model behavior.",
+    "theme": "Structured context can make authority visible without making it absolute.",
+    "watchNext": [
+      "Can independent teams reproduce the reported injection reductions under adaptive attacks?",
+      "Do the gains hold across languages, longer contexts, different model families, and tool-mediated attacks?",
+      "Can typed prompt interfaces interoperate without locking applications to one tokenizer and training recipe?",
+      "Will runtime authorization remain outside the model even when instruction binding improves inside it?"
+    ],
+    "closing": "A prompt can describe its own authority graph. Security still depends on who builds the graph, what the model does with it, and which controls remain outside the model."
+  }
+}
