@@ -4,7 +4,7 @@
     "start": "2026-11-12T07:55:43Z",
     "end": "2026-11-13T07:59:49Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official news, safety, research, engineering, security, system-card, and developer publications",
     "Anthropic newsroom, research, engineering, safeguards, standards, and threat-intelligence publications",
@@ -65,9 +65,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 37 adds one source-backed AI Security movement tied only to the accepted LLMON story. The movement is moderate rather than strong because the released models are experimental, the rule is learned rather than enforced, capability results are mixed, and all direct evidence comes from the IBM-led effort. Official sources establish 12 November 2026 at calendar-day resolution but do not expose publication times proving strict ordering after the 07:55:43Z cursor.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/108",
+    "commit": "ceea388d84f15b3c80b7c8dbe1330d993be8ca38",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/stories/the-prompt-got-a-wiring-diagram/"
   }
 }
