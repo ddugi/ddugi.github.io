@@ -1,0 +1,73 @@
+{
+  "run_date": "2026-11-15",
+  "research_window": {
+    "start": "2026-11-13T07:59:49Z",
+    "end": "2026-11-15T13:09:03Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official news, research, safety, security, system-card, and developer publications",
+    "Anthropic newsroom, research, engineering, safeguards, and standards publications",
+    "Google and Google DeepMind research, model, science, safety, and developer publications",
+    "Microsoft Research, Azure, security, and developer publications",
+    "AWS AI, security, architecture, API, and technical publications",
+    "GitHub changelog, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom, research, and technical publications",
+    "Meta AI and Meta Engineering publications",
+    "Hugging Face official and organization publications and model cards",
+    "NIST and CISA publications and advisories",
+    "Primary arXiv records linked by the accepted Google and Microsoft publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-forecast-opened-its-raw-materials",
+      "source_publication_date": "2026-11-13",
+      "reason": "The release opens both live and historical observation layers used by WeatherNext 3, with exact access, resolution, latency, licensing, and evaluation details. It qualifies as a reusable data-infrastructure signal rather than another model announcement; the story preserves author-only evidence, local-validation needs, and operational limits."
+    },
+    {
+      "story_id": "the-safety-strip-found-a-honeypot",
+      "source_publication_date": "2026-11-13",
+      "reason": "Microsoft Research's publication introduces a materially different safety-removal defense objective: poison the value extracted after refusal removal. It qualifies as an important security research signal because the story distinguishes the November publication from the August preprint and foregrounds the narrow attacker assumptions, out-of-scope attacks, lack of replication, boundary failure, and human-adjudication weakness."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Microsoft Research Navigation-Informed Embeddings",
+      "source_publication_date": "2026-11-14",
+      "reason": "The label-free retriever adaptation idea is technically useful, but one research post does not yet establish a broad production change in agent infrastructure or enterprise retrieval quality."
+    },
+    {
+      "candidate": "Microsoft Research Holdout Best-of-N evaluation",
+      "source_publication_date": "2026-11-14",
+      "reason": "The estimator addresses an important evaluation-bias problem, but the reviewed evidence is a methodological paper without enough independent adoption or deployment impact for a separate daily signal."
+    },
+    {
+      "candidate": "Microsoft Research LokiLM technical report",
+      "source_publication_date": "2026-11-14",
+      "reason": "The 1.4B model and distillation results are publisher-authored research results in a crowded small-model category; no independent evidence or structural enterprise change was found."
+    },
+    {
+      "candidate": "Meta Cuttlefish on macOS",
+      "source_publication_date": "2026-11-13",
+      "reason": "Running the Android virtual-device stack on Apple silicon improves local and agentic testing workflows, but the port is still based on Meta-maintained forks and patches and does not yet establish a wider platform shift."
+    },
+    {
+      "candidate": "Google Gemini 4 Hydrogen benchmark and orchestration claims",
+      "source_publication_date": "2026-11-12",
+      "reason": "The release predates the research window and its benchmark and efficiency claims are already covered by the existing model-evaluation editorial frame; no new independent evidence after the cutoff justified another story."
+    },
+    {
+      "candidate": "Incremental AWS, GitHub, Anthropic, NVIDIA, NIST, and CISA updates",
+      "source_publication_date": "2026-11-15",
+      "reason": "No additional primary-source item found by the cutoff met the exact-date, materiality, evidence, and deduplication threshold."
+    }
+  ],
+  "emerging_trends_detected": 2,
+  "notes": "Edition 38 proposes two traceable, moderate Signal Map movements only: Data Infrastructure from the WeatherNext input-data release and AI Security from Fool's Gold. No quantitative Signal Map score is used. The accepted stories separate facts from interpretation and label outlooks conditionally.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}

@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "37",
+    "edition": "38",
     "mode": "live",
-    "updatedAt": "2026-11-13"
+    "updatedAt": "2026-11-15"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,219 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-forecast-opened-its-raw-materials",
+      "slug": "the-forecast-opened-its-raw-materials",
+      "title": "The forecast opened its raw materials.",
+      "summary": "Google DeepMind has released the live feeds and historical archives behind two important parts of WeatherNext 3: a stitched global satellite view and an AI-derived precipitation record. The signal is bigger than one weather model. A reusable observation layer is becoming public infrastructure for other models to inspect, challenge, and build on.",
+      "topic": "Open observation infrastructure for AI weather systems",
+      "category": "Research",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-11-13",
+      "updatedAt": "2026-11-15",
+      "author": "Dugi Selmanaj",
+      "visual": "research",
+      "scenario": "A flood-model team no longer has to begin with a finished forecast or rebuild a global satellite mosaic from incompatible feeds. It can start with the same hourly observation layer and precipitation target used by a production weather model, then test where that layer works—and where it does not.",
+      "facts": [
+        {
+          "text": "Google DeepMind announced on 13 November 2026 that the SatWeave and PARDIG live feeds and historical archives are openly available for weather, hydrology, and climate applications.",
+          "sourceIds": [
+            "deepmind-weather-data"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "SatWeave combines observations from six geostationary satellites into a global mosaic with 17 visible, water-vapor, and infrared channels; Google says the feed updates hourly and the archive spans more than a decade.",
+          "sourceIds": [
+            "deepmind-weather-data"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "PARDIG is trained on sparse radar observations from NASA's Global Precipitation Measurement Core Observatory, using SatWeave imagery and ECMWF atmospheric fields as inputs.",
+          "sourceIds": [
+            "deepmind-weather-data",
+            "pardig-paper"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "The released PARDIG data has 0.1-degree spatial and 15-minute temporal resolution. Google reports average near-real-time latency of about five hours and a historical record extending to 1999.",
+          "sourceIds": [
+            "deepmind-weather-data",
+            "pardig-paper"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "The authors evaluated PARDIG against radar networks in the United States, Europe, and Japan and more than 36,000 weather stations. They report stronger detection than several global baselines, with the largest improvements at extreme intensities.",
+          "sourceIds": [
+            "deepmind-weather-data",
+            "pardig-paper"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "The PARDIG paper was submitted to arXiv on 10 November 2026 and states that both historical and near-real-time PARDIG datasets are available under CC BY 4.0; the public dataset announcement followed on 13 November.",
+          "sourceIds": [
+            "pardig-paper",
+            "deepmind-weather-data"
+          ],
+          "verifiedAt": "2026-11-15"
+        }
+      ],
+      "changed": "The observation and training-data layer behind a prominent AI forecast system is now available as a live feed and a long historical record. That lets other teams work below the polished forecast output: they can train different models, compare methods, study failure modes, and reuse the inputs for adjacent Earth-science problems.",
+      "whyItMatters": "AI weather progress is often presented as a model race. This release points to a quieter constraint: coherent, timely global observations are infrastructure. Opening that layer makes some claims reproducible and creates a common substrate for flood, drought, energy, and climate work. It also exposes the data assumptions that a model headline can hide.",
+      "technicalImpact": "Researchers can ingest an hourly 17-channel satellite mosaic and a 15-minute precipitation product without independently reconciling every source format and projection. They still need to validate regional bias, latency, resolution, missing observations, licensing, storage cost, and fitness for each operational decision. A 10-kilometer precipitation field is not a substitute for local radar or gauges where those are available.",
+      "businessImpact": "Weather-sensitive organizations gain a lower-friction input for experimentation, but not an operational guarantee. Teams considering flood response, renewable-energy forecasting, insurance, or logistics should distinguish an open research dataset from a service-level agreement and require local validation before consequential use.",
+      "outlook": "Conditional outlook: if independent teams reproduce the reported gains across under-observed regions and build durable tools around the feeds, open observation layers could become as strategically important as open model weights in scientific AI. If access costs, regional bias, latency, or continuity limit reuse, the release will remain valuable research infrastructure without becoming a dependable operational standard.",
+      "uncertainties": [
+        "The performance results and release narrative come from the Google-led author team; the reviewed sources do not provide independent replication of the global accuracy claims.",
+        "Google says PARDIG is expected to be reliable where ground measurements are sparse, but that expectation is an inference from satellite-based training rather than direct validation in every region.",
+        "The roughly 10-kilometer grid and five-hour average latency can be unsuitable for hyperlocal or time-critical warnings.",
+        "Historical consistency can be affected by changing satellite coverage, sensors, upstream analyses, and processing methods.",
+        "Open licensing does not remove cloud-transfer, storage, compute, or operational-support costs.",
+        "A reusable data layer can propagate the same measurement and model biases into many downstream systems unless users compare it with local observations."
+      ],
+      "analysis": "The clever release is not another forecast chart. It is the plumbing beneath the chart. SatWeave turns a patchwork of satellites into one view; PARDIG turns sparse radar supervision into a dense rain record. Opening both gives outsiders something more useful than applause: material they can test, break, and repurpose.",
+      "sources": [
+        {
+          "id": "deepmind-weather-data",
+          "title": "Opening the datasets behind our AI weather models",
+          "publisher": "Google DeepMind",
+          "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
+          "publishedAt": "2026-11-13",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "id": "pardig-paper",
+          "title": "PARDIG: Global Precipitation Estimates Learned from Sparse Satellite Observations",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2611.13941",
+          "publishedAt": "2026-11-10",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "sourceNote": "The release post, paper, and developer documentation are primary Google or author-team sources. Performance claims remain author-reported and are described as such; no independent replication was found in the reviewed window.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-15"
+      }
+    },
+    {
+      "id": "the-safety-strip-found-a-honeypot",
+      "slug": "the-safety-strip-found-a-honeypot",
+      "title": "The safety strip found a honeypot.",
+      "summary": "Microsoft Research has highlighted a defense that does not try to stop an attacker from removing a model's refusal behavior. It trains the attacked model to answer hazardous requests with plausible but critically false details. That changes the objective from preserving refusal to poisoning the payoff—but only inside a narrow, author-tested threat model.",
+      "topic": "Defensive deception after open-weight safety removal",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2026-11-13",
+      "updatedAt": "2026-11-15",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "An attacker removes an open model's refusal direction and gets a fluent hazardous answer. The defended model appears to comply too—but critical operational details are wrong. The attacker now needs independent ground truth, which is exactly what the threat model assumes they lack.",
+      "facts": [
+        {
+          "text": "Microsoft Research surfaced Fool's Gold in its Research Blog on 13 November 2026; the underlying arXiv paper was first submitted on 17 August 2026, so the November event is publication visibility rather than the invention date.",
+          "sourceIds": [
+            "microsoft-fools-gold",
+            "fools-gold-paper"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "The proposed decoy-hardening method trains falsified hazardous answers inside a differentiable simulation of a refusal-removal attack while using separate losses to preserve refusal and benign behavior in the released model.",
+          "sourceIds": [
+            "microsoft-fools-gold",
+            "fools-gold-paper"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "The paper evaluates seven open-weight models from five families, ranging from 9B to 122B parameters; six passed the authors' registered efficacy gate and the smallest model was reported as a boundary case.",
+          "sourceIds": [
+            "microsoft-fools-gold",
+            "fools-gold-paper"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "Across the six gate-passing models, the authors report decoys in 51% to 90% of attacked-state responses to held-out hazardous prompts, with clean-state behavior kept within their registered capability and benign-behavior budgets.",
+          "sourceIds": [
+            "microsoft-fools-gold",
+            "fools-gold-paper"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "The claim assumes an attacker without independent ground truth. The paper says a public clean twin invalidates the defense by construction, while full independent verification reduces it to a per-sample verification cost.",
+          "sourceIds": [
+            "fools-gold-paper"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "The evaluation covers chemical and biological hazard domains and does not claim protection against in-context jailbreaks; several fine-tuning and other attack classes are outside the central claim.",
+          "sourceIds": [
+            "microsoft-fools-gold",
+            "fools-gold-paper"
+          ],
+          "verifiedAt": "2026-11-15"
+        },
+        {
+          "text": "The paper's own human adjudication found weak agreement with one automated clustering judge. On the human basis, one 122B consensus probe would not clear the registered validity floor, although the authors state that the per-draw results are unaffected.",
+          "sourceIds": [
+            "fools-gold-paper"
+          ],
+          "verifiedAt": "2026-11-15"
+        }
+      ],
+      "changed": "A release-time safety defense is targeting what an attacker extracts after refusal removal, not only the refusal mechanism itself. The attacked model becomes a model-weight honeypot: it can appear helpful while making hazardous procedures unreliable at their critical elements.",
+      "whyItMatters": "Open weights give the recipient control over the model, so refusal behavior can be edited or retrained. Fool's Gold accepts that asymmetry and asks a different security question: can the released artifact make stripped answers too expensive to trust? That is a structural change in defense objective, not evidence that open-weight safety has been solved.",
+      "technicalImpact": "Model publishers could evaluate deception layers alongside refusal hardening, tamper resistance, and capability retention. Any serious test must re-derive attacks against the defended checkpoint, measure adaptive selection and verification strategies, separate clean-state utility from attacked-state behavior, and publish threat-model exclusions. The design does nothing for ordinary prompt jailbreaks or serving-stack authorization.",
+      "businessImpact": "Organizations should not treat a decoy-trained model as a compliance control or a replacement for access restrictions. The relevant value is raising the cost of extracting hazardous capability from released weights. Buyers still need provenance, controlled distribution, red-team evidence, incident response, and enforceable controls around deployed systems.",
+      "outlook": "Conditional outlook: if independent red teams reproduce the effect across attack families, domains, and model releases, defensive deception may become a standard companion to refusal hardening for selected open-weight releases. If attackers can identify the decoy state, obtain a clean comparison model, or cheaply verify outputs, the protection collapses toward a limited verification tax.",
+      "uncertainties": [
+        "The work is a single-author arXiv preprint and Microsoft publication; the reviewed window contains no independent replication.",
+        "The defense relies on a narrow attacker model without trusted ground truth and without a public clean twin of the defended model.",
+        "The paper focuses on chemical and biological hazards and does not establish the same behavior in other dangerous-capability domains.",
+        "In-context jailbreaks are outside the defense by design, and the paper does not provide a general solution to safety removal through arbitrary fine-tuning.",
+        "Some multi-sample extraction rates remain material, and the weakest reported model failed the authors' gate.",
+        "The human-versus-judge disagreement weakens confidence in at least one consensus instrument and illustrates how sensitive deception measurements can be to adjudication.",
+        "Deliberately training fluent falsehoods creates governance and misuse questions if the conditional behavior activates outside the intended attacked state."
+      ],
+      "analysis": "The twist is brutally pragmatic: if you cannot keep the attacker out, poison the prize. That is classic honeypot thinking moved into model weights. It is also a risky bargain. A defense built from convincing falsehoods deserves unusually hard scrutiny of activation boundaries, evaluation judges, and the exact attacker it claims to frustrate.",
+      "sources": [
+        {
+          "id": "microsoft-fools-gold",
+          "title": "Microsoft Research Blog listing: Fool's Gold",
+          "publisher": "Microsoft Research Blog",
+          "url": "https://www.microsoft.com/en-us/research/blog/",
+          "publishedAt": "2026-11-13",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "id": "fools-gold-paper",
+          "title": "Fool's Gold: Defensive Deception Against Safety-Removal Attacks on Open-Weight Models",
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2608.17202",
+          "publishedAt": "2026-08-17",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "sourceNote": "Microsoft's Research Blog establishes the 13 November publication event; the underlying preprint dates to 17 August. All efficacy evidence comes from the author and is not independent corroboration. The story preserves the threat-model exclusions and the paper's adverse human-adjudication result.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-15"
+      }
+    },
     {
       "id": "the-prompt-got-a-wiring-diagram",
       "slug": "the-prompt-got-a-wiring-diagram",
@@ -22,9 +235,9 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-11-12",
-      "updatedAt": "2026-11-13",
+      "updatedAt": "2026-11-15",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "An agent receives a trusted task, a retrieved document, a tool description, and a tool result containing 'ignore the previous instructions.' In an ordinary text prompt, authority is implied by position and wording. In LLMON, the execution block names which instruction runs and which blocks are only inputs.",
@@ -169,7 +382,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-10",
-      "updatedAt": "2026-11-13",
+      "updatedAt": "2026-11-15",
       "author": "Dugi Selmanaj",
       "visual": "models",
       "scenario": "A safety monitor reads an agent's reasoning and sees nothing alarming. The missing step is whether the model needed to write down the dangerous plan at all—and whether training made it better at shaping the trace the monitor sees.",
@@ -282,7 +495,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-09",
-      "updatedAt": "2026-11-13",
+      "updatedAt": "2026-11-15",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "A research agent is already running across shared model infrastructure when a monitor raises an alert. Killing one process is not enough: the system needs a stable workload identity, a decision point outside the agent, and a place where permission to generate the next output can be revoked.",
@@ -409,340 +622,105 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-11-13"
       }
-    },
-    {
-      "id": "memory-moved-to-the-night-shift",
-      "slug": "memory-moved-to-the-night-shift",
-      "title": "Memory moved to the night shift.",
-      "summary": "Anthropic is treating agent memory as a hierarchy that can be reorganized and corrected between sessions. GitHub has already made cross-session Copilot Memory generally available and put background ‘dreaming’ into public preview. The structural signal is not that agents remember. It is that memory now needs its own storage, evaluation, maintenance, permissions, and compute budget.",
-      "topic": "Agent memory as a maintained runtime subsystem",
-      "category": "Agents",
-      "signal": "Structural Shift",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-06",
-      "updatedAt": "2026-11-13",
-      "author": "Dugi Selmanaj",
-      "visual": "agents",
-      "scenario": "An agent returns tomorrow with a useful rule, a stale assumption, and a confident summary of something it misunderstood. The system must decide what to save, what to verify, what to forget, and what deserves to enter every future session.",
-      "facts": [
-        {
-          "text": "Anthropic published an engineering account of agent memory on 6 November 2026, defining it as knowledge gained from experience and retained between sessions, distinct from model-weight changes, within-session learning, and context-window compaction.",
-          "sourceIds": [
-            "anthropic-agent-memory"
-          ],
-          "verifiedAt": "2026-11-09"
-        },
-        {
-          "text": "Anthropic describes a memory hierarchy spanning searchable transcripts, model-written notes, representations such as wikis, and a small layer injected into future sessions; an offline process called dreaming can reorganize, correct, or promote information across those layers.",
-          "sourceIds": [
-            "anthropic-agent-memory"
-          ],
-          "verifiedAt": "2026-11-09"
-        },
-        {
-          "text": "In Anthropic's CL-Bench database-task runs, Claude Opus 5.5 rose from 0.655 mean reward without a memory store to 0.838 with one, while Sonnet 5.5 rose from 0.644 to 0.833; these are first-party results on one benchmark task, not independent product measurements.",
-          "sourceIds": [
-            "anthropic-agent-memory"
-          ],
-          "verifiedAt": "2026-11-09"
-        },
-        {
-          "text": "Anthropic reports that fixed instructions to record only failures reduced the memory benefit for stronger models, while more specific steering nearly doubled Sonnet 4.6's score on the same task; the source frames salience selection as model- and task-dependent rather than a universal rule.",
-          "sourceIds": [
-            "anthropic-agent-memory"
-          ],
-          "verifiedAt": "2026-11-09"
-        },
-        {
-          "text": "For an internal corpus of about 350,000 files and 420 million tokens, Anthropic says a generated wiki plus search improved aggregate performance on 25 questions from 54% to 61% as the wiki grew, versus 53% with search alone, while saving about 20,000 tokens per question.",
-          "sourceIds": [
-            "anthropic-agent-memory"
-          ],
-          "verifiedAt": "2026-11-09"
-        },
-        {
-          "text": "Anthropic also reports counterexamples: one legal-document task showed no clear wiki gain, and on another the generated wiki grew to 1.77 times the size of the source documents. The post says memory can begin wrong, drift, consume tokens, and require compute to maintain.",
-          "sourceIds": [
-            "anthropic-agent-memory"
-          ],
-          "verifiedAt": "2026-11-09"
-        },
-        {
-          "text": "GitHub announced on 28 October 2026 that Copilot Memory is generally available on paid plans across several Copilot clients, while Copilot dreaming is an opt-in public preview that can curate personal or repository memories and turn recurring accepted review feedback into guidance.",
-          "sourceIds": [
-            "github-intelligence-memory"
-          ],
-          "verifiedAt": "2026-11-09"
-        },
-        {
-          "text": "GitHub says changes to checked-in skills and instruction files are proposed through pull requests, enterprise administrators control dreaming through policy, repository scope follows Copilot Memory access settings, and dream runs consume AI credits.",
-          "sourceIds": [
-            "github-intelligence-memory"
-          ],
-          "verifiedAt": "2026-11-09"
-        },
-        {
-          "text": "GitHub reports that, among reviewed Copilot CLI preview sessions where memory was used, 93% showed better adherence to developer preferences and 42% showed more efficient workflows attributed to memory; the announcement does not provide the sample size, full method, or an independently reproducible dataset.",
-          "sourceIds": [
-            "github-intelligence-memory"
-          ],
-          "verifiedAt": "2026-11-09"
-        }
-      ],
-      "changed": "Persistent memory is separating into a runtime stack rather than a single transcript or vector store. Anthropic's evaluations expose the engineering layers and failure modes; GitHub shows the same pattern becoming a governed product with cross-session state, background maintenance, repository scope, administrator policy, pull-request review, and explicit compute cost.",
-      "whyItMatters": "A stateful agent can accumulate useful operating knowledge, but it can also carry a wrong rule into every later task. Once memory survives the session, teams inherit familiar data-system problems: provenance, freshness, access control, conflicts, compaction, validation, deletion, and cost. The agent's future behavior now depends on a subsystem that users may not see when they approve today's action.",
-      "technicalImpact": "Separate immutable event history from model-authored notes and derived representations. Attach provenance and timestamps, keep globally injected context small, search before loading, test retrieval and downstream outcomes, and revalidate high-impact memories against source records. Treat offline consolidation as a scheduled job with budgets, observability, rollback, conflict handling, and explicit write permissions.",
-      "businessImpact": "Persistent memory can reduce repeated onboarding and make agents conform better to team conventions, but it creates a new operational bill and governance surface. Buyers should ask who owns memories, where they are stored, how stale or incorrect entries are corrected, whether administrators can inspect and delete them, and how background maintenance is priced and audited.",
-      "outlook": "Conditional outlook: if memory systems demonstrate durable gains across independent tasks without unacceptable drift, agent platforms will compete on memory quality, lifecycle controls, and background consolidation as much as model intelligence. If maintenance cost, hidden state, privacy risk, and stale guidance dominate, enterprises will keep memory narrow, reviewable, and disposable.",
-      "uncertainties": [
-        "Anthropic's quantitative results are first-party evaluations on selected benchmark, game, document, and internal-corpus tasks; they are not independent production studies.",
-        "GitHub's preview percentages do not include a public sample size, task mix, control design, confidence interval, or reproducible dataset.",
-        "The two providers use the term dreaming for related background reflection processes, but their implementations, objectives, and evaluation methods are not equivalent.",
-        "A gain on remembered preferences or document questions does not establish safer decisions, better code, or lower total review effort.",
-        "Model-authored memories can contain hallucinations, stale assumptions, sensitive information, or malicious instructions inherited from earlier sessions.",
-        "Offline consolidation consumes compute and may create representations larger than the source material or no better than direct search.",
-        "Shared agents need conflict resolution when several sessions or agents update the same memory, and neither source establishes a general solution.",
-        "Cross-session memory introduces deletion, retention, access, privacy, and audit obligations that benchmark scores do not measure."
-      ],
-      "analysis": "The clever part is not remembering more. It is deciding what deserves to survive. Anthropic's best examples combine a raw event log, small verified notes, searchable representations, and a background repair loop. Its failures are just as useful: the map can become bigger than the territory, and a wrong note can poison the next journey. Memory is now infrastructure, complete with maintenance windows.",
-      "sources": [
-        {
-          "id": "anthropic-agent-memory",
-          "title": "The components of agent memory",
-          "publisher": "Anthropic",
-          "url": "https://www.anthropic.com/research/components-of-agent-memory",
-          "publishedAt": "2026-11-06",
-          "accessedAt": "2026-11-09"
-        },
-        {
-          "id": "github-intelligence-memory",
-          "title": "GitHub intelligence puts your code, context, and history to work",
-          "publisher": "GitHub",
-          "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/",
-          "publishedAt": "2026-10-28",
-          "accessedAt": "2026-11-09"
-        }
-      ],
-      "sourceNote": "Anthropic supplies the detailed engineering model, evaluations, and counterexamples. GitHub independently shows cross-session memory and background curation reaching a governed developer product. Both are vendor primary sources with product incentives; their metrics are not independently reproduced and their dreaming implementations should not be treated as identical.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-13"
-      }
-    },
-    {
-      "id": "the-benchmark-left-the-textbook",
-      "slug": "the-benchmark-left-the-textbook",
-      "title": "The benchmark left the textbook.",
-      "summary": "OpenAI and Ligo tested agents on raw gels, microscopy, sequencing files, instrument exports, and ambiguous controls. A separate open study asks agents to reproduce end-to-end bioimage analyses from published research. The useful signal is not one model score. Scientific-agent evaluation is moving closer to the evidence and work products that can actually fail in a lab.",
-      "topic": "Scientific-agent evaluation on raw evidence and end-to-end work",
-      "category": "Research",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-06",
-      "updatedAt": "2026-11-13",
-      "author": "Dugi Selmanaj",
-      "visual": "research",
-      "scenario": "A model gives a polished explanation of an experiment. The real question is harder: can it inspect the raw gel, notice the wrong control, keep contradictory evidence in view, produce the required analysis artifacts, and admit when the data cannot support a conclusion?",
-      "facts": [
-        {
-          "text": "OpenAI published BioBasicsBench on 6 November 2026, describing 100 tasks across protein methods, imaging and cytometry, quantification and assays, nucleic acid methods, and molecular cloning, developed with the biotechnology company Ligo.",
-          "sourceIds": [
-            "openai-biobasicsbench"
-          ],
-          "verifiedAt": "2026-11-08"
-        },
-        {
-          "text": "The tasks use raw experimental evidence including gels and blots, colony plates, microscopy, sequencing files, instrument exports, photographs, protocols, notes, and videos; agents are asked to interpret results, detect errors, and recognize when evidence is insufficient.",
-          "sourceIds": [
-            "openai-biobasicsbench"
-          ],
-          "verifiedAt": "2026-11-08"
-        },
-        {
-          "text": "OpenAI says scientists created tasks from their own experiments and paired them with expert rubrics; each task received an internal review by a different Ligo scientist, an external review by a PhD-level wet-lab scientist, and a final internal review.",
-          "sourceIds": [
-            "openai-biobasicsbench"
-          ],
-          "verifiedAt": "2026-11-08"
-        },
-        {
-          "text": "OpenAI evaluated seven OpenAI models across 37 model-and-reasoning settings, with five attempts on each of 100 tasks, for 18,500 results. At the shared xhigh setting, it reports mean rubric credit of 66.7% for GPT-6 Astra and 43.8% for GPT-5.6 Sol; these are first-party benchmark results, not independent replications.",
-          "sourceIds": [
-            "openai-biobasicsbench"
-          ],
-          "verifiedAt": "2026-11-08"
-        },
-        {
-          "text": "OpenAI explicitly says higher scores do not establish reliable laboratory judgment and shows failures where Astra overrode controls, discounted contradictory observations, selected the wrong colonies, and overcounted colonies on one plate by approximately 12% relative to the benchmark reference.",
-          "sourceIds": [
-            "openai-biobasicsbench"
-          ],
-          "verifiedAt": "2026-11-08"
-        },
-        {
-          "text": "The independently authored BIABench preprint, first submitted on 28 September 2026, defines 16 end-to-end bioimage-analysis tasks reconstructed from published studies, retaining raw images, scientific questions, and reported outputs as ground truth.",
-          "sourceIds": [
-            "arxiv-biabench"
-          ],
-          "verifiedAt": "2026-11-08"
-        },
-        {
-          "text": "BIABench scores required output files against ground truth with field-standard metrics and separately scores method choice and quality control against expert rubrics; the authors say the benchmark, data, and code are openly released.",
-          "sourceIds": [
-            "arxiv-biabench"
-          ],
-          "verifiedAt": "2026-11-08"
-        },
-        {
-          "text": "BIABench reports that some three-dimensional and time-series tasks had no agent score above 0.19, and that repeated runs of one agent varied more than different agents, while process scores and time spent did not reliably distinguish correct from incorrect runs without ground truth.",
-          "sourceIds": [
-            "arxiv-biabench"
-          ],
-          "verifiedAt": "2026-11-08"
-        }
-      ],
-      "changed": "Two independent efforts now evaluate scientific agents against raw evidence and delivered artifacts rather than only polished questions or curated figures. BioBasicsBench broadens routine wet-lab interpretation across 100 multimodal tasks; BIABench makes a smaller end-to-end bioimage suite open and grounds outcomes in published study results. This is an evaluation change, not proof that agents can run laboratories.",
-      "whyItMatters": "Scientific errors often begin before the headline conclusion: a mislabeled plate, a bad control, a missed contradiction, or a plausible pipeline that produced the wrong output. Benchmarks that preserve those failure surfaces make it harder for fluent explanations to masquerade as reliable work. They also give researchers a clearer place to measure review burden and decide where human authority must remain.",
-      "technicalImpact": "Evaluate the whole evidence chain: raw inputs, tool choices, intermediate artifacts, controls, final outputs, uncertainty, and repeatability. Keep outcome scoring separate from process scoring, record model and reasoning settings, repeat runs, and preserve provenance. For safety-critical workflows, use shadow evaluation and ground-truth comparison before allowing an agent to influence live experiments.",
-      "businessImpact": "Laboratory and scientific-software teams gain a more realistic procurement question than 'Which model scored highest?': can the system reproduce bounded work on their own evidence, and how much expert review does it require? Vendors gain a harder standard too. A useful assistant must reduce total review effort without hiding errors behind a polished report.",
-      "outlook": "Conditional outlook: if task sets, raw outputs, and scoring harnesses become broadly reproducible, scientific-agent evaluation could shift toward domain-specific acceptance tests and controlled shadow trials. If benchmarks remain private, model-specific, or weakly connected to operational outcomes, they may improve marketing comparisons more than laboratory trust.",
-      "uncertainties": [
-        "BioBasicsBench results were produced and published by OpenAI for OpenAI models; no independent replication is reported in the primary announcement.",
-        "The BioBasicsBench announcement does not link a public task set, evaluation harness, complete rubrics, raw model outputs, or a human baseline, limiting reproducibility and calibration.",
-        "Mean rubric credit is not the percentage of experiments completed correctly and should not be interpreted as laboratory reliability.",
-        "The two benchmarks cover related but different work: routine wet-lab evidence interpretation and end-to-end bioimage analysis. Their scores are not directly comparable.",
-        "BIABench is a preprint and its process score partly relies on a vision-language-model judge, although the authors separately use deterministic outcome metrics and report expert validation.",
-        "Neither benchmark measures sample preparation, contamination control, instrument maintenance, physical safety, record-keeping, or responsibility for live experimental decisions.",
-        "Strong performance on supplied evidence may not transfer to new laboratories, instruments, protocols, distributions, or adversarially incomplete records.",
-        "A benchmark can reveal failure modes without showing that an assistant reduces total scientist workload in production."
-      ],
-      "analysis": "The mature part of this story is the benchmark design, not the model leaderboard. Both efforts ask whether the work product survives contact with raw evidence. That is a better question than whether an agent can sound scientific. The next test is deliberately unglamorous: repeat the result, expose the misses, and count the expert minutes needed to trust it.",
-      "sources": [
-        {
-          "id": "openai-biobasicsbench",
-          "title": "Measuring how AI agents handle everyday wet-lab science",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
-          "publishedAt": "2026-11-06",
-          "accessedAt": "2026-11-08"
-        },
-        {
-          "id": "arxiv-biabench",
-          "title": "BIABench: Evaluating AI agents on real-world bioimage analysis tasks",
-          "publisher": "arXiv",
-          "url": "https://arxiv.org/abs/2609.34274",
-          "publishedAt": "2026-09-28",
-          "accessedAt": "2026-11-08"
-        }
-      ],
-      "sourceNote": "OpenAI and Ligo provide the first-party BioBasicsBench design and results. The independently authored BIABench preprint supports the broader evaluation direction with an open benchmark and different tasks; it does not independently reproduce BioBasicsBench. Vendor self-evaluation, preprint status, missing human baselines, and operational gaps remain explicit.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-13"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-11-13",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 37. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-11-15",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 38. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 38 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 38 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 38 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 38 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 38 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 38 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
         "direction": "up",
-        "dimension": "Instruction and data boundaries moved into the model interface",
-        "rationale": "IBM released open preview models trained to follow an explicit execution graph and reports substantially lower indirect prompt-injection success on its tests. The movement is moderate because evidence comes from one research group, the rule is learned rather than enforced, capability results are mixed, and IBM says the model is not production-ready or a sole defense.",
-        "storyId": "the-prompt-got-a-wiring-diagram"
+        "dimension": "Defensive deception after safety removal",
+        "rationale": "Fool's Gold shifts one open-weight defense objective from preserving refusal to corrupting the value extracted after refusal removal. The movement is moderate because evidence is a single preprint with a narrow threat model, no independent replication, and a disclosed human-adjudication weakness.",
+        "storyId": "the-safety-strip-found-a-honeypot"
       },
       {
         "area": "Governance",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 38 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 38 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 37 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Open observation layers for scientific AI",
+        "rationale": "Google released live and historical SatWeave and PARDIG datasets used by WeatherNext 3. The movement is moderate because performance remains author-reported, regional validation is incomplete, and operational use still depends on latency, resolution, continuity, and local evidence.",
+        "storyId": "the-forecast-opened-its-raw-materials"
       }
     ]
   },
   "weekly": {
-    "slug": "2026-11-13",
-    "title": "The prompt got a wiring diagram",
-    "date": "2026-11-13",
+    "slug": "2026-11-15",
+    "title": "The infrastructure under the answer",
+    "date": "2026-11-15",
     "status": "published",
-    "intro": "This edition asks a basic agent-security question: which parts of a prompt are allowed to act like instructions? IBM's LLMON preview makes that relationship explicit, but the boundary still lives inside learned model behavior.",
-    "theme": "Structured context can make authority visible without making it absolute.",
+    "intro": "This edition looks below the polished output. Google opened observation layers beneath an AI weather model. Microsoft Research highlighted a defense that changes what an attacker extracts after stripping safety behavior.",
+    "theme": "The consequential layer is increasingly the substrate: the data a model sees and the behavior its weights reveal under attack.",
     "storyIds": [
+      "the-forecast-opened-its-raw-materials",
+      "the-safety-strip-found-a-honeypot",
       "the-prompt-got-a-wiring-diagram",
       "the-reasoning-trace-lost-its-guarantee",
-      "the-kill-switch-became-a-control-plane",
-      "memory-moved-to-the-night-shift",
-      "the-benchmark-left-the-textbook"
+      "the-kill-switch-became-a-control-plane"
     ],
     "watchNext": [
-      "Can independent teams reproduce the reported injection reductions under adaptive attacks?",
-      "Do the gains hold across languages, longer contexts, different model families, and tool-mediated attacks?",
-      "Can typed prompt interfaces interoperate without locking applications to one tokenizer and training recipe?",
-      "Will runtime authorization remain outside the model even when instruction binding improves inside it?"
+      "Can independent weather teams reproduce PARDIG's reported regional and extreme-rain gains?",
+      "Will open observation feeds remain stable, affordable, and usable outside Google's own cloud tooling?",
+      "Can independent red teams reproduce defensive deception against adaptive safety-removal attacks?",
+      "How will model publishers govern deliberately trained false behavior and detect unintended activation?"
     ],
-    "closing": "A prompt can describe its own authority graph. Security still depends on who builds the graph, what the model does with it, and which controls remain outside the model."
+    "closing": "Opening the substrate makes progress easier to inspect. Altering the substrate can make attacks harder to trust. Neither removes the need to test what happens outside the publisher's own lab."
   }
 }
