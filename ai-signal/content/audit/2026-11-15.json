@@ -4,7 +4,7 @@
     "start": "2026-11-13T07:59:49Z",
     "end": "2026-11-15T13:09:03Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official news, research, safety, security, system-card, and developer publications",
     "Anthropic newsroom, research, engineering, safeguards, and standards publications",
@@ -65,9 +65,9 @@
   "emerging_trends_detected": 2,
   "notes": "Edition 38 proposes two traceable, moderate Signal Map movements only: Data Infrastructure from the WeatherNext input-data release and AI Security from Fool's Gold. No quantitative Signal Map score is used. The accepted stories separate facts from interpretation and label outlooks conditionally.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/110",
+    "commit": "5f95534a01ff79c3dae6d9e15b387bb03da8573b",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/stories/the-forecast-opened-its-raw-materials/"
   }
 }
