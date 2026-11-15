@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-13T07:59:49Z",
+  "last_successful_update": "2026-11-15T13:09:03Z",
   "last_successful_commit": "ceea388d84f15b3c80b7c8dbe1330d993be8ca38",
   "last_published_story_ids": [
+    "the-forecast-opened-its-raw-materials",
+    "the-safety-strip-found-a-honeypot",
     "the-prompt-got-a-wiring-diagram",
     "the-reasoning-trace-lost-its-guarantee",
-    "the-kill-switch-became-a-control-plane",
-    "memory-moved-to-the-night-shift",
-    "the-benchmark-left-the-textbook"
+    "the-kill-switch-became-a-control-plane"
   ],
   "initial_lookback_days": 7,
-  "note": "The 13 November 2026 research window published Edition 37 with one source-backed AI Security signal about explicit instruction and data boundaries at the model interface. Protected validation, main-branch quality gates, GitHub Pages deployment, production story and source links, Weekly Signal, Signal Map traceability, update-state, and analytics presence were verified successfully."
+  "note": "The 15 November 2026 research window prepared Edition 38 with two source-backed signals: open observation infrastructure behind AI weather systems and defensive deception after open-weight safety removal. Publication, protected validation, deployment, and production verification are pending."
 }
