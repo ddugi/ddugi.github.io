@@ -4,7 +4,7 @@
     "start": "2026-11-15T13:09:03Z",
     "end": "2026-11-16T07:38:43Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official news, research, safety, developer, Forum event, and official Developer Community announcement publications",
     "Anthropic newsroom, research, engineering, safeguards, standards, and threat-intelligence publications",
@@ -58,8 +58,8 @@
   "emerging_trends_detected": 0,
   "notes": "No story or Signal Map movement was published. The live Edition 38 remains unchanged because the reviewed window produced no development strong enough to justify new coverage. This audit records a completed research window rather than manufacturing a daily headline.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/112",
+    "commit": "226af17f4ebb511c116c7d03a2cc89e4326d1b1f",
     "live_edition_changed": false,
     "verified_url": "https://ddugi.github.io/ai-signal/"
   }
