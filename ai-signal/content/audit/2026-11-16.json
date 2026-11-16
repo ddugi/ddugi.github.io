@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-11-16",
+  "research_window": {
+    "start": "2026-11-15T13:09:03Z",
+    "end": "2026-11-16T07:38:43Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI official news, research, safety, developer, Forum event, and official Developer Community announcement publications",
+    "Anthropic newsroom, research, engineering, safeguards, standards, and threat-intelligence publications",
+    "Google and Google DeepMind model, research, science, safety, and developer publications",
+    "Microsoft Research, Azure, security, Copilot, and developer publications",
+    "AWS AI, Bedrock, security, architecture, API, and technical publications",
+    "GitHub changelog, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom, research, technical, and developer publications",
+    "Meta AI and Meta Engineering publications",
+    "Hugging Face official publications, organization releases, model cards, and community candidates",
+    "NIST and CISA publications and advisories"
+  ],
+  "accepted": [],
+  "rejected": [
+    {
+      "candidate": "OpenAI Businesses in ChatGPT beta announcement",
+      "source_publication_date": "2026-11-15",
+      "reason": "The announcement describes an early product beta through the official developer community, but the reviewed window did not provide a durable product specification, security architecture, administrative controls, or operating evidence sufficient for a structural enterprise-AI signal."
+    },
+    {
+      "candidate": "OpenAI API-credit promotion for ChatGPT subscriptions",
+      "source_publication_date": "2026-11-15",
+      "reason": "The offer changes commercial access for eligible users but does not change model capability, infrastructure, security, governance, or developer architecture; it is a promotion rather than an editorial signal."
+    },
+    {
+      "candidate": "OpenAI Forum child-safety event",
+      "source_publication_date": "2026-11-16",
+      "reason": "The event convenes relevant stakeholders, but an event listing is not evidence of a new technical control, evaluated intervention, published methodology, or policy implementation."
+    },
+    {
+      "candidate": "Microsoft Research privacy-friendly anti-cheat architecture",
+      "source_publication_date": "2026-11-16",
+      "reason": "The research addresses operating-system privacy and anti-cheat design rather than a material development in AI, AI agents, cloud infrastructure, platform engineering, or AI governance."
+    },
+    {
+      "candidate": "GitHub Copilot model retirements taking effect on 16 November",
+      "source_publication_date": "2026-10-15",
+      "reason": "The retirement date arrived in the current window, but GitHub announced the change a month earlier and no new technical evidence or migration architecture was published. Re-reporting the effective date would duplicate an already known operational notice."
+    },
+    {
+      "candidate": "Hugging Face community model, benchmark, and agent-tool posts",
+      "source_publication_date": "2026-11-16",
+      "reason": "The reviewed items were community-authored experiments and show-and-tell releases with limited samples, self-reported results, or no independent validation. None met the primary-source materiality threshold for publication."
+    },
+    {
+      "candidate": "Other Anthropic, Google DeepMind, AWS, Meta, NVIDIA, NIST, and CISA developments",
+      "source_publication_date": "2026-11-16",
+      "reason": "No new primary-source development found before the research cutoff met the exact-date, evidence, materiality, and deduplication requirements."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "No story or Signal Map movement was published. The live Edition 38 remains unchanged because the reviewed window produced no development strong enough to justify new coverage. This audit records a completed research window rather than manufacturing a daily headline.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}
