@@ -4,7 +4,7 @@
     "start": "2026-11-16T07:38:43Z",
     "end": "2026-11-17T08:00:07Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI official news, research, safety, security, system-card, and government publications",
     "CERT Polska vulnerability research and coordinated-disclosure publication",
@@ -60,9 +60,9 @@
   "emerging_trends_detected": 2,
   "notes": "Edition 39 proposes two traceable, moderate Signal Map movements: AI Security from operational cyber-agent evidence and Enterprise Adoption from workforce identity plus audit evidence for desktop agents. No quantitative Signal Map score is used. The cyber story updates an existing signal rather than duplicating it.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/114",
+    "commit": "f5a367835ec0db6be69d7fccb80fd8c340db5430",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
