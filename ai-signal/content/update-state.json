@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-17T08:00:07Z",
-  "last_successful_commit": "226af17f4ebb511c116c7d03a2cc89e4326d1b1f",
+  "last_successful_commit": "f5a367835ec0db6be69d7fccb80fd8c340db5430",
   "last_published_story_ids": [
     "vulnerability-research-hit-machine-scale",
     "the-agent-got-an-employee-badge",
@@ -10,5 +10,5 @@
     "the-prompt-got-a-wiring-diagram"
   ],
   "initial_lookback_days": 7,
-  "note": "The 17 November 2026 research window prepared Edition 39 with an operational update to the machine-scale vulnerability-research signal and a new signal about workforce identity and audit evidence for desktop agents. Publication, protected validation, deployment, and production verification are pending."
+  "note": "The 17 November 2026 research window published Edition 39 through protected PR #114. The operational update to the machine-scale vulnerability-research signal and the new workforce-identity signal passed review, promotion, build, tests, required validation, GitHub Pages deployment, and production verification."
 }
