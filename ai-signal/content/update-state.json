@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-16T07:38:43Z",
+  "last_successful_update": "2026-11-17T08:00:07Z",
   "last_successful_commit": "226af17f4ebb511c116c7d03a2cc89e4326d1b1f",
   "last_published_story_ids": [
+    "vulnerability-research-hit-machine-scale",
+    "the-agent-got-an-employee-badge",
     "the-forecast-opened-its-raw-materials",
     "the-safety-strip-found-a-honeypot",
-    "the-prompt-got-a-wiring-diagram",
-    "the-reasoning-trace-lost-its-guarantee",
-    "the-kill-switch-became-a-control-plane"
+    "the-prompt-got-a-wiring-diagram"
   ],
   "initial_lookback_days": 7,
-  "note": "The 16 November 2026 research window completed without a publishable development. Primary-source checks and seven rejected candidate groups are recorded in the daily audit; Edition 38 and its traceable Signal Map remain unchanged. Protected validation, main-branch quality gates, GitHub Pages deployment, and production continuity were verified successfully."
+  "note": "The 17 November 2026 research window prepared Edition 39 with an operational update to the machine-scale vulnerability-research signal and a new signal about workforce identity and audit evidence for desktop agents. Publication, protected validation, deployment, and production verification are pending."
 }
