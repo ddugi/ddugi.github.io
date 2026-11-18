@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-18T07:48:56Z",
-  "last_successful_commit": "f5a367835ec0db6be69d7fccb80fd8c340db5430",
+  "last_successful_commit": "32e045642a5b12caf1ca97580f9ea6ae8f8cb6fc",
   "last_published_story_ids": [
     "the-model-got-a-control-room",
     "vulnerability-research-hit-machine-scale",
@@ -10,5 +10,5 @@
     "the-safety-strip-found-a-honeypot"
   ],
   "initial_lookback_days": 7,
-  "note": "The 18 November 2026 research window prepared Edition 40 with a new capability-gated frontier infrastructure story and material updates to the existing vulnerability-research and agent-identity signals. Publication, protected validation, deployment, and production verification are pending."
+  "note": "The 18 November 2026 research window published Edition 40 through protected PR #116. The new capability-gated frontier infrastructure story and updates to the vulnerability-research and agent-identity signals passed review, promotion, build, tests, required validation, GitHub Pages deployment, and production verification."
 }

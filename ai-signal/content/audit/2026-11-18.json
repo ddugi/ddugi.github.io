@@ -4,7 +4,7 @@
     "start": "2026-11-17T08:00:07Z",
     "end": "2026-11-18T07:48:56Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI launch, system card, deployment-safety, research, and product publications",
     "Anthropic newsroom, research, engineering, safeguards, and standards publications",
@@ -74,9 +74,9 @@
   "emerging_trends_detected": 3,
   "notes": "Edition 40 proposes three traceable, moderate Signal Map movements: Models from capability-gated release infrastructure, AI Security from a governed remediation funnel, and Enterprise Adoption from cross-platform agent identity lifecycle evidence. No quantitative Signal Map score is used, and two accepted items update existing stories rather than duplicate them.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/116",
+    "commit": "32e045642a5b12caf1ca97580f9ea6ae8f8cb6fc",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
