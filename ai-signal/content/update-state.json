@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-18T07:48:56Z",
+  "last_successful_update": "2026-11-19T07:59:28Z",
   "last_successful_commit": "32e045642a5b12caf1ca97580f9ea6ae8f8cb6fc",
   "last_published_story_ids": [
     "the-model-got-a-control-room",
@@ -10,5 +10,5 @@
     "the-safety-strip-found-a-honeypot"
   ],
   "initial_lookback_days": 7,
-  "note": "The 18 November 2026 research window published Edition 40 through protected PR #116. The new capability-gated frontier infrastructure story and updates to the vulnerability-research and agent-identity signals passed review, promotion, build, tests, required validation, GitHub Pages deployment, and production verification."
+  "note": "The 19 November 2026 research window prepared Edition 41 with a material operational update to the existing capability-gated frontier infrastructure signal. Publication, protected validation, deployment, and production verification are pending."
 }
