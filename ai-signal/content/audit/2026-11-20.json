@@ -4,7 +4,7 @@
     "start": "2026-11-19T07:59:28Z",
     "end": "2026-11-20T08:02:49Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI engineering, release, safety, research, system-card, and incident publications",
     "Anthropic newsroom, research, engineering, safeguards, and standards publications",
@@ -74,9 +74,9 @@
   "emerging_trends_detected": 2,
   "notes": "Edition 42 proposes two traceable, moderate movements: Agents from persistent reviewed production workflows and Enterprise Adoption from portfolio-scale supervised maintenance. No quantitative Signal Map score is used.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/120",
+    "commit": "56f3ad214e3955b9b0e137445e495e1119879040",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
