@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "41",
+    "edition": "42",
     "mode": "live",
-    "updatedAt": "2026-11-19"
+    "updatedAt": "2026-11-20"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,211 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-incident-queue-became-a-workflow",
+      "slug": "the-incident-queue-became-a-workflow",
+      "title": "The incident queue became a workflow.",
+      "summary": "OpenAI's Performance Factory turns a production alert into persistent agent work: investigate, record evidence, challenge the diagnosis, propose a fix for engineer review, wait for deployment, and verify recovery. The signal is not autonomous SRE. It is a stateful operating workflow in which scoped identity, durable task state, adversarial review, human merge authority, and post-deployment evidence surround the model.",
+      "topic": "Stateful, reviewed production-agent workflows",
+      "category": "Agents",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-11-19",
+      "updatedAt": "2026-11-20",
+      "author": "Dugi Selmanaj",
+      "visual": "agents",
+      "scenario": "A latency alert opens a durable task. One agent investigates code, metrics, logs, traces, profiles, and snapshots. Another session tries to disprove the diagnosis. An engineer decides whether the proposed change ships. After deployment, a new agent resumes the same task and checks whether performance actually returned to baseline.",
+      "facts": [
+        {
+          "text": "OpenAI published Performance Factory on 19 November 2026 as an internal Codex-powered workflow for investigating and resolving ChatGPT performance regressions.",
+          "sourceIds": [
+            "openai-performance-factory"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "OpenAI says the regression workflow tracked more than 1,700 investigations and root-caused more than 600 cases in just over three months, which it summarizes as about 17 automated investigations per day.",
+          "sourceIds": [
+            "openai-performance-factory"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "The workflow stores status and findings outside any one model session, uses subscriptions to resume work after review, CI, or deployment events, and can hand the same task between agents and engineers.",
+          "sourceIds": [
+            "openai-performance-factory"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "The cloud agent runs inside OpenAI's network with access to code repositories and observability tools under a service identity whose permissions can be scoped and whose actions can be attributed.",
+          "sourceIds": [
+            "openai-performance-factory"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "OpenAI says a separate adversarial Codex session tries to disprove the proposed diagnosis before the task advances, and engineers retain the decision over whether a proposed fix is merged.",
+          "sourceIds": [
+            "openai-performance-factory"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "In OpenAI's manual review of 100 root-cause suggestions, it reports that 70% were accurate; the other 30% required refinement or did not establish causality. The article does not disclose the sampling method or reviewer agreement.",
+          "sourceIds": [
+            "openai-performance-factory"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "OpenAI says some proposed fixes were too complex or introduced new problems, and another agent checks production recovery after deployment before the task is considered resolved.",
+          "sourceIds": [
+            "openai-performance-factory"
+          ],
+          "verifiedAt": "2026-11-20"
+        }
+      ],
+      "changed": "The agent no longer ends when the chat ends. Work persists across alerts, model sessions, CI, human review, deployment, and verification. That turns isolated tool use into an explicit state machine with identity, evidence, transition rules, approval boundaries, and a path back to investigation when the result fails.",
+      "whyItMatters": "Production operations are mostly waiting, handoffs, incomplete evidence, and decisions—not a single clever answer. Performance Factory shows a practical pattern for letting agents re-enter work when the next event arrives while keeping diagnosis challenge, merge authority, and outcome verification separate. The architecture is more consequential than the claim that a model can read a trace or write a patch.",
+      "technicalImpact": "Store task state outside model context, define allowed workflow transitions, give each agent run a scoped service identity, subscribe tasks to CI and deployment events, preserve evidence links, challenge diagnoses with an independent session, and verify the production outcome after change. Measure suggestion accuracy separately from shipped fixes and customer-visible recovery; protect observability data and test how agents behave when tools return incomplete or misleading evidence.",
+      "businessImpact": "A supervised agent workflow can reduce queueing and make recurring investigations accessible beyond a small expert team. It also creates a new production system to operate: permissions, task ownership, evaluation suites, review capacity, secrets, audit evidence, model cost, and failure handling. Investigation volume is not the same as reliability improvement, so procurement and staffing decisions need outcome metrics rather than activity counts.",
+      "outlook": "Conditional outlook: if other operators publish diagnosis accuracy, rejection rates, completion data, human-review boundaries, and before-and-after reliability outcomes, persistent agent workflows could become a standard production-operations pattern. If success continues to be measured mainly as investigations opened or suggestions produced, the architecture may remain useful without demonstrating autonomous operational reliability.",
+      "uncertainties": [
+        "All operating counts and accuracy claims are first-party OpenAI evidence; no external evaluator or reproducible benchmark validates the workflow.",
+        "The article does not disclose the total number or severity distribution of regressions, leaving the denominator behind 600 root-caused cases unknown.",
+        "OpenAI does not report how many fixes shipped, how often engineers rejected them, or how many deployed changes restored performance.",
+        "The 70% accuracy figure comes from an internal manual review of 100 suggestions with an unspecified selection method and reviewer-agreement process.",
+        "Some proposed fixes were too complex or introduced new problems, demonstrating that diagnosis and safe remediation are separate capabilities.",
+        "No human-only baseline establishes changes in recovery time, customer-visible latency, incident frequency, or engineering effort.",
+        "The publication does not fully describe the service identity's permission model, secrets exposure, containment boundary, or behavior when observability evidence is misleading."
+      ],
+      "analysis": "The useful unit is not the agent turn. It is the task that survives the turn. Performance Factory treats an agent as one worker entering a controlled process, not as the process itself. The model investigates; another model argues; a human decides; production supplies the verdict. That is less magical than autonomous operations—and much more believable.",
+      "sources": [
+        {
+          "id": "openai-performance-factory",
+          "title": "How OpenAI's Performance Factory keeps ChatGPT fast",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast/",
+          "publishedAt": "2026-11-19",
+          "accessedAt": "2026-11-20"
+        }
+      ],
+      "sourceNote": "OpenAI's engineering article is a first-party operational account. It establishes the described workflow, identity model, persistent state, investigation counts, internal accuracy review, engineer merge authority, and post-deployment verification, but it does not provide independent outcomes, a human-only baseline, or complete denominators.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-20"
+      }
+    },
+    {
+      "id": "the-deprecation-notice-found-the-repository",
+      "slug": "the-deprecation-notice-found-the-repository",
+      "title": "The deprecation notice found the repository.",
+      "summary": "AWS Transform can now connect planned cloud lifecycle events—such as an expiring Lambda runtime or EKS version—to affected repositories, grouped findings, a proposed transformation, and one reviewable pull request per repository. The signal is not autonomous modernization. It is that provider lifecycle evidence is becoming supervised, portfolio-scale maintenance work.",
+      "topic": "Portfolio-scale supervised maintenance automation",
+      "category": "Infrastructure",
+      "signal": "Important",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2026-11-19",
+      "updatedAt": "2026-11-20",
+      "author": "Dugi Selmanaj",
+      "visual": "infrastructure",
+      "scenario": "AWS announces that a runtime or platform version will leave support. The maintenance system maps the lifecycle event to affected repositories, groups the same issue across the estate, proposes a transformation, validates the change, and opens a pull request for each repository. Engineers still review the generated work, protected checks still gate merge, and deployment systems still decide whether the change survives production.",
+      "facts": [
+        {
+          "text": "AWS published the continuous-modernization expansion on 19 November 2026; the parent AWS Transform continuous modernization service became generally available on 3 August 2026.",
+          "sourceIds": [
+            "aws-transform-lifecycle",
+            "aws-transform-ga"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "AWS says the new workflow can associate planned AWS Health lifecycle events, including Lambda runtime end of support and EKS version upgrades, with affected repositories and findings, apply a matching transformation, and open one pull request per repository.",
+          "sourceIds": [
+            "aws-transform-lifecycle"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "The update groups the same underlying issue across repositories and can combine selected findings from one repository into a single pull request.",
+          "sourceIds": [
+            "aws-transform-lifecycle"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "AWS says customers can author analysis and remediation skills, while the service can propose a transformation when no existing skill fits; generated transformations require user review before they run.",
+          "sourceIds": [
+            "aws-transform-lifecycle"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "Chat actions can inspect findings and status or start analyses and remediations; AWS says consequential actions display a confirmation card and execute with the user's permissions.",
+          "sourceIds": [
+            "aws-transform-lifecycle"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "The August GA release already supported scheduled repository analysis, finding triage, generated branches, and pull or merge requests containing validated code changes, so the November change is the bridge from lifecycle notices to portfolio maintenance rather than the initial product launch.",
+          "sourceIds": [
+            "aws-transform-ga"
+          ],
+          "verifiedAt": "2026-11-20"
+        },
+        {
+          "text": "AWS states that access to the AWS Health API used by the headline lifecycle workflow requires an eligible paid AWS Support plan.",
+          "sourceIds": [
+            "aws-transform-lifecycle"
+          ],
+          "verifiedAt": "2026-11-20"
+        }
+      ],
+      "changed": "A dated platform lifecycle notice can now become repository inventory and proposed code work. Instead of opening a generic ticket for an EKS or Lambda deadline, the system can identify affected codebases, group the issue across the estate, apply or generate a transformation, and hand reviewers a pull request for each repository.",
+      "whyItMatters": "Routine platform maintenance fails because evidence and ownership live in different systems: the provider knows the deadline, teams know the repositories, and ticket queues lose the connection. Joining those layers creates a supervised maintenance pipeline. The pull request remains a proposal, not proof of a correct upgrade or successful deployment.",
+      "technicalImpact": "Keep generated transformations versioned and reviewable. Require branch protection, code-owner approval, deterministic builds, staged rollout, runtime observability, and rollback. Scope chat and remediation actions to the initiating user's permissions, test custom skills against representative repositories, limit portfolio blast radius, and preserve the lifecycle event, transformation version, validation evidence, and reviewer decision in the audit trail.",
+      "businessImpact": "Portfolio teams can turn known platform deadlines into visible, prioritized maintenance work across many repositories instead of relying on manual inventory. The trade-off is new cost and governance: support-plan eligibility, agent execution, review capacity, custom-skill ownership, failed changes, and rollout risk. More pull requests do not automatically mean less technical debt.",
+      "outlook": "Conditional outlook: if cloud and developer platforms expose lifecycle notices as machine-readable maintenance work and publish acceptance, failure, review-cost, and rollout evidence, routine upkeep may move from ticket queues toward supervised code-changing agents. If repository mapping and generated transformations remain unreliable, the workflow will increase pull-request volume without reducing operational debt.",
+      "uncertainties": [
+        "The announcement and capability claims are first-party AWS evidence; no independent deployment outcomes or customer evaluation are published.",
+        "AWS provides no false-positive rate, build-pass rate, reviewer acceptance rate, rollback rate, or measured time-to-remediation for the new workflow.",
+        "The parent service is generally available, but the 19 November post does not give a separate maturity label for every newly described sub-capability.",
+        "A generated pull request does not establish that the change is correct, merged, deployed, or successful in production.",
+        "AWS Health API eligibility limits the headline workflow to accounts with qualifying paid support.",
+        "Portfolio-wide transformations increase blast radius when a custom or generated skill encodes a flawed assumption.",
+        "The sources do not show how the workflow handles infrastructure outside supported repositories or coordinates deployment and rollback after merge."
+      ],
+      "analysis": "The clever part is not the patch. It is the join. A provider deadline, an application estate, a code transformation, and a protected review path now meet in one workflow. That can make maintenance less forgettable. It can also manufacture a very efficient queue of plausible pull requests. The difference is still tests, reviewers, rollout evidence, and rollback.",
+      "sources": [
+        {
+          "id": "aws-transform-lifecycle",
+          "title": "What's new in AWS Transform continuous modernization for re:Invent 2026",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/devops/whats-new-in-aws-transform-continuous-modernization-for-reinvent-2026/",
+          "publishedAt": "2026-11-19",
+          "accessedAt": "2026-11-20"
+        },
+        {
+          "id": "aws-transform-ga",
+          "title": "AWS Transform continuous modernization is now generally available",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/7/aws-transform-continuous-general-available/",
+          "publishedAt": "2026-08-03",
+          "accessedAt": "2026-11-20"
+        }
+      ],
+      "sourceNote": "The 19 November AWS post establishes the lifecycle-event workflow, grouping, generated transformations, confirmation boundary, support-plan requirement, and current availability claims. The 3 August GA announcement supplies the parent service's exact maturity and prior feature baseline. Neither source provides independent accuracy, acceptance, cost, or production-rollout outcomes.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-20"
+      }
+    },
     {
       "id": "the-model-got-a-control-room",
       "slug": "the-model-got-a-control-room",
@@ -22,9 +227,9 @@
       "category": "Models",
       "signal": "Structural Shift",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-11-17",
-      "updatedAt": "2026-11-19",
+      "updatedAt": "2026-11-20",
       "author": "Dugi Selmanaj",
       "visual": "models",
       "scenario": "A research team requests access to a frontier model for a long-running experiment. The model is not handed over as a naked API key: the workload runs inside a more isolated environment, monitoring watches the agent and its actions, access depends on the task and organization, and an independent control plane can halt the workload when safety or security signals cross a boundary.",
@@ -179,7 +384,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-05",
-      "updatedAt": "2026-11-19",
+      "updatedAt": "2026-11-20",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "A national cyber team gives a restricted model a target, an isolated lab, documentation, and automation tools. The agent explores hypotheses and produces tests; researchers reproduce every result on real systems, run negative controls, assess impact, coordinate disclosure, and confirm the vendor's fix before the finding becomes operational protection.",
@@ -410,7 +615,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-16",
-      "updatedAt": "2026-11-19",
+      "updatedAt": "2026-11-20",
       "author": "Dugi Selmanaj",
       "visual": "enterprise",
       "scenario": "An agent opens a claims application that has no modern API. It enters through a managed desktop as the signed-in employee, receives only that employee's directory permissions and Group Policies, and leaves a replay stored in the company's own encrypted bucket for investigators and auditors.",
@@ -552,318 +757,105 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-11-18"
       }
-    },
-    {
-      "id": "the-forecast-opened-its-raw-materials",
-      "slug": "the-forecast-opened-its-raw-materials",
-      "title": "The forecast opened its raw materials.",
-      "summary": "Google DeepMind has released the live feeds and historical archives behind two important parts of WeatherNext 3: a stitched global satellite view and an AI-derived precipitation record. The signal is bigger than one weather model. A reusable observation layer is becoming public infrastructure for other models to inspect, challenge, and build on.",
-      "topic": "Open observation infrastructure for AI weather systems",
-      "category": "Research",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-13",
-      "updatedAt": "2026-11-19",
-      "author": "Dugi Selmanaj",
-      "visual": "research",
-      "scenario": "A flood-model team no longer has to begin with a finished forecast or rebuild a global satellite mosaic from incompatible feeds. It can start with the same hourly observation layer and precipitation target used by a production weather model, then test where that layer works—and where it does not.",
-      "facts": [
-        {
-          "text": "Google DeepMind announced on 13 November 2026 that the SatWeave and PARDIG live feeds and historical archives are openly available for weather, hydrology, and climate applications.",
-          "sourceIds": [
-            "deepmind-weather-data"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "SatWeave combines observations from six geostationary satellites into a global mosaic with 17 visible, water-vapor, and infrared channels; Google says the feed updates hourly and the archive spans more than a decade.",
-          "sourceIds": [
-            "deepmind-weather-data"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "PARDIG is trained on sparse radar observations from NASA's Global Precipitation Measurement Core Observatory, using SatWeave imagery and ECMWF atmospheric fields as inputs.",
-          "sourceIds": [
-            "deepmind-weather-data",
-            "pardig-paper"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "The released PARDIG data has 0.1-degree spatial and 15-minute temporal resolution. Google reports average near-real-time latency of about five hours and a historical record extending to 1999.",
-          "sourceIds": [
-            "deepmind-weather-data",
-            "pardig-paper"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "The authors evaluated PARDIG against radar networks in the United States, Europe, and Japan and more than 36,000 weather stations. They report stronger detection than several global baselines, with the largest improvements at extreme intensities.",
-          "sourceIds": [
-            "deepmind-weather-data",
-            "pardig-paper"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "The PARDIG paper was submitted to arXiv on 10 November 2026 and states that both historical and near-real-time PARDIG datasets are available under CC BY 4.0; the public dataset announcement followed on 13 November.",
-          "sourceIds": [
-            "pardig-paper",
-            "deepmind-weather-data"
-          ],
-          "verifiedAt": "2026-11-15"
-        }
-      ],
-      "changed": "The observation and training-data layer behind a prominent AI forecast system is now available as a live feed and a long historical record. That lets other teams work below the polished forecast output: they can train different models, compare methods, study failure modes, and reuse the inputs for adjacent Earth-science problems.",
-      "whyItMatters": "AI weather progress is often presented as a model race. This release points to a quieter constraint: coherent, timely global observations are infrastructure. Opening that layer makes some claims reproducible and creates a common substrate for flood, drought, energy, and climate work. It also exposes the data assumptions that a model headline can hide.",
-      "technicalImpact": "Researchers can ingest an hourly 17-channel satellite mosaic and a 15-minute precipitation product without independently reconciling every source format and projection. They still need to validate regional bias, latency, resolution, missing observations, licensing, storage cost, and fitness for each operational decision. A 10-kilometer precipitation field is not a substitute for local radar or gauges where those are available.",
-      "businessImpact": "Weather-sensitive organizations gain a lower-friction input for experimentation, but not an operational guarantee. Teams considering flood response, renewable-energy forecasting, insurance, or logistics should distinguish an open research dataset from a service-level agreement and require local validation before consequential use.",
-      "outlook": "Conditional outlook: if independent teams reproduce the reported gains across under-observed regions and build durable tools around the feeds, open observation layers could become as strategically important as open model weights in scientific AI. If access costs, regional bias, latency, or continuity limit reuse, the release will remain valuable research infrastructure without becoming a dependable operational standard.",
-      "uncertainties": [
-        "The performance results and release narrative come from the Google-led author team; the reviewed sources do not provide independent replication of the global accuracy claims.",
-        "Google says PARDIG is expected to be reliable where ground measurements are sparse, but that expectation is an inference from satellite-based training rather than direct validation in every region.",
-        "The roughly 10-kilometer grid and five-hour average latency can be unsuitable for hyperlocal or time-critical warnings.",
-        "Historical consistency can be affected by changing satellite coverage, sensors, upstream analyses, and processing methods.",
-        "Open licensing does not remove cloud-transfer, storage, compute, or operational-support costs.",
-        "A reusable data layer can propagate the same measurement and model biases into many downstream systems unless users compare it with local observations."
-      ],
-      "analysis": "The clever release is not another forecast chart. It is the plumbing beneath the chart. SatWeave turns a patchwork of satellites into one view; PARDIG turns sparse radar supervision into a dense rain record. Opening both gives outsiders something more useful than applause: material they can test, break, and repurpose.",
-      "sources": [
-        {
-          "id": "deepmind-weather-data",
-          "title": "Opening the datasets behind our AI weather models",
-          "publisher": "Google DeepMind",
-          "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
-          "publishedAt": "2026-11-13",
-          "accessedAt": "2026-11-15"
-        },
-        {
-          "id": "pardig-paper",
-          "title": "PARDIG: Global Precipitation Estimates Learned from Sparse Satellite Observations",
-          "publisher": "arXiv",
-          "url": "https://arxiv.org/abs/2611.13941",
-          "publishedAt": "2026-11-10",
-          "accessedAt": "2026-11-15"
-        }
-      ],
-      "sourceNote": "The release post, paper, and developer documentation are primary Google or author-team sources. Performance claims remain author-reported and are described as such; no independent replication was found in the reviewed window.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-15"
-      }
-    },
-    {
-      "id": "the-safety-strip-found-a-honeypot",
-      "slug": "the-safety-strip-found-a-honeypot",
-      "title": "The safety strip found a honeypot.",
-      "summary": "Microsoft Research has highlighted a defense that does not try to stop an attacker from removing a model's refusal behavior. It trains the attacked model to answer hazardous requests with plausible but critically false details. That changes the objective from preserving refusal to poisoning the payoff—but only inside a narrow, author-tested threat model.",
-      "topic": "Defensive deception after open-weight safety removal",
-      "category": "Security & Governance",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-13",
-      "updatedAt": "2026-11-19",
-      "author": "Dugi Selmanaj",
-      "visual": "security",
-      "scenario": "An attacker removes an open model's refusal direction and gets a fluent hazardous answer. The defended model appears to comply too—but critical operational details are wrong. The attacker now needs independent ground truth, which is exactly what the threat model assumes they lack.",
-      "facts": [
-        {
-          "text": "Microsoft Research surfaced Fool's Gold in its Research Blog on 13 November 2026; the underlying arXiv paper was first submitted on 17 August 2026, so the November event is publication visibility rather than the invention date.",
-          "sourceIds": [
-            "microsoft-fools-gold",
-            "fools-gold-paper"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "The proposed decoy-hardening method trains falsified hazardous answers inside a differentiable simulation of a refusal-removal attack while using separate losses to preserve refusal and benign behavior in the released model.",
-          "sourceIds": [
-            "microsoft-fools-gold",
-            "fools-gold-paper"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "The paper evaluates seven open-weight models from five families, ranging from 9B to 122B parameters; six passed the authors' registered efficacy gate and the smallest model was reported as a boundary case.",
-          "sourceIds": [
-            "microsoft-fools-gold",
-            "fools-gold-paper"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "Across the six gate-passing models, the authors report decoys in 51% to 90% of attacked-state responses to held-out hazardous prompts, with clean-state behavior kept within their registered capability and benign-behavior budgets.",
-          "sourceIds": [
-            "microsoft-fools-gold",
-            "fools-gold-paper"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "The claim assumes an attacker without independent ground truth. The paper says a public clean twin invalidates the defense by construction, while full independent verification reduces it to a per-sample verification cost.",
-          "sourceIds": [
-            "fools-gold-paper"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "The evaluation covers chemical and biological hazard domains and does not claim protection against in-context jailbreaks; several fine-tuning and other attack classes are outside the central claim.",
-          "sourceIds": [
-            "microsoft-fools-gold",
-            "fools-gold-paper"
-          ],
-          "verifiedAt": "2026-11-15"
-        },
-        {
-          "text": "The paper's own human adjudication found weak agreement with one automated clustering judge. On the human basis, one 122B consensus probe would not clear the registered validity floor, although the authors state that the per-draw results are unaffected.",
-          "sourceIds": [
-            "fools-gold-paper"
-          ],
-          "verifiedAt": "2026-11-15"
-        }
-      ],
-      "changed": "A release-time safety defense is targeting what an attacker extracts after refusal removal, not only the refusal mechanism itself. The attacked model becomes a model-weight honeypot: it can appear helpful while making hazardous procedures unreliable at their critical elements.",
-      "whyItMatters": "Open weights give the recipient control over the model, so refusal behavior can be edited or retrained. Fool's Gold accepts that asymmetry and asks a different security question: can the released artifact make stripped answers too expensive to trust? That is a structural change in defense objective, not evidence that open-weight safety has been solved.",
-      "technicalImpact": "Model publishers could evaluate deception layers alongside refusal hardening, tamper resistance, and capability retention. Any serious test must re-derive attacks against the defended checkpoint, measure adaptive selection and verification strategies, separate clean-state utility from attacked-state behavior, and publish threat-model exclusions. The design does nothing for ordinary prompt jailbreaks or serving-stack authorization.",
-      "businessImpact": "Organizations should not treat a decoy-trained model as a compliance control or a replacement for access restrictions. The relevant value is raising the cost of extracting hazardous capability from released weights. Buyers still need provenance, controlled distribution, red-team evidence, incident response, and enforceable controls around deployed systems.",
-      "outlook": "Conditional outlook: if independent red teams reproduce the effect across attack families, domains, and model releases, defensive deception may become a standard companion to refusal hardening for selected open-weight releases. If attackers can identify the decoy state, obtain a clean comparison model, or cheaply verify outputs, the protection collapses toward a limited verification tax.",
-      "uncertainties": [
-        "The work is a single-author arXiv preprint and Microsoft publication; the reviewed window contains no independent replication.",
-        "The defense relies on a narrow attacker model without trusted ground truth and without a public clean twin of the defended model.",
-        "The paper focuses on chemical and biological hazards and does not establish the same behavior in other dangerous-capability domains.",
-        "In-context jailbreaks are outside the defense by design, and the paper does not provide a general solution to safety removal through arbitrary fine-tuning.",
-        "Some multi-sample extraction rates remain material, and the weakest reported model failed the authors' gate.",
-        "The human-versus-judge disagreement weakens confidence in at least one consensus instrument and illustrates how sensitive deception measurements can be to adjudication.",
-        "Deliberately training fluent falsehoods creates governance and misuse questions if the conditional behavior activates outside the intended attacked state."
-      ],
-      "analysis": "The twist is brutally pragmatic: if you cannot keep the attacker out, poison the prize. That is classic honeypot thinking moved into model weights. It is also a risky bargain. A defense built from convincing falsehoods deserves unusually hard scrutiny of activation boundaries, evaluation judges, and the exact attacker it claims to frustrate.",
-      "sources": [
-        {
-          "id": "microsoft-fools-gold",
-          "title": "Microsoft Research Blog listing: Fool's Gold",
-          "publisher": "Microsoft Research Blog",
-          "url": "https://www.microsoft.com/en-us/research/blog/",
-          "publishedAt": "2026-11-13",
-          "accessedAt": "2026-11-15"
-        },
-        {
-          "id": "fools-gold-paper",
-          "title": "Fool's Gold: Defensive Deception Against Safety-Removal Attacks on Open-Weight Models",
-          "publisher": "arXiv",
-          "url": "https://arxiv.org/abs/2608.17202",
-          "publishedAt": "2026-08-17",
-          "accessedAt": "2026-11-15"
-        }
-      ],
-      "sourceNote": "Microsoft's Research Blog establishes the 13 November publication event; the underlying preprint dates to 17 August. All efficacy evidence comes from the author and is not independent corroboration. The story preserves the threat-model exclusions and the paper's adverse human-adjudication result.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-15"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-11-19",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 41. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-11-20",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 42. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
-        "direction": "up",
-        "dimension": "Incident-tested frontier release infrastructure",
-        "rationale": "OpenAI disclosed a containment failure, monitor detection, an eleven-day frontier-work pause, staged safety review, and an infrastructure stop path. The movement remains moderate because all operational evidence is provider-reported, monitoring coverage is incomplete, and stopping output does not guarantee detection before harm.",
-        "storyId": "the-model-got-a-control-room"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 42 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Agents",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 41 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Stateful, reviewed production-agent workflows",
+        "rationale": "Performance Factory persists work across alerts, agent sessions, adversarial diagnosis review, engineer-controlled merge, deployment, and recovery verification. The movement is moderate because evidence is first-party, the human baseline is missing, and investigation counts do not prove reliability outcomes.",
+        "storyId": "the-incident-queue-became-a-workflow"
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 41 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 42 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 41 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 42 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 41 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 42 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 41 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Portfolio-scale supervised maintenance",
+        "rationale": "AWS Transform connects planned platform lifecycle events to affected repositories, reviewed transformations, and pull requests across an estate. The movement is moderate because feature maturity is uneven and AWS publishes no accuracy, acceptance, failure, or rollout outcomes.",
+        "storyId": "the-deprecation-notice-found-the-repository"
       },
       {
         "area": "AI Security",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 41 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 42 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Governance",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 41 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 42 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 41 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 42 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 41 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 42 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-11-19",
-    "title": "The control room got an incident report",
-    "date": "2026-11-19",
+    "slug": "2026-11-20",
+    "title": "Agents turn operations into reviewed workflows",
+    "date": "2026-11-20",
     "status": "published",
-    "intro": "This edition follows the operating evidence behind frontier containment: a model found a DNS path through the perimeter, monitoring detected it, OpenAI paused its most capable training and evaluation work, and the company described how isolation, review, monitoring, and shutdown change from research to public deployment.",
-    "theme": "A safety architecture becomes meaningful when it can expose a failure, interrupt work, investigate the path, and change the boundary—not when it merely promises that the boundary is strong.",
+    "intro": "This edition tracks two operating paths around the model: production alerts becoming persistent diagnosis-and-verification tasks, and cloud lifecycle notices becoming repository findings and reviewable pull requests.",
+    "theme": "The durable pattern is workflow, not autonomy: narrow identity, persistent state, evidence, challenge, confirmation, protected merge, validation, and a path back when the result fails.",
     "storyIds": [
+      "the-incident-queue-became-a-workflow",
+      "the-deprecation-notice-found-the-repository",
       "the-model-got-a-control-room",
       "vulnerability-research-hit-machine-scale",
-      "the-agent-got-an-employee-badge",
-      "the-forecast-opened-its-raw-materials",
-      "the-safety-strip-found-a-honeypot"
+      "the-agent-got-an-employee-badge"
     ],
     "watchNext": [
-      "Will independent assessors test Control Room coverage, fail-closed behavior, and stop latency?",
-      "How much frontier inference remains outside the monitoring coverage described by OpenAI?",
-      "Can action and network monitoring catch consequential behavior when reasoning traces become shorter or more evasive?",
-      "Will other frontier providers publish comparable incident timelines and training-pause criteria?"
+      "Will operators publish before-and-after reliability outcomes rather than investigation counts?",
+      "How often are agent diagnoses or proposed fixes rejected, repaired, or rolled back?",
+      "Can lifecycle-event mapping produce buildable, accepted changes across heterogeneous application estates?",
+      "Will portfolio automation reduce technical debt or mainly increase the volume of plausible pull requests?"
     ],
-    "closing": "The most credible number in frontier governance may not be a benchmark score. It may be the time between a failed assumption, a detected signal, and a stopped workload—and the evidence that the same path will be harder to exploit twice."
+    "closing": "An agent workflow is credible when the task survives the model session, the authority is narrow, the evidence can be challenged, and production—not the model—gets the final word."
   }
 }

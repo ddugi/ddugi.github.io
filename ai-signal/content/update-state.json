@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-19T07:59:28Z",
+  "last_successful_update": "2026-11-20T08:02:49Z",
   "last_successful_commit": "fddae50005c60198a03a95afec1cc4664ef07bba",
   "last_published_story_ids": [
+    "the-incident-queue-became-a-workflow",
+    "the-deprecation-notice-found-the-repository",
     "the-model-got-a-control-room",
     "vulnerability-research-hit-machine-scale",
-    "the-agent-got-an-employee-badge",
-    "the-forecast-opened-its-raw-materials",
-    "the-safety-strip-found-a-honeypot"
+    "the-agent-got-an-employee-badge"
   ],
   "initial_lookback_days": 7,
-  "note": "The 19 November 2026 research window published Edition 41 through protected PR #118. The operational update to the capability-gated frontier infrastructure signal passed review, promotion, build, tests, required validation, GitHub Pages deployment, and production verification."
+  "note": "The 20 November 2026 research window prepared Edition 42 with two new Important signals on reviewed production-agent workflows and portfolio-scale supervised maintenance. Publication, protected validation, deployment, and production verification are pending."
 }

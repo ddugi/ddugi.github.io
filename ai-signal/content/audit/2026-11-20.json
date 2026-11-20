@@ -1,0 +1,82 @@
+{
+  "run_date": "2026-11-20",
+  "research_window": {
+    "start": "2026-11-19T07:59:28Z",
+    "end": "2026-11-20T08:02:49Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI engineering, release, safety, research, system-card, and incident publications",
+    "Anthropic newsroom, research, engineering, safeguards, and standards publications",
+    "Google and Google DeepMind model, research, science, safety, and developer publications",
+    "Microsoft, Azure, Foundry, Agent 365, Entra, Security, and Learn publications",
+    "AWS Transform, AI, Bedrock, DevOps, security, architecture, and product publications",
+    "GitHub changelog, engineering, open-source, documentation, releases, and security publications",
+    "NVIDIA newsroom, investor, research, technical, and developer publications",
+    "Meta AI and Meta Engineering publications",
+    "Hugging Face official publications, organization releases, model cards, and community-label boundaries",
+    "NIST, CISA, CERT-EU, CERT, and coordinated-disclosure publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-incident-queue-became-a-workflow",
+      "source_publication_date": "2026-11-19",
+      "reason": "OpenAI provides concrete first-party operating evidence for a persistent production-agent workflow with scoped identity, external task state, event-driven resumption, adversarial diagnosis review, engineer merge authority, and post-deployment verification. Missing denominators and outcomes keep the signal Important rather than Structural Shift."
+    },
+    {
+      "story_id": "the-deprecation-notice-found-the-repository",
+      "source_publication_date": "2026-11-19",
+      "reason": "AWS Transform materially connects planned cloud lifecycle evidence to affected repositories, grouped findings, reviewed transformations, and pull requests. The story is distinct from cyber remediation and remains bounded by maturity, eligibility, human review, and missing accuracy and rollout data."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Microsoft security fundamentals essay",
+      "source_publication_date": "2026-11-19",
+      "reason": "The essay reinforces earlier observability, remediation, technical-debt, and human-authority evidence but adds no new technical artifact or measured result."
+    },
+    {
+      "candidate": "CERT-EU NGINX and OpenJDK advisories",
+      "source_publication_date": "2026-11-19",
+      "reason": "The advisories are operationally material conventional software vulnerabilities but have no defensible AI-specific consequence for this publication."
+    },
+    {
+      "candidate": "GitHub S3 OIDC, Azure DevOps migration GA, RHEL runners, connectors, and model availability",
+      "source_publication_date": "2026-11-19",
+      "reason": "These are useful incremental platform, distribution, migration, and credential-hygiene improvements rather than a new AI operating model."
+    },
+    {
+      "candidate": "Karpenter v1.15 explainer",
+      "source_publication_date": "2026-11-19",
+      "reason": "The article is new, but the underlying release dates to 10 October and several highlighted repair paths remain alpha or feature-gated."
+    },
+    {
+      "candidate": "Amazon ECR global authentication tokens",
+      "source_publication_date": "2026-11-19",
+      "reason": "Short-lived cross-Region registry authentication is useful but too narrow for a separate AI infrastructure signal."
+    },
+    {
+      "candidate": "Hugging Face community backdoor demonstration",
+      "source_publication_date": "2026-11-19",
+      "reason": "The item is explicitly community-authored and lacks an official release or independent validation sufficient for publication."
+    },
+    {
+      "candidate": "Out-of-window OpenAI and Google DeepMind releases",
+      "source_publication_date": "2026-11-18",
+      "reason": "The relevant items were published before the current research window and were already considered in the previous editorial cycle."
+    },
+    {
+      "candidate": "Other Anthropic, Meta, NVIDIA, NIST, CISA, Microsoft Foundry, and cloud-native developments",
+      "source_publication_date": "2026-11-20",
+      "reason": "No additional primary-source item found before the cutoff met the exact-date, materiality, evidence, and deduplication threshold."
+    }
+  ],
+  "emerging_trends_detected": 2,
+  "notes": "Edition 42 proposes two traceable, moderate movements: Agents from persistent reviewed production workflows and Enterprise Adoption from portfolio-scale supervised maintenance. No quantitative Signal Map score is used.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}
