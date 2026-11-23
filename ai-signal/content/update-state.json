@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-21T08:03:03Z",
-  "last_successful_commit": "56f3ad214e3955b9b0e137445e495e1119879040",
+  "last_successful_commit": "4e5a052b4b31bdb62ffa47f717d979e501f396d5",
   "last_published_story_ids": [
     "vulnerability-research-hit-machine-scale",
     "the-api-fallback-started-speaking",
@@ -10,5 +10,5 @@
     "the-deprecation-notice-found-the-repository"
   ],
   "initial_lookback_days": 7,
-  "note": "The 21 November 2026 research window prepared Edition 43 with one new Important signal and two material story updates on legacy voice interfaces, offensive-agent persistence, and first-class agent IAM. Publication, protected validation, deployment, and production verification are pending."
+  "note": "The 21 November 2026 research window published Edition 43 through protected PR #122. One new Important signal and two material story updates on legacy voice interfaces, offensive-agent persistence, and first-class agent IAM passed review, promotion, build, tests, required validation, GitHub Pages deployment, and production verification."
 }
