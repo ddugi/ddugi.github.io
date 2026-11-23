@@ -1,0 +1,91 @@
+{
+  "run_date": "2026-11-23",
+  "research_window": {
+    "start": "2026-11-21T08:03:03Z",
+    "end": "2026-11-23T07:33:07Z"
+  },
+  "status": "prepared",
+  "checked_primary_sources": [
+    "OpenAI research, safety, engineering, model, system-card, API, and newsroom publications",
+    "Anthropic newsroom, research, engineering, safeguards, and standards publications",
+    "Google Research, Google DeepMind, Gemini, Google Cloud, IAM, security, and developer publications",
+    "Microsoft, Azure, Foundry, Agent 365, Entra, Security, and developer-community publications",
+    "AWS AI, Bedrock, Quick, DevOps, Transform, CloudWatch, security, and product publications",
+    "GitHub changelog, Enterprise Server, security, engineering, releases, and advisory publications",
+    "Project MONAI releases, advisories, commits, and installation artifacts",
+    "NVIDIA newsroom, research, technical, and developer publications",
+    "Meta AI and Meta Engineering publications",
+    "Hugging Face official publications, organization releases, model cards, community boundaries, and daily papers",
+    "NIST, CISA, CERT-EU, CERT, European Commission, and coordinated-disclosure publications",
+    "Kubernetes and CNCF official publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-safety-limit-moved-upstream",
+      "source_publication_date": "2026-11-22",
+      "action": "new",
+      "reason": "OpenAI combines unusual internal pretraining-loss disclosures with an explicit cross-lab pacing proposal and candid limitations. The story remains Important because the measurements are private and unreproduced, the forecast is extrapolated, and the proposal is not an adopted standard."
+    },
+    {
+      "story_id": "vulnerability-research-hit-machine-scale",
+      "source_publication_date": "2026-11-22",
+      "action": "updated",
+      "reason": "Project MONAI's signed 0.8.6 release closes the previously documented no-patched-release gap, adds a second traversal fix, and supplies concrete upgrade and incident-review guidance without proving deployment or remediation coverage."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "AWS Quick web experience and plugins",
+      "source_publication_date": "2026-11-21",
+      "reason": "Useful product expansion without task-completion, failure, intervention, confirmation-quality, rollback, stale-context, or production-outcome evidence."
+    },
+    {
+      "candidate": "AWS Quick Meta advertising operations connector",
+      "source_publication_date": "2026-11-21",
+      "reason": "Narrow connector announcement without authorization, reversal, error, or customer-outcome evidence."
+    },
+    {
+      "candidate": "Amazon Bedrock Web Search localization",
+      "source_publication_date": "2026-11-21",
+      "reason": "Regional language and source expansion without evaluation, reliability, or operational-impact evidence."
+    },
+    {
+      "candidate": "Amazon CloudWatch Omni for Microsoft Azure",
+      "source_publication_date": "2026-11-21",
+      "reason": "Conventional cross-cloud telemetry ingestion without a distinct AI-specific structural consequence."
+    },
+    {
+      "candidate": "Microsoft specialist-model decision article",
+      "source_publication_date": "2026-11-21",
+      "reason": "Sound pre-action policy-check methodology demonstrated synthetically, with no real actions, production evaluation, or measured outcome."
+    },
+    {
+      "candidate": "GPT-Live-1.1 API distribution",
+      "source_publication_date": "2026-11-20",
+      "reason": "Underlying model and safety evidence predate the research window; current availability is incremental distribution rather than a new structural signal."
+    },
+    {
+      "candidate": "Hugging Face community posts and surfaced preprints",
+      "source_publication_date": "2026-11-22",
+      "reason": "Community or early research artifacts without sufficient official deployment evidence or independent validation for publication."
+    },
+    {
+      "candidate": "Conventional CERT-EU vulnerabilities and older Microsoft, AWS, and European Commission material",
+      "source_publication_date": "2026-11-22",
+      "reason": "Out of window, conventional, or lacking a new AI-specific technical control or measured operating result."
+    },
+    {
+      "candidate": "Other GitHub, NVIDIA, Kubernetes, CNCF, Meta, Anthropic, Google Cloud, NIST, and CISA indexes",
+      "source_publication_date": "2026-11-23",
+      "reason": "No additional primary-source item found before the cutoff met the exact-date, evidence, materiality, and deduplication threshold."
+    }
+  ],
+  "emerging_trends_detected": 1,
+  "notes": "Edition 44 proposes one moderate, qualitative and story-traceable Governance movement from upstream capability metrics entering public pacing proposals. The MONAI 0.8.6 update is remediation follow-through and does not create a second AI Security arrow. No quantitative Signal Map score is used.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": true,
+    "verified_url": null
+  }
+}

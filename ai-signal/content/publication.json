@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "43",
+    "edition": "44",
     "mode": "live",
-    "updatedAt": "2026-11-21"
+    "updatedAt": "2026-11-23"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -14,17 +14,115 @@
   },
   "stories": [
     {
+      "id": "the-safety-limit-moved-upstream",
+      "slug": "the-safety-limit-moved-upstream",
+      "title": "The safety limit moved upstream.",
+      "summary": "OpenAI disclosed internal pretraining-loss measurements and proposed using comparable upstream metrics to pace frontier development against monitoring milestones. The signal is a governance proposal—not a universal intelligence score, causal risk threshold, adopted standard, or independently reproduced result.",
+      "topic": "Upstream capability metrics and frontier-development pacing",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-11-22",
+      "updatedAt": "2026-11-23",
+      "author": "Dugi Selmanaj",
+      "visual": "governance",
+      "scenario": "A frontier lab watches a held-out pretraining metric before the model reaches a familiar benchmark or deployment gate. Crossing a pre-registered threshold does not prove a capability, but it pauses further scaling until an agreed monitoring or interpretability milestone is ready and independently checked.",
+      "facts": [
+        {
+          "text": "OpenAI published Perplexity and Intelligence on 22 November 2026 and reported approximate log-perplexity values measured on a fixed snapshot of an internal code dataset.",
+          "sourceIds": [
+            "openai-perplexity-intelligence"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "OpenAI reports approximately 0.99 for GPT-3.5, 0.91 for GPT-4, values below 0.8 for newer systems it associates with stronger cybersecurity and mathematics capability, and about 0.76 for a model it says began producing groundbreaking mathematical results.",
+          "sourceIds": [
+            "openai-perplexity-intelligence"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "The article proposes that frontier developers establish shared norms for comparing pretraining loss and consider development limits tied to monitoring or interpretability milestones.",
+          "sourceIds": [
+            "openai-perplexity-intelligence"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "OpenAI's suggested shared limit is a proposal rather than a current rule or adopted cross-lab standard.",
+          "sourceIds": [
+            "openai-perplexity-intelligence"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "OpenAI forecasts that further transformative capabilities could emerge around a 0.68 to 0.7 log-perplexity range; the article presents this as an extrapolation, not an observed result or release roadmap.",
+          "sourceIds": [
+            "openai-perplexity-intelligence"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "OpenAI states that dataset choice complicates cross-lab comparison, loss does not directly correspond to an actionable task, post-training methods can add capability without reducing pretraining loss, and the theoretical loss floor is unknown.",
+          "sourceIds": [
+            "openai-perplexity-intelligence"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "The article does not publish the held-out dataset, evaluation code, exact model-by-model measurements, uncertainty intervals, run variance, contamination analysis, or external audit.",
+          "sourceIds": [
+            "openai-perplexity-intelligence"
+          ],
+          "verifiedAt": "2026-11-23"
+        }
+      ],
+      "changed": "A frontier laboratory has made an upstream training metric part of public governance discussion and attached a concrete pacing idea to it. The new artifact is not a verified capability threshold. It is a proposal to define a limit before downstream evaluations fully reveal what a model can do.",
+      "whyItMatters": "Capability benchmarks change, saturate, and often describe risk after training has already produced it. A comparable upstream measure could create earlier warning and a decision point—if laboratories publish compatible evaluations, pre-register triggers, and bind those triggers to auditable consequences rather than treating the metric as explanatory branding.",
+      "technicalImpact": "Treat pretraining loss as one monitoring input, not a general-intelligence score. Fix and document evaluation datasets, separate pretraining from post-training and inference-time gains, report uncertainty and run variance, test for contamination, preserve downstream task evaluations, and define the exact operational action attached to each threshold.",
+      "businessImpact": "Boards, regulators, and frontier-lab risk teams may gain an earlier planning signal for monitoring investment and deployment gates. A private, lab-specific metric can also create false precision, competitive disclosure risk, and governance theater if other developers cannot reproduce it or if crossing a line has no enforceable consequence.",
+      "outlook": "Conditional outlook: if several laboratories publish comparable held-out evaluations, pre-register thresholds, and connect them to enforceable monitoring or interpretability milestones, upstream loss could become one input to frontier pacing. If datasets remain private and incomparable, it will remain an internal progress measure presented as a shared standard.",
+      "uncertainties": [
+        "All measurements, historical associations, and forecasts are reported by OpenAI and have not been independently reproduced on the unpublished internal dataset.",
+        "The disclosed values are approximate and lack uncertainty intervals, run variance, exact model-by-model tables, contamination analysis, and external audit.",
+        "Correlation between lower loss and selected historical capabilities does not establish a causal threshold for any future capability or risk.",
+        "Tools, scaffolding, post-training, inference-time reasoning, and deployment context can materially change capability without a corresponding change in this pretraining metric.",
+        "Different laboratories use different datasets and mixtures, limiting direct cross-lab comparison unless they agree on a common evaluation protocol.",
+        "The proposed pacing limit is not an adopted OpenAI policy, cross-lab agreement, regulatory rule, or enforceable standard in the reviewed source.",
+        "The 0.68 to 0.7 range is an extrapolated forecast rather than an observed capability transition or release plan."
+      ],
+      "analysis": "A number becomes governance only when crossing it changes what happens next. OpenAI has supplied an unusual upstream measurement and a proposal for a brake. The hard work begins where the chart ends: comparable data, independent scrutiny, a pre-registered trigger, and consequences that survive competitive pressure.",
+      "sources": [
+        {
+          "id": "openai-perplexity-intelligence",
+          "title": "Perplexity and Intelligence",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/perplexity-and-intelligence/",
+          "publishedAt": "2026-11-22",
+          "accessedAt": "2026-11-23"
+        }
+      ],
+      "sourceNote": "OpenAI is both the source of the internal measurements and the author of the interpretation, forecast, and pacing proposal. This story keeps those four layers separate and does not treat the private dataset, approximate historical relationship, forecast range, or proposed limit as independently validated or adopted.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-23"
+      }
+    },
+    {
       "id": "vulnerability-research-hit-machine-scale",
       "slug": "vulnerability-research-hit-machine-scale",
       "title": "The agent did not need to win every move.",
-      "summary": "AWS reconstructed an offensive agent campaign in which long runs and tens of thousands of failed credential attempts coexisted with one fast, useful exploit path. The operational change is persistence, not universal competence: a system can lose most moves and still create one consequential opening.",
+      "summary": "AWS's Cairn reconstruction showed that persistent offensive agents can fail repeatedly and still find one consequential path. Project MONAI has now shipped signed version 0.8.6 with fixes for the exploited datastore traversal and a second session-upload traversal. A deployable patch exists; evidence that exposed fleets installed it does not.",
       "topic": "Persistent offensive agents and the vulnerability-remediation race",
       "category": "Security & Governance",
       "signal": "Structural Shift",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-11-05",
-      "updatedAt": "2026-11-21",
+      "updatedAt": "2026-11-23",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "An operator supplies targets and a goal. The agent maps services, changes tactics after failures, runs for hours, and keeps producing evidence. Most paths go nowhere. One path reaches an exposed medical-imaging service, discovers an arbitrary file write, and later turns it into a root shell.",
@@ -191,13 +289,56 @@
             "aws-cairn-investigation"
           ],
           "verifiedAt": "2026-11-21"
+        },
+        {
+          "text": "Project MONAI released signed MONAI Label 0.8.6 on 22 November 2026 as a security release and tells all MONAI Label server deployments to upgrade.",
+          "sourceIds": [
+            "monai-label-086-release"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "The release provides a pinned Python package and versioned container image and fixes the previously reported datastore-upload path traversal affecting versions through 0.8.5.",
+          "sourceIds": [
+            "monai-label-086-release"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "Version 0.8.6 also fixes a second path traversal in session upload involving unchecked archive member names and unvalidated session IDs.",
+          "sourceIds": [
+            "monai-label-086-release"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "Project MONAI advises operators whose version 0.8.5 or older servers were reachable from untrusted networks to review them for unexpected file changes before returning them to service.",
+          "sourceIds": [
+            "monai-label-086-release"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "The 0.8.6 release requires Python 3.11 or newer; Project MONAI publishes no download, upgrade, exposure, compromise-assessment, or rollout data.",
+          "sourceIds": [
+            "monai-label-086-release"
+          ],
+          "verifiedAt": "2026-11-23"
+        },
+        {
+          "text": "The older advisory still lists no patched version while the newer signed release identifies 0.8.6 as the security upgrade, leaving official metadata temporarily inconsistent.",
+          "sourceIds": [
+            "monai-label-advisory",
+            "monai-label-086-release"
+          ],
+          "verifiedAt": "2026-11-23"
         }
       ],
-      "changed": "Machine-scale vulnerability work is no longer only a defender pipeline or a benchmark claim. AWS's reconstruction adds an observed offensive workflow: persistent agents performed 148 sequential actions in one failed run, tried more than 30,000 credential combinations in another, and found a previously undisclosed arbitrary-file-write path against MONAI Label in about 11 minutes.",
-      "whyItMatters": "Attack economics can change even when the agent is unreliable. Cheap, tireless iteration lets an operator tolerate many dead ends while waiting for one exploitable path. That shifts the defender's problem from stopping a brilliant single attempt to detecting and containing persistent, adaptive search before one attempt works.",
-      "technicalImpact": "Treat exposed agent consoles and reachable management services as high-risk control planes. Require authentication by default, network isolation, least-privilege execution, immutable action logs, rate and sequence detection, egress controls, and fast patch distribution. Defender pipelines still need independent reproduction and source-to-release tracking; attacker pipelines do not wait for either.",
-      "businessImpact": "Security leaders should assume that low success rates do not imply low risk when attempts are cheap and persistent. Risk models need to include unattended dwell time, action volume, exposed default configurations, and the delay between a source fix and an installable release—not just model benchmark scores or individual exploit sophistication.",
-      "outlook": "Conditional outlook: if independent incident reporting shows similar long-running agent campaigns across more actors and targets, persistent offensive automation will become a standard threat-model assumption. If the evidence remains concentrated in unusually exposed systems and a handful of reconstructed campaigns, the risk is material but not yet evidence of typical attacker performance.",
+      "changed": "The remediation boundary moved from corrected source code to an installable security release. MONAI Label 0.8.6 gives operators pinned package and container targets, fixes the previously reported datastore-upload path traversal plus a second session-upload traversal, and tells operators of previously exposed servers to inspect for unexpected file changes.",
+      "whyItMatters": "Discovery is not protection until operators can deploy a fix. The signed release closes the availability gap documented in Edition 43, while exposing the next unanswered question: how quickly vulnerable, internet-reachable servers find, test, and install the remediation—and whether operators investigate possible compromise before returning them to service.",
+      "technicalImpact": "Upgrade server deployments to the signed 0.8.6 package or container, verify runtime compatibility, restrict network reachability, enable authentication, run with limited filesystem rights, and inspect older exposed systems for unexpected changes. Track both traversal paths and preserve the difference between a source fix, a released artifact, and a deployed remediation.",
+      "businessImpact": "Security teams now have a concrete upgrade target and incident-review guidance, but the release raises migration and evidence obligations. Version 0.8.6 requires Python 3.11 or newer, and no public telemetry shows how many exposed installations exist, have upgraded, or may need compromise assessment.",
+      "outlook": "Conditional outlook: if maintainers and operators publish release-to-deployment timing, exposure counts, upgrade coverage, and compromise-review outcomes, defenders can measure whether faster AI-assisted discovery is matched by faster protection. Without that evidence, a signed patch is necessary remediation capacity—not a remediated fleet.",
       "uncertainties": [
         "The NATO token figure, institutional-access claims, and ENISA summary are reported by OpenAI; the reviewed sources do not independently break down tasks, model versions, cost, success rate, or avoided incidents.",
         "Token consumption measures activity, not vulnerability quality, defender advantage, or operational effectiveness.",
@@ -214,9 +355,13 @@
         "AWS does not identify the model used by Cairn, publish complete raw session logs, quantify human intervention across every operation, or provide an independent replay of the zero-day discovery.",
         "The exposed Cairn console and MONAI Label's default-disabled authentication made the campaign unusually observable and the target unusually reachable; neither condition establishes typical attacker success.",
         "One reconstructed campaign cannot establish prevalence, comparative cost, defender detection rates, or a global increase in AI-enabled attacks.",
-        "The maintainer advisory records a source fix but no patched released version, so the existence of corrected code is not the same as an upgrade being available to users."
+        "The maintainer advisory records a source fix but no patched released version, so the existence of corrected code is not the same as an upgrade being available to users.",
+        "A released package and container do not establish that any vulnerable or exposed deployment has upgraded.",
+        "Project MONAI publishes no install-base, exposure, download, upgrade, compromise-assessment, or rollout telemetry for version 0.8.6.",
+        "The older advisory's stale patched-version field conflicts with the newer signed release, which may complicate automated vulnerability-management decisions until metadata is reconciled.",
+        "The Python 3.11 minimum can add migration work and may delay remediation for operators on older runtimes."
       ],
-      "analysis": "The important number is not the first successful action. It is the patience around it. Sixteen hours of failure and thirty thousand bad guesses can still be operationally rational when the machine keeps going and one separate path produces root. Reliability is optional when persistence is cheap.",
+      "analysis": "The patch finally exists. That is not the same sentence as the problem is fixed. Security moves through three clocks: disclosure, release, deployment. Edition 43 stopped at the second hand; Edition 44 can see the release clock move and still has no view of the fleet.",
       "sources": [
         {
           "id": "openai-gpt6-cyber",
@@ -297,13 +442,21 @@
           "url": "https://github.com/Project-MONAI/MONAILabel/security/advisories/GHSA-qc22-rmgc-vg94",
           "publishedAt": "2026-11-18",
           "accessedAt": "2026-11-21"
+        },
+        {
+          "id": "monai-label-086-release",
+          "title": "MONAI Label 0.8.6",
+          "publisher": "Project MONAI",
+          "url": "https://github.com/Project-MONAI/MONAILabel/releases/tag/0.8.6",
+          "publishedAt": "2026-11-22",
+          "accessedAt": "2026-11-23"
         }
       ],
-      "sourceNote": "Amazon Threat Intelligence provides the campaign reconstruction and explicitly separates its high-confidence zero-day assessment from moderate-confidence actor attribution. The MONAI Label maintainer advisory independently confirms the arbitrary-file-write flaw, default-disabled authentication, affected versions, and source fix, while listing no patched released version. The account does not provide full raw logs, model identity, a human baseline, or prevalence data.",
+      "sourceNote": "Amazon Threat Intelligence and the MONAI advisory establish the campaign and original flaw. Project MONAI's signed 0.8.6 release is the newer operational authority for the available upgrade and documents a second traversal fix. The older advisory still lists no patched version, so the source conflict is preserved rather than silently normalized. No reviewed source provides deployment or exposure telemetry.",
       "review": {
         "status": "approved",
         "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-21"
+        "reviewedAt": "2026-11-23"
       }
     },
     {
@@ -317,7 +470,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-20",
-      "updatedAt": "2026-11-21",
+      "updatedAt": "2026-11-23",
       "author": "Dugi Selmanaj",
       "visual": "agents",
       "scenario": "A task reaches the edge of the digital system: no API, no booking endpoint, no structured form. Instead of stopping, the agent calls the business, discloses that it is automated, negotiates around calendar constraints, and returns the result to the user's workflow.",
@@ -416,7 +569,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-16",
-      "updatedAt": "2026-11-21",
+      "updatedAt": "2026-11-23",
       "author": "Dugi Selmanaj",
       "visual": "enterprise",
       "scenario": "An agent opens a claims application that has no modern API. It enters through a managed desktop as the signed-in employee, receives only that employee's directory permissions and Group Policies, and leaves a replay stored in the company's own encrypted bucket for investigators and auditors.",
@@ -620,7 +773,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-19",
-      "updatedAt": "2026-11-21",
+      "updatedAt": "2026-11-23",
       "author": "Dugi Selmanaj",
       "visual": "agents",
       "scenario": "A latency alert opens a durable task. One agent investigates code, metrics, logs, traces, profiles, and snapshots. Another session tries to disprove the diagnosis. An engineer decides whether the proposed change ships. After deployment, a new agent resumes the same task and checks whether performance actually returned to baseline.",
@@ -706,212 +859,105 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-11-20"
       }
-    },
-    {
-      "id": "the-deprecation-notice-found-the-repository",
-      "slug": "the-deprecation-notice-found-the-repository",
-      "title": "The deprecation notice found the repository.",
-      "summary": "AWS Transform can now connect planned cloud lifecycle events—such as an expiring Lambda runtime or EKS version—to affected repositories, grouped findings, a proposed transformation, and one reviewable pull request per repository. The signal is not autonomous modernization. It is that provider lifecycle evidence is becoming supervised, portfolio-scale maintenance work.",
-      "topic": "Portfolio-scale supervised maintenance automation",
-      "category": "Infrastructure",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-19",
-      "updatedAt": "2026-11-21",
-      "author": "Dugi Selmanaj",
-      "visual": "infrastructure",
-      "scenario": "AWS announces that a runtime or platform version will leave support. The maintenance system maps the lifecycle event to affected repositories, groups the same issue across the estate, proposes a transformation, validates the change, and opens a pull request for each repository. Engineers still review the generated work, protected checks still gate merge, and deployment systems still decide whether the change survives production.",
-      "facts": [
-        {
-          "text": "AWS published the continuous-modernization expansion on 19 November 2026; the parent AWS Transform continuous modernization service became generally available on 3 August 2026.",
-          "sourceIds": [
-            "aws-transform-lifecycle",
-            "aws-transform-ga"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "AWS says the new workflow can associate planned AWS Health lifecycle events, including Lambda runtime end of support and EKS version upgrades, with affected repositories and findings, apply a matching transformation, and open one pull request per repository.",
-          "sourceIds": [
-            "aws-transform-lifecycle"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "The update groups the same underlying issue across repositories and can combine selected findings from one repository into a single pull request.",
-          "sourceIds": [
-            "aws-transform-lifecycle"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "AWS says customers can author analysis and remediation skills, while the service can propose a transformation when no existing skill fits; generated transformations require user review before they run.",
-          "sourceIds": [
-            "aws-transform-lifecycle"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "Chat actions can inspect findings and status or start analyses and remediations; AWS says consequential actions display a confirmation card and execute with the user's permissions.",
-          "sourceIds": [
-            "aws-transform-lifecycle"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "The August GA release already supported scheduled repository analysis, finding triage, generated branches, and pull or merge requests containing validated code changes, so the November change is the bridge from lifecycle notices to portfolio maintenance rather than the initial product launch.",
-          "sourceIds": [
-            "aws-transform-ga"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "AWS states that access to the AWS Health API used by the headline lifecycle workflow requires an eligible paid AWS Support plan.",
-          "sourceIds": [
-            "aws-transform-lifecycle"
-          ],
-          "verifiedAt": "2026-11-20"
-        }
-      ],
-      "changed": "A dated platform lifecycle notice can now become repository inventory and proposed code work. Instead of opening a generic ticket for an EKS or Lambda deadline, the system can identify affected codebases, group the issue across the estate, apply or generate a transformation, and hand reviewers a pull request for each repository.",
-      "whyItMatters": "Routine platform maintenance fails because evidence and ownership live in different systems: the provider knows the deadline, teams know the repositories, and ticket queues lose the connection. Joining those layers creates a supervised maintenance pipeline. The pull request remains a proposal, not proof of a correct upgrade or successful deployment.",
-      "technicalImpact": "Keep generated transformations versioned and reviewable. Require branch protection, code-owner approval, deterministic builds, staged rollout, runtime observability, and rollback. Scope chat and remediation actions to the initiating user's permissions, test custom skills against representative repositories, limit portfolio blast radius, and preserve the lifecycle event, transformation version, validation evidence, and reviewer decision in the audit trail.",
-      "businessImpact": "Portfolio teams can turn known platform deadlines into visible, prioritized maintenance work across many repositories instead of relying on manual inventory. The trade-off is new cost and governance: support-plan eligibility, agent execution, review capacity, custom-skill ownership, failed changes, and rollout risk. More pull requests do not automatically mean less technical debt.",
-      "outlook": "Conditional outlook: if cloud and developer platforms expose lifecycle notices as machine-readable maintenance work and publish acceptance, failure, review-cost, and rollout evidence, routine upkeep may move from ticket queues toward supervised code-changing agents. If repository mapping and generated transformations remain unreliable, the workflow will increase pull-request volume without reducing operational debt.",
-      "uncertainties": [
-        "The announcement and capability claims are first-party AWS evidence; no independent deployment outcomes or customer evaluation are published.",
-        "AWS provides no false-positive rate, build-pass rate, reviewer acceptance rate, rollback rate, or measured time-to-remediation for the new workflow.",
-        "The parent service is generally available, but the 19 November post does not give a separate maturity label for every newly described sub-capability.",
-        "A generated pull request does not establish that the change is correct, merged, deployed, or successful in production.",
-        "AWS Health API eligibility limits the headline workflow to accounts with qualifying paid support.",
-        "Portfolio-wide transformations increase blast radius when a custom or generated skill encodes a flawed assumption.",
-        "The sources do not show how the workflow handles infrastructure outside supported repositories or coordinates deployment and rollback after merge."
-      ],
-      "analysis": "The clever part is not the patch. It is the join. A provider deadline, an application estate, a code transformation, and a protected review path now meet in one workflow. That can make maintenance less forgettable. It can also manufacture a very efficient queue of plausible pull requests. The difference is still tests, reviewers, rollout evidence, and rollback.",
-      "sources": [
-        {
-          "id": "aws-transform-lifecycle",
-          "title": "What's new in AWS Transform continuous modernization for re:Invent 2026",
-          "publisher": "Amazon Web Services",
-          "url": "https://aws.amazon.com/blogs/devops/whats-new-in-aws-transform-continuous-modernization-for-reinvent-2026/",
-          "publishedAt": "2026-11-19",
-          "accessedAt": "2026-11-20"
-        },
-        {
-          "id": "aws-transform-ga",
-          "title": "AWS Transform continuous modernization is now generally available",
-          "publisher": "Amazon Web Services",
-          "url": "https://aws.amazon.com/about-aws/whats-new/2026/7/aws-transform-continuous-general-available/",
-          "publishedAt": "2026-08-03",
-          "accessedAt": "2026-11-20"
-        }
-      ],
-      "sourceNote": "The 19 November AWS post establishes the lifecycle-event workflow, grouping, generated transformations, confirmation boundary, support-plan requirement, and current availability claims. The 3 August GA announcement supplies the parent service's exact maturity and prior feature baseline. Neither source provides independent accuracy, acceptance, cost, or production-rollout outcomes.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-20"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-11-21",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 43. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-11-23",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 44. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 43 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
-        "direction": "up",
-        "dimension": "Action surface expands to legacy voice workflows",
-        "rationale": "Google describes telephone calling as a Gemini agent fallback when structured APIs or booking forms do not exist. The movement is moderate because the interface expanded, while current completion, correction, safety, and counterparty-burden outcomes remain unpublished.",
-        "storyId": "the-api-fallback-started-speaking"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 43 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 43 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 43 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 43 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
-        "direction": "up",
-        "dimension": "Autonomous offensive persistence",
-        "rationale": "AWS reconstructed long-running Cairn agent activity in which extensive failure coexisted with one fast zero-day exploit path. The movement is moderate because it is one first-party reconstruction, the target had weak default exposure, human intervention remained, and prevalence is unknown.",
-        "storyId": "vulnerability-research-hit-machine-scale"
+        "direction": "flat",
+        "dimension": "No new assessment",
+        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
+        "storyId": null
       },
       {
         "area": "Governance",
         "direction": "up",
-        "dimension": "First-class agent principals enter IAM",
-        "rationale": "Google Cloud's preview UAP adds independent vendor evidence that agent principals and pools are entering ordinary IAM policy. The movement reflects product direction, not adoption: the feature is preview-only, outcome data is missing, and official binding limits conflict.",
-        "storyId": "the-agent-got-an-employee-badge"
+        "dimension": "Upstream capability metrics enter pacing proposals",
+        "rationale": "OpenAI disclosed internal pretraining-loss measurements and proposed tying shared thresholds to monitoring or interpretability milestones. The movement is moderate and describes public governance discussion, not adoption: the dataset is private, the measurements are not independently reproduced, and no cross-lab standard or enforceable rule exists.",
+        "storyId": "the-safety-limit-moved-upstream"
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 43 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 43 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-11-21",
-    "title": "Agents cross interfaces and attack boundaries",
-    "date": "2026-11-21",
+    "slug": "2026-11-23",
+    "title": "Upstream metrics meet downstream patch reality",
+    "date": "2026-11-23",
     "status": "published",
-    "intro": "This edition follows agents across three uncomfortable borders: from APIs into phone calls, from short attempts into persistent offensive work, and from generic service accounts into explicit identity policy.",
-    "theme": "The common question is no longer whether agents can act. It is where they can keep acting, under whose authority, and what evidence remains when the workflow crosses a boundary.",
+    "intro": "This edition joins two ends of the safety lifecycle: a laboratory proposing an earlier warning signal before frontier capability is fully legible, and a maintainer shipping the artifact operators can finally install after an exploited flaw became public.",
+    "theme": "A measurement is not a brake, and a release is not a patched fleet. Governance becomes operational only when a comparable signal changes a decision and a deployable fix reaches the systems that need it.",
     "storyIds": [
+      "the-safety-limit-moved-upstream",
       "vulnerability-research-hit-machine-scale",
       "the-api-fallback-started-speaking",
       "the-agent-got-an-employee-badge",
-      "the-incident-queue-became-a-workflow",
-      "the-deprecation-notice-found-the-repository"
+      "the-incident-queue-became-a-workflow"
     ],
     "watchNext": [
-      "Will voice agents publish completion, correction, disclosure, opt-out, and counterparty-burden outcomes?",
-      "Will independent incident reports show persistent offensive agents across more actors and targets?",
-      "Can first-class agent principals produce measurable reductions in over-privilege and faster revocation?",
-      "How quickly can maintainers turn source fixes into installable releases when agents accelerate discovery and exploitation?"
+      "Will other frontier labs publish comparable held-out loss evaluations and pre-register pacing triggers?",
+      "Will any proposed threshold carry an auditable monitoring, interpretability, or development consequence?",
+      "How quickly will exposed MONAI Label deployments move to 0.8.6 and investigate possible compromise?",
+      "Will advisory metadata reconcile with the signed release so automated vulnerability tooling sees the correct remediation?"
     ],
-    "closing": "An agent becomes operationally important when it can cross an interface, persist through failure, and carry authority. Those are also the moments when disclosure, identity, containment, and audit stop being optional."
+    "closing": "The useful control is never just the number or the patch. It is the verified chain from measurement to decision and from release to deployed protection."
   }
 }
