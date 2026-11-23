@@ -4,7 +4,7 @@
     "start": "2026-11-21T08:03:03Z",
     "end": "2026-11-23T07:33:07Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI research, safety, engineering, model, system-card, API, and newsroom publications",
     "Anthropic newsroom, research, engineering, safeguards, and standards publications",
@@ -83,9 +83,9 @@
   "emerging_trends_detected": 1,
   "notes": "Edition 44 proposes one moderate, qualitative and story-traceable Governance movement from upstream capability metrics entering public pacing proposals. The MONAI 0.8.6 update is remediation follow-through and does not create a second AI Security arrow. No quantitative Signal Map score is used.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/124",
+    "commit": "8494c0c0020ede7f9dcd91aa9613a3e6931d2dfc",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
