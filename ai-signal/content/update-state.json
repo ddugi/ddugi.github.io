@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-20T08:02:49Z",
+  "last_successful_update": "2026-11-21T08:03:03Z",
   "last_successful_commit": "56f3ad214e3955b9b0e137445e495e1119879040",
   "last_published_story_ids": [
-    "the-incident-queue-became-a-workflow",
-    "the-deprecation-notice-found-the-repository",
-    "the-model-got-a-control-room",
     "vulnerability-research-hit-machine-scale",
-    "the-agent-got-an-employee-badge"
+    "the-api-fallback-started-speaking",
+    "the-agent-got-an-employee-badge",
+    "the-incident-queue-became-a-workflow",
+    "the-deprecation-notice-found-the-repository"
   ],
   "initial_lookback_days": 7,
-  "note": "The 20 November 2026 research window published Edition 42 through protected PR #120. Two new Important signals on reviewed production-agent workflows and portfolio-scale supervised maintenance passed review, promotion, build, tests, required validation, GitHub Pages deployment, and production verification."
+  "note": "The 21 November 2026 research window prepared Edition 43 with one new Important signal and two material story updates on legacy voice interfaces, offensive-agent persistence, and first-class agent IAM. Publication, protected validation, deployment, and production verification are pending."
 }
