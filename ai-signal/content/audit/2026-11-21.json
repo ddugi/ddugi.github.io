@@ -4,7 +4,7 @@
     "start": "2026-11-20T08:02:49Z",
     "end": "2026-11-21T08:03:03Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI engineering, research, model, safety, system-card, and API publications",
     "Anthropic newsroom, research, engineering, safeguards, and standards publications",
@@ -93,9 +93,9 @@
   "emerging_trends_detected": 3,
   "notes": "Edition 43 proposes three moderate, qualitative and story-traceable movements: AI Security from persistent offensive-agent evidence, Agents from legacy voice as an action interface, and Governance from first-class agent principals entering IAM. No quantitative Signal Map score is used.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/122",
+    "commit": "4e5a052b4b31bdb62ffa47f717d979e501f396d5",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }
