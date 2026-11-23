@@ -3,9 +3,9 @@
   "index.html",
   "policies/privacy/index.html",
   "stories/the-agent-got-an-employee-badge/index.html",
+  "stories/the-api-fallback-started-speaking/index.html",
   "stories/the-deprecation-notice-found-the-repository/index.html",
   "stories/the-incident-queue-became-a-workflow/index.html",
-  "stories/the-model-got-a-control-room/index.html",
   "stories/vulnerability-research-hit-machine-scale/index.html",
-  "weekly/2026-11-20/index.html"
+  "weekly/2026-11-21/index.html"
 ]
