@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-11-23T07:33:07Z",
+  "last_successful_update": "2026-11-24T09:40:32Z",
   "last_successful_commit": "8494c0c0020ede7f9dcd91aa9613a3e6931d2dfc",
   "last_published_story_ids": [
+    "the-safety-review-moved-into-the-customers-bucket",
+    "the-agent-endpoint-entered-the-firewall-inventory",
     "the-safety-limit-moved-upstream",
     "vulnerability-research-hit-machine-scale",
-    "the-api-fallback-started-speaking",
-    "the-agent-got-an-employee-badge",
-    "the-incident-queue-became-a-workflow"
+    "the-agent-got-an-employee-badge"
   ],
   "initial_lookback_days": 7,
-  "note": "The 23 November 2026 research window published Edition 44 through protected PR #124. One new Important governance signal and one material remediation update on upstream pacing metrics and MONAI Label 0.8.6 passed review, promotion, build, tests, required validation, GitHub Pages deployment, and production verification."
+  "note": "The 24 November 2026 research window prepared Edition 45 with two new Important signals on customer-operated safeguard evidence workflows and agent-protocol endpoint inventory and inspection. Publication, protected validation, deployment, and production verification are pending."
 }
