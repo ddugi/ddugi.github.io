@@ -4,7 +4,7 @@
     "start": "2026-11-23T07:33:07Z",
     "end": "2026-11-24T09:40:32Z"
   },
-  "status": "prepared",
+  "status": "deployed",
   "checked_primary_sources": [
     "OpenAI research, safety, engineering, model, system-card, API, ChatGPT, and newsroom publications",
     "Anthropic newsroom, alignment research, engineering, safeguards, and standards publications",
@@ -85,9 +85,9 @@
   "emerging_trends_detected": 2,
   "notes": "Edition 45 proposes two moderate, qualitative and story-traceable movements: Governance from customer-operated safeguard evidence workflows and AI Security from agent protocols entering endpoint inventory and managed inspection. Neither movement claims adoption or effectiveness, and no quantitative Signal Map score is used.",
   "publication": {
-    "pull_request": null,
-    "commit": null,
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/126",
+    "commit": "b10c90b95a3b77e736298cdbd0a8edb1f227a2fc",
     "live_edition_changed": true,
-    "verified_url": null
+    "verified_url": "https://ddugi.github.io/ai-signal/"
   }
 }

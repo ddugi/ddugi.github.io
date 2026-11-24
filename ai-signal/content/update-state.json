@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_successful_update": "2026-11-24T09:40:32Z",
-  "last_successful_commit": "8494c0c0020ede7f9dcd91aa9613a3e6931d2dfc",
+  "last_successful_commit": "b10c90b95a3b77e736298cdbd0a8edb1f227a2fc",
   "last_published_story_ids": [
     "the-safety-review-moved-into-the-customers-bucket",
     "the-agent-endpoint-entered-the-firewall-inventory",
@@ -10,5 +10,5 @@
     "the-agent-got-an-employee-badge"
   ],
   "initial_lookback_days": 7,
-  "note": "The 24 November 2026 research window prepared Edition 45 with two new Important signals on customer-operated safeguard evidence workflows and agent-protocol endpoint inventory and inspection. Publication, protected validation, deployment, and production verification are pending."
+  "note": "The 24 November 2026 research window published Edition 45 through protected PR #126. Two new Important signals on customer-operated safeguard evidence workflows and agent-protocol endpoint inventory and inspection passed review, promotion, build, tests, required validation, GitHub Pages deployment, and production verification."
 }
