@@ -3,9 +3,9 @@
   "publication": {
     "name": "AI Signal",
     "subtitle": "What changed. Why it matters. Where it’s going.",
-    "edition": "44",
+    "edition": "45",
     "mode": "live",
-    "updatedAt": "2026-11-23"
+    "updatedAt": "2026-11-24"
   },
   "analytics": {
     "provider": "cloudflare-web-analytics",
@@ -13,6 +13,239 @@
     "siteToken": "fa818fb8086c4dda9df4e038108ffd06"
   },
   "stories": [
+    {
+      "id": "the-safety-review-moved-into-the-customers-bucket",
+      "slug": "the-safety-review-moved-into-the-customers-bucket",
+      "title": "The safety review moved into the customer’s bucket.",
+      "summary": "Amazon Bedrock now exposes model-provider access programs as inspectable cloud state, while preview Anthropic safeguards connect retained prompts, automated monitoring, customer-controlled storage, and customer adjudication. The workflow is tangible; its detection quality and safety outcomes remain unpublished.",
+      "topic": "Cloud control planes for frontier-model access, evidence custody, and safety review",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "published",
+      "featured": true,
+      "publishedAt": "2026-11-23",
+      "updatedAt": "2026-11-24",
+      "author": "Dugi Selmanaj",
+      "visual": "governance",
+      "scenario": "A regulated company requests access to a frontier model through its cloud control plane. Administrators approve enrollment with IAM and organization policy, retained prompts land in a customer bucket under a customer key, automated monitoring creates a case, and the customer records whether the event violated policy.",
+      "facts": [
+        {
+          "text": "AWS published the Bedrock Trusted Access announcement with an embedded timestamp of 24 November 2026 at 05:01:14 UTC, inside this edition's research window.",
+          "sourceIds": [
+            "aws-bedrock-trusted-access"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "AWS says the Trusted Access Program API is generally available and can discover, request, approve, enroll, disable, and inspect model-provider programs at project, account, or organization scope.",
+          "sourceIds": [
+            "aws-bedrock-trusted-access",
+            "aws-trusted-access-docs"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "The first two programs, Anthropic Enterprise Frontier Safeguards and Enterprise Data Controls, are public previews rather than generally available safeguards.",
+          "sourceIds": [
+            "aws-bedrock-trusted-access",
+            "aws-efs-edc-docs"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "Under EFS, Bedrock writes prompts and completions to a customer S3 bucket encrypted with a customer KMS key; automated monitoring runs in AWS-operated accounts, potential risks become cases in the customer's bucket, and the customer records violation or no-violation decisions.",
+          "sourceIds": [
+            "aws-bedrock-trusted-access"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "AWS says EDC uses AWS-managed storage and keys while retaining a customer-review boundary, but the preview documentation says EDC cases are not delivered during preview.",
+          "sourceIds": [
+            "aws-bedrock-trusted-access",
+            "aws-efs-edc-docs"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "The preview documentation instructs participants to use test accounts and test traffic, excludes PII and PHI, and says enrollment disables zero data retention for covered accounts or projects.",
+          "sourceIds": [
+            "aws-efs-edc-docs"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "AWS says EFS records normally arrive within minutes but writes may retry for up to 72 hours; loss of required S3 or KMS access can stop covered-model service after 24 hours.",
+          "sourceIds": [
+            "aws-bedrock-trusted-access"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "The reviewed sources publish no false-positive or false-negative rates, calibration data, case volume, reviewer burden, response time, enforcement outcome, adoption measure, or evidence of reduced misuse.",
+          "sourceIds": [
+            "aws-bedrock-trusted-access",
+            "aws-efs-edc-docs"
+          ],
+          "verifiedAt": "2026-11-24"
+        }
+      ],
+      "changed": "A frontier-model provider's special access terms can now be represented as cloud state: eligibility, approval, enrollment scope, retention mode, storage destination, key policy, evidence path, and customer review response. The API is GA, but the first safeguard programs remain preview-bound and operationally incomplete.",
+      "whyItMatters": "Enterprise teams can integrate model-access conditions into IAM, organization policy, storage, key management, evidence retention, and audit workflows instead of treating them as private account-team exceptions. Customer custody of retained evidence is meaningful, but it does not expose or validate the monitoring logic that decides which cases appear.",
+      "technicalImpact": "Separate enrollment authority from model use, log enrollment changes, test S3 and KMS failure paths, monitor evidence-delivery lag, define retention and reviewer access, and preserve incident runbooks for missing or delayed cases. Treat EFS and EDC as previews: do not use regulated data, assume API stability, or rely on an incomplete case interface.",
+      "businessImpact": "A cloud-native contract can make exceptional frontier access easier to audit, but it creates new dependencies and costs around storage, keys, reviewers, data retention, and model availability. Joining changes the zero-data-retention posture, and a broken evidence destination can eventually affect service continuity.",
+      "outlook": "Conditional outlook: if other providers and clouds expose comparable enrollment, evidence, storage, case, and audit contracts—and publish detection and review outcomes—trusted-access programs could become a recognizable governance layer. One vendor's preview implementation does not establish that standard or prove improved safety.",
+      "uncertainties": [
+        "AWS and Anthropic are the sources for the product behavior; no independent evaluator has published detection-quality or customer-outcome evidence for this implementation.",
+        "Customers control retained-data location, keys, and adjudication under EFS, but automated monitoring runs in AWS-operated accounts and its detection logic is undisclosed.",
+        "EDC cases are not delivered during the preview, so the announced customer-review boundary is not yet an operationally complete case workflow.",
+        "The preview excludes regulated data, has no console, can change APIs and action names, and is limited to specified regions, models, and inference profiles.",
+        "No source reports false positives, false negatives, calibration, case volume, reviewer burden, response SLAs, escalation outcomes, adoption, or measured misuse reduction.",
+        "Disabling zero data retention and coupling model availability to S3 and KMS access can create privacy, resilience, and operational trade-offs."
+      ],
+      "analysis": "The safeguard is becoming a contract the customer can inspect. That is progress because evidence location, enrollment authority, and review ownership are architecture—not fine print. But a case in a bucket is still only the output of an undisclosed detector. Custody is not calibration.",
+      "sources": [
+        {
+          "id": "aws-bedrock-trusted-access",
+          "title": "Introducing the Amazon Bedrock Trusted Access API with Anthropic's Enterprise Frontier Safeguards and Enterprise Data Controls",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls/",
+          "publishedAt": "2026-11-23",
+          "accessedAt": "2026-11-24"
+        },
+        {
+          "id": "aws-trusted-access-docs",
+          "title": "Trusted access programs in Amazon Bedrock",
+          "publisher": "Amazon Web Services",
+          "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/trusted-access-programs.html",
+          "publishedAt": "2026-11-23",
+          "accessedAt": "2026-11-24"
+        },
+        {
+          "id": "aws-efs-edc-docs",
+          "title": "Enterprise Frontier Safeguards and Enterprise Data Controls on Amazon Bedrock",
+          "publisher": "Amazon Web Services",
+          "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/anthropic-efs-enterprise-data-controls.html",
+          "publishedAt": "2026-11-23",
+          "accessedAt": "2026-11-24"
+        }
+      ],
+      "sourceNote": "AWS provides the launch facts, API behavior, preview boundaries, evidence flow, and operational limitations. The sources establish product behavior rather than independent safety effectiveness. The edition distinguishes GA API infrastructure from preview EFS and EDC programs and treats customer custody of evidence separately from custody or transparency of the monitoring implementation.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-24"
+      }
+    },
+    {
+      "id": "the-agent-endpoint-entered-the-firewall-inventory",
+      "slug": "the-agent-endpoint-entered-the-firewall-inventory",
+      "title": "The agent endpoint entered the firewall inventory.",
+      "summary": "AWS now discovers LLM, MCP, and A2A endpoints across common entry points and offers protocol-aware WAF inspection with optional Bedrock Guardrails checks. AI-specific interfaces have entered ordinary inventory and firewall policy; discovery completeness and protection effectiveness remain unmeasured.",
+      "topic": "AI endpoint inventory and protocol-aware managed inspection",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "published",
+      "featured": false,
+      "publishedAt": "2026-11-23",
+      "updatedAt": "2026-11-24",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "A platform team discovers an undocumented MCP server behind a load balancer. The endpoint enters the same inventory as ordinary APIs, WAF recognizes its protocol, malformed requests can be blocked, and selected prompts or responses can be sent to Guardrails for content checks.",
+      "facts": [
+        {
+          "text": "AWS published its API and AI Security announcement with an embedded timestamp of 23 November 2026 at 20:25:17 UTC, inside this edition's research window.",
+          "sourceIds": [
+            "aws-api-ai-security"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "AWS says API Portal can discover LLM inference, Model Context Protocol, and Agent2Agent endpoints behind API Gateway, Application Load Balancer, and CloudFront across an AWS organization.",
+          "sourceIds": [
+            "aws-api-ai-security",
+            "aws-waf-ai-launch"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "API Portal builds inventory from service configuration and live traffic, identifies AI endpoint types, and can flag shadow, zombie, and orphaned APIs.",
+          "sourceIds": [
+            "aws-api-ai-security"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "The generally available AWS WAF AI Security managed rule group recognizes LLM, MCP, and A2A traffic and checks malformed MCP and A2A requests against supported protocol versions.",
+          "sourceIds": [
+            "aws-api-ai-security",
+            "aws-waf-ai-launch"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "When content inspection is enabled, AWS WAF can call Amazon Bedrock Guardrails to assess requests or responses for prompt attacks, harmful content, or sensitive information.",
+          "sourceIds": [
+            "aws-api-ai-security",
+            "aws-waf-ai-launch"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "AWS says additional WAF fees apply and Bedrock charges separately for content inspection; API Portal and AI Security have different regional availability.",
+          "sourceIds": [
+            "aws-waf-ai-launch"
+          ],
+          "verifiedAt": "2026-11-24"
+        },
+        {
+          "text": "The reviewed sources publish no endpoint-discovery completeness measure, protocol coverage benchmark, false-positive or false-negative rate, prompt-injection bypass result, added-latency measurement, customer deployment count, blocked incident, or production outcome.",
+          "sourceIds": [
+            "aws-api-ai-security",
+            "aws-waf-ai-launch"
+          ],
+          "verifiedAt": "2026-11-24"
+        }
+      ],
+      "changed": "Agent-facing interfaces have moved into the same inventory and perimeter tooling used for ordinary APIs. AWS now identifies MCP, A2A, and LLM endpoints as network-visible application surfaces and applies protocol recognition, deterministic conformance checks, and optional content inspection at the WAF layer.",
+      "whyItMatters": "MCP and A2A make tools and cooperating agents reachable through self-describing protocols that can appear outside a central API registry. Discovering those interfaces and attaching managed inspection reduces the chance that an experimental server remains invisible. It does not decide whether an allowed tool call is authorized in application context.",
+      "technicalImpact": "Inventory AI endpoints from configuration and traffic, assign ownership, retire zombie paths, validate protocol versions, authenticate callers, verify tokens or signatures, set request-size and rate controls, and test content inspection for latency and bypass behavior. Keep application authorization, transaction policy, and tool-level permissions behind the perimeter.",
+      "businessImpact": "Security teams gain a familiar operating surface for AI endpoints, but protection adds regional, cost, tuning, and incident-response work. Managed rules can accelerate coverage while also creating false-positive, latency, and concentration risks that require measurement before broad enforcement.",
+      "outlook": "Conditional outlook: if independent testing shows reliable endpoint coverage, bounded latency, and credible bypass and false-positive rates, protocol-aware inventory and inspection could become standard agent-platform controls. Without that evidence, AWS has established a control surface—not its effectiveness.",
+      "uncertainties": [
+        "AWS is the source for discovery and protection claims; no independent benchmark or customer outcome validates the launch.",
+        "No source quantifies endpoint-discovery completeness, classification accuracy, protocol coverage, false positives, false negatives, added latency, or prompt-injection bypass rates.",
+        "Managed protocol and content inspection cannot determine whether an otherwise valid tool call is authorized by current user intent, application state, or business policy.",
+        "Response inspection is optional and limited by the body size AWS WAF inspects for the protected resource, leaving content beyond that limit unchecked.",
+        "Different regional availability and separate WAF and Bedrock charges can limit consistent enterprise rollout.",
+        "Availability does not establish adoption, blocked incidents, reduced loss, or operational maturity."
+      ],
+      "analysis": "The agent endpoint is becoming an ordinary security asset: discover it, name it, assign an owner, inspect its protocol, and watch its traffic. That is overdue. The firewall can reject a malformed message; it still cannot tell whether a perfectly formed request should have been allowed to move money or touch production.",
+      "sources": [
+        {
+          "id": "aws-api-ai-security",
+          "title": "Introducing API and AI security on AWS, from discovery to protection",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/blogs/security/introducing-api-and-ai-security-on-aws-from-discovery-to-protection/",
+          "publishedAt": "2026-11-23",
+          "accessedAt": "2026-11-24"
+        },
+        {
+          "id": "aws-waf-ai-launch",
+          "title": "AWS WAF announces automated discovery and protection for LLM, MCP, and A2A endpoints using Amazon Bedrock Guardrails",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/waf-ai-endpoint-discovery-protection/",
+          "publishedAt": "2026-11-23",
+          "accessedAt": "2026-11-24"
+        }
+      ],
+      "sourceNote": "AWS primary sources establish the generally available discovery and managed-inspection features, supported entry points and protocols, regional availability, and pricing boundaries. They do not publish independent coverage, accuracy, bypass, latency, adoption, or incident-reduction evidence, so the story treats the launch as a new control surface rather than proven protection.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-11-24"
+      }
+    },
     {
       "id": "the-safety-limit-moved-upstream",
       "slug": "the-safety-limit-moved-upstream",
@@ -22,9 +255,9 @@
       "category": "Security & Governance",
       "signal": "Important",
       "status": "published",
-      "featured": true,
+      "featured": false,
       "publishedAt": "2026-11-22",
-      "updatedAt": "2026-11-23",
+      "updatedAt": "2026-11-24",
       "author": "Dugi Selmanaj",
       "visual": "governance",
       "scenario": "A frontier lab watches a held-out pretraining metric before the model reaches a familiar benchmark or deployment gate. Crossing a pre-registered threshold does not prove a capability, but it pauses further scaling until an agreed monitoring or interpretability milestone is ready and independently checked.",
@@ -122,7 +355,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-05",
-      "updatedAt": "2026-11-23",
+      "updatedAt": "2026-11-24",
       "author": "Dugi Selmanaj",
       "visual": "security",
       "scenario": "An operator supplies targets and a goal. The agent maps services, changes tactics after failures, runs for hours, and keeps producing evidence. Most paths go nowhere. One path reaches an exposed medical-imaging service, discovers an arbitrary file write, and later turns it into a root shell.",
@@ -460,105 +693,6 @@
       }
     },
     {
-      "id": "the-api-fallback-started-speaking",
-      "slug": "the-api-fallback-started-speaking",
-      "title": "The API fallback started speaking.",
-      "summary": "Google says Gemini-powered Duplex can use the telephone when an online API or booking form does not exist. The signal is not proven reliability. It is a broader action surface: an agent can now cross a human-operated legacy interface without the business building an integration.",
-      "topic": "Agent action through legacy voice workflows",
-      "category": "Agents",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-20",
-      "updatedAt": "2026-11-23",
-      "author": "Dugi Selmanaj",
-      "visual": "agents",
-      "scenario": "A task reaches the edge of the digital system: no API, no booking endpoint, no structured form. Instead of stopping, the agent calls the business, discloses that it is automated, negotiates around calendar constraints, and returns the result to the user's workflow.",
-      "facts": [
-        {
-          "text": "Google Research published its technical account of Gemini-powered Duplex on 20 November 2026; the product capability had been announced on 17 November.",
-          "sourceIds": [
-            "google-duplex-technical",
-            "google-gemini-tasks-launch"
-          ],
-          "verifiedAt": "2026-11-21"
-        },
-        {
-          "text": "Google describes an architectural progression from narrow recurrent models, through hybrid systems with deterministic state tracking and policy guardrails, to free-text task descriptions handled by a Gemini stack combining multimodal understanding, planning, and dialogue generation.",
-          "sourceIds": [
-            "google-duplex-technical"
-          ],
-          "verifiedAt": "2026-11-21"
-        },
-        {
-          "text": "Google says the current calling system handles multi-constraint requests, contextual changes, compressed or noisy phone audio, and low-latency turn-taking.",
-          "sourceIds": [
-            "google-duplex-technical"
-          ],
-          "verifiedAt": "2026-11-21"
-        },
-        {
-          "text": "Google frames telephone calling as a fallback when structured digital channels such as online APIs or booking forms do not exist.",
-          "sourceIds": [
-            "google-duplex-technical"
-          ],
-          "verifiedAt": "2026-11-21"
-        },
-        {
-          "text": "Google says every call begins with an AI disclosure and that businesses can opt out through their Business Profile or verbally during a call.",
-          "sourceIds": [
-            "google-duplex-technical"
-          ],
-          "verifiedAt": "2026-11-21"
-        },
-        {
-          "text": "The reviewed sources provide no current call volume, task-completion rate, human-correction rate, false-booking rate, cancellation rate, complaint rate, or independent evaluation.",
-          "sourceIds": [
-            "google-duplex-technical",
-            "google-gemini-tasks-launch"
-          ],
-          "verifiedAt": "2026-11-21"
-        }
-      ],
-      "changed": "The in-window technical account makes the interface shift legible. Duplex has moved from narrow, hand-shaped calling domains to free-text tasks inside a broader Gemini workflow, with the telephone acting as a tool when machine-readable interfaces stop.",
-      "whyItMatters": "Most of the economy is not exposed as a clean API. Voice gives agents a route into fragmented service systems without waiting for every business to integrate. That also moves caller authentication, disclosure, consent, correction, escalation, and counterparty burden into the agent architecture rather than leaving them as product copy.",
-      "technicalImpact": "Treat telephony as a consequential external tool. Preserve the user's intent and constraints, disclose the agent, authenticate the calling service where possible, record consent and outcomes, require confirmation for commitments, support takeover and correction, respect merchant opt-outs, and measure completion, reversal, complaint, and counterparty-burden rates.",
-      "businessImpact": "Voice can extend automation to businesses that lack modern integration budgets, but it transfers work to the person answering the phone. Operators need to measure whether the workflow saves time overall or simply creates more verification, correction, and unwanted-call handling for counterparties.",
-      "outlook": "Conditional outlook: if providers publish task-completion, correction, disclosure, opt-out, and counterparty-burden outcomes, voice may become a standard fallback tool for agents operating across fragmented service systems. Without those measures, the capability proves a broader interface—not trustworthy execution.",
-      "uncertainties": [
-        "The technical and product claims come from Google; the reviewed sources provide no independent evaluation of the current Gemini-powered calling system.",
-        "Google does not publish current completion, correction, cancellation, false-booking, complaint, takeover, or disclosure-recognition rates.",
-        "An AI disclosure and merchant opt-out are important controls, but the sources do not quantify whether recipients understand the disclosure or how quickly opt-outs propagate.",
-        "A telephone fallback broadens the action surface without establishing that the agent handles ambiguous commitments, prices, availability, identity, or sensitive requests safely.",
-        "The product launch predates the research window by three days; the in-window evidence is the technical architecture account, not a new product launch."
-      ],
-      "analysis": "The most interesting tool is the one nobody had to integrate. The phone lets an agent cross the last mile by speaking to a person. That is useful—and exactly why the controls must cover both ends of the line, not just the user who clicked start.",
-      "sources": [
-        {
-          "id": "google-duplex-technical",
-          "title": "How Google Duplex evolved to also call businesses for you in Gemini",
-          "publisher": "Google Research",
-          "url": "https://research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini/",
-          "publishedAt": "2026-11-20",
-          "accessedAt": "2026-11-21"
-        },
-        {
-          "id": "google-gemini-tasks-launch",
-          "title": "Gemini's new capabilities help you tackle more tasks",
-          "publisher": "Google",
-          "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
-          "publishedAt": "2026-11-17",
-          "accessedAt": "2026-11-21"
-        }
-      ],
-      "sourceNote": "Google's 20 November technical account is the primary evidence for the architectural transition and control claims. The 17 November launch establishes when the capability became available and acknowledges that tasks may fail or miss the mark. Neither source supplies current operating outcomes or independent evaluation.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-21"
-      }
-    },
-    {
       "id": "the-agent-got-an-employee-badge",
       "slug": "the-agent-got-an-employee-badge",
       "title": "The agent got an employee badge.",
@@ -569,7 +703,7 @@
       "status": "published",
       "featured": false,
       "publishedAt": "2026-11-16",
-      "updatedAt": "2026-11-23",
+      "updatedAt": "2026-11-24",
       "author": "Dugi Selmanaj",
       "visual": "enterprise",
       "scenario": "An agent opens a claims application that has no modern API. It enters through a managed desktop as the signed-in employee, receives only that employee's directory permissions and Group Policies, and leaves a replay stored in the company's own encrypted bucket for investigators and auditors.",
@@ -761,203 +895,105 @@
         "reviewer": "Dugi Selmanaj",
         "reviewedAt": "2026-11-21"
       }
-    },
-    {
-      "id": "the-incident-queue-became-a-workflow",
-      "slug": "the-incident-queue-became-a-workflow",
-      "title": "The incident queue became a workflow.",
-      "summary": "OpenAI's Performance Factory turns a production alert into persistent agent work: investigate, record evidence, challenge the diagnosis, propose a fix for engineer review, wait for deployment, and verify recovery. The signal is not autonomous SRE. It is a stateful operating workflow in which scoped identity, durable task state, adversarial review, human merge authority, and post-deployment evidence surround the model.",
-      "topic": "Stateful, reviewed production-agent workflows",
-      "category": "Agents",
-      "signal": "Important",
-      "status": "published",
-      "featured": false,
-      "publishedAt": "2026-11-19",
-      "updatedAt": "2026-11-23",
-      "author": "Dugi Selmanaj",
-      "visual": "agents",
-      "scenario": "A latency alert opens a durable task. One agent investigates code, metrics, logs, traces, profiles, and snapshots. Another session tries to disprove the diagnosis. An engineer decides whether the proposed change ships. After deployment, a new agent resumes the same task and checks whether performance actually returned to baseline.",
-      "facts": [
-        {
-          "text": "OpenAI published Performance Factory on 19 November 2026 as an internal Codex-powered workflow for investigating and resolving ChatGPT performance regressions.",
-          "sourceIds": [
-            "openai-performance-factory"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "OpenAI says the regression workflow tracked more than 1,700 investigations and root-caused more than 600 cases in just over three months, which it summarizes as about 17 automated investigations per day.",
-          "sourceIds": [
-            "openai-performance-factory"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "The workflow stores status and findings outside any one model session, uses subscriptions to resume work after review, CI, or deployment events, and can hand the same task between agents and engineers.",
-          "sourceIds": [
-            "openai-performance-factory"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "The cloud agent runs inside OpenAI's network with access to code repositories and observability tools under a service identity whose permissions can be scoped and whose actions can be attributed.",
-          "sourceIds": [
-            "openai-performance-factory"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "OpenAI says a separate adversarial Codex session tries to disprove the proposed diagnosis before the task advances, and engineers retain the decision over whether a proposed fix is merged.",
-          "sourceIds": [
-            "openai-performance-factory"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "In OpenAI's manual review of 100 root-cause suggestions, it reports that 70% were accurate; the other 30% required refinement or did not establish causality. The article does not disclose the sampling method or reviewer agreement.",
-          "sourceIds": [
-            "openai-performance-factory"
-          ],
-          "verifiedAt": "2026-11-20"
-        },
-        {
-          "text": "OpenAI says some proposed fixes were too complex or introduced new problems, and another agent checks production recovery after deployment before the task is considered resolved.",
-          "sourceIds": [
-            "openai-performance-factory"
-          ],
-          "verifiedAt": "2026-11-20"
-        }
-      ],
-      "changed": "The agent no longer ends when the chat ends. Work persists across alerts, model sessions, CI, human review, deployment, and verification. That turns isolated tool use into an explicit state machine with identity, evidence, transition rules, approval boundaries, and a path back to investigation when the result fails.",
-      "whyItMatters": "Production operations are mostly waiting, handoffs, incomplete evidence, and decisions—not a single clever answer. Performance Factory shows a practical pattern for letting agents re-enter work when the next event arrives while keeping diagnosis challenge, merge authority, and outcome verification separate. The architecture is more consequential than the claim that a model can read a trace or write a patch.",
-      "technicalImpact": "Store task state outside model context, define allowed workflow transitions, give each agent run a scoped service identity, subscribe tasks to CI and deployment events, preserve evidence links, challenge diagnoses with an independent session, and verify the production outcome after change. Measure suggestion accuracy separately from shipped fixes and customer-visible recovery; protect observability data and test how agents behave when tools return incomplete or misleading evidence.",
-      "businessImpact": "A supervised agent workflow can reduce queueing and make recurring investigations accessible beyond a small expert team. It also creates a new production system to operate: permissions, task ownership, evaluation suites, review capacity, secrets, audit evidence, model cost, and failure handling. Investigation volume is not the same as reliability improvement, so procurement and staffing decisions need outcome metrics rather than activity counts.",
-      "outlook": "Conditional outlook: if other operators publish diagnosis accuracy, rejection rates, completion data, human-review boundaries, and before-and-after reliability outcomes, persistent agent workflows could become a standard production-operations pattern. If success continues to be measured mainly as investigations opened or suggestions produced, the architecture may remain useful without demonstrating autonomous operational reliability.",
-      "uncertainties": [
-        "All operating counts and accuracy claims are first-party OpenAI evidence; no external evaluator or reproducible benchmark validates the workflow.",
-        "The article does not disclose the total number or severity distribution of regressions, leaving the denominator behind 600 root-caused cases unknown.",
-        "OpenAI does not report how many fixes shipped, how often engineers rejected them, or how many deployed changes restored performance.",
-        "The 70% accuracy figure comes from an internal manual review of 100 suggestions with an unspecified selection method and reviewer-agreement process.",
-        "Some proposed fixes were too complex or introduced new problems, demonstrating that diagnosis and safe remediation are separate capabilities.",
-        "No human-only baseline establishes changes in recovery time, customer-visible latency, incident frequency, or engineering effort.",
-        "The publication does not fully describe the service identity's permission model, secrets exposure, containment boundary, or behavior when observability evidence is misleading."
-      ],
-      "analysis": "The useful unit is not the agent turn. It is the task that survives the turn. Performance Factory treats an agent as one worker entering a controlled process, not as the process itself. The model investigates; another model argues; a human decides; production supplies the verdict. That is less magical than autonomous operations—and much more believable.",
-      "sources": [
-        {
-          "id": "openai-performance-factory",
-          "title": "How OpenAI's Performance Factory keeps ChatGPT fast",
-          "publisher": "OpenAI",
-          "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast/",
-          "publishedAt": "2026-11-19",
-          "accessedAt": "2026-11-20"
-        }
-      ],
-      "sourceNote": "OpenAI's engineering article is a first-party operational account. It establishes the described workflow, identity model, persistent state, investigation counts, internal accuracy review, engineer merge authority, and post-deployment verification, but it does not provide independent outcomes, a human-only baseline, or complete denominators.",
-      "review": {
-        "status": "approved",
-        "reviewer": "Dugi Selmanaj",
-        "reviewedAt": "2026-11-20"
-      }
     }
   ],
   "signalMap": {
     "status": "editorial",
-    "asOf": "2026-11-23",
-    "note": "Directional editorial assessment based only on the linked stories in Edition 44. Arrows are qualitative, not quantitative scores.",
+    "asOf": "2026-11-24",
+    "note": "Directional editorial assessment based only on the linked stories in Edition 45. Arrows are qualitative, not quantitative scores.",
     "items": [
       {
         "area": "Models",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 45 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Agents",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 45 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Inference",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 45 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Open Source",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 45 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Robotics",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 45 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Enterprise Adoption",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 45 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "AI Security",
-        "direction": "flat",
-        "dimension": "No new assessment",
-        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
-        "storyId": null
+        "direction": "up",
+        "dimension": "Agent protocols enter endpoint inventory and managed inspection",
+        "rationale": "AWS now discovers LLM, MCP, and A2A interfaces across common entry points and offers protocol-aware WAF and optional content inspection. The movement is moderate because coverage, accuracy, latency, bypass, adoption, and incident-reduction outcomes remain unpublished.",
+        "storyId": "the-agent-endpoint-entered-the-firewall-inventory"
       },
       {
         "area": "Governance",
         "direction": "up",
-        "dimension": "Upstream capability metrics enter pacing proposals",
-        "rationale": "OpenAI disclosed internal pretraining-loss measurements and proposed tying shared thresholds to monitoring or interpretability milestones. The movement is moderate and describes public governance discussion, not adoption: the dataset is private, the measurements are not independently reproduced, and no cross-lab standard or enforceable rule exists.",
-        "storyId": "the-safety-limit-moved-upstream"
+        "dimension": "Provider safeguards become customer-operated evidence workflows",
+        "rationale": "Bedrock now represents provider access programs through inspectable enrollment, IAM and organization controls, retained-evidence location, customer keys, and customer adjudication. The movement is moderate product-direction evidence: the first programs remain preview, EDC cases are incomplete, and no detection or outcome data is published.",
+        "storyId": "the-safety-review-moved-into-the-customers-bucket"
       },
       {
         "area": "Compute",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 45 proposes no evidence-backed movement for this area.",
         "storyId": null
       },
       {
         "area": "Data Infrastructure",
         "direction": "flat",
         "dimension": "No new assessment",
-        "rationale": "Edition 44 proposes no evidence-backed movement for this area.",
+        "rationale": "Edition 45 proposes no evidence-backed movement for this area.",
         "storyId": null
       }
     ]
   },
   "weekly": {
-    "slug": "2026-11-23",
-    "title": "Upstream metrics meet downstream patch reality",
-    "date": "2026-11-23",
+    "slug": "2026-11-24",
+    "title": "Cloud controls absorb AI safety contracts",
+    "date": "2026-11-24",
     "status": "published",
-    "intro": "This edition joins two ends of the safety lifecycle: a laboratory proposing an earlier warning signal before frontier capability is fully legible, and a maintainer shipping the artifact operators can finally install after an exploited flaw became public.",
-    "theme": "A measurement is not a brake, and a release is not a patched fleet. Governance becomes operational only when a comparable signal changes a decision and a deployable fix reaches the systems that need it.",
+    "intro": "This edition follows two awkward AI boundaries into ordinary cloud operations: exceptional access terms around frontier models, and network-visible protocols around tools and cooperating agents.",
+    "theme": "The control plane is learning to inventory, authorize, retain evidence from, and inspect AI-specific surfaces. Availability is the beginning of an operating model, not evidence that the controls work.",
     "storyIds": [
+      "the-safety-review-moved-into-the-customers-bucket",
+      "the-agent-endpoint-entered-the-firewall-inventory",
       "the-safety-limit-moved-upstream",
       "vulnerability-research-hit-machine-scale",
-      "the-api-fallback-started-speaking",
-      "the-agent-got-an-employee-badge",
-      "the-incident-queue-became-a-workflow"
+      "the-agent-got-an-employee-badge"
     ],
     "watchNext": [
-      "Will other frontier labs publish comparable held-out loss evaluations and pre-register pacing triggers?",
-      "Will any proposed threshold carry an auditable monitoring, interpretability, or development consequence?",
-      "How quickly will exposed MONAI Label deployments move to 0.8.6 and investigate possible compromise?",
-      "Will advisory metadata reconcile with the signed release so automated vulnerability tooling sees the correct remediation?"
+      "Will trusted-access programs publish detection quality, reviewer burden, case outcomes, and adoption?",
+      "Can evidence custody and retention controls work without creating brittle storage and key dependencies?",
+      "Will independent tests measure MCP and A2A discovery completeness, latency, false positives, and bypasses?",
+      "How will application authorization distinguish a valid protocol request from an action the user never intended?"
     ],
-    "closing": "The useful control is never just the number or the patch. It is the verified chain from measurement to decision and from release to deployed protection."
+    "closing": "A case in a bucket is not a calibrated detector, and a WAF rule is not authorization. The useful signal is that these boundaries are finally visible enough to operate—and therefore visible enough to measure next."
   }
 }

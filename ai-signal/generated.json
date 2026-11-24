@@ -2,10 +2,10 @@
   "about/index.html",
   "index.html",
   "policies/privacy/index.html",
+  "stories/the-agent-endpoint-entered-the-firewall-inventory/index.html",
   "stories/the-agent-got-an-employee-badge/index.html",
-  "stories/the-api-fallback-started-speaking/index.html",
-  "stories/the-incident-queue-became-a-workflow/index.html",
   "stories/the-safety-limit-moved-upstream/index.html",
+  "stories/the-safety-review-moved-into-the-customers-bucket/index.html",
   "stories/vulnerability-research-hit-machine-scale/index.html",
-  "weekly/2026-11-23/index.html"
+  "weekly/2026-11-24/index.html"
 ]
