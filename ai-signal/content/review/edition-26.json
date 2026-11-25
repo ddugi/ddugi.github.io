@@ -1,0 +1,677 @@
+{
+  "schemaVersion": 1,
+  "edition": {
+    "id": "edition-26",
+    "title": "The agent moved into CI",
+    "status": "editorial-review",
+    "preparedAt": "2026-10-29",
+    "publicationDate": "2026-10-29",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 26 on 29 October 2026. GitHub made Agentic Workflows generally available; the edition treats governed reasoning inside CI as the signal while keeping configuration risk, incorrect output, self-hosted runner burden, and missing independent evidence explicit."
+  },
+  "stories": [
+    {
+      "id": "the-agent-moved-into-ci",
+      "slug": "the-agent-moved-into-ci",
+      "title": "The agent moved into CI.",
+      "summary": "GitHub Agentic Workflows turns natural-language instructions into standard Actions workflows that run inside familiar repository controls. The useful shift is not that an agent can open an issue or pull request; it is that reasoning automation can be versioned, permissioned, budgeted, and reviewed like CI—while the GA label still does not prove that its decisions are correct or its safeguards complete.",
+      "topic": "Governed agent automation inside continuous integration",
+      "category": "Agents",
+      "signal": "Important",
+      "status": "draft",
+      "featured": true,
+      "publishedAt": "2026-10-28",
+      "updatedAt": "2026-10-29",
+      "author": "Dugi Selmanaj",
+      "visual": "agents",
+      "scenario": "A repository maintainer describes a recurring task in Markdown; GitHub compiles it into an Actions workflow that runs an agent with bounded permissions, budget controls, filtered inputs, and declared outputs.",
+      "facts": [
+        {
+          "text": "GitHub announced general availability of GitHub Agentic Workflows on 28 October 2026 and described the project as open source.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "Authors write workflow instructions in Markdown, and the gh-aw tool compiles them into standard GitHub Actions workflow files.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "The compiled workflows reuse GitHub Actions runner groups, policy constraints, logs, and other repository automation controls.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "GitHub says workflows can use GitHub Copilot or another supported coding agent selected by the operator.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "GitHub documents read-only permissions by default, sandboxed execution, an Agent Workflow Firewall, integrity filtering, safe outputs, and a separate threat-detection job as built-in safeguards.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "The GA release added support for Actions Runner Controller and Docker-in-Docker on self-hosted infrastructure, plus budget forecasting and additional model and provider choices.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+        "text": "The GA release lists Cloud Hypervisor and NVX micro-VM execution, plus enclaves intended to reduce data leakage in cross-repository workflows, among its isolation options.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        },
+        {
+          "text": "GitHub says Agentic Workflows is available for repositories on GitHub Free, Team, and Enterprise, while the default Copilot CLI engine requires a Copilot license.",
+          "sourceIds": [
+            "github-agentic-workflows-ga"
+          ],
+          "verifiedAt": "2026-10-29"
+        }
+      ],
+      "changed": "An agent instruction can now enter the repository as reviewed Markdown and leave the compiler as an ordinary Actions workflow. Execution inherits existing runner and policy boundaries, while proposed writes pass through declared safe outputs instead of giving the reasoning process unrestricted repository access. GitHub has moved the agent from an external assistant into the CI control plane.",
+      "whyItMatters": "Teams already know how to review workflow files, restrict runners, inspect logs, and protect branches. Reusing those controls gives agent automation an operating model that is easier to audit than a separate bot with broad credentials. The announcement does not show that generated decisions are reliable, that prompt injection is eliminated, or that every organization will configure the boundaries correctly.",
+      "technicalImpact": "Treat the Markdown source and compiled YAML as security-sensitive code. Pin dependencies, review permission changes, cap per-run and daily spend, constrain network access, declare only the outputs the workflow needs, and keep the job that applies writes separate from the reasoning job. Self-hosted runner support expands deployment options but also transfers isolation, patching, and capacity responsibilities to the operator.",
+      "businessImpact": "Repository maintenance tasks such as issue triage, documentation updates, test analysis, and pull-request preparation can use the same approval and audit path as existing automation. That may lower integration friction, but the cost case depends on useful output, review burden, failure rates, and operational overhead that GitHub has not quantified independently.",
+      "outlook": "Conditional outlook: if independent testing shows that the isolation, integrity filters, safe outputs, and threat detection hold up under hostile repository content, reasoning workflows could become a normal extension of CI. If output remains noisy or operators routinely widen permissions to make tasks work, organizations may reproduce bot risk inside a more polished workflow wrapper.",
+      "uncertainties": [
+        "The general-availability announcement is a vendor source and provides no independent security assessment or cross-organization operating evidence.",
+      "The announcement names Cloud Hypervisor, NVX micro-VMs, and enclaves but does not publish comparative isolation tests, supported-host details, or escape-resistance evidence.",
+        "Read-only defaults and safe outputs reduce authority only when operators preserve narrow permissions and carefully review which outputs may write to the repository.",
+        "Integrity filtering and threat detection can reduce exposure to untrusted content but do not establish that prompt injection or malicious instructions are impossible.",
+        "A workflow can be technically secure and still make an incorrect diagnosis, create noisy issues, or propose a harmful change.",
+        "Compiling Markdown into YAML reduces authoring work but does not remove the need to review and version the generated workflow.",
+        "Support for self-hosted runners and Actions Runner Controller increases the operator's responsibility for isolation, patching, secrets, and capacity.",
+        "Budgets limit model spending; they do not bound the operational cost of review, false positives, or incorrect repository changes.",
+        "GitHub publishes customer-reported outcomes in the announcement, but those claims are not used here as verified performance evidence."
+      ],
+      "analysis": "The signal is not another agent demo. It is the packaging. Reasoning becomes repository automation: committed as text, compiled into a known runtime, restricted by permissions, observed through logs, and separated from the mechanism that performs writes. That is a more credible enterprise boundary than asking whether an agent sounds smart. It is still a boundary, not a guarantee.",
+      "sources": [
+        {
+          "id": "github-agentic-workflows-ga",
+          "title": "GitHub Agentic Workflows generally available",
+          "publisher": "GitHub Changelog",
+          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+          "publishedAt": "2026-10-28",
+          "accessedAt": "2026-10-29",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary GitHub release announcement. It verifies product availability, workflow structure, stated safeguards, runner support, licensing, and preview boundaries; it does not independently establish security effectiveness, reliability, adoption, or business outcomes.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-29",
+      "notes": "Editorial pass completed. The story distinguishes the CI packaging signal from product marketing, omits customer-reported performance claims, and keeps untested isolation claims, operator configuration, incorrect output, self-hosted runner burden, and missing independent evidence explicit."
+      }
+    },
+    {
+      "id": "the-agent-got-its-own-badge",
+      "slug": "the-agent-got-its-own-badge",
+      "title": "The agent got its own badge.",
+      "summary": "GitHub Copilot SDK services can now authenticate as an organization-installed GitHub App instead of borrowing a signed-in user’s credentials. The useful shift is identity: an automated agent can carry short-lived workload credentials, organization policy, billing attribution, and a revocation path of its own—while public-preview limits and coarse spending controls keep the boundary incomplete.",
+      "topic": "Workload-owned identity for organization-operated AI agents",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-10-27",
+      "updatedAt": "2026-10-28",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "A service built with the GitHub Copilot SDK authenticates through a GitHub App installation token, so its requests no longer depend on whichever employee happens to be signed in.",
+      "facts": [
+        {
+          "text": "GitHub announced server-to-server authentication for the Copilot SDK on 27 October 2026 and made it available in public preview for GitHub Apps installed on organizations.",
+          "sourceIds": [
+            "github-copilot-s2s-release",
+            "github-copilot-s2s-admin"
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "text": "An eligible GitHub App uses the read-only Copilot Requests organization permission and a short-lived installation access token to make Copilot requests without a signed-in user's credentials.",
+          "sourceIds": [
+            "github-copilot-s2s-release",
+            "github-copilot-s2s-auth"
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "text": "GitHub documents that installation tokens expire after one hour and must be refreshed; depending on the runtime mode, the SDK client or host runtime must then be restarted.",
+          "sourceIds": [
+            "github-copilot-s2s-auth"
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "text": "Usage is attributed and billed to the organization that owns the installation, and the organization's allowed-model policies, budgets, and spending controls apply.",
+          "sourceIds": [
+            "github-copilot-s2s-release",
+            "github-copilot-s2s-auth",
+            "github-copilot-s2s-admin"
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "text": "App-attributed usage can be identified through the app_client_id field in exported AI usage CSV reports, but GitHub says this attribution is not available in the AI usage view on GitHub.",
+          "sourceIds": [
+            "github-copilot-s2s-release",
+            "github-copilot-s2s-admin"
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "text": "GitHub does not support a separate budget for an individual app or installation; app usage counts against the organization's Copilot budget.",
+          "sourceIds": [
+            "github-copilot-s2s-admin"
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "text": "The authentication method is limited to organization installations and cannot be used by personal-account or enterprise installations.",
+          "sourceIds": [
+            "github-copilot-s2s-admin"
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "text": "Organization owners can stop the Copilot access by suspending or uninstalling the GitHub App, which also removes that installation's access to other organization resources.",
+          "sourceIds": [
+            "github-copilot-s2s-release",
+            "github-copilot-s2s-admin"
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "text": "GitHub Actions uses a separate path through the built-in GITHUB_TOKEN and does not require a GitHub App or stored authentication secret for Copilot requests.",
+          "sourceIds": [
+            "github-copilot-s2s-auth",
+            "github-copilot-s2s-admin"
+          ],
+          "verifiedAt": "2026-10-28"
+        }
+      ],
+      "changed": "A Copilot-powered service can identify itself as an installed workload rather than inheriting a person's session. GitHub Apps provide the installation boundary, one-hour tokens provide credential expiry, and organization policy and billing follow the installation. That turns agent authentication into an explicit platform object that owners can inspect and revoke.",
+      "whyItMatters": "Long-running services fail operationally and create audit ambiguity when their access depends on an employee account. A workload identity survives staff changes, separates human and automated usage, and gives administrators a named installation to approve or remove. The new path governs access to Copilot; it does not prove that the agent's downstream actions are safe or appropriately authorized.",
+      "technicalImpact": "Create a dedicated GitHub App per trust boundary, request only Copilot Requests plus the minimum repository or organization permissions, mint installation tokens just in time, and refresh them before the one-hour expiry. Disable user-credential fallback, log the installation and app client ID with each run, apply organization model and spending policies, and design suspension or uninstall as an emergency stop. Keep downstream API authorization separate from model access.",
+      "businessImpact": "Organizations can operate Copilot-backed services without attaching cost and continuity to an individual employee. That improves ownership, offboarding, usage attribution, and policy consistency. Administration is still coarse: app-level budgets are unavailable, attribution requires CSV exports, and revoking one installation also removes its other organization access.",
+      "outlook": "Conditional outlook: if the preview matures with app-level budgets, first-class dashboards, reliable token rotation, and broader installation support, workload identity could become the default way enterprises run shared coding agents. If controls remain organization-wide and operators cannot distinguish or cap each agent easily, teams may gain credential independence without gaining enough financial or operational isolation.",
+      "uncertainties": [
+        "The feature is in public preview and its contract, eligibility, or administration may change.",
+        "GitHub publishes no adoption, availability, authentication-failure, or incident-reduction measurements for this release.",
+        "A read-only Copilot Requests permission can still incur organization charges; the label does not mean cost-free or risk-free access.",
+        "Organizations cannot assign a dedicated budget to one app or installation, so a noisy or compromised workload can consume a shared allowance unless the broader budget stops usage.",
+        "Usage attribution is available in CSV exports rather than the normal AI usage view, which may delay detection and investigation.",
+        "Suspending or uninstalling an app is a broad kill switch that also removes its access to other organization resources.",
+        "One-hour tokens reduce credential lifetime but add rotation and runtime-restart failure modes.",
+        "The authentication method covers Copilot requests, not the authorization of every repository, tool, API, or business action the agent may invoke.",
+        "Organization installations are supported, while personal-account and enterprise installations are excluded.",
+        "The announcement and documentation are vendor sources and provide no independent security assessment or operating evidence."
+      ],
+      "analysis": "The signal is the badge, not the model. An agent that runs for a team should look like a workload: named, short-lived, attributable, governed, and revocable. GitHub now supplies that identity boundary for Copilot SDK services. The preview still needs finer spending and visibility controls, but borrowing a human login is no longer the only design.",
+      "sources": [
+        {
+          "id": "github-copilot-s2s-release",
+          "title": "GitHub Copilot supports server-to-server authentication",
+          "publisher": "GitHub Changelog",
+          "url": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication/",
+          "publishedAt": "2026-10-27",
+          "accessedAt": "2026-10-28",
+          "kind": "primary"
+        },
+        {
+          "id": "github-copilot-s2s-auth",
+          "title": "Server-to-server authentication",
+          "publisher": "GitHub Docs",
+          "url": "https://docs.github.com/en/copilot/how-tos/copilot-sdk/auth/server-to-server-tokens",
+          "publishedAt": "2026-10-27",
+          "accessedAt": "2026-10-28",
+          "kind": "primary"
+        },
+        {
+          "id": "github-copilot-s2s-admin",
+          "title": "Manage GitHub Apps that use your organization's Copilot",
+          "publisher": "GitHub Docs",
+          "url": "https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/manage-app-copilot-access",
+          "publishedAt": "2026-10-27",
+          "accessedAt": "2026-10-28",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary GitHub release and administration documentation. They verify the preview contract, token lifecycle, permissions, billing, attribution, and revocation boundaries; they do not independently establish security effectiveness, reliability, adoption, or operational outcomes.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-29",
+        "notes": "Editorial pass completed. The story separates workload identity from downstream authorization, marks public-preview status, and keeps budget granularity, CSV-only attribution, token rotation, kill-switch breadth, eligibility, and missing independent evidence explicit."
+      }
+    },
+    {
+      "id": "the-secret-alert-became-an-incident-feed",
+      "slug": "the-secret-alert-became-an-incident-feed",
+      "title": "The secret alert became an incident feed.",
+      "summary": "GitHub added continuous validity checks, triage history, an API, and webhooks to public monitoring for exposed credentials. The useful shift is operational: a leak found outside an organization’s repositories can now enter the same event-driven response path as an internal security finding—while attribution, provider coverage, revocation, and public-preview limits remain unresolved.",
+      "topic": "Operational response to credentials exposed in public repositories",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-10-23",
+      "updatedAt": "2026-10-24",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "GitHub turned public monitoring from a list of attributed secret exposures into a managed alert stream with ongoing validity state, audit history, API access, and real-time webhooks.",
+      "facts": [
+        {
+          "text": "GitHub announced on 23 October 2026 that public monitoring now supports alert dismissals and reopening, activity timelines, filtering, ongoing validity checks, a REST API, and enterprise webhooks.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "Enterprise security teams can mark an alert Fixed or Dismissed, add an optional comment, reopen closed alerts, and review a timeline of actions and state changes.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "The alert list can be filtered by repository, committer, secret type, attribution method, and open or closed state.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "For supported providers, GitHub says it checks token validity continuously and labels a credential Active, Inactive, or Unknown.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "Enterprise admins and enterprise security managers can query attributed findings through GET /enterprises/{enterprise}/secret-scanning/public-monitoring-alerts.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "Enterprises can subscribe to the secret_scanning_public_monitoring_alert webhook to receive a notification when GitHub attributes a newly detected public leak to the organization.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "GitHub explicitly states that closing an alert does not revoke the credential or remove it from the public repository.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        },
+        {
+          "text": "Public monitoring remains in public preview for GitHub Enterprise Cloud and is included for customers with GitHub Advanced Security or GitHub Secret Protection.",
+          "sourceIds": [
+            "github-public-monitoring-response"
+          ],
+          "verifiedAt": "2026-10-24"
+        }
+      ],
+      "changed": "A finding about a credential exposed beyond the organization’s own repositories gained the mechanics of an incident feed. Teams can track state, inspect history, prioritize credentials that still appear active, query findings, and trigger response automation from a webhook. Detection is no longer confined to a dashboard someone must remember to visit.",
+      "whyItMatters": "A leaked credential is useful to an attacker immediately, while ownership and revocation often cross security, platform, and application teams. Continuous validity and event delivery can shorten the path from discovery to the person or system able to revoke it. The control still stops at the alert boundary: it does not revoke the credential, erase the public copy, or prove who exposed it.",
+      "technicalImpact": "Route the webhook into a durable incident queue, deduplicate repeated findings, map secret types to owners, and automate revocation only where ownership and blast radius are well understood. Treat Active as a prioritization signal rather than proof of exploitability, preserve the alert timeline as evidence, and reconcile closure in GitHub with the credential provider and source repository. Build a manual path for Unknown validity and attribution disputes.",
+      "businessImpact": "The feature can reduce discovery delay and give security teams a consistent workflow for credentials leaked in public code they do not control. Value depends on accurate attribution, broad provider support, clear ownership, and fast revocation. Enterprises also need to budget for investigation noise, cross-team escalation, and the possibility that an alert arrives after a credential has already been used.",
+      "outlook": "Conditional outlook: if attribution quality, validity coverage, and webhook reliability hold up at enterprise scale, external secret exposure could become a standard event stream feeding automated credential response. If provider coverage remains narrow, attribution is noisy, or teams mistake alert closure for remediation, the new workflow will organize findings without materially reducing exposure time.",
+      "uncertainties": [
+        "The feature remains in public preview, so behavior, availability, and interfaces may change.",
+        "GitHub does not publish detection recall, attribution accuracy, false-positive rates, webhook delivery guarantees, or time-to-detection measurements in the announcement.",
+        "Always-on validity checks apply only to supported secret providers, and an Unknown result does not establish whether a credential is safe or dangerous.",
+        "An Active label indicates that a token appears valid; it does not show whether it has been abused or what permissions and data it can reach.",
+        "Closing an alert does not revoke the credential or remove the public material, so response still depends on external systems and owners.",
+        "A credential may be copied before detection or revocation, leaving secondary exposure that the alert workflow cannot undo.",
+        "Attribution by membership or verified domain can be incomplete or disputed when contributors, contractors, forks, and organizational identities overlap.",
+        "The capability is limited to eligible GitHub Enterprise Cloud customers and does not provide a portable standard across source hosts.",
+        "Automated revocation can reduce exposure time but can also cause outages when ownership, dependencies, or rotation paths are unclear.",
+        "The announcement is a vendor description and provides no independent operational evaluation or customer outcome data."
+      ],
+      "analysis": "The important addition is not another secret alert. It is a route from an external finding into operations: validity state, ownership filters, an audit trail, an API, and a webhook. That makes public-code leakage automatable. The last mile still belongs to the enterprise—decide whether the token matters, revoke it safely, rotate dependents, and investigate whether anyone used it.",
+      "sources": [
+        {
+          "id": "github-public-monitoring-response",
+          "title": "Public monitoring adds triage, validity, API, and webhooks",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks/",
+          "publishedAt": "2026-10-23",
+          "accessedAt": "2026-10-24",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary product announcement from GitHub. It verifies the workflow, API, webhook, availability, and explicit remediation boundary; it does not provide independent measurements for detection, attribution, delivery reliability, or incident outcomes.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-29",
+        "notes": "Rechecked for Edition 25. The source-linked facts and editorial boundaries remain valid; no underlying claim was strengthened."
+      }
+    },
+    {
+      "id": "the-small-decision-got-its-own-api",
+      "slug": "the-small-decision-got-its-own-api",
+      "title": "The small decision got its own API.",
+      "summary": "OpenAI made a dedicated endpoint generally available for bounded choices, probabilities, and rubric scores. The useful shift is architectural: agents can route, classify, or escalate through a typed low-latency step instead of asking a full generative model every time—while calibration, threshold design, hot-path failure, and vendor-only performance evidence remain the real work.",
+      "topic": "Typed low-latency decisions inside agent workflows",
+      "category": "Agents",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-10-22",
+      "updatedAt": "2026-10-24",
+      "author": "Dugi Selmanaj",
+      "visual": "agents",
+      "scenario": "OpenAI separated recurring bounded decisions—continue, retry, route, score, or escalate—from open-ended generation and exposed them through a dedicated GPT-6 Luna endpoint with typed answers.",
+      "facts": [
+        {
+          "text": "OpenAI made the Decisions API generally available on 22 October 2026 through the dedicated /v1/decisions endpoint, currently using GPT-6 Luna.",
+          "sourceIds": [
+            "openai-decisions-ga",
+            "openai-api-changelog"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "The endpoint accepts shared text, image, or structured JSON evidence and supports between one and 400 questions in a request; the public beta limit was 200.",
+          "sourceIds": [
+            "openai-decisions-ga",
+            "openai-api-changelog"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "The API supports three bounded answer types: predicate returns a probability, choice selects from supplied values and includes probabilities and confidence, and score returns a probability-weighted result across ordered levels.",
+          "sourceIds": [
+            "openai-decisions-ga"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "OpenAI reports that Decisions can return typed answers up to ten times faster than GPT-6 Luna through the Responses API; the announcement does not publish a complete independent benchmark or latency distribution for that headline figure.",
+          "sourceIds": [
+            "openai-decisions-ga"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "The generally available release adds prompt caching, native JSON input, images in question instructions, organization usage reporting, Private Link, and native GPT-Live integration.",
+          "sourceIds": [
+            "openai-api-changelog"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "OpenAI lists the Decisions endpoint at $0.10 per million input tokens with no output-token charge, while noting that regional processing premiums and long-context multipliers can apply.",
+          "sourceIds": [
+            "openai-decisions-ga"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "OpenAI says the endpoint supports regional processing in the United States and Europe and is eligible for Zero Data Retention for qualifying customers.",
+          "sourceIds": [
+            "openai-decisions-ga"
+          ],
+          "verifiedAt": "2026-10-23"
+        },
+        {
+          "text": "OpenAI’s announcement includes customer-reported examples from Box, Datadog, Ramp, Sierra, and Speak, but provides no shared test set or independently reproduced comparison across those workloads.",
+          "sourceIds": [
+            "openai-decisions-ga"
+          ],
+          "verifiedAt": "2026-10-23"
+        }
+      ],
+      "changed": "A common agent operation became a separate inference primitive. Applications can send evidence plus an explicit question contract and receive a probability, fixed choice, or rubric score, rather than generating prose and parsing it back into control flow. That creates a narrower interface for the frequent decisions between larger reasoning steps.",
+      "whyItMatters": "Agents spend much of their time making small choices: whether to continue, which queue should receive a request, whether a command looks risky, or when a human should review. Using a full generative response for each choice adds latency, cost, and output ambiguity. A typed endpoint can make those transitions cheaper to inspect and easier to test, but it also puts probabilistic model output directly in the path of real actions.",
+      "technicalImpact": "Define each decision around observable evidence and explicit allowed outcomes. Build a labeled evaluation set, measure calibration as well as accuracy, choose thresholds from the cost of both error types, and route uncertain or high-impact cases to deterministic checks or human review. Log the evidence, answer, confidence, threshold, model version, and resulting action. Add timeouts and a safe fallback because a fast decision service in the hot path is still a dependency.",
+      "businessImpact": "A dedicated low-cost decision layer can make high-volume classification, routing, and agent orchestration economically practical and more responsive. The saving is credible only when teams include evaluation, monitoring, review queues, failure handling, and the cost of wrong actions. A cheap inference call can create an expensive operational error if its threshold is poorly chosen.",
+      "outlook": "Conditional outlook: if independent evaluations show stable calibration and useful latency across real workloads, bounded decision endpoints could become a standard layer between agent reasoning and action. If teams treat confidence as correctness, skip workload-specific tests, or place the endpoint in irreversible flows without a safe fallback, faster decisions will mainly make mistakes happen sooner.",
+      "uncertainties": [
+        "The up-to-ten-times speed claim comes from OpenAI and is not accompanied by a public cross-workload benchmark, full latency distribution, or independent reproduction.",
+        "Customer examples use different baselines and private workloads, so their speed, cost, and accuracy claims are not directly comparable.",
+        "Only GPT-6 Luna is supported, creating model and provider concentration for applications that adopt the endpoint contract.",
+        "A probability or confidence value is not automatically calibrated for a team’s data, risk tolerance, or changing production distribution.",
+        "Bundling up to 400 independent questions improves reuse of shared evidence but does not support dependent decision chains in one request.",
+        "Low per-token pricing excludes evaluation creation, monitoring, human review, retries, integration, and the business cost of false decisions.",
+        "A dedicated service in the action path adds availability, timeout, rate-limit, and regional-capacity dependencies.",
+        "Typed answers reduce parsing ambiguity but do not prove that the question, choices, rubric, or supplied evidence encode the right policy.",
+        "Zero Data Retention, regional processing, and other controls have eligibility and configuration requirements that teams must verify for their own account and endpoint usage.",
+        "Pricing, supported models, and service behavior may change after general availability."
+      ],
+      "analysis": "The signal is not another cheaper model. It is the split between thinking and deciding. A large reasoning step can prepare context; a smaller typed call can choose the next branch. That is cleaner agent architecture—provided the team treats every probability as something to calibrate, monitor, and sometimes refuse to act on.",
+      "sources": [
+        {
+          "id": "openai-decisions-ga",
+          "title": "Build more responsive apps with the Decisions API",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/decisions-api/",
+          "publishedAt": "2026-10-22",
+          "accessedAt": "2026-10-23",
+          "kind": "primary"
+        },
+        {
+          "id": "openai-api-changelog",
+          "title": "OpenAI API changelog — Decisions API generally available",
+          "publisher": "OpenAI Developers",
+          "url": "https://developers.openai.com/api/docs/changelog",
+          "publishedAt": "2026-10-22",
+          "accessedAt": "2026-10-23",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary OpenAI product announcement and dated API changelog. They verify the API contract, availability, and published pricing, but the headline speed and customer outcome claims remain vendor- or customer-reported and are not independently reproduced here.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-29",
+        "notes": "Rechecked for Edition 25. The source-linked facts and editorial boundaries remain valid; no underlying claim was strengthened."
+      }
+    },
+    {
+      "id": "the-agents-guardrails-moved-outside-the-agent",
+      "slug": "the-agents-guardrails-moved-outside-the-agent",
+      "title": "The agent’s guardrails moved outside the agent.",
+      "summary": "NVIDIA introduced an enterprise reference architecture around its open-source OpenShell runtime that separates an agent from the controls governing its files, processes, network access, and credentials. The useful shift is architectural: treat the agent as an untrusted workload and keep authority elsewhere—while the stack is early, vendor-led, and largely unevaluated outside NVIDIA’s own material.",
+      "topic": "Infrastructure-enforced security boundaries for autonomous agents",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-10-21",
+      "updatedAt": "2026-10-24",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "NVIDIA placed a separate supervisor, sandbox boundary, policy verifier, and optional hardware-isolated enforcement layer around long-running agents so the workload cannot grant itself access or quietly disable its own controls.",
+      "facts": [
+        {
+          "text": "NVIDIA announced the OpenShell Reference Architecture on 21 October 2026 as a design for building, running, observing, and governing enterprise agent workloads.",
+          "sourceIds": [
+            "nvidia-openshell-announcement"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "NVIDIA describes OpenShell as an open-source runtime that treats agent workloads as untrusted and grants access only when needed.",
+          "sourceIds": [
+            "nvidia-openshell-architecture"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "The published OpenShell design has four named components: a Gateway for sandbox lifecycle and policy, a separate Supervisor for outbound policy checks and credential mediation, a Sandbox for filesystem and process isolation, and a Policy Prover that checks proposed permissions against an organization-defined ceiling.",
+          "sourceIds": [
+            "nvidia-openshell-architecture"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "NVIDIA says Supervisor middleware can inspect, block, or modify content an agent sends or receives, while Gateway interceptors can add deployment-specific controls without changing the Gateway itself.",
+          "sourceIds": [
+            "nvidia-openshell-architecture"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "The reference architecture combines OpenShell with NVIDIA Vera CPUs for agent execution and offers NVIDIA Sentry on BlueField-4 DPUs as an additional hardware-isolated monitoring and enforcement layer.",
+          "sourceIds": [
+            "nvidia-openshell-announcement",
+            "nvidia-openshell-architecture",
+            "nvidia-sentry-runtime"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "NVIDIA describes Sentry’s DOCA Tower component as a transparent proxy that combines layer-4 destination controls, layer-7 inspection, TLS termination, and Open Policy Agent evaluation for agent traffic routed through the BlueField path.",
+          "sourceIds": [
+            "nvidia-sentry-runtime"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "NVIDIA says Sentry can correlate network requests with execution context obtained through out-of-band memory introspection and can use that context in access decisions and audit records.",
+          "sourceIds": [
+            "nvidia-sentry-runtime"
+          ],
+          "verifiedAt": "2026-10-22"
+        },
+        {
+          "text": "The public NVIDIA/OpenShell repository published version 0.1.5 on 20 October 2026, one day before the reference-architecture announcement.",
+          "sourceIds": [
+            "nvidia-openshell-release"
+          ],
+          "verifiedAt": "2026-10-22"
+        }
+      ],
+      "changed": "Agent security was expressed as a runtime boundary rather than a prompt instruction or an application callback. OpenShell puts policy evaluation, credential mediation, and lifecycle control in components separated from the agent workload; the optional Sentry layer moves selected observation and enforcement into a hardware-isolated path. The agent can request an action, but the surrounding infrastructure decides whether it can happen.",
+      "whyItMatters": "A long-running agent may read untrusted content, install software, call tools, and handle credentials during the same task. If its guardrails live inside that process, a successful prompt injection or workload compromise can target the controls as well as the task. An external supervisor creates a clearer security boundary: the agent is assumed capable of making a bad request, and authority stays with infrastructure it does not administer.",
+      "technicalImpact": "Separate agent execution from policy and credentials. Run each workload in an isolated sandbox, deny direct egress, mediate approved destinations and credentials through a supervisor, require controlled review for policy expansion, and export logs from outside the workload. Verify every alternate network, local-model, tool, and secret path; a reference architecture protects only the routes that actually pass through its enforcement points.",
+      "businessImpact": "The design gives security and platform teams a familiar place to apply least privilege, separation of duties, audit, and revocation to autonomous work. It also adds infrastructure, policy-authoring, integration, and incident-response work. NVIDIA’s optional hardware layer may suit high-assurance environments, but it can increase cost and platform dependence before independent operating evidence exists.",
+      "outlook": "Conditional outlook: if OpenShell matures, interoperates with existing identity and policy systems, survives independent security testing, and shows that teams can operate its controls without constant exceptions, an external agent-runtime boundary could become a standard enterprise platform layer. If enforcement is easy to bypass, too costly outside NVIDIA infrastructure, or too complex to manage, the architecture may remain a high-assurance niche rather than a default agent runtime.",
+      "uncertainties": [
+        "OpenShell is at version 0.1.5, so interfaces, deployment assumptions, and policy behavior may change quickly.",
+        "The reference architecture, performance claims, and security description come from NVIDIA; no independent penetration test or comparative operational assessment is linked.",
+        "Sentry’s strongest isolation claims depend on BlueField-4 hardware and on traffic actually traversing the controlled path.",
+        "A separate supervisor reduces self-tampering risk but does not prove that policies are correct, complete, or free of exploitable parser and mediation flaws.",
+        "Allowlist and policy expansion can become a high-friction approval queue or a broad standing exception if ownership and expiry are weak.",
+        "The announcement names operating-system and infrastructure partners, but does not establish equivalent feature coverage or production readiness across them.",
+        "Runtime containment does not solve unsafe business logic, excessive authority granted by policy, poisoned tool output, model error, or poor human approval design.",
+        "The public material provides no customer incident reduction, false-positive rate, enforcement latency distribution, availability target, or total operating-cost evidence.",
+        "Hardware-isolated monitoring can strengthen the boundary while increasing dependence on a specific infrastructure stack.",
+        "Formal policy verification can show what a policy permits relative to a ceiling; it cannot prove that the ceiling itself reflects the right business decision."
+      ],
+      "analysis": "The important idea is not that NVIDIA built another agent framework. It is that the agent is no longer trusted to police itself. This looks more like container and network security: isolate the workload, keep credentials elsewhere, mediate every exit, and make wider authority an infrastructure decision. The architecture is early, but the boundary is the signal.",
+      "sources": [
+        {
+          "id": "nvidia-openshell-announcement",
+          "title": "NVIDIA Launches OpenShell Reference Architecture for Safe AI Agents",
+          "publisher": "NVIDIA",
+          "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+          "publishedAt": "2026-10-21",
+          "accessedAt": "2026-10-22",
+          "kind": "primary"
+        },
+        {
+          "id": "nvidia-openshell-architecture",
+          "title": "How NVIDIA OpenShell Reference Architecture Secures and Governs AI Agent Workloads at Scale",
+          "publisher": "NVIDIA Developer Blog",
+          "url": "https://developer.nvidia.com/blog/how-nvidia-openshell-reference-architecture-secures-and-governs-ai-agent-workloads-at-scale/",
+          "publishedAt": "2026-10-21",
+          "accessedAt": "2026-10-22",
+          "kind": "primary"
+        },
+        {
+          "id": "nvidia-sentry-runtime",
+          "title": "Inside NVIDIA Sentry: Secure AI Agents at Runtime",
+          "publisher": "NVIDIA Developer Blog",
+          "url": "https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/",
+          "publishedAt": "2026-10-21",
+          "accessedAt": "2026-10-22",
+          "kind": "primary"
+        },
+        {
+          "id": "nvidia-openshell-release",
+          "title": "OpenShell v0.1.5",
+          "publisher": "NVIDIA on GitHub",
+          "url": "https://github.com/NVIDIA/OpenShell/releases/tag/v0.1.5",
+          "publishedAt": "2026-10-20",
+          "accessedAt": "2026-10-22",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary NVIDIA announcement, technical explanations, and public software release. They verify what NVIDIA published and made available, but they do not independently establish security effectiveness, production reliability, partner feature parity, adoption, performance, or cost.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-29",
+        "notes": "Rechecked for Edition 25. The source-linked facts and editorial boundaries remain valid; no underlying claim was strengthened."
+      }
+    }
+  ],
+  "signalMapChanges": [
+    {
+      "area": "Agents",
+      "direction": "up",
+      "dimension": "Reasoning becomes governed repository automation",
+      "rationale": "GitHub Agentic Workflows compiles Markdown instructions into Actions workflows that reuse repository permissions, policies, runners, logs, budgets, and controlled outputs. Movement remains moderate because security effectiveness lacks independent evaluation and safe operation depends on configuration and review.",
+      "storyId": "the-agent-moved-into-ci"
+    }
+  ],
+  "weekly": {
+    "title": "The agent moved into CI",
+    "intro": "GitHub put reasoning automation inside the repository workflow model: authored in Markdown, compiled to Actions, bounded by permissions, and routed through controlled outputs.",
+    "theme": "The structural move is from agent as external bot to agent as governed workload. CI provides familiar controls, but it cannot prove the reasoning is correct or the requested change is useful.",
+    "watchNext": [
+      "Independent testing of integrity filters, the Agent Workflow Firewall, safe outputs, and threat detection against hostile repository content.",
+      "Failure, rollback, false-positive, and reviewer-burden evidence from production deployments.",
+      "Independent evidence for micro-VM isolation across hosted and self-hosted environments.",
+      "How operators review and version compiled YAML when the Markdown source changes.",
+      "Whether organizations preserve narrow permissions or widen them to make complex workflows succeed."
+    ],
+    "closing": "Putting the agent inside CI makes it governable. It does not make it right."
+  }
+}

@@ -44,23 +44,25 @@ class PublicationTests(unittest.TestCase):
         self.assertTrue(commit is None or re.fullmatch(r"[0-9a-f]{40}", commit))
         published_ids = state["last_published_story_ids"]
         self.assertEqual(len(published_ids), len(set(published_ids)))
-        stories = {story["id"]: story for story in DATA["stories"]}
-        self.assertTrue(all(story_id in stories for story_id in published_ids))
-        self.assertTrue(all(stories[story_id]["status"] == "published" for story_id in published_ids))
+        for story_id in published_ids:
+            self.assertRegex(story_id, r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
-    def test_demo_content_is_explicit(self):
+    def test_live_content_is_source_backed_and_approved(self):
         build.validate(DATA)
+        self.assertEqual(DATA["publication"]["mode"], "live")
         pages = build.build(DATA)
         for story in DATA["stories"]:
-            self.assertEqual(story["facts"], [])
+            self.assertTrue(story["facts"])
+            self.assertTrue(story["sources"])
+            self.assertEqual(story["review"]["status"], "approved")
             page = pages[f'stories/{story["slug"]}/index.html']
-            self.assertIn("Editorial demonstration, not a news report", page)
-            self.assertIn("No verified news facts are asserted", page)
+            self.assertNotIn("Editorial demonstration, not a news report", page)
+            self.assertIn("Verified facts", page)
             self.assertIn("Conditional outlook", page)
 
     def test_unreviewed_reporting_cannot_publish(self):
         data = copy.deepcopy(DATA)
-        data["stories"][0]["status"] = "published"
+        data["stories"][0]["facts"] = []
         with self.assertRaisesRegex(ValueError, "requires verified facts"):
             build.validate(data)
 
@@ -74,12 +76,11 @@ class PublicationTests(unittest.TestCase):
     def test_review_required_with_valid_sources(self):
         data = copy.deepcopy(DATA)
         story = data["stories"][0]
-        story["status"] = "published"
-        story["facts"] = [{"text":"A sample fact record.", "sourceIds":["source-1"], "verifiedAt":"2026-09-18"}]
-        story["sources"] = [{"id":"source-1", "title":"Example only", "publisher":"Example", "url":"https://example.com/", "publishedAt":None, "accessedAt":"2026-09-18"}]
+        approved = copy.deepcopy(story["review"])
+        story["review"] = {"status":"pending", "reviewer":None, "reviewedAt":None}
         with self.assertRaisesRegex(ValueError, "editorial approval"):
             build.validate(data)
-        story["review"] = {"status":"approved", "reviewer":"Test reviewer", "reviewedAt":"2026-09-18"}
+        story["review"] = approved
         build.validate(data)
 
     def test_unsafe_urls_and_paths_rejected(self):
@@ -109,10 +110,59 @@ class PublicationTests(unittest.TestCase):
         self.assertNotIn('<script>alert("x")</script>', pages["index.html"])
         self.assertIn("&lt;script&gt;", pages["index.html"])
 
+    def test_analytics_is_absent_while_disabled(self):
+        data = copy.deepcopy(DATA)
+        data["analytics"] = {
+            "provider": "cloudflare-web-analytics",
+            "enabled": False,
+            "siteToken": None
+        }
+        pages = build.build(data)
+        self.assertTrue(all("static.cloudflareinsights.com" not in page for page in pages.values()))
+        self.assertIn("Analytics is currently disabled", pages["policies/privacy/index.html"])
+
+    def test_analytics_requires_a_valid_token_and_reaches_every_generated_page(self):
+        data = copy.deepcopy(DATA)
+        data["analytics"] = {
+            "provider": "cloudflare-web-analytics",
+            "enabled": True,
+            "siteToken": "0123456789abcdef0123456789abcdef"
+        }
+        pages = build.build(data)
+        for relative, page in pages.items():
+            self.assertEqual(page.count("static.cloudflareinsights.com/beacon.min.js"), 1, relative)
+            self.assertIn("0123456789abcdef0123456789abcdef", page, relative)
+        self.assertIn("Cloudflare Web Analytics is enabled", pages["policies/privacy/index.html"])
+
+        data["analytics"]["siteToken"] = '\"><script>alert(1)</script>'
+        with self.assertRaisesRegex(ValueError, "valid Cloudflare site token"):
+            build.validate(data)
+
+    def test_disabled_analytics_cannot_retain_a_token(self):
+        data = copy.deepcopy(DATA)
+        data["analytics"]["enabled"] = False
+        with self.assertRaisesRegex(ValueError, "must not retain"):
+            build.validate(data)
+
+    def test_enabled_analytics_is_present_on_all_publication_html(self):
+        if not DATA["analytics"]["enabled"]:
+            self.skipTest("Production analytics is disabled")
+        token = DATA["analytics"]["siteToken"]
+        pages = [p for p in ROOT.rglob("index.html") if ".review" not in p.parts]
+        self.assertTrue(pages)
+        for page in pages:
+            content = page.read_text(encoding="utf-8")
+            self.assertEqual(content.count("static.cloudflareinsights.com/beacon.min.js"), 1, page)
+            self.assertIn(token, content, page)
+
     def test_drafts_do_not_generate_pages(self):
         data = copy.deepcopy(DATA)
         removed = data["stories"][-1]
         removed["status"] = "draft"
+        data["weekly"]["storyIds"].remove(removed["id"])
+        for item in data["signalMap"]["items"]:
+            if item["storyId"] == removed["id"]:
+                item.update({"direction":"flat", "dimension":"No new assessment", "rationale":"No published story supports movement.", "storyId":None})
         self.assertNotIn(f'stories/{removed["slug"]}/index.html', build.build(data))
 
     def test_reading_time_is_derived(self):

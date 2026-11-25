@@ -1,0 +1,93 @@
+{
+  "run_date": "2026-11-24",
+  "research_window": {
+    "start": "2026-11-23T07:33:07Z",
+    "end": "2026-11-24T09:40:32Z"
+  },
+  "status": "deployed",
+  "checked_primary_sources": [
+    "OpenAI research, safety, engineering, model, system-card, API, ChatGPT, and newsroom publications",
+    "Anthropic newsroom, alignment research, engineering, safeguards, and standards publications",
+    "Google Research, Google DeepMind, Gemini, Google Cloud, IAM, security, database, and developer publications",
+    "Microsoft, Azure, Foundry, Agent 365, Entra, Security, and developer-community publications",
+    "AWS AI, Bedrock, Trusted Access, Quick, API Gateway, WAF, CloudFront, security, and product publications",
+    "GitHub changelog, Enterprise Server, security, secret scanning, engineering, releases, and advisory publications",
+    "NVIDIA newsroom, research, technical, Sirius, and developer publications",
+    "Meta AI and Meta Engineering publications",
+    "Ai2 research and open-artifact publications",
+    "Hugging Face official publications, organization releases, community boundaries, and daily papers",
+    "NIST, CISA, CERT-EU, CERT, European Commission, and coordinated-disclosure publications",
+    "Kubernetes, DuckDB, and CNCF official publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-safety-review-moved-into-the-customers-bucket",
+      "source_publication_date": "2026-11-23",
+      "source_publication_timestamp": "2026-11-24T05:01:14Z",
+      "action": "new",
+      "reason": "The GA Bedrock API and preview EFS/EDC programs turn model-provider access terms into inspectable enrollment, evidence custody, key, storage, and customer-review workflows. Preview maturity and missing effectiveness data bound the story at Important."
+    },
+    {
+      "story_id": "the-agent-endpoint-entered-the-firewall-inventory",
+      "source_publication_date": "2026-11-23",
+      "source_publication_timestamp": "2026-11-23T20:25:17Z",
+      "action": "new",
+      "reason": "AWS brings LLM, MCP, and A2A endpoints into organization-wide discovery and protocol-aware managed inspection. Missing coverage, latency, bypass, adoption, and outcome evidence prevent stronger claims."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Google DeepMind proof-gated quantum agent teams",
+      "source_publication_date": "2026-11-23",
+      "reason": "Held as technically substantive, but the page exposes no publication time and cannot prove eligibility after the 07:33:07Z opening cutoff; hardware feasibility and independent replication also remain limited."
+    },
+    {
+      "candidate": "Anthropic neuron-basis safety auditing",
+      "source_publication_date": "2026-11-23",
+      "reason": "Held because exact publication time is unavailable; evidence covers smaller open-weight models, partly uses Claude-generated descriptions and auditors, and lacks independent frontier-scale replication."
+    },
+    {
+      "candidate": "Ai2 RoboTrack",
+      "source_publication_date": "2026-11-23",
+      "reason": "Held due to timestamp ambiguity and narrow physical validation despite useful open artifacts."
+    },
+    {
+      "candidate": "GPT-6.2 ChatGPT rollout",
+      "source_publication_date": "2026-11-23",
+      "reason": "Exact time is unavailable and the event is incremental distribution of a model family and risk classification already covered, with no new production safety outcomes."
+    },
+    {
+      "candidate": "AlloyDB local-model and NVIDIA Sirius tutorials",
+      "source_publication_date": "2026-11-23",
+      "reason": "In-window instructional packaging for capabilities that shipped or were documented earlier; benchmark methodology is not sufficiently neutral for a new signal."
+    },
+    {
+      "candidate": "GitHub issue boards, secret-scanning tuning, coverage-format checks, and usage-report changes",
+      "source_publication_date": "2026-11-23",
+      "reason": "Incremental collaboration, quality, and security maintenance without sufficient AI-specific operating evidence."
+    },
+    {
+      "candidate": "AWS Systems Manager multicloud automation, sign-in duration, Connect guide filling, capacity, and partner analytics updates",
+      "source_publication_date": "2026-11-23",
+      "reason": "Incremental or conventional platform changes without measured outcomes strong enough to replace a live story."
+    },
+    {
+      "candidate": "European Commission recommendations and awards, conventional CERT-EU and NIST items, and updated Azure recaps",
+      "source_publication_date": "2026-11-23",
+      "reason": "Non-binding, non-technical, conventional, out-of-window, or lacking a new AI-specific technical control or measured result."
+    },
+    {
+      "candidate": "CISA alerts and advisories",
+      "source_publication_date": "2026-11-24",
+      "reason": "Direct indexes returned HTTP 403 and exact-date searches found no qualifying item before cutoff; this is a checked-source limitation rather than proof of no publication."
+    }
+  ],
+  "emerging_trends_detected": 2,
+  "notes": "Edition 45 proposes two moderate, qualitative and story-traceable movements: Governance from customer-operated safeguard evidence workflows and AI Security from agent protocols entering endpoint inventory and managed inspection. Neither movement claims adoption or effectiveness, and no quantitative Signal Map score is used.",
+  "publication": {
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/126",
+    "commit": "b10c90b95a3b77e736298cdbd0a8edb1f227a2fc",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}

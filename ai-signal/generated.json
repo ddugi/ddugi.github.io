@@ -1,12 +1,11 @@
 [
   "about/index.html",
   "index.html",
-  "stories/agents-need-an-operating-envelope/index.html",
-  "stories/cheap-tokens-expensive-systems/index.html",
-  "stories/enterprise-adoption-is-a-workflow/index.html",
-  "stories/model-release-or-measurement-problem/index.html",
-  "stories/research-without-the-artifacts/index.html",
-  "stories/robotics-beyond-the-demo/index.html",
-  "stories/security-control-outside-the-prompt/index.html",
-  "weekly/2026-09-18/index.html"
+  "policies/privacy/index.html",
+  "stories/the-agent-endpoint-entered-the-firewall-inventory/index.html",
+  "stories/the-agent-got-an-employee-badge/index.html",
+  "stories/the-safety-limit-moved-upstream/index.html",
+  "stories/the-safety-review-moved-into-the-customers-bucket/index.html",
+  "stories/vulnerability-research-hit-machine-scale/index.html",
+  "weekly/2026-11-24/index.html"
 ]

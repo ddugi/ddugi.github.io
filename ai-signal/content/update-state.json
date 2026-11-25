@@ -1,8 +1,14 @@
 {
   "schema_version": 1,
-  "last_successful_update": null,
-  "last_successful_commit": null,
-  "last_published_story_ids": [],
+  "last_successful_update": "2026-11-24T09:40:32Z",
+  "last_successful_commit": "b10c90b95a3b77e736298cdbd0a8edb1f227a2fc",
+  "last_published_story_ids": [
+    "the-safety-review-moved-into-the-customers-bucket",
+    "the-agent-endpoint-entered-the-firewall-inventory",
+    "the-safety-limit-moved-upstream",
+    "vulnerability-research-hit-machine-scale",
+    "the-agent-got-an-employee-badge"
+  ],
   "initial_lookback_days": 7,
-  "note": "No live AI Signal editorial update has been published yet. Advance this state only after human approval, successful validation, and publication."
+  "note": "The 24 November 2026 research window published Edition 45 through protected PR #126. Two new Important signals on customer-operated safeguard evidence workflows and agent-protocol endpoint inventory and inspection passed review, promotion, build, tests, required validation, GitHub Pages deployment, and production verification."
 }

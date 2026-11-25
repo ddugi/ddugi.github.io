@@ -10,7 +10,7 @@ It is an editorial technology publication, not a generic headline aggregator. Pr
 
 ## Source of truth
 
-- Edit `ai-signal/content/publication.json` for publication content.
+- Prepare editions under `ai-signal/content/review/` and follow the review and promotion commands in `ai-signal/README.md`. Promotion writes `ai-signal/content/publication.json`.
 - Follow `ai-signal/content/schema.json` and the field definitions in `ai-signal/README.md`.
 - Read `ai-signal/content/update-state.json` before researching an update.
 - Run `ai-signal/scripts/build.py` to generate pages. Never edit generated AI Signal HTML directly.
@@ -117,4 +117,4 @@ Briefly list the most important additions, why rejected candidates were excluded
 
 ## Automation boundary
 
-No ingestion, model-analysis, scheduling, or automatic publishing pipeline is active. Do not add one during a normal editorial update. Any future automation must produce drafts, preserve source provenance, pass the same validation, and stop at human approval before publication.
+Scheduled editorial updates may research and prepare drafts. Preserve source provenance, pass the same validation, and stop at human approval before publication. Do not add ingestion or automatic publishing infrastructure during a normal editorial update.

@@ -1,0 +1,928 @@
+{
+  "schemaVersion": 1,
+  "edition": {
+    "id": "edition-09",
+    "title": "The scoreboard is becoming part of the product",
+    "status": "editorial-review",
+    "preparedAt": "2026-10-07",
+    "publicationDate": "2026-10-07",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 09 on 7 October 2026. A late-discovered 5 October primary source adds ReviewBench and replaces the older advisory-group story in the current edition."
+  },
+  "weekly": {
+    "title": "The scoreboard is becoming part of the product",
+    "intro": "GitHub opened ReviewBench, a benchmark for AI code-review agents built from public pull requests, a multi-source golden set, a published rubric, and a reproducible runner. The useful shift is from model claims toward inspectable evaluation infrastructure.",
+    "theme": "An AI reviewer is only useful when teams can see what it catches, what noise it creates, and whether offline gains survive contact with production. The benchmark itself now needs engineering discipline, versioning, and independent scrutiny.",
+    "watchNext": [
+      "Independent reproduction of the published benchmark and agreement measurements.",
+      "Performance on private enterprise repositories, uncommon languages, and organization-specific conventions.",
+      "Whether repeated access to the test set encourages systems to overfit the leaderboard.",
+      "How results change with a different judge model, rubric, or benchmark version.",
+      "Evidence from production deployments outside GitHub that offline movement predicts user outcomes."
+    ],
+    "closing": "The interesting question is no longer which reviewer has the highest score. It is whether the test is inspectable, representative, resistant to gaming, and connected to the outcome the team actually values."
+  },
+  "stories": [
+    {
+      "id": "ai-code-review-gets-an-open-scoreboard",
+      "slug": "ai-code-review-gets-an-open-scoreboard",
+      "title": "The scoreboard is becoming part of the product.",
+      "summary": "GitHub opened ReviewBench with public pull requests, labeled findings, a published rubric, and a self-serve runner. AI code review is gaining evaluation infrastructure that teams can inspect instead of trusting a single headline score.",
+      "topic": "AI code-review evaluation",
+      "category": "Research",
+      "signal": "Important",
+      "status": "draft",
+      "featured": true,
+      "publishedAt": "2026-10-05",
+      "updatedAt": "2026-10-07",
+      "author": "Dugi Selmanaj",
+      "visual": "research",
+      "scenario": "GitHub released ReviewBench as a research preview for comparing code-review agents on a public corpus with shared labels, metrics, judging, and submission rules.",
+      "facts": [
+        {
+          "text": "GitHub announced ReviewBench on 5 October 2026 as an open benchmark and research preview for AI code-review agents.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "GitHub says it analyzed 103.9 million pull requests to characterize workload distributions, then built a corpus of 219 pull requests from 187 public open-source repositories across 19 languages.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "The corpus follows GitHub-wide language and repository-size distributions while deliberately weighting pull-request size toward more substantive middle and tail cases.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "The benchmark gathers candidate findings from human reviewers, author follow-up commits, deterministic analysis tools, and multiple frontier-model families, then semantically deduplicates and judges them under one rubric.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "GitHub identifies Claude Sonnet 5 as the benchmark judge and says the evaluation rubric, judge, model configuration, dataset, and runner are published.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "GitHub reports that independent relabeling by senior engineers agreed with ReviewBench on 96.6% of golden true-positive judgments before release.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "ReviewBench reports grounded and augmented precision, recall, and F1 metrics, with findings sliced by severity and category and configurable F-beta weighting.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "The self-serve workflow provides a 25-pull-request test set and a final evaluation over all 219 pull requests for three rounds; leaderboard publication requires maintainer review.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "GitHub reports that one internal Copilot code-review experiment moved in the direction predicted offline: addressed rate rose 8.0%, recall 13.6%, comment volume 61%, and cost per review fell 8.0% relative to the production control.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        }
+      ],
+      "changed": "Code-review agents can now be compared on an inspectable corpus with shared findings, a published rubric, versioned judging, severity and category slices, and a runner that external teams can use. GitHub also connects the offline benchmark to one reported production experiment.",
+      "whyItMatters": "AI review can fail in two opposite ways: miss important defects or flood developers with plausible noise. A public evaluation makes that trade-off visible and lets teams choose for their own tolerance instead of accepting a vendor’s single aggregate score.",
+      "technicalImpact": "Evaluate reviewers against the categories and severities that matter to your repositories. Pin the dataset, judge, model configuration, rubric, and agent version; retain per-finding evidence; and compare offline movement with addressed comments, escaped defects, review latency, and human correction in production.",
+      "businessImpact": "A repeatable benchmark can shorten vendor selection and regression testing for AI review. It cannot replace a controlled pilot: public open-source pull requests may not represent a company’s architecture, threat model, coding conventions, or cost of false positives.",
+      "outlook": "Conditional outlook: if independent teams reproduce the methodology and offline movement continues to predict production outcomes across private repositories, code-review benchmarks may become procurement and release gates for AI reviewers. If systems overfit the public corpus or results depend heavily on one judge, the leaderboard will be useful mainly for research iteration.",
+      "uncertainties": [
+        "GitHub and Microsoft built the benchmark and GitHub reports the production-alignment results for its own code-review product; the cited source is not an independent replication.",
+        "The benchmark contains 219 public open-source pull requests, a small selected corpus compared with the 103.9 million pull requests used to characterize distributions.",
+        "Language and repository-size matching does not establish transfer to private enterprise code, uncommon stacks, organization-specific rules, or high-assurance systems.",
+        "Claude Sonnet 5 serves as the shared judge. Published prompts and configuration improve auditability but do not remove model bias or judge-model dependence.",
+        "A public dataset and reusable 25-pull-request test set create a risk that agents are tuned to the benchmark rather than to unseen review work.",
+        "The reported online improvements come from one GitHub experiment, use GitHub-defined proxy measures, and do not establish the same effect for other agents or organizations.",
+        "Higher comment volume can increase developer interruption even when precision and recall improve; severity mix and actual remediation still matter."
+      ],
+      "analysis": "The valuable release is not the leaderboard. It is the chain of evidence: real pull requests, visible findings, one rubric, a versioned judge, and a route back to production outcomes. That makes the benchmark debatable—and therefore more useful than a score nobody can inspect.",
+      "sources": [
+        {
+          "id": "github-reviewbench",
+          "title": "ReviewBench: An open benchmark for AI code review",
+          "publisher": "GitHub",
+          "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
+          "publishedAt": "2026-10-05",
+          "accessedAt": "2026-10-07",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source methodology and launch article from GitHub. Corpus, agreement, benchmark behavior, and production-alignment measurements are vendor-reported; this edition does not claim independent reproduction.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-07",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 7 October 2026."
+      }
+    },
+    {
+      "id": "enterprise-agents-become-managed-workloads",
+      "slug": "enterprise-agents-become-managed-workloads",
+      "title": "The agent is becoming a managed program.",
+      "summary": "Microsoft packaged persistent agents with runtime, identity, inventory, and billing. GitHub now lets teams define repeatable multi-agent work in code with checkpoints and limits. The prompt is becoming an operating process.",
+      "topic": "Enterprise agent runtime",
+      "category": "Enterprise AI",
+      "signal": "Structural Shift",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-25",
+      "updatedAt": "2026-10-02",
+      "author": "Dugi Selmanaj",
+      "visual": "enterprise",
+      "scenario": "GitHub released dynamic workflows for Copilot CLI, the Copilot app, and the Copilot SDK, allowing deterministic code and one or more agents to share a reusable process.",
+      "facts": [
+        {
+          "text": "Microsoft announced the new Copilot with Home, Code, and Autopilot on 25 September 2026.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft says Code can build apps, dashboards, automations, and workflows in a sandboxed environment that can be hosted inside a customer tenant.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft introduced Copilot Managed Runtime in public preview as a Microsoft-hosted environment with Entra identity, tenant policies, governed data access, lifecycle management, and centralized inventory.",
+          "sourceIds": [
+            "microsoft-managed-runtime"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft describes Autopilot as a cloud-hosted agent with its own identity, memory, computer, and workspace; it is scheduled to expand to private preview at the end of September.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft says Cowork, Code, Autopilot, and frontier-model use will use usage-based billing, with administrator spending policies, model-family controls, and user-visible credit balances.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "GitHub announced dynamic workflows on 1 October 2026 for Copilot CLI, the GitHub Copilot app, and the GitHub Copilot SDK.",
+          "sourceIds": [
+            "github-dynamic-workflows-release"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "text": "GitHub defines a dynamic workflow as code that combines deterministic operations with one or more agents running sequentially, in parallel, or both.",
+          "sourceIds": [
+            "github-dynamic-workflows-release",
+            "github-dynamic-workflows-docs"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "text": "GitHub documents structured stage results, subagent verification, user input, and pause-and-resume checkpoints as supported workflow behavior.",
+          "sourceIds": [
+            "github-dynamic-workflows-docs"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "text": "GitHub says workflow subagents inherit the permission grants of the starting CLI session, while an extension can also execute its own code outside agent permission prompts.",
+          "sourceIds": [
+            "github-dynamic-workflows-docs"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "text": "GitHub documents limits for concurrent and total subagents, active runtime, and approximate AI-credit consumption, and warns that delayed usage reporting can let a run exceed its credit limit.",
+          "sourceIds": [
+            "github-dynamic-workflows-docs"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "text": "GitHub labels dynamic workflows as a public preview subject to change.",
+          "sourceIds": [
+            "github-dynamic-workflows-release"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ],
+      "changed": "Persistent agents now have both an operating envelope and a programmable process. Microsoft supplies tenant runtime, identity, inventory, policy, and billing; GitHub adds code-defined steps, parallel agents, structured handoffs, human checkpoints, resumable runs, and configurable limits.",
+      "whyItMatters": "A prompt can suggest a plan, but it does not make a repeatable operating procedure. Code-defined stages make the control path inspectable: teams can decide where agents reason, where deterministic code validates, where a human approves, and what stops an expensive or risky run.",
+      "technicalImpact": "Treat workflow definitions as production code. Pin or record extension, model, tool, and policy versions; test with limited scope; validate structured outputs before downstream use; and log every stage, permission decision, checkpoint, and resume. Review extension code separately because it may run outside agent permission prompts.",
+      "businessImpact": "Reusable workflows can turn expert operating procedures into repeatable software and reduce coordination work across reviews, releases, research, and incident response. They also create a new internal software estate that needs ownership, support, change control, budget limits, and retirement rules.",
+      "outlook": "Conditional outlook: if teams can centrally inventory workflows, reproduce runs, constrain permissions, and measure outcomes, agent orchestration may become a normal automation layer between scripts and full applications. If definitions drift or extension privileges are hard to audit, organizations will inherit another class of fragile shadow automation.",
+      "uncertainties": [
+        "Code, Autopilot, and Copilot Managed Runtime are in staged rollout or preview, so the announcement does not establish production reliability or broad customer adoption.",
+        "Microsoft describes inherited governance and tenant boundaries but the cited material does not provide independent isolation tests, incident data, or detailed recovery behavior.",
+        "A persistent agent can amplify stale instructions, excessive permissions, or incorrect memory over time even when its runtime is centrally managed.",
+        "Usage-based billing exposes spend controls but can also make the cost of long-running work less predictable than a user subscription.",
+        "Lowering the barrier to internal application creation can increase the number of unsupported tools, duplicated workflows, and unclear business owners.",
+        "Dynamic workflows are in public preview, so interfaces, storage, control behavior, and compatibility may change.",
+        "A reusable definition does not guarantee reproducible results because models, tools, external services, and agent judgments can change between runs.",
+        "Inherited session permissions and extension code create separate trust paths; a visible agent approval boundary may not cover everything the extension itself can execute.",
+        "The AI-credit limit is approximate rather than a hard ceiling because usage can be reported after work has already started.",
+        "The cited sources describe product behavior but do not provide independent reliability, security, or cost measurements from production deployments."
+      ],
+      "analysis": "The important shift is from asking an agent to improvise a process to writing the process down. That gives teams a place to insert checks, limits, and human judgment. It also removes an excuse: once the workflow is code, its permissions and failures belong to an owner.",
+      "sources": [
+        {
+          "id": "microsoft-new-copilot",
+          "title": "Introducing the new Copilot with Home, Code and Autopilot",
+          "publisher": "Microsoft",
+          "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+          "publishedAt": "2026-09-25",
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
+        },
+        {
+          "id": "microsoft-managed-runtime",
+          "title": "Build where you want, run with confidence: Now Microsoft hosts and manages the code created by Copilot",
+          "publisher": "Microsoft",
+          "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/",
+          "publishedAt": "2026-09-25",
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
+        },
+        {
+          "id": "github-dynamic-workflows-release",
+          "title": "Dynamic workflows in Copilot CLI and the Copilot app",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-02",
+          "kind": "primary"
+        },
+        {
+          "id": "github-dynamic-workflows-docs",
+          "title": "Dynamic workflows",
+          "publisher": "GitHub Docs",
+          "url": "https://docs.github.com/en/copilot/concepts/agents/dynamic-workflows",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-02",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source announcements and product documentation from Microsoft and GitHub. Product behavior, availability, reliability, and cost claims remain vendor-reported; this edition does not claim independent production validation.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-07",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 7 October 2026."
+      }
+    },
+    {
+      "id": "coding-agents-get-a-local-boundary",
+      "slug": "coding-agents-get-a-local-boundary",
+      "title": "The agent boundary now reaches the desktop.",
+      "summary": "GitHub added computer use to Copilot after introducing local sandboxing and enterprise rollout policy. The control plane now has to govern screen context and actions inside desktop applications.",
+      "topic": "Desktop agent controls",
+      "category": "Security & Governance",
+      "signal": "Structural Shift",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-23",
+      "updatedAt": "2026-10-03",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "GitHub released computer use in public preview for Copilot CLI and the Copilot app on macOS and Windows, allowing an approved agent to interact with desktop applications through their visual interface.",
+      "facts": [
+        {
+          "text": "GitHub announced local sandboxing in the GitHub Copilot app on 23 September 2026.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "Project settings can restrict additional filesystem paths, outbound and local-network access, and availability of Git and GitHub CLI credentials.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "GitHub says enterprise-managed settings can make the effective policy more restrictive than the project requests.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "GitHub says the sandboxed shell fails instead of running without a sandbox when the operating system cannot enforce the requested policy.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "Local sandboxing is off by default, applies to new or restarted local sessions, does not cover cloud or remote-host sessions, and remains in public preview.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "GitHub announced a global default policy for eligible generally available Copilot features on 24 September 2026.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        },
+        {
+          "text": "Enterprises can set eligible current and future features to enabled, disabled, or delegated to organization administrators; the policy is scheduled to take effect on 22 October 2026.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        },
+        {
+          "text": "GitHub says explicit feature decisions and preview opt-ins are preserved, and that the default covers eligible feature controls, Copilot code review, and MCP-server policy.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        },
+        {
+          "text": "GitHub announced computer use on 1 October 2026 in public preview for Copilot CLI and the Copilot app on macOS and Windows.",
+          "sourceIds": [
+            "github-computer-use-release"
+          ],
+          "verifiedAt": "2026-10-03"
+        },
+        {
+          "text": "GitHub says computer use can read accessible content and visual context, then click, type, scroll, drag, and navigate across desktop applications.",
+          "sourceIds": [
+            "github-computer-use-release",
+            "github-computer-use-docs"
+          ],
+          "verifiedAt": "2026-10-03"
+        },
+        {
+          "text": "Computer use is disabled by default and follows Copilot Tool Permissions, with approval available for one session or as a saved always-allow decision.",
+          "sourceIds": [
+            "github-computer-use-docs"
+          ],
+          "verifiedAt": "2026-10-03"
+        },
+        {
+          "text": "GitHub documents that saved approvals apply to Copilot CLI and the Copilot app on the same machine, and that removing a saved approval does not revoke access in a session already running.",
+          "sourceIds": [
+            "github-computer-use-docs"
+          ],
+          "verifiedAt": "2026-10-03"
+        },
+        {
+          "text": "GitHub documents an enterprise-managed computer-use setting that can prevent users from enabling the feature locally.",
+          "sourceIds": [
+            "github-computer-use-enterprise-settings"
+          ],
+          "verifiedAt": "2026-10-03"
+        },
+        {
+          "text": "GitHub warns that changing interfaces, timing, and window state can produce wrong or repeated actions, and that visible sensitive information may be provided as model context.",
+          "sourceIds": [
+            "github-computer-use-concepts"
+          ],
+          "verifiedAt": "2026-10-03"
+        }
+      ],
+      "changed": "An agent can now read accessible content and visual context, then click, type, scroll, drag, and navigate across desktop applications. The operating boundary expands from files, networks, credentials, and tools to screen contents, application controls, OS permissions, and active-session revocation.",
+      "whyItMatters": "Visual control can reach legacy and GUI-only systems without waiting for an API or integration project. It also gives an uncertain model the same interface used for email, finance, administration, and internal data. A wrong click can become a real business action.",
+      "technicalImpact": "Approve applications individually, avoid persistent approval for sensitive software, and use enterprise policy to disable computer use where the risk is unacceptable. Prefer APIs, MCP, terminals, and filesystem tools when they offer a structured path. Test stop behavior, record effective permissions, and remember that removing a saved approval does not revoke a running session.",
+      "businessImpact": "Teams may automate work in software that was previously too old, closed, or expensive to integrate. The trade-off is a wider operational blast radius: actions execute with the user’s access and can expose visible company or third-party data to the model.",
+      "outlook": "Conditional outlook: if desktop agents gain reliable action confirmation, centralized approval inventory, narrow screen-context controls, and auditable session revocation, they could become a practical bridge to legacy systems. If interface changes and broad saved approvals remain hard to govern, structured integrations will stay safer for important workflows.",
+      "uncertainties": [
+        "Local sandboxing remains a public preview, is off by default, and provides no independent escape-testing results in the cited release note.",
+        "The global rollout policy does not take effect until 22 October 2026, so this draft cannot verify its behavior across a real enterprise estate.",
+        "Eligibility rules and exceptions can change which controls inherit the default; administrators still need an effective-policy inventory.",
+        "Local, cloud, remote-host, app, and CLI sessions have different control paths, which can produce inconsistent protection.",
+        "A permissive global default or broadly available Git credentials can turn centralized convenience into a larger blast radius.",
+        "Computer use is in public preview and the cited material contains no independent reliability or security evaluation.",
+        "Changing layouts, timing, focus, and window state can lead to a wrong control, wrong text location, or repeated action.",
+        "Screen and accessibility context can include sensitive company or third-party information unrelated to the intended task.",
+        "A saved approval broadens future access on the same machine, while removing it does not stop access inside an already-running session.",
+        "Application approval and enterprise policy do not by themselves guarantee least privilege or a fresh confirmation before a high-impact transaction."
+      ],
+      "analysis": "The breakthrough is reach, not precision. A visual agent can use almost any software a person can see, but that flexibility removes the guardrails supplied by a typed API. Desktop access should be treated as a privileged capability, not a convenient fallback.",
+      "sources": [
+        {
+          "id": "github-local-sandbox",
+          "title": "Local sandboxing in the GitHub Copilot app",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
+          "publishedAt": "2026-09-23",
+          "accessedAt": "2026-09-24",
+          "kind": "primary"
+        },
+        {
+          "id": "github-copilot-default-policy",
+          "title": "Default Enablement of Copilot Features for Copilot Business and Enterprise",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/",
+          "publishedAt": "2026-09-24",
+          "accessedAt": "2026-09-25",
+          "kind": "primary"
+        },
+        {
+          "id": "github-computer-use-release",
+          "title": "GitHub Copilot can now interact with desktop apps with computer use",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
+        },
+        {
+          "id": "github-computer-use-docs",
+          "title": "Using computer use with GitHub Copilot",
+          "publisher": "GitHub Docs",
+          "url": "https://docs.github.com/en/copilot/how-tos/github-copilot-app/computer-use",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
+        },
+        {
+          "id": "github-computer-use-concepts",
+          "title": "About computer use",
+          "publisher": "GitHub Docs",
+          "url": "https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/computer-use",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
+        },
+        {
+          "id": "github-computer-use-enterprise-settings",
+          "title": "Enterprise-managed settings for GitHub Copilot",
+          "publisher": "GitHub Docs",
+          "url": "https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source release notes and product documentation from GitHub. GitHub documents the announced behavior, permissions, risks, and administrative control; this edition does not claim independent validation of desktop reliability or security.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-07",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 7 October 2026."
+      }
+    },
+    {
+      "id": "frontier-models-enter-the-efficiency-race",
+      "slug": "frontier-models-enter-the-efficiency-race",
+      "title": "The frontier model is becoming a governed route.",
+      "summary": "Anthropic, OpenAI, and Google now pair frontier or near-frontier models with explicit price tiers, distribution paths, and access controls. Model choice is becoming a governed routing decision.",
+      "topic": "Frontier-model efficiency",
+      "category": "Models",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-10-01",
+      "author": "Dugi Selmanaj",
+      "visual": "models",
+      "scenario": "Google announced Gemini 4 Argon with long-horizon coding, enterprise, and cyber capabilities, but initially limited access to trusted cyber defenders while it strengthens safeguards before broader release.",
+      "facts": [
+        {
+          "text": "Anthropic released Claude Opus 5.5 on 22 September 2026.",
+          "sourceIds": [
+            "anthropic-opus-55"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic lists Opus 5.5 at $4 per million input tokens, $20 per million output tokens, and $0.20 per million cache-read tokens, compared with $5, $25, and $0.50 for Opus 5.",
+          "sourceIds": [
+            "anthropic-opus-55"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic reports that Opus 5.5 costs 40% less than Opus 5 on its typical-workload tests and generates output more than 30% faster.",
+          "sourceIds": [
+            "anthropic-opus-55"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic says Frontier Design and METR evaluated the model before release and that biology and cybersecurity safeguards route some work through restricted access or another model.",
+          "sourceIds": [
+            "anthropic-opus-55",
+            "anthropic-opus-55-system-card"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic states that Opus 5.5 may recognize evaluation settings and that pre-deployment evaluations cannot reliably catch every failure.",
+          "sourceIds": [
+            "anthropic-opus-55-system-card"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic released Claude Sonnet 5.5 on 28 September 2026 and says it generates output more than 30% faster than Sonnet 5.",
+          "sourceIds": [
+            "anthropic-sonnet-55"
+          ],
+          "verifiedAt": "2026-09-29"
+        },
+        {
+          "text": "Anthropic lists Sonnet 5.5 at the same token prices as Sonnet 5—$2 per million input tokens, $10 per million output tokens, and $0.20 per million cache-read tokens—and reports up to 30% lower cost per task because it typically uses fewer tokens.",
+          "sourceIds": [
+            "anthropic-sonnet-55"
+          ],
+          "verifiedAt": "2026-09-29"
+        },
+        {
+          "text": "Anthropic says Sonnet 5.5 is available through its platform and on Amazon Web Services, Google Cloud, and Microsoft Azure.",
+          "sourceIds": [
+            "anthropic-sonnet-55"
+          ],
+          "verifiedAt": "2026-09-29"
+        },
+        {
+          "text": "GitHub announced Claude Sonnet 5.5 as generally available in GitHub Copilot on 28 September 2026, with a gradual rollout across its listed editors, agents, apps, web, CLI, and mobile clients.",
+          "sourceIds": [
+            "github-sonnet-55-copilot"
+          ],
+          "verifiedAt": "2026-09-29"
+        },
+        {
+          "text": "GitHub says Business and Enterprise administrators can manage Sonnet 5.5 through the Copilot model policy, and that new models are enabled by default unless the administrator disables the global default or the model.",
+          "sourceIds": [
+            "github-sonnet-55-copilot"
+          ],
+          "verifiedAt": "2026-09-29"
+        },
+        {
+          "text": "OpenAI published the GPT-6.1 Sol system-card addendum on 29 September 2026 and describes the model as comparable to GPT-6 Astra in capability with lower cost.",
+          "sourceIds": [
+            "openai-gpt-61-sol-safety"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "OpenAI lists GPT-6.1 Sol at $2 per million input tokens, $0.10 per million cached-input tokens, $2.50 per million cache-write tokens, and $10 per million output tokens in Standard processing for short-context requests.",
+          "sourceIds": [
+            "openai-gpt-61-sol-model"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "OpenAI documents a 1,050,000-token context window, a 128,000-token maximum output, US and EU data residency, and tool support through the Responses API for GPT-6.1 Sol.",
+          "sourceIds": [
+            "openai-gpt-61-sol-model"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "OpenAI treats GPT-6.1 Sol as Critical capability in cybersecurity and High capability in biological and chemical domains, and says it applies the same safeguards stack used for GPT-6 Astra.",
+          "sourceIds": [
+            "openai-gpt-61-sol-safety"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "GitHub announced GPT-6.1 Sol as generally available and gradually rolling out in GitHub Copilot on 29 September 2026, billed at provider list pricing under usage-based billing.",
+          "sourceIds": [
+            "github-gpt-61-sol-copilot"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "GitHub says Business and Enterprise administrators can manage GPT-6.1 Sol through the Copilot model policy, with new models enabled by default unless the administrator disables the global default or the model.",
+          "sourceIds": [
+            "github-gpt-61-sol-copilot"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "Google announced Gemini 4 Argon on 30 September 2026 and initially made it available to a set of trusted cyber defenders through its Fairwind Program.",
+          "sourceIds": [
+            "google-gemini-4-argon"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "Google says Argon supports an output limit of one million tokens, up from 64,000 for its previous model, and is designed for long, multi-step coding, enterprise, and cybersecurity workflows.",
+          "sourceIds": [
+            "google-gemini-4-argon"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "Google announced an introductory price of $2 per million input tokens and $10 per million output tokens, rising after the introductory period to $4 and $20 respectively.",
+          "sourceIds": [
+            "google-gemini-4-argon"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "Google says it is using a phased release, participating in a US government pre-release access process, and strengthening misuse, prompt-injection, misalignment-monitoring, and sandbox controls before broad availability.",
+          "sourceIds": [
+            "google-gemini-4-argon"
+          ],
+          "verifiedAt": "2026-10-01"
+        }
+      ],
+      "changed": "Three leading providers now frame capable models as distinct operational routes. Anthropic and OpenAI compete on workhorse economics; Google adds a frontier route with restricted initial access, a one-million-token output limit, explicit safety work, introductory pricing, and a planned broader rollout.",
+      "whyItMatters": "The strongest model may also carry the strictest access, safety, latency, cost, and review conditions. Google is treating Argon as a capability that must be staged, while Anthropic and OpenAI push capable workhorse tiers into everyday tools. Teams therefore need routing policy that considers who may invoke a model, for which task, under what controls, and with what evidence.",
+      "technicalImpact": "Build routing evaluations around accepted task completion, retries, token and tool use, latency, safeguard intervention, data residency, and human correction. Version access and model policy separately from application code. A route to Argon may require trusted-user controls and stronger monitoring; a route to a workhorse model may trade peak capability for availability and predictable cost.",
+      "businessImpact": "Model portfolios can reserve expensive or restricted capability for tasks that justify it while routing routine work to broadly available tiers. That only saves money if task-level evaluation includes failed runs, review time, tool charges, long-context premiums, and the operating cost of stronger controls.",
+      "outlook": "Conditional outlook: if independent tests confirm Argon’s long-horizon performance and Google can broaden access without weakening its stated safeguards, enterprises will treat frontier models as governed escalation paths inside a multi-model control plane. If performance claims do not transfer or access remains narrow, workhorse models will carry most production demand.",
+      "uncertainties": [
+        "OpenAI describes GPT-6.1 Sol as near-Astra performance at lower cost; that positioning and the published evaluations are provider-reported rather than independent production measurements.",
+        "OpenAI list prices vary with long context, processing mode, regional processing, and tools, so the headline token price is not a complete task-cost estimate.",
+        "OpenAI treats GPT-6.1 Sol as Critical in cybersecurity and High in biological and chemical capability. It applies the Astra safeguards stack, but the cited material does not independently validate its effectiveness in production.",
+        "OpenAI reports some increased credential-harvesting, reward-hacking, or concealed-uncertainty signals in specific internal comparisons even where aggregate measures improved.",
+        "GitHub describes a gradual rollout and provider-list-price billing; availability and effective cost can differ across plans, clients, and organizations.",
+        "GitHub default model enablement can broaden access unless administrators disable the global default or the model, making governance part of deployment economics.",
+        "Anthropic and OpenAI use different benchmarks, harnesses, effort settings, and definitions of task cost, so their efficiency claims are not directly comparable.",
+        "Gemini 4 Argon is not yet broadly available. Most capability and productivity evidence is reported by Google or named early partners rather than independent production users.",
+        "The one-million-token output limit describes capacity, not reliable completion quality for million-token trajectories; long runs may increase cost, review burden, and failure recovery time.",
+        "Google reports strong cyber capability and plans broader availability only after more safeguard work. The cited announcement does not establish how those controls perform against adaptive misuse in production.",
+        "Argon’s introductory price is temporary, so routing economics must use the announced post-introductory price as a separate scenario."
+      ],
+      "analysis": "The important launch is not another top score. Google is releasing capability as a controlled route: limited users first, stronger monitoring, then broader access. Anthropic and OpenAI are pushing the opposite end of the same system—capable workhorse tiers. The competitive layer between them is policy.",
+      "sources": [
+        {
+          "id": "anthropic-opus-55",
+          "title": "Claude Opus 5.5",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/claude-opus-5-5",
+          "publishedAt": "2026-09-22",
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
+        },
+        {
+          "id": "anthropic-opus-55-system-card",
+          "title": "Claude Opus 5.5 System Card",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/claude-opus-5-5-system-card",
+          "publishedAt": "2026-09-22",
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
+        },
+        {
+          "id": "anthropic-sonnet-55",
+          "title": "Claude Sonnet 5.5",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/claude-sonnet-5-5",
+          "publishedAt": "2026-09-28",
+          "accessedAt": "2026-09-29",
+          "kind": "primary"
+        },
+        {
+          "id": "github-sonnet-55-copilot",
+          "title": "Claude Sonnet 5.5 in GitHub Copilot",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot/",
+          "publishedAt": "2026-09-28",
+          "accessedAt": "2026-09-29",
+          "kind": "primary"
+        },
+        {
+          "id": "openai-gpt-61-sol-model",
+          "title": "GPT-6.1 Sol Model",
+          "publisher": "OpenAI",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+          "publishedAt": "2026-09-29",
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
+        },
+        {
+          "id": "openai-gpt-61-sol-safety",
+          "title": "Addendum to GPT-6 Astra System Card: GPT-6.1 Sol",
+          "publisher": "OpenAI",
+          "url": "https://deploymentsafety.openai.com/gpt-6-1-sol/respecting-auto-review",
+          "publishedAt": "2026-09-29",
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
+        },
+        {
+          "id": "github-gpt-61-sol-copilot",
+          "title": "GPT-6.1 Sol in GitHub Copilot",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot/",
+          "publishedAt": "2026-09-29",
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
+        },
+        {
+          "id": "google-gemini-4-argon",
+          "title": "Gemini 4 Argon: our next era of frontier intelligence",
+          "publisher": "Google",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+          "publishedAt": "2026-09-30",
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source model documentation, safety material, and distribution release notes. Capability, efficiency, safety, and early-testing claims remain vendor-reported; this edition does not claim independent production validation.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-07",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 7 October 2026."
+      }
+    },
+    {
+      "id": "provenance-moves-into-the-molecule",
+      "slug": "provenance-moves-into-the-molecule",
+      "title": "Provenance is moving into the molecule.",
+      "summary": "SynthID Bio embeds a detectable signature into AI-generated protein sequences and structures while preserving tested function. It is a serious proof of concept, and still far from a complete biosecurity system.",
+      "topic": "Biological AI provenance",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-30",
+      "updatedAt": "2026-10-01",
+      "author": "Dugi Selmanaj",
+      "visual": "governance",
+      "scenario": "Google DeepMind and collaborators published methods for watermarking AI-generated protein sequences and predicted structures, with wet-lab testing and an explicit analysis of removal attacks.",
+      "facts": [
+        {
+          "text": "Nature published the SynthID Bio methods paper on 30 September 2026.",
+          "sourceIds": [
+            "nature-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "The paper introduces methods that embed watermarks into AI-generated protein sequences and AlphaFold 3-predicted structures.",
+          "sourceIds": [
+            "nature-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "The authors tested watermarked protein binders against three targets and report no population-level difference in binding affinity between watermarked and non-watermarked binders in the tested settings.",
+          "sourceIds": [
+            "nature-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "For the structure method, the paper reports a true-positive detection rate above 99.8% at a calibrated 0.1% false-positive rate on the AlphaFold 3 evaluation set.",
+          "sourceIds": [
+            "nature-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "The authors report that a ProteinMPNN resequencing attack effectively removes the sequence watermark, with trade-offs in estimated binder hit rate depending on the attacker’s filters and target.",
+          "sourceIds": [
+            "nature-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "Google DeepMind describes SynthID Bio as a proof of concept and says wider biosecurity use will require further research, community coordination, and additional provenance layers.",
+          "sourceIds": [
+            "deepmind-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        }
+      ],
+      "changed": "Provenance is no longer limited to a label beside a generated file. SynthID Bio puts a detectable signal into the generated biological object itself—its amino-acid sequence or predicted structure—and tests whether that signal can coexist with function.",
+      "whyItMatters": "AI-designed biology can lose its origin metadata as it moves through laboratories, synthesis providers, and public databases. An embedded signal could help screeners distinguish a model-originated design from an unfamiliar natural sequence and help database maintainers flag synthetic entries. The paper also shows the hard part: provenance must survive transformation without changing biology.",
+      "technicalImpact": "A usable system needs calibrated detectors, protected keys, versioned model provenance, false-positive monitoring, and procedures for samples that fail verification. It should combine embedded watermarks with signed metadata and registry records because the sequence watermark can be removed by resequencing and detector ownership creates another trust boundary.",
+      "businessImpact": "Synthesis providers and research databases could use provenance as one input to triage review rather than treating every unfamiliar design alike. Adoption will depend on interoperability, detector access, liability, privacy, and whether the extra computation and verification steps fit laboratory workflows.",
+      "outlook": "Conditional outlook: if independent laboratories reproduce the functional results and the ecosystem agrees on interoperable verification, biological watermarking could become one layer in synthesis screening and scientific-data integrity. If removal remains easy or detection stays vendor-specific, it will be supporting evidence rather than a dependable control.",
+      "uncertainties": [
+        "The paper presents a proof of concept across selected protein-binder and structure tasks; it does not establish reliability across the diversity of biological designs used in research or production.",
+        "A documented resequencing attack largely removes the sequence watermark, so determined actors with model access may bypass the signal.",
+        "Detection depends on secret keys or detector access, creating governance, availability, and trust questions for independent verification.",
+        "Near-perfect structure detection is measured on an evaluation set under defined perturbations; robustness to broader scientific processing and deliberate attacks remains open.",
+        "A provenance signal says something about origin. It does not establish that a biological design is safe, effective, lawful, or accurately labeled."
+      ],
+      "analysis": "This is a more interesting provenance problem than watermarking an image: the mark has to survive in something meant to function. The result is credible because the paper tests biology and admits an effective removal path. That honesty is also the limit—the watermark can support screening, but it cannot carry biosecurity alone.",
+      "sources": [
+        {
+          "id": "nature-synthid-bio",
+          "title": "Function-preserving watermarking of AI-generated proteins",
+          "publisher": "Nature",
+          "url": "https://www.nature.com/articles/s41586-026-10965-y",
+          "publishedAt": "2026-09-30",
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
+        },
+        {
+          "id": "deepmind-synthid-bio",
+          "title": "Introducing SynthID Bio",
+          "publisher": "Google DeepMind",
+          "url": "https://deepmind.google/blog/introducing-synthid-bio/",
+          "publishedAt": "2026-09-30",
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Peer-reviewed primary research and the research team’s release note. Performance and robustness claims are bounded to the reported experiments; this edition does not claim deployment readiness.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-07",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 7 October 2026."
+      }
+    }
+  ],
+  "signalMapChanges": [
+    {
+      "area": "Inference",
+      "direction": "down",
+      "dimension": "Provider-reported cost per completed model task",
+      "rationale": "Anthropic and OpenAI position workhorse models around lower effective or listed task cost, while Google announced temporary introductory pricing for Argon. The arrow tracks pricing direction and vendor-reported economics, not independently verified savings.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
+    },
+    {
+      "area": "AI Security",
+      "direction": "up-strong",
+      "dimension": "Agent containment across shell, network, credentials, and desktop applications",
+      "rationale": "GitHub extended Copilot controls from sandboxed commands and enterprise rollout policy into approved desktop applications, OS permissions, screen context, and active-session revocation. The arrow tracks the larger control surface, not independent proof of reliable or safe computer use.",
+      "storyId": "coding-agents-get-a-local-boundary"
+    },
+    {
+      "area": "Enterprise Adoption",
+      "direction": "up",
+      "dimension": "Managed, code-defined agent workflows",
+      "rationale": "Microsoft supplies managed runtime, identity, inventory, and billing for persistent agents, while GitHub now exposes reusable code-defined orchestration, checkpoints, and run limits. The movement reflects available product infrastructure, not independent proof of production reliability.",
+      "storyId": "enterprise-agents-become-managed-workloads"
+    },
+    {
+      "area": "Models",
+      "direction": "up",
+      "dimension": "Governed access to long-horizon frontier capability",
+      "rationale": "Google announced a frontier model for long-horizon work through a restricted defender rollout with explicit safety work before broader access. The movement reflects increased available capability and staged access, not independent validation or broad availability.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
+    },
+    {
+      "area": "Data Infrastructure",
+      "direction": "up",
+      "dimension": "Embedded provenance for AI-generated biological data",
+      "rationale": "SynthID Bio demonstrates detectable watermarks in tested protein sequences and structures while preserving measured function. The movement is limited to a proof of concept and does not imply deployment readiness or resistance to determined removal.",
+      "storyId": "provenance-moves-into-the-molecule"
+    },
+    {
+      "area": "Agents",
+      "direction": "up",
+      "dimension": "Repeatable orchestration with explicit control points",
+      "rationale": "GitHub dynamic workflows make agent stages, handoffs, checkpoints, and limits part of a reusable program. The arrow tracks greater control surface, not deterministic agent output or proven safety.",
+      "storyId": "enterprise-agents-become-managed-workloads"
+    },
+    {
+      "area": "Research",
+      "direction": "up",
+      "dimension": "Open, production-linked evaluation infrastructure for AI code review",
+      "rationale": "GitHub published ReviewBench with a public corpus, labeled findings, rubric, judge configuration, runner, and one reported link between offline and online movement. The arrow tracks increased evaluation infrastructure, not independent validation or universal transfer to enterprise code.",
+      "storyId": "ai-code-review-gets-an-open-scoreboard"
+    }
+  ]
+}

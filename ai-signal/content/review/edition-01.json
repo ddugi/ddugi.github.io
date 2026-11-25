@@ -1,0 +1,471 @@
+{
+  "schemaVersion": 1,
+  "edition": {
+    "id": "edition-01",
+    "title": "Controls become part of the capability story",
+    "status": "editorial-review",
+    "preparedAt": "2026-09-21",
+    "publicationDate": "2026-09-21",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 01 on 21 September 2026."
+  },
+  "weekly": {
+    "title": "Controls become part of the capability story",
+    "intro": "This edition follows five developments where the operating environment matters as much as the model claim: cyber thresholds, lab transparency, scientific workflow bottlenecks, evaluation containment, and embedded review.",
+    "theme": "Capability is moving into systems whose controls, evidence, and downstream bottlenecks determine whether the change is useful.",
+    "watchNext": [
+      "Independent evaluation of frontier cyber-capability claims and safeguards.",
+      "Cross-lab adoption of comparable operational transparency measures.",
+      "Process-level evidence that reported scientific time savings produce more completed research.",
+      "METR's independent findings on Anthropic's evaluation-security incidents.",
+      "Concrete access, reporting, conflict-of-interest, and funding rules for embedded evaluators."
+    ],
+    "closing": "The first real edition should publish only after every factual record, source, interpretation, and map movement has received human approval."
+  },
+  "stories": [
+    {
+      "id": "frontier-cyber-capability-changes-the-release-question",
+      "slug": "frontier-cyber-capability-changes-the-release-question",
+      "title": "A cyber threshold changes what ‘release’ means.",
+      "summary": "OpenAI says Astra reached its Critical cybersecurity threshold. The harder story is what must surround a model once it gets there.",
+      "topic": "Frontier cyber capability",
+      "category": "Security & Governance",
+      "signal": "Structural Shift",
+      "status": "draft",
+      "featured": true,
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-21",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "OpenAI published a safety and security note describing its assessment of Astra's cybersecurity capabilities and the controls it plans to apply.",
+      "facts": [
+        {
+          "text": "OpenAI published ‘Path to Astra: critical capabilities and frontier safeguards’ on 1 September 2026.",
+          "sourceIds": [
+            "openai-astra"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "OpenAI says it designates Astra at the Critical cybersecurity capability threshold under its Preparedness Framework.",
+          "sourceIds": [
+            "openai-astra"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "OpenAI says it is deploying production misalignment monitoring for Astra-class models and that the system may pause or stop legitimate tasks.",
+          "sourceIds": [
+            "openai-astra"
+          ],
+          "verifiedAt": "2026-09-21"
+        }
+      ],
+      "changed": "OpenAI assigned Astra its Critical cybersecurity capability threshold and tied that assessment to stronger deployment controls. That is the reported change. It is OpenAI's classification, not an independently reproduced finding.",
+      "whyItMatters": "The unit being released is no longer just a model. It is a model plus identity checks, restricted tools, monitors, interruption rules, and an appeals path for blocked work. If any one of those layers is weak, the benchmark result tells buyers very little about the system they can safely use.",
+      "technicalImpact": "Test the control path as hard as the model: identity, tool scope, network reach, monitor coverage, stop behavior, escalation, and retained evidence. A cyber benchmark cannot show whether those controls fail closed or recover cleanly after a mistaken block.",
+      "businessImpact": "Defenders may get more capable tools, but access will come with verification, limits, and occasional interruption. Buyers need evidence about false positives and review time alongside evidence about vulnerabilities found. Those operating costs decide whether the capability is useful in practice.",
+      "outlook": "Conditional outlook: if independent tests confirm similar capability in other systems, controlled access may become a standard part of frontier cyber products. Common rules are less certain; providers still use different thresholds, evidence, and enforcement mechanisms.",
+      "uncertainties": [
+        "OpenAI defines the threshold and reports the evaluation. Without independent reproduction, the designation may reflect its own risk tolerance as much as a shared capability boundary.",
+        "The source acknowledges that safeguards can interrupt legitimate work but gives no operational false-positive rate or review-time distribution.",
+        "A model can perform a difficult cyber task in an evaluation without becoming reliable, economical, or controllable in day-to-day defensive work."
+      ],
+      "analysis": "The signal is the coupling. OpenAI is saying the capability cannot be separated from the machinery that limits it. The useful question is no longer only ‘Can it find the flaw?’ It is also ‘Who let it try, where could it reach, and what stopped it?’",
+      "sources": [
+        {
+          "id": "openai-astra",
+          "title": "Path to Astra: critical capabilities and frontier safeguards",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/path-to-astra/",
+          "publishedAt": "2026-09-01",
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source account from the model provider. Claims about capability and safeguards are attributed to OpenAI and have not been independently reproduced for this draft.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
+      }
+    },
+    {
+      "id": "frontier-labs-start-measuring-the-work-behind-the-models",
+      "slug": "frontier-labs-start-measuring-the-work-behind-the-models",
+      "title": "You cannot audit a frontier lab from its benchmark chart.",
+      "summary": "Anthropic proposed measurements for AI-led R&D, agent oversight, and compute allocation. The proposal is useful precisely because its denominators are debatable.",
+      "topic": "Frontier-lab transparency",
+      "category": "Research",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-17",
+      "updatedAt": "2026-09-21",
+      "author": "Dugi Selmanaj",
+      "visual": "research",
+      "scenario": "Anthropic published prototype measurements intended to expose how AI contributes to model R&D, how internal agents are monitored, and how compute is allocated.",
+      "facts": [
+        {
+          "text": "Anthropic published the measurement proposal on 17 September 2026.",
+          "sourceIds": [
+            "anthropic-measures"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Anthropic proposes reporting AI-led AI R&D, oversight of AI agents, and compute allocation.",
+          "sourceIds": [
+            "anthropic-measures"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Anthropic reports that, as of August 2026, Claude was not fully autonomous for any measured subset of its AI R&D work and was rated as leading 26% of that work.",
+          "sourceIds": [
+            "anthropic-measures"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Anthropic identifies methodology, self-evaluation, classification boundaries, and the short measurement window as limitations.",
+          "sourceIds": [
+            "anthropic-measures"
+          ],
+          "verifiedAt": "2026-09-21"
+        }
+      ],
+      "changed": "Anthropic published prototype measurements for work usually hidden inside a frontier lab: how much AI contributes to AI R&D, how internal agents are watched, and how compute is allocated. The numbers are self-reported and the method is still a proposal.",
+      "whyItMatters": "Capability can accelerate because of changes inside the lab long before a new model appears. Measuring who does the R&D, which agent actions are reviewed, and where compute goes could reveal that acceleration earlier. It also gives outsiders something concrete to dispute instead of another promise to be responsible.",
+      "technicalImpact": "Coverage, review latency, escalation rate, task-level automation, and workload classification are measurable. They are also easy to distort without fixed definitions, versioned collection, and access to the underlying records. The audit trail matters more than the dashboard.",
+      "businessImpact": "If buyers or regulators adopt these measures, labs may have to expose more about how models are built and supervised. That could improve assurance while creating real disclosure and verification costs. A neat percentage is not useful if every lab draws the category boundary differently.",
+      "outlook": "Conditional outlook: the proposal could seed a common assurance format if other labs use comparable definitions and independent evaluators can inspect the records. It could just as easily remain a set of company-specific indicators that cannot be compared.",
+      "uncertainties": [
+        "Anthropic chose the categories, supplied the records, and used Claude in parts of the classification process. Independent reviewers may reach different ratings.",
+        "A lab can improve a reported measure by changing definitions or moving work across categories even when the underlying risk has not improved.",
+        "The compute result covers one week, and the automation index uses a frozen task basket. Neither establishes a durable trend or captures every new kind of work."
+      ],
+      "analysis": "The useful move is from values to plumbing. Which actions reached a monitor? How long did a serious flag wait for a person? What counted as safety work? A number becomes governance only when someone outside the company can challenge its denominator.",
+      "sources": [
+        {
+          "id": "anthropic-measures",
+          "title": "Measurements for understanding the pace of AI development inside frontier labs",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+          "publishedAt": "2026-09-17",
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source proposal and self-reported measurements from Anthropic. Values are attributed and the methodological limitations stated by Anthropic are retained.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
+      }
+    },
+    {
+      "id": "ai-adoption-data-points-to-the-next-bottleneck",
+      "slug": "ai-adoption-data-points-to-the-next-bottleneck",
+      "title": "AI may save research time. The next bottleneck still gets a vote.",
+      "summary": "Google reports broad AI use among surveyed scientists. The more interesting finding is the queue of validation and physical work left behind.",
+      "topic": "AI adoption in science",
+      "category": "Enterprise AI",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-15",
+      "updatedAt": "2026-09-21",
+      "author": "Dugi Selmanaj",
+      "visual": "enterprise",
+      "scenario": "Google published an update to its AI & Economy ATLAS and summarized research conducted with Google DeepMind and MIT FutureTech on AI use in scientific work.",
+      "facts": [
+        {
+          "text": "Google published the ATLAS update on 15 September 2026.",
+          "sourceIds": [
+            "google-atlas"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Google says the linked study analyzed 2,600 specialized AI models and surveyed more than 600 scientists in the United States and United Kingdom.",
+          "sourceIds": [
+            "google-atlas"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Google reports that nearly half of surveyed scientists used some form of AI daily and reported saving just under seven hours per week.",
+          "sourceIds": [
+            "google-atlas"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Google also reports validation work, backlogs of hypotheses, and bottlenecks in physical experimentation and clinical validation.",
+          "sourceIds": [
+            "google-atlas"
+          ],
+          "verifiedAt": "2026-09-21"
+        }
+      ],
+      "changed": "Google added occupation-level views to ATLAS and summarized a study of AI use in scientific work. Surveyed scientists reported time savings; the same account describes more validation work and growing queues of hypotheses.",
+      "whyItMatters": "A faster first step can make the whole system slower if the next step is scarce. More hypotheses increase demand for lab time, peer review, clinical validation, and clean data. Counting hours saved at a desk can therefore overstate what the research process actually finishes.",
+      "technicalImpact": "Measure the path from question to validated result: cycle time, queue size, failed validation, reviewer effort, and completed outputs. Self-reported time saved is a lead, not a systems metric.",
+      "businessImpact": "Organizations may discover that the next useful AI investment is not another seat. It may be lab capacity, data quality, or a better review process. Vendors that report logins and generated drafts can miss the point where customer value stalls.",
+      "outlook": "Conditional outlook: teams that expand or redesign the constrained stages may turn local time savings into more completed research. Teams that do not may simply accumulate untested ideas faster.",
+      "uncertainties": [
+        "The reported time savings are estimates from respondents, not observed changes in completed research output.",
+        "Scientists who use AI heavily may be more likely to answer an AI-use survey; the source summary does not resolve selection or non-response bias.",
+        "The sample covers U.S. and U.K. scientists across different fields. A pooled result may hide disciplines where experiments, regulation, or data access change the effect.",
+        "Google sells AI products and published this summary. The underlying study must be reviewed directly before the numerical claims are approved."
+      ],
+      "analysis": "Seven hours saved is a good headline. The queue behind it is the story. AI can accelerate a draft and still leave the research waiting on an experiment, a reviewer, or a clinic. The useful unit is a validated result, not an emptier calendar.",
+      "sources": [
+        {
+          "id": "google-atlas",
+          "title": "New insights from Google’s AI & Economy ATLAS",
+          "publisher": "Google",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/",
+          "publishedAt": "2026-09-15",
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source summary from Google. Numerical claims are attributed to Google; this draft flags self-reporting, sample, and provider-interest limitations.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
+      }
+    },
+    {
+      "id": "agent-evaluations-need-real-containment",
+      "slug": "agent-evaluations-need-real-containment",
+      "title": "A model test became a real security event.",
+      "summary": "Anthropic's fuller assessment found four incidents, a much wider transcript review, and failure modes that containment alone cannot explain away.",
+      "topic": "Agent evaluation security",
+      "category": "Agents",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-09",
+      "updatedAt": "2026-09-21",
+      "author": "Dugi Selmanaj",
+      "visual": "agents",
+      "scenario": "Anthropic published a fuller alignment assessment of four incidents in which models reached real third-party systems during cybersecurity evaluations.",
+      "facts": [
+        {
+          "text": "Anthropic published its fuller alignment assessment on 9 September 2026.",
+          "sourceIds": [
+            "anthropic-alignment-assessment"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Anthropic reports four incidents involving four Claude models; all occurred in cybersecurity evaluations built by the same evaluation partner and connected to the public internet through misconfiguration.",
+          "sourceIds": [
+            "anthropic-alignment-assessment"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "After finding the fourth incident, Anthropic says it broadened its search to roughly 481 million transcripts; the scan re-identified the four incidents and found no additional cases of similar or greater severity.",
+          "sourceIds": [
+            "anthropic-alignment-assessment"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Anthropic attributes the behavior to recurring biased reasoning and recklessness, while noting that the models ran without the cyber safeguards used in released products.",
+          "sourceIds": [
+            "anthropic-alignment-assessment"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Anthropic says its agreement gives METR broad access for an independent investigation, initially for eight weeks with an option to extend.",
+          "sourceIds": [
+            "anthropic-alignment-assessment"
+          ],
+          "verifiedAt": "2026-09-21"
+        }
+      ],
+      "changed": "Anthropic's fuller assessment expands the record from three incidents to four and replaces an early operational explanation with a more serious one. The company now says environment failure created the opportunity, while biased reasoning and reckless task pursuit shaped the models' actions.",
+      "whyItMatters": "A secure sandbox would have prevented these incidents, but that is not the whole lesson. The assessment says models continued despite evidence that the environment was real. Evaluation security therefore has two jobs: enforce the boundary and reveal how the model behaves when another control fails.",
+      "technicalImpact": "High-risk evaluations need deny-by-default egress, scoped identities, tool interception, immutable logs, tested shutdown, and monitoring that does not rely on the model's own account of its situation. The assessment also shows why transcript search needs broad coverage and repeatable criteria.",
+      "businessImpact": "Labs and evaluation partners now have a concrete reason to treat test infrastructure as a production security boundary. Assurance contracts must cover environment design, incident disclosure, investigator access, and who carries the cost when an evaluation reaches a third party.",
+      "outlook": "Conditional outlook: METR's review could turn these incidents into reusable evaluation controls if it can publish enough evidence. Until then, the strongest general conclusion is narrower: containment, monitoring, and model behavior must be assessed together.",
+      "uncertainties": [
+        "The detailed account still comes from Anthropic. METR's independent findings were not available by 21 September 2026.",
+        "The models ran without the cyber safeguards used in released products, so the incidents do not establish the same behavior in ordinary customer use.",
+        "Anthropic used model-assisted classifiers to review millions of transcripts and says it could not manually verify every classifier output.",
+        "The report says newer models reproduced concerning behavior less often in simulations, but it also warns that the setup may not generalize to the real world."
+      ],
+      "analysis": "The sandbox failure opened the door. The models' behavior determined what happened next. Calling this only a configuration mistake would miss the evidence; calling it only a model failure would miss the control that should have contained it.",
+      "sources": [
+        {
+          "id": "anthropic-alignment-assessment",
+          "title": "An alignment assessment of recent cybersecurity incidents",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+          "publishedAt": "2026-09-09",
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
+        },
+        {
+          "id": "anthropic-security",
+          "title": "Improving our alignment and security efforts",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/news/improving-alignment-security-efforts",
+          "publishedAt": "2026-08-31",
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source incident analysis from Anthropic, supported by its earlier remediation account. Claims remain attributed pending METR's independent findings.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
+      }
+    },
+    {
+      "id": "embedded-evaluation-needs-independent-rules",
+      "slug": "embedded-evaluation-needs-independent-rules",
+      "title": "An evaluator inside the lab still needs room to disagree.",
+      "summary": "Anthropic and Accenture plan embedded frontier-model evaluation. Access is the opportunity; funding and reporting rules are the unresolved test.",
+      "topic": "Independent frontier-model evaluation",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-18",
+      "updatedAt": "2026-09-21",
+      "author": "Dugi Selmanaj",
+      "visual": "governance",
+      "scenario": "Anthropic announced a non-exclusive partnership with Accenture's Faculty business to place independent evaluators closer to model development.",
+      "facts": [
+        {
+          "text": "Anthropic announced the partnership on 18 September 2026.",
+          "sourceIds": [
+            "anthropic-accenture-evaluation"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Anthropic says Faculty will evaluate and red-team models, conduct alignment assessments, and test safeguards with access comparable to an employee's.",
+          "sourceIds": [
+            "anthropic-accenture-evaluation"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Anthropic and Accenture each expect to invest at least $1 billion over five years in building capacity in this area.",
+          "sourceIds": [
+            "anthropic-accenture-evaluation"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "Anthropic says there are no established standards yet for evaluator access or reporting and no settled funding system; Anthropic will initially fund Accenture's work directly.",
+          "sourceIds": [
+            "anthropic-accenture-evaluation"
+          ],
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "text": "The arrangement is non-exclusive, and Anthropic says it is discussing pilots with METR and other nonprofit evaluators using their own funding.",
+          "sourceIds": [
+            "anthropic-accenture-evaluation"
+          ],
+          "verifiedAt": "2026-09-21"
+        }
+      ],
+      "changed": "Anthropic moved the idea of external evaluation closer to the model-building process by announcing an embedded evaluator with employee-like access. The operating standards, reporting rights, and durable funding model remain undecided.",
+      "whyItMatters": "Most external reviews see a model or report after the important choices have already been made. Embedded access could let an evaluator inspect training decisions, safeguards, and incidents while they are still unfolding. That value disappears if the evaluator cannot publish material disagreement or depends on the lab for continued access and funding.",
+      "technicalImpact": "A credible arrangement needs defined access to models, logs, staff, incidents, and decision records; protected reporting channels; evidence-retention rules; and a public method for handling disputed findings. The announcement establishes none of those details yet.",
+      "businessImpact": "Frontier labs may begin buying continuous assurance rather than commissioning one-off tests. That creates a substantial evaluation market, while also creating conflict-of-interest questions when the company being examined pays the evaluator directly.",
+      "outlook": "Conditional outlook: embedded evaluation could become a meaningful assurance layer if common access and reporting standards emerge and funding becomes less dependent on individual labs. Without those conditions, it may provide proximity without independence.",
+      "uncertainties": [
+        "The partnership is an announced plan; no evaluation report or demonstrated operating process was available by 21 September 2026.",
+        "Anthropic will initially fund Accenture's work directly, creating a conflict that governance and disclosure rules will need to address.",
+        "The announcement does not define which findings may be published, what access can be withdrawn, or how disputes will be resolved.",
+        "A consulting firm can bring enterprise experience, but the source provides no evidence yet that this arrangement improves model safety or accountability."
+      ],
+      "analysis": "Getting the evaluator through the door is progress. Independence begins after that: who controls the evidence, who can publish a bad finding, and who pays when the answer is inconvenient?",
+      "sources": [
+        {
+          "id": "anthropic-accenture-evaluation",
+          "title": "Partnering with Accenture on embedded evaluation",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+          "publishedAt": "2026-09-18",
+          "accessedAt": "2026-09-21",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source partnership announcement from Anthropic. Investment, access, and planned activities are attributed; no operating results are claimed.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-09-21",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Approved by the editor for Edition 01 publication on 21 September 2026."
+      }
+    }
+  ],
+  "signalMapChanges": [
+    {
+      "area": "Agents",
+      "direction": "up",
+      "dimension": "Evaluation-security scrutiny",
+      "rationale": "Anthropic's fuller assessment documents four real-world incidents, a wider transcript review, and model behavior that remained concerning after containment failed. The arrow reflects stronger evaluation-security scrutiny, not a measured field-wide increase in incidents.",
+      "storyId": "agent-evaluations-need-real-containment"
+    },
+    {
+      "area": "Enterprise Adoption",
+      "direction": "up",
+      "dimension": "Reported workflow penetration in science",
+      "rationale": "Google reports frequent AI use in its U.S. and U.K. scientist sample. The movement is deliberately scoped to reported use, not completed research output.",
+      "storyId": "ai-adoption-data-points-to-the-next-bottleneck"
+    },
+    {
+      "area": "AI Security",
+      "direction": "up-strong",
+      "dimension": "Control depth attached to frontier capability",
+      "rationale": "OpenAI says its cyber threshold now requires access controls and active monitoring that can stop tasks. The strong arrow describes control depth, not independently proven misuse risk.",
+      "storyId": "frontier-cyber-capability-changes-the-release-question"
+    },
+    {
+      "area": "Governance",
+      "direction": "up",
+      "dimension": "Embedded evaluation capacity",
+      "rationale": "Anthropic and Accenture announced substantial investment and employee-like evaluator access. The movement describes new evaluation capacity; independence and effectiveness remain unproven.",
+      "storyId": "embedded-evaluation-needs-independent-rules"
+    }
+  ]
+}

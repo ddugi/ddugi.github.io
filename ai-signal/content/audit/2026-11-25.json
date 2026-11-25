@@ -1,0 +1,58 @@
+{
+  "run_date": "2026-11-25",
+  "research_window": {
+    "start": "2026-11-24T09:40:32Z",
+    "end": "2026-11-25T08:02:39Z"
+  },
+  "status": "awaiting_editorial_approval",
+  "checked_primary_sources": [
+    "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+    "https://workspace.google.com/terms/ai-tools/",
+    "https://developers.google.com/workspace/release-notes?hl=en",
+    "https://cloud.google.com/blog/products/identity-security/deploying-agents-safely-in-your-enterprise",
+    "https://openai.com/news/",
+    "https://help.openai.com/en/articles/9624314-model-release-notes",
+    "https://www.anthropic.com/research",
+    "https://safeguards.anthropic.com/2026/siren/",
+    "https://deepmind.google/blog/",
+    "https://aws.amazon.com/new/",
+    "https://github.blog/changelog/"
+  ],
+  "accepted": [
+    {
+      "story_id": "google-workspace-sets-a-deadline-for-agent-access",
+      "source_publication_date": "2026-11-24",
+      "action": "new_draft",
+      "reason": "The official rollout and published enforcement date create a concrete migration for covered Workspace integrations. The public release notes establish the calendar date without an exact UTC publication time."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Anthropic Siren",
+      "source_publication_date": "2026-11-24",
+      "reason": "Held. The report concerns intentionally weakened evaluation environments. A concise defensive brief would need to establish the timing and distinguish lab behavior from production exposure."
+    },
+    {
+      "candidate": "OpenAI healthcare API configurations",
+      "source_publication_date": "2026-11-24",
+      "reason": "Held. The release notes establish availability and a healthcare-specific search index, but the reviewed announcement does not establish independent outcomes or precise publication time."
+    },
+    {
+      "candidate": "AWS physical AI conference preview",
+      "source_publication_date": "2026-11-24",
+      "reason": "Upcoming conference sessions and demonstrations do not establish a shipped change."
+    },
+    {
+      "candidate": "FineProofEnvs",
+      "source_publication_date": "2026-11-24",
+      "reason": "One project-authored experiment with rubric-based grading does not establish broader proof reliability."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": null
+  }
+}

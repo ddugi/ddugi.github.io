@@ -1,0 +1,82 @@
+{
+  "run_date": "2026-11-18",
+  "research_window": {
+    "start": "2026-11-17T08:00:07Z",
+    "end": "2026-11-18T07:48:56Z"
+  },
+  "status": "deployed",
+  "checked_primary_sources": [
+    "OpenAI launch, system card, deployment-safety, research, and product publications",
+    "Anthropic newsroom, research, engineering, safeguards, and standards publications",
+    "Google and Google DeepMind model, research, safety, and developer publications",
+    "Microsoft Ignite, Agent 365, Entra, Security, Azure, research, and developer publications",
+    "AWS AI, WorkSpaces, Bedrock, security, architecture, and product publications",
+    "GitHub changelog, open-source, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom, research, technical, and developer publications",
+    "Meta AI and Meta Engineering publications",
+    "Hugging Face official publications, organization releases, and model cards",
+    "NIST, CISA, CERT, and coordinated-disclosure publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "the-model-got-a-control-room",
+      "source_publication_date": "2026-11-17",
+      "reason": "GPT-6.2 Astra is OpenAI's first external model at its High AI Self-Improvement threshold, and the release connects that tier to isolation, monitoring, staged access, and workload-stop infrastructure. Mixed external evaluations, Tier 1 loss-of-control assessment, blocker omissions, and simulation limits keep the signal bounded."
+    },
+    {
+      "story_id": "vulnerability-research-hit-machine-scale",
+      "source_publication_date": "2026-11-17",
+      "reason": "GitHub's MDASH pilot materially strengthens an existing structural signal with a candidate-to-report-to-fix-to-release funnel and explicit researcher effort. Updating the existing URL avoids duplication and keeps raw scanner volume separate from remediation outcomes."
+    },
+    {
+      "story_id": "the-agent-got-an-employee-badge",
+      "source_publication_date": "2026-11-17",
+      "reason": "Microsoft, Entra, and GitHub extend the existing workforce-identity story into cross-platform registration, sponsorship, activity evidence, lifecycle review, revocation, and retirement. GA and preview controls, narrow eligibility, privacy, and authorization limits remain explicit."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Microsoft Perception product package",
+      "source_publication_date": "2026-11-17",
+      "reason": "The package mixes generally available defensive features with preview or limited-access penetration testing, risk, shielding, and model capabilities, making a single availability claim misleading."
+    },
+    {
+      "candidate": "Microsoft AI Transparency Initiative",
+      "source_publication_date": "2026-11-17",
+      "reason": "The initiative has not yet released a technical specification, conformance test, or delivery timetable and therefore does not establish an implemented governance control."
+    },
+    {
+      "candidate": "GitHub secret scanning, Copilot Evals, and Event Streams previews",
+      "source_publication_date": "2026-11-17",
+      "reason": "These are useful but opt-in, preview, waitlisted, product-local, or too early for a separate structural thesis."
+    },
+    {
+      "candidate": "AWS agentic account creation",
+      "source_publication_date": "2026-11-17",
+      "reason": "The flow is operationally interesting but the announcement lacks a detailed threat model and outcome evidence sufficient for a separate signal."
+    },
+    {
+      "candidate": "Microsoft IQ",
+      "source_publication_date": "2026-11-17",
+      "reason": "The announcement depends on preview components and vendor assertions about accuracy, token use, and enterprise value without comparative production evidence."
+    },
+    {
+      "candidate": "Vertical GPT-6.2 packaging",
+      "source_publication_date": "2026-11-17",
+      "reason": "Astra for Law and ChatGPT for Sales are extensions of the same model launch rather than independent technological signals."
+    },
+    {
+      "candidate": "Other Anthropic, Google DeepMind, Meta, Hugging Face, NVIDIA, NIST, CISA, and cloud-native developments",
+      "source_publication_date": "2026-11-18",
+      "reason": "No additional primary-source item found before the cutoff met the exact-date, materiality, evidence, and deduplication threshold."
+    }
+  ],
+  "emerging_trends_detected": 3,
+  "notes": "Edition 40 proposes three traceable, moderate Signal Map movements: Models from capability-gated release infrastructure, AI Security from a governed remediation funnel, and Enterprise Adoption from cross-platform agent identity lifecycle evidence. No quantitative Signal Map score is used, and two accepted items update existing stories rather than duplicate them.",
+  "publication": {
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/116",
+    "commit": "32e045642a5b12caf1ca97580f9ea6ae8f8cb6fc",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}

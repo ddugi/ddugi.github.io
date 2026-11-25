@@ -1,0 +1,68 @@
+{
+  "run_date": "2026-11-17",
+  "research_window": {
+    "start": "2026-11-16T07:38:43Z",
+    "end": "2026-11-17T08:00:07Z"
+  },
+  "status": "deployed",
+  "checked_primary_sources": [
+    "OpenAI official news, research, safety, security, system-card, and government publications",
+    "CERT Polska vulnerability research and coordinated-disclosure publication",
+    "Anthropic newsroom, research, engineering, safeguards, and standards publications",
+    "Google and Google DeepMind model, research, science, safety, and developer publications",
+    "Microsoft Ignite live news, Microsoft Research, Azure, security, Copilot, and developer publications",
+    "AWS AI, WorkSpaces, Bedrock, security, architecture, API, and technical publications",
+    "GitHub changelog, engineering, documentation, releases, and security publications",
+    "NVIDIA newsroom, research, technical, and developer publications",
+    "Meta AI and Meta Engineering publications",
+    "Hugging Face official publications, organization releases, and model cards",
+    "NIST and CISA publications and advisories"
+  ],
+  "accepted": [
+    {
+      "story_id": "vulnerability-research-hit-machine-scale",
+      "source_publication_date": "2026-11-17",
+      "reason": "OpenAI's NATO and allied-government update materially strengthens an existing structural signal, while CERT Polska provides independent primary evidence that agent-assisted vulnerability research produced six coordinated RouterOS findings, patches, and real-system verification. The update preserves the difference between activity and outcomes and foregrounds human laboratory, validation, disclosure, and patch work."
+    },
+    {
+      "story_id": "the-agent-got-an-employee-badge",
+      "source_publication_date": "2026-11-16",
+      "reason": "AWS moved managed desktop agents into existing enterprise identity and audit machinery through OIDC, on-behalf-of identity, directory permissions, Group Policy, and customer-controlled session replay. The story qualifies as an important enterprise adoption signal while preserving first-party evidence limits, overprivilege risk, replay privacy, and the distinction between evidence and prevention."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Microsoft Ignite live-news placeholder and pre-event session guides",
+      "source_publication_date": "2026-11-17",
+      "reason": "At the research cutoff, the keynote and detailed announcements had not begun. Session agendas and promises of future demonstrations are not evidence of released controls, availability, or operating outcomes."
+    },
+    {
+      "candidate": "GitHub Copilot weekly release and customization controls",
+      "source_publication_date": "2026-11-16",
+      "reason": "The customization-source control and weekly release bundle improve administration, but the reviewed material is incremental and does not establish a broader change beyond existing enterprise Copilot governance coverage."
+    },
+    {
+      "candidate": "GitHub bulk AI Scan and Dependabot dismissal updates",
+      "source_publication_date": "2026-11-16",
+      "reason": "Bulk scanning and longer-lived dismissal requests are useful operational improvements but do not create a new security architecture or evidence-backed structural signal."
+    },
+    {
+      "candidate": "NVIDIA Vera CPU platform for scientific computing",
+      "source_publication_date": "2026-11-16",
+      "reason": "The rack-scale CPU announcement contains vendor performance and 2028 availability claims but no independent system results or near-term operational evidence sufficient for a separate AI-infrastructure signal."
+    },
+    {
+      "candidate": "Other Anthropic, Google DeepMind, Meta, Hugging Face, NIST, and CISA developments",
+      "source_publication_date": "2026-11-17",
+      "reason": "No additional primary-source item found before the cutoff met the exact-date, materiality, evidence, and deduplication threshold."
+    }
+  ],
+  "emerging_trends_detected": 2,
+  "notes": "Edition 39 proposes two traceable, moderate Signal Map movements: AI Security from operational cyber-agent evidence and Enterprise Adoption from workforce identity plus audit evidence for desktop agents. No quantitative Signal Map score is used. The cyber story updates an existing signal rather than duplicating it.",
+  "publication": {
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/114",
+    "commit": "f5a367835ec0db6be69d7fccb80fd8c340db5430",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}

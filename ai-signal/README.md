@@ -6,7 +6,7 @@ A distinct static editorial publication at https://ddugi.github.io/ai-signal/.
 
 `content/publication.json` is the editorial source of truth. It contains publication metadata, story records, map rationales and a weekly edition. `content/schema.json` documents the format using JSON Schema 2020-12.
 
-`content/update-state.json` records the last successfully published editorial update. It is intentionally `null` until the first live edition passes human review, validation, and publication. Repository-wide agent instructions in `../AGENTS.md` define the research, drafting, review, and state-update workflow.
+`content/update-state.json` records the last verified editorial update. The published story IDs describe the edition at the recorded commit. See [AGENTS.md](../AGENTS.md) for the research, drafting, approval, and state-update workflow.
 
 `scripts/build.py` generates the homepage, seven initial story pages, the weekly edition and editorial-method page. All generated HTML is committed so the existing GitHub Pages branch deployment needs no new workflow or package installation.
 
@@ -67,9 +67,51 @@ Sources → collection → deduplication → fact extraction → verification �
 
 No part of the ingestion or automated analysis pipeline is enabled here. Future tooling should write drafts to this content contract, preserve provenance, and pass the same validation and editorial review before publication.
 
+## Manual edition review
+
+Real editions begin in `content/review/edition-01.json`, separate from the live `content/publication.json`. The review file contains 3–5 drafts, source-linked fact records, labeled analysis and outlook, explicit uncertainties, a four-part human checklist, and proposed Signal Map movements tied to story IDs.
+
+Build the ignored local review bundle:
+
+```sh
+python3 ai-signal/scripts/review_edition.py
+python3 ai-signal/scripts/test_review_edition.py
+```
+
+Open `ai-signal/.review/edition-01/index.html` and review each story. For approval, verify every linked primary source and exact date, edit the story as needed, set `factCheck`, `rightsCheck`, `fairnessCheck`, and `copyCheck` to true, change review status to `approved`, and record `reviewer` and `reviewedAt`. Set the edition `publicationDate` only after the full edition is ready.
+
+The release gate must then pass:
+
+```sh
+python3 ai-signal/scripts/review_edition.py --ready
+python3 ai-signal/scripts/promote_edition.py
+```
+
+The second command writes an ignored `publication-candidate.json` for final comparison. It does not modify the live publication. Only after that candidate is reviewed should an editor run `promote_edition.py --apply`, rebuild, test, and submit the resulting live files. Promotion refuses pending checklists, missing reviewer records, unresolved fact citations, undated or non-primary sources, unlabeled outlooks, and untraceable map changes.
+
+No collector, scheduler, model call, or automated publication step is part of this workflow.
+
+## Audience measurement
+
+Cloudflare Web Analytics support is built into the static generator but remains off unless `content/publication.json` contains both `"enabled": true` and a valid Cloudflare site token. A disabled configuration emits no third-party analytics script and must keep `siteToken` set to `null`.
+
+To enable it, add `ddugi.github.io` as a site under **Cloudflare Dashboard → Web Analytics**, copy the Site Token, then set:
+
+```json
+"analytics": {
+  "provider": "cloudflare-web-analytics",
+  "enabled": true,
+  "siteToken": "YOUR_CLOUDFLARE_SITE_TOKEN"
+}
+```
+
+Run the normal build and checks. The generator adds one deferred Cloudflare beacon to every generated page and changes the privacy notice from disabled to active wording. The token is a public site identifier embedded in HTML, not a Cloudflare API key. Never commit an API token or account credential here.
+
+The dashboard provides aggregate page views, approximate unique visits, referrers, countries, browsers, devices, and performance. It does not provide a list of visitor IP addresses or prove that a particular person read an article.
+
 ## Safety and privacy
 
-Text is HTML-escaped. Slugs and source URLs are validated. No third-party fonts, analytics, model API calls, browser storage, user accounts, or backend. GitHub Pages may keep ordinary hosting request logs. Generated-file cleanup is restricted to the recorded generated manifest inside this publication.
+Text is HTML-escaped. Slugs and source URLs are validated. No third-party fonts, advertising trackers, model API calls, browser storage, user accounts, or backend. Optional audience measurement is restricted to the validated Cloudflare Web Analytics configuration above. GitHub Pages may keep ordinary hosting request logs. Generated-file cleanup is restricted to the recorded generated manifest inside this publication.
 
 Public policies live at `policies/editorial/`, `policies/corrections/`, and `policies/privacy/`. The Atom feed is `feed.xml`. Repository-wide ownership, licensing, security, and release controls are documented at the repository root.
 

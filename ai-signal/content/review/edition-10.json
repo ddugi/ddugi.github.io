@@ -1,0 +1,760 @@
+{
+  "schemaVersion": 1,
+  "edition": {
+    "id": "edition-10",
+    "title": "The policy now sits outside the agent",
+    "status": "editorial-review",
+    "preparedAt": "2026-10-08",
+    "publicationDate": "2026-10-08",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 10 on 8 October 2026. Two verified 7 October releases add external agent-policy enforcement and generated interactive interfaces."
+  },
+  "stories": [
+    {
+      "id": "agent-policy-moves-outside-the-agent",
+      "slug": "agent-policy-moves-outside-the-agent",
+      "title": "The policy now sits outside the agent.",
+      "summary": "AWS released Strands Box, an open-source developer preview that combines operating-system containment with policy checks for shell, Python, network, MCP, and credentials. The useful idea is simple: the agent should not be the final authority on what it may do.",
+      "topic": "Agent sandboxing and policy enforcement",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": true,
+      "publishedAt": "2026-10-07",
+      "updatedAt": "2026-10-08",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "AWS launched an Apache-2.0 developer preview that runs policy enforcement outside an agent process and evaluates actions across several tool boundaries.",
+      "facts": [
+        {
+          "text": "AWS announced Strands Box on 7 October 2026 as an Apache-2.0 developer preview for running AI agents inside an operating-system sandbox with Dogwood policies.",
+          "sourceIds": [
+            "aws-strands-box"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "AWS describes two control layers: operating-system containment limits what the agent can reach, while an embedded Dogwood Local Engine allows or denies observed actions.",
+          "sourceIds": [
+            "aws-strands-box"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "The documented enforcement points cover outbound network requests, a Shell interpreter, a Python interpreter, and an MCP broker.",
+          "sourceIds": [
+            "aws-strands-box"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "The enforcement points share an event history, allowing a rule to depend on an earlier action, its order, elapsed time, or accumulated count.",
+          "sourceIds": [
+            "aws-strands-box"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "AWS demonstrates a policy that denies a fourth successful Slack post within ten minutes while allowing the agent to continue other permitted work.",
+          "sourceIds": [
+            "aws-strands-box"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "The egress gateway can inject bearer tokens, custom headers, HTTP Basic credentials, query parameters, or AWS SigV4 credentials after a request is permitted, so the underlying secret does not enter the agent environment.",
+          "sourceIds": [
+            "aws-strands-box"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "AWS states that direct filesystem grants configured for the agent are enforced by containment and do not appear in Dogwood policy history.",
+          "sourceIds": [
+            "aws-strands-box"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "The preview initially supports local execution on Apple-silicon Macs; AWS lists broader operating-system support and deployed-agent packaging as future work.",
+          "sourceIds": [
+            "aws-strands-box"
+          ],
+          "verifiedAt": "2026-10-08"
+        }
+      ],
+      "changed": "A public agent sandbox now combines a hard operating-system boundary with one policy history across selected code, network, and MCP actions. It can also attach credentials after authorization instead of placing secrets inside the agent runtime.",
+      "whyItMatters": "Permission prompts ask whether one tool call looks acceptable. An external enforcement layer can inspect the effect being requested and relate it to what already happened. That is closer to how enterprises control programs than how chat assistants ask for confirmation.",
+      "technicalImpact": "Treat the agent as untrusted code. Put filesystem and network reach behind default-deny boundaries, keep credentials outside the runtime, log policy decisions, and test multi-step sequences such as read-then-exfiltrate or repeated writes. Document every path that bypasses the shared policy history.",
+      "businessImpact": "A reusable policy layer could reduce the cost of governing several agent harnesses with one control model. The preview is not evidence of production readiness: security teams still need platform coverage, assurance work, integration testing, incident procedures, and a clear owner for policy changes.",
+      "outlook": "Conditional outlook: if the project expands beyond its initial Mac preview, covers more action paths, and survives independent security review, external policy engines could become a standard layer for enterprise agents. If important tools bypass interception or the trusted computing base proves too broad, the approach will remain a useful experiment rather than a dependable boundary.",
+      "uncertainties": [
+        "The release is an AWS-authored developer preview, not an independently audited security control or managed production service.",
+        "Initial support is limited to Apple-silicon Macs; Linux, Windows, container, and cluster behavior are not demonstrated in the cited release.",
+        "Direct filesystem grants do not produce individual Dogwood decisions, so the shared action history is incomplete by design.",
+        "Shell, Python, egress, and MCP enforcement components run outside the sandbox and widen the trusted computing base.",
+        "A harness or tool path that is not intercepted may create a control gap even when the written policy is correct.",
+        "Temporal policy can constrain observed actions; it cannot determine whether the agent’s goal, reasoning, or allowed output is correct."
+      ],
+      "analysis": "The important move is architectural, not branded: enforcement leaves the process whose behavior it governs. The hard question is coverage. A policy engine is only as strong as the paths it can actually see and stop.",
+      "sources": [
+        {
+          "id": "aws-strands-box",
+          "title": "Introducing Strands Box: AI agent sandboxes powered by Dogwood",
+          "publisher": "AWS",
+          "url": "https://aws.amazon.com/blogs/opensource/introducing-strands-box-ai-agent-sandboxes-powered-by-dogwood/",
+          "publishedAt": "2026-10-07",
+          "accessedAt": "2026-10-08",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary launch and architecture article from AWS. Feature behavior, boundaries, and roadmap are vendor-described; no independent security audit or production result is claimed.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-08",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook and limitations are explicit."
+      }
+    },
+    {
+      "id": "the-answer-is-becoming-an-interface",
+      "slug": "the-answer-is-becoming-an-interface",
+      "title": "The answer is becoming an interface.",
+      "summary": "OpenAI added native, streamable interactive components to GPT-6 responses in ChatGPT. The structural signal is not a prettier answer. It is software assembled at response time, inside the conversation.",
+      "topic": "Generative user interfaces",
+      "category": "Enterprise AI",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-10-07",
+      "updatedAt": "2026-10-08",
+      "author": "Dugi Selmanaj",
+      "visual": "enterprise",
+      "scenario": "OpenAI began rolling out GPT-6 Intelligent UI in ChatGPT, allowing responses to contain native visual and interactive components selected and composed by the model.",
+      "facts": [
+        {
+          "text": "OpenAI announced GPT-6 with Intelligent UI on 7 October 2026.",
+          "sourceIds": [
+            "openai-intelligent-ui"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "OpenAI says responses can include graphics, buttons, forms, charts, and interactive experiences, while plain text remains available when the system judges it more useful.",
+          "sourceIds": [
+            "openai-intelligent-ui"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "OpenAI describes a library of native, streamable components and a compiler that processes an interface progressively as the model generates it.",
+          "sourceIds": [
+            "openai-intelligent-ui"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "The company says it trained and evaluated the model on content organization, layout, visuals, interaction, clarity, usefulness, and completeness.",
+          "sourceIds": [
+            "openai-intelligent-ui"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "OpenAI says GPT-6 can begin answering while it continues to think and compose later parts of the response.",
+          "sourceIds": [
+            "openai-intelligent-ui"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "OpenAI reports that GPT-6 Instant starts answering web-search questions 44% sooner on average than GPT-5.6 Instant; the cited release does not publish the full evaluation design or distribution.",
+          "sourceIds": [
+            "openai-intelligent-ui"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "The rollout began for ChatGPT Plus, Pro, Business, and Enterprise in the Chat tab, with Free and Go scheduled for the following day and enterprise access dependent on admin settings.",
+          "sourceIds": [
+            "openai-intelligent-ui"
+          ],
+          "verifiedAt": "2026-10-08"
+        },
+        {
+          "text": "OpenAI explicitly says the release does not change the models powering Work or Codex.",
+          "sourceIds": [
+            "openai-intelligent-ui"
+          ],
+          "verifiedAt": "2026-10-08"
+        }
+      ],
+      "changed": "ChatGPT can now stream a model-composed interface from a controlled native component library instead of returning only prose, images, or fixed product screens. The response format itself becomes part of the generated output.",
+      "whyItMatters": "A conversational system no longer has to explain every task in paragraphs. It can expose the comparison, calculator, checklist, diagram, or form that makes the answer usable. That shifts competition from answer quality alone toward interface judgment, interaction safety, and component governance.",
+      "technicalImpact": "Teams building similar systems need typed components, constrained properties, progressive rendering, accessibility rules, state boundaries, action permissions, telemetry, and failure-safe fallbacks. Generated UI should be tested as executable product behavior, not treated as decorative model output.",
+      "businessImpact": "Interface generation can shorten the gap between a user request and a usable tool, particularly for analysis, education, and lightweight workflows. It also creates new review work around brand consistency, accessibility, regulated disclosures, unsafe actions, and whether users understand what is generated versus authoritative.",
+      "outlook": "Conditional outlook: if generated interfaces remain predictable, accessible, and safe across real tasks, conversational products may become runtime shells that assemble much of their UI on demand. If model design judgment is inconsistent or actions are hard to govern, the feature will stay a presentation layer around conventional applications.",
+      "uncertainties": [
+        "The cited evidence comes from OpenAI’s own launch material; there is no independent evaluation of interface quality or user outcomes.",
+        "OpenAI does not publish the full methodology behind the reported 44% faster start for web-search answers in the release.",
+        "A native component library constrains output, but the source does not specify the complete security, accessibility, or action-permission model.",
+        "Fast progressive output can expose partial conclusions before later reasoning changes the answer.",
+        "Generated interfaces may be persuasive even when the underlying data or recommendation is wrong.",
+        "The release is limited to ChatGPT Chat and does not establish an equivalent developer-platform capability."
+      ],
+      "analysis": "The interface is becoming a model decision. That can make software feel immediate, but it also moves layout, emphasis, and available actions into the system’s reasoning surface. Those choices now need the same scrutiny as the words.",
+      "sources": [
+        {
+          "id": "openai-intelligent-ui",
+          "title": "GPT-6 and Intelligent UI for everyone",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/gpt-6-for-everyone/",
+          "publishedAt": "2026-10-07",
+          "accessedAt": "2026-10-08",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary product-release article from OpenAI. Availability, architecture descriptions, and performance measurements are vendor-reported; no independent user study is claimed.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-08",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook and limitations are explicit."
+      }
+    },
+    {
+      "id": "ai-code-review-gets-an-open-scoreboard",
+      "slug": "ai-code-review-gets-an-open-scoreboard",
+      "title": "The scoreboard is becoming part of the product.",
+      "summary": "GitHub opened ReviewBench with public pull requests, labeled findings, a published rubric, and a self-serve runner. AI code review is gaining evaluation infrastructure that teams can inspect instead of trusting a single headline score.",
+      "topic": "AI code-review evaluation",
+      "category": "Research",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-10-05",
+      "updatedAt": "2026-10-08",
+      "author": "Dugi Selmanaj",
+      "visual": "research",
+      "scenario": "GitHub released ReviewBench as a research preview for comparing code-review agents on a public corpus with shared labels, metrics, judging, and submission rules.",
+      "facts": [
+        {
+          "text": "GitHub announced ReviewBench on 5 October 2026 as an open benchmark and research preview for AI code-review agents.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "GitHub says it analyzed 103.9 million pull requests to characterize workload distributions, then built a corpus of 219 pull requests from 187 public open-source repositories across 19 languages.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "The corpus follows GitHub-wide language and repository-size distributions while deliberately weighting pull-request size toward more substantive middle and tail cases.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "The benchmark gathers candidate findings from human reviewers, author follow-up commits, deterministic analysis tools, and multiple frontier-model families, then semantically deduplicates and judges them under one rubric.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "GitHub identifies Claude Sonnet 5 as the benchmark judge and says the evaluation rubric, judge, model configuration, dataset, and runner are published.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "GitHub reports that independent relabeling by senior engineers agreed with ReviewBench on 96.6% of golden true-positive judgments before release.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "ReviewBench reports grounded and augmented precision, recall, and F1 metrics, with findings sliced by severity and category and configurable F-beta weighting.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "The self-serve workflow provides a 25-pull-request test set and a final evaluation over all 219 pull requests for three rounds; leaderboard publication requires maintainer review.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        },
+        {
+          "text": "GitHub reports that one internal Copilot code-review experiment moved in the direction predicted offline: addressed rate rose 8.0%, recall 13.6%, comment volume 61%, and cost per review fell 8.0% relative to the production control.",
+          "sourceIds": [
+            "github-reviewbench"
+          ],
+          "verifiedAt": "2026-10-07"
+        }
+      ],
+      "changed": "Code-review agents can now be compared on an inspectable corpus with shared findings, a published rubric, versioned judging, severity and category slices, and a runner that external teams can use. GitHub also connects the offline benchmark to one reported production experiment.",
+      "whyItMatters": "AI review can fail in two opposite ways: miss important defects or flood developers with plausible noise. A public evaluation makes that trade-off visible and lets teams choose for their own tolerance instead of accepting a vendor’s single aggregate score.",
+      "technicalImpact": "Evaluate reviewers against the categories and severities that matter to your repositories. Pin the dataset, judge, model configuration, rubric, and agent version; retain per-finding evidence; and compare offline movement with addressed comments, escaped defects, review latency, and human correction in production.",
+      "businessImpact": "A repeatable benchmark can shorten vendor selection and regression testing for AI review. It cannot replace a controlled pilot: public open-source pull requests may not represent a company’s architecture, threat model, coding conventions, or cost of false positives.",
+      "outlook": "Conditional outlook: if independent teams reproduce the methodology and offline movement continues to predict production outcomes across private repositories, code-review benchmarks may become procurement and release gates for AI reviewers. If systems overfit the public corpus or results depend heavily on one judge, the leaderboard will be useful mainly for research iteration.",
+      "uncertainties": [
+        "GitHub and Microsoft built the benchmark and GitHub reports the production-alignment results for its own code-review product; the cited source is not an independent replication.",
+        "The benchmark contains 219 public open-source pull requests, a small selected corpus compared with the 103.9 million pull requests used to characterize distributions.",
+        "Language and repository-size matching does not establish transfer to private enterprise code, uncommon stacks, organization-specific rules, or high-assurance systems.",
+        "Claude Sonnet 5 serves as the shared judge. Published prompts and configuration improve auditability but do not remove model bias or judge-model dependence.",
+        "A public dataset and reusable 25-pull-request test set create a risk that agents are tuned to the benchmark rather than to unseen review work.",
+        "The reported online improvements come from one GitHub experiment, use GitHub-defined proxy measures, and do not establish the same effect for other agents or organizations.",
+        "Higher comment volume can increase developer interruption even when precision and recall improve; severity mix and actual remediation still matter."
+      ],
+      "analysis": "The valuable release is not the leaderboard. It is the chain of evidence: real pull requests, visible findings, one rubric, a versioned judge, and a route back to production outcomes. That makes the benchmark debatable—and therefore more useful than a score nobody can inspect.",
+      "sources": [
+        {
+          "id": "github-reviewbench",
+          "title": "ReviewBench: An open benchmark for AI code review",
+          "publisher": "GitHub",
+          "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
+          "publishedAt": "2026-10-05",
+          "accessedAt": "2026-10-07",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source methodology and launch article from GitHub. Corpus, agreement, benchmark behavior, and production-alignment measurements are vendor-reported; this edition does not claim independent reproduction.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-08",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook and limitations are explicit."
+      }
+    },
+    {
+      "id": "enterprise-agents-become-managed-workloads",
+      "slug": "enterprise-agents-become-managed-workloads",
+      "title": "The agent is becoming a managed program.",
+      "summary": "Microsoft packaged persistent agents with runtime, identity, inventory, and billing. GitHub now lets teams define repeatable multi-agent work in code with checkpoints and limits. The prompt is becoming an operating process.",
+      "topic": "Enterprise agent runtime",
+      "category": "Enterprise AI",
+      "signal": "Structural Shift",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-25",
+      "updatedAt": "2026-10-08",
+      "author": "Dugi Selmanaj",
+      "visual": "enterprise",
+      "scenario": "GitHub released dynamic workflows for Copilot CLI, the Copilot app, and the Copilot SDK, allowing deterministic code and one or more agents to share a reusable process.",
+      "facts": [
+        {
+          "text": "Microsoft announced the new Copilot with Home, Code, and Autopilot on 25 September 2026.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft says Code can build apps, dashboards, automations, and workflows in a sandboxed environment that can be hosted inside a customer tenant.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft introduced Copilot Managed Runtime in public preview as a Microsoft-hosted environment with Entra identity, tenant policies, governed data access, lifecycle management, and centralized inventory.",
+          "sourceIds": [
+            "microsoft-managed-runtime"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft describes Autopilot as a cloud-hosted agent with its own identity, memory, computer, and workspace; it is scheduled to expand to private preview at the end of September.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft says Cowork, Code, Autopilot, and frontier-model use will use usage-based billing, with administrator spending policies, model-family controls, and user-visible credit balances.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "GitHub announced dynamic workflows on 1 October 2026 for Copilot CLI, the GitHub Copilot app, and the GitHub Copilot SDK.",
+          "sourceIds": [
+            "github-dynamic-workflows-release"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "text": "GitHub defines a dynamic workflow as code that combines deterministic operations with one or more agents running sequentially, in parallel, or both.",
+          "sourceIds": [
+            "github-dynamic-workflows-release",
+            "github-dynamic-workflows-docs"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "text": "GitHub documents structured stage results, subagent verification, user input, and pause-and-resume checkpoints as supported workflow behavior.",
+          "sourceIds": [
+            "github-dynamic-workflows-docs"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "text": "GitHub says workflow subagents inherit the permission grants of the starting CLI session, while an extension can also execute its own code outside agent permission prompts.",
+          "sourceIds": [
+            "github-dynamic-workflows-docs"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "text": "GitHub documents limits for concurrent and total subagents, active runtime, and approximate AI-credit consumption, and warns that delayed usage reporting can let a run exceed its credit limit.",
+          "sourceIds": [
+            "github-dynamic-workflows-docs"
+          ],
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "text": "GitHub labels dynamic workflows as a public preview subject to change.",
+          "sourceIds": [
+            "github-dynamic-workflows-release"
+          ],
+          "verifiedAt": "2026-10-02"
+        }
+      ],
+      "changed": "Persistent agents now have both an operating envelope and a programmable process. Microsoft supplies tenant runtime, identity, inventory, policy, and billing; GitHub adds code-defined steps, parallel agents, structured handoffs, human checkpoints, resumable runs, and configurable limits.",
+      "whyItMatters": "A prompt can suggest a plan, but it does not make a repeatable operating procedure. Code-defined stages make the control path inspectable: teams can decide where agents reason, where deterministic code validates, where a human approves, and what stops an expensive or risky run.",
+      "technicalImpact": "Treat workflow definitions as production code. Pin or record extension, model, tool, and policy versions; test with limited scope; validate structured outputs before downstream use; and log every stage, permission decision, checkpoint, and resume. Review extension code separately because it may run outside agent permission prompts.",
+      "businessImpact": "Reusable workflows can turn expert operating procedures into repeatable software and reduce coordination work across reviews, releases, research, and incident response. They also create a new internal software estate that needs ownership, support, change control, budget limits, and retirement rules.",
+      "outlook": "Conditional outlook: if teams can centrally inventory workflows, reproduce runs, constrain permissions, and measure outcomes, agent orchestration may become a normal automation layer between scripts and full applications. If definitions drift or extension privileges are hard to audit, organizations will inherit another class of fragile shadow automation.",
+      "uncertainties": [
+        "Code, Autopilot, and Copilot Managed Runtime are in staged rollout or preview, so the announcement does not establish production reliability or broad customer adoption.",
+        "Microsoft describes inherited governance and tenant boundaries but the cited material does not provide independent isolation tests, incident data, or detailed recovery behavior.",
+        "A persistent agent can amplify stale instructions, excessive permissions, or incorrect memory over time even when its runtime is centrally managed.",
+        "Usage-based billing exposes spend controls but can also make the cost of long-running work less predictable than a user subscription.",
+        "Lowering the barrier to internal application creation can increase the number of unsupported tools, duplicated workflows, and unclear business owners.",
+        "Dynamic workflows are in public preview, so interfaces, storage, control behavior, and compatibility may change.",
+        "A reusable definition does not guarantee reproducible results because models, tools, external services, and agent judgments can change between runs.",
+        "Inherited session permissions and extension code create separate trust paths; a visible agent approval boundary may not cover everything the extension itself can execute.",
+        "The AI-credit limit is approximate rather than a hard ceiling because usage can be reported after work has already started.",
+        "The cited sources describe product behavior but do not provide independent reliability, security, or cost measurements from production deployments."
+      ],
+      "analysis": "The important shift is from asking an agent to improvise a process to writing the process down. That gives teams a place to insert checks, limits, and human judgment. It also removes an excuse: once the workflow is code, its permissions and failures belong to an owner.",
+      "sources": [
+        {
+          "id": "microsoft-new-copilot",
+          "title": "Introducing the new Copilot with Home, Code and Autopilot",
+          "publisher": "Microsoft",
+          "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+          "publishedAt": "2026-09-25",
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
+        },
+        {
+          "id": "microsoft-managed-runtime",
+          "title": "Build where you want, run with confidence: Now Microsoft hosts and manages the code created by Copilot",
+          "publisher": "Microsoft",
+          "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/",
+          "publishedAt": "2026-09-25",
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
+        },
+        {
+          "id": "github-dynamic-workflows-release",
+          "title": "Dynamic workflows in Copilot CLI and the Copilot app",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-02",
+          "kind": "primary"
+        },
+        {
+          "id": "github-dynamic-workflows-docs",
+          "title": "Dynamic workflows",
+          "publisher": "GitHub Docs",
+          "url": "https://docs.github.com/en/copilot/concepts/agents/dynamic-workflows",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-02",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source announcements and product documentation from Microsoft and GitHub. Product behavior, availability, reliability, and cost claims remain vendor-reported; this edition does not claim independent production validation.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-08",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook and limitations are explicit."
+      }
+    },
+    {
+      "id": "coding-agents-get-a-local-boundary",
+      "slug": "coding-agents-get-a-local-boundary",
+      "title": "The agent boundary now reaches the desktop.",
+      "summary": "GitHub added computer use to Copilot after introducing local sandboxing and enterprise rollout policy. The control plane now has to govern screen context and actions inside desktop applications.",
+      "topic": "Desktop agent controls",
+      "category": "Security & Governance",
+      "signal": "Structural Shift",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-23",
+      "updatedAt": "2026-10-08",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "GitHub released computer use in public preview for Copilot CLI and the Copilot app on macOS and Windows, allowing an approved agent to interact with desktop applications through their visual interface.",
+      "facts": [
+        {
+          "text": "GitHub announced local sandboxing in the GitHub Copilot app on 23 September 2026.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "Project settings can restrict additional filesystem paths, outbound and local-network access, and availability of Git and GitHub CLI credentials.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "GitHub says enterprise-managed settings can make the effective policy more restrictive than the project requests.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "GitHub says the sandboxed shell fails instead of running without a sandbox when the operating system cannot enforce the requested policy.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "Local sandboxing is off by default, applies to new or restarted local sessions, does not cover cloud or remote-host sessions, and remains in public preview.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "GitHub announced a global default policy for eligible generally available Copilot features on 24 September 2026.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        },
+        {
+          "text": "Enterprises can set eligible current and future features to enabled, disabled, or delegated to organization administrators; the policy is scheduled to take effect on 22 October 2026.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        },
+        {
+          "text": "GitHub says explicit feature decisions and preview opt-ins are preserved, and that the default covers eligible feature controls, Copilot code review, and MCP-server policy.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        },
+        {
+          "text": "GitHub announced computer use on 1 October 2026 in public preview for Copilot CLI and the Copilot app on macOS and Windows.",
+          "sourceIds": [
+            "github-computer-use-release"
+          ],
+          "verifiedAt": "2026-10-03"
+        },
+        {
+          "text": "GitHub says computer use can read accessible content and visual context, then click, type, scroll, drag, and navigate across desktop applications.",
+          "sourceIds": [
+            "github-computer-use-release",
+            "github-computer-use-docs"
+          ],
+          "verifiedAt": "2026-10-03"
+        },
+        {
+          "text": "Computer use is disabled by default and follows Copilot Tool Permissions, with approval available for one session or as a saved always-allow decision.",
+          "sourceIds": [
+            "github-computer-use-docs"
+          ],
+          "verifiedAt": "2026-10-03"
+        },
+        {
+          "text": "GitHub documents that saved approvals apply to Copilot CLI and the Copilot app on the same machine, and that removing a saved approval does not revoke access in a session already running.",
+          "sourceIds": [
+            "github-computer-use-docs"
+          ],
+          "verifiedAt": "2026-10-03"
+        },
+        {
+          "text": "GitHub documents an enterprise-managed computer-use setting that can prevent users from enabling the feature locally.",
+          "sourceIds": [
+            "github-computer-use-enterprise-settings"
+          ],
+          "verifiedAt": "2026-10-03"
+        },
+        {
+          "text": "GitHub warns that changing interfaces, timing, and window state can produce wrong or repeated actions, and that visible sensitive information may be provided as model context.",
+          "sourceIds": [
+            "github-computer-use-concepts"
+          ],
+          "verifiedAt": "2026-10-03"
+        }
+      ],
+      "changed": "An agent can now read accessible content and visual context, then click, type, scroll, drag, and navigate across desktop applications. The operating boundary expands from files, networks, credentials, and tools to screen contents, application controls, OS permissions, and active-session revocation.",
+      "whyItMatters": "Visual control can reach legacy and GUI-only systems without waiting for an API or integration project. It also gives an uncertain model the same interface used for email, finance, administration, and internal data. A wrong click can become a real business action.",
+      "technicalImpact": "Approve applications individually, avoid persistent approval for sensitive software, and use enterprise policy to disable computer use where the risk is unacceptable. Prefer APIs, MCP, terminals, and filesystem tools when they offer a structured path. Test stop behavior, record effective permissions, and remember that removing a saved approval does not revoke a running session.",
+      "businessImpact": "Teams may automate work in software that was previously too old, closed, or expensive to integrate. The trade-off is a wider operational blast radius: actions execute with the user’s access and can expose visible company or third-party data to the model.",
+      "outlook": "Conditional outlook: if desktop agents gain reliable action confirmation, centralized approval inventory, narrow screen-context controls, and auditable session revocation, they could become a practical bridge to legacy systems. If interface changes and broad saved approvals remain hard to govern, structured integrations will stay safer for important workflows.",
+      "uncertainties": [
+        "Local sandboxing remains a public preview, is off by default, and provides no independent escape-testing results in the cited release note.",
+        "The global rollout policy does not take effect until 22 October 2026, so this draft cannot verify its behavior across a real enterprise estate.",
+        "Eligibility rules and exceptions can change which controls inherit the default; administrators still need an effective-policy inventory.",
+        "Local, cloud, remote-host, app, and CLI sessions have different control paths, which can produce inconsistent protection.",
+        "A permissive global default or broadly available Git credentials can turn centralized convenience into a larger blast radius.",
+        "Computer use is in public preview and the cited material contains no independent reliability or security evaluation.",
+        "Changing layouts, timing, focus, and window state can lead to a wrong control, wrong text location, or repeated action.",
+        "Screen and accessibility context can include sensitive company or third-party information unrelated to the intended task.",
+        "A saved approval broadens future access on the same machine, while removing it does not stop access inside an already-running session.",
+        "Application approval and enterprise policy do not by themselves guarantee least privilege or a fresh confirmation before a high-impact transaction."
+      ],
+      "analysis": "The breakthrough is reach, not precision. A visual agent can use almost any software a person can see, but that flexibility removes the guardrails supplied by a typed API. Desktop access should be treated as a privileged capability, not a convenient fallback.",
+      "sources": [
+        {
+          "id": "github-local-sandbox",
+          "title": "Local sandboxing in the GitHub Copilot app",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
+          "publishedAt": "2026-09-23",
+          "accessedAt": "2026-09-24",
+          "kind": "primary"
+        },
+        {
+          "id": "github-copilot-default-policy",
+          "title": "Default Enablement of Copilot Features for Copilot Business and Enterprise",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/",
+          "publishedAt": "2026-09-24",
+          "accessedAt": "2026-09-25",
+          "kind": "primary"
+        },
+        {
+          "id": "github-computer-use-release",
+          "title": "GitHub Copilot can now interact with desktop apps with computer use",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
+        },
+        {
+          "id": "github-computer-use-docs",
+          "title": "Using computer use with GitHub Copilot",
+          "publisher": "GitHub Docs",
+          "url": "https://docs.github.com/en/copilot/how-tos/github-copilot-app/computer-use",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
+        },
+        {
+          "id": "github-computer-use-concepts",
+          "title": "About computer use",
+          "publisher": "GitHub Docs",
+          "url": "https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/computer-use",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
+        },
+        {
+          "id": "github-computer-use-enterprise-settings",
+          "title": "Enterprise-managed settings for GitHub Copilot",
+          "publisher": "GitHub Docs",
+          "url": "https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings",
+          "publishedAt": "2026-10-01",
+          "accessedAt": "2026-10-03",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source release notes and product documentation from GitHub. GitHub documents the announced behavior, permissions, risks, and administrative control; this edition does not claim independent validation of desktop reliability or security.",
+      "review": {
+        "status": "approved",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-08",
+        "notes": "Second editorial pass completed. Facts remain separate from interpretation; outlook and limitations are explicit."
+      }
+    }
+  ],
+  "signalMapChanges": [
+    {
+      "area": "AI Security",
+      "direction": "up-strong",
+      "dimension": "External, history-aware policy enforcement for agent actions",
+      "rationale": "AWS released an open developer preview that combines OS containment with shared policy checks across selected shell, Python, egress, and MCP actions. The arrow tracks inspectable control infrastructure, not independent assurance or production readiness.",
+      "storyId": "agent-policy-moves-outside-the-agent"
+    },
+    {
+      "area": "Agents",
+      "direction": "up",
+      "dimension": "Runtime-generated interactive interfaces",
+      "rationale": "OpenAI added model-composed native components and progressive interface streaming to ChatGPT responses. The movement reflects a broader interaction surface, not independent proof that generated interfaces are consistently correct, accessible, or safe.",
+      "storyId": "the-answer-is-becoming-an-interface"
+    },
+    {
+      "area": "Enterprise Adoption",
+      "direction": "up",
+      "dimension": "Managed, code-defined agent workflows",
+      "rationale": "Microsoft supplies managed runtime, identity, inventory, and billing for persistent agents, while GitHub exposes reusable orchestration, checkpoints, and run limits. The movement reflects available infrastructure, not independent proof of production reliability.",
+      "storyId": "enterprise-agents-become-managed-workloads"
+    },
+    {
+      "area": "Research",
+      "direction": "up",
+      "dimension": "Open, production-linked evaluation infrastructure for AI code review",
+      "rationale": "GitHub published ReviewBench with a public corpus, labeled findings, rubric, judge configuration, runner, and one reported link between offline and online movement. The arrow tracks increased evaluation infrastructure, not independent validation or universal transfer.",
+      "storyId": "ai-code-review-gets-an-open-scoreboard"
+    }
+  ],
+  "weekly": {
+    "title": "The policy now sits outside the agent",
+    "intro": "AWS opened a developer preview that moves selected agent controls into a separate sandbox and policy engine. OpenAI, meanwhile, moved the user interface into the model response. Both releases widen what an AI system can do—and make the boundary around it more important.",
+    "theme": "Agent infrastructure is splitting into two layers: a flexible experience that can assemble actions and interfaces at runtime, and an enforcement layer that must remain outside the agent’s discretion.",
+    "watchNext": [
+      "Independent security review and adversarial testing of Strands Box and Dogwood.",
+      "Linux, Windows, container, and deployed-agent support for the sandbox model.",
+      "Coverage gaps when tools or direct filesystem grants bypass shared policy history.",
+      "Accessibility, security, and permission behavior for generated interactive interfaces.",
+      "Whether progressive answers remain coherent when later reasoning changes an earlier partial response."
+    ],
+    "closing": "A more capable interface is useful. A boundary the interface cannot rewrite is what makes it operable."
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "run_date": "2026-11-21",
+  "research_window": {
+    "start": "2026-11-20T08:02:49Z",
+    "end": "2026-11-21T08:03:03Z"
+  },
+  "status": "deployed",
+  "checked_primary_sources": [
+    "OpenAI engineering, research, model, safety, system-card, and API publications",
+    "Anthropic newsroom, research, engineering, safeguards, and standards publications",
+    "Google Research, Google DeepMind, Gemini, Google Cloud, IAM, security, and developer publications",
+    "Microsoft, Azure, Foundry, Agent 365, Entra, Security, and Learn publications",
+    "AWS AI, Bedrock, DevOps, Transform, security, STS, infrastructure, and product publications",
+    "GitHub changelog, Enterprise Server, security, engineering, releases, and advisory publications",
+    "NVIDIA newsroom, investor, research, technical, and developer publications",
+    "Meta AI and Meta Engineering publications",
+    "Hugging Face official publications, organization releases, model cards, community-label boundaries, and daily papers",
+    "NIST, CISA, CERT-EU, CERT, Project MONAI, and coordinated-disclosure publications",
+    "Kubernetes and CNCF official publications"
+  ],
+  "accepted": [
+    {
+      "story_id": "vulnerability-research-hit-machine-scale",
+      "source_publication_date": "2026-11-20",
+      "action": "updated",
+      "reason": "AWS's first-party reconstruction and the MONAI maintainer advisory materially extend the existing machine-scale vulnerability thesis with persistent offensive-agent evidence, explicit failure volume, one fast exploit path, and bounded human involvement."
+    },
+    {
+      "story_id": "the-api-fallback-started-speaking",
+      "source_publication_date": "2026-11-20",
+      "action": "new",
+      "reason": "Google's technical account makes voice a concrete agent fallback when structured APIs do not exist. The story is Important as an interface shift, while missing outcome and independent-evaluation data prevent stronger reliability claims."
+    },
+    {
+      "story_id": "the-agent-got-an-employee-badge",
+      "source_publication_date": "2026-11-20",
+      "action": "updated",
+      "reason": "Google Cloud UAP provides independent cross-vendor evidence that first-class agent principals are entering IAM policy. Preview maturity, missing outcomes, and an official-source limit discrepancy remain explicit."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Amazon Textract Insights",
+      "source_publication_date": "2026-11-20",
+      "reason": "Held as a credible provenance-oriented artifact, but AWS publishes no accuracy benchmark, confidence-calibration analysis, false-extraction rate, independent comparison, or production outcome."
+    },
+    {
+      "candidate": "OpenAI MedChemBench",
+      "source_publication_date": "2026-11-20",
+      "reason": "Interesting retrospective benchmark, but prior exposure cannot be ruled out and there is no prospective wet-lab validation, cross-provider comparison, or evidence of improved drug-discovery decisions."
+    },
+    {
+      "candidate": "AWS STS GetScopedCredentials",
+      "source_publication_date": "2026-11-19",
+      "reason": "The 20 November tutorial is useful supporting evidence, but the underlying launch occurred before the research window."
+    },
+    {
+      "candidate": "GitHub Enterprise Server 3.23 AI secret detection",
+      "source_publication_date": "2026-11-20",
+      "reason": "The capability is release-candidate and public-preview software with no detection-quality or operational outcome data."
+    },
+    {
+      "candidate": "AWS DevOps Agent November roundup",
+      "source_publication_date": "2026-11-20",
+      "reason": "The article recaps product changes whose underlying release dates fall between 2 and 18 November, so it is not a new in-window signal."
+    },
+    {
+      "candidate": "Vodafone Data Engineering Agent customer claims",
+      "source_publication_date": "2026-11-20",
+      "reason": "The claims lack workload count, baseline construction, observation period, measurement method, and independent validation."
+    },
+    {
+      "candidate": "Google synthetic data-estate simulator",
+      "source_publication_date": "2026-11-20",
+      "reason": "Internal research concept without public code, external availability, independent evaluation, or production-transfer evidence."
+    },
+    {
+      "candidate": "AWS Quick, HyperPod extensions, Qodo and Kiro, GitHub repository features, GKE ambient networking, and Bogotá Local Zone",
+      "source_publication_date": "2026-11-20",
+      "reason": "Incremental, partner-marketing, conventional platform, or infrastructure changes without sufficient AI-specific evidence or measured outcomes."
+    },
+    {
+      "candidate": "GPT-Live-1.1 API and Hugging Face community or preprint items",
+      "source_publication_date": "2026-11-20",
+      "reason": "Underlying model and safety evidence predate the window, while community posts and surfaced preprints lack official or independent validation."
+    },
+    {
+      "candidate": "EU AI Board summary, Microsoft Gartner positioning, conventional AWS and CERT advisories",
+      "source_publication_date": "2026-11-20",
+      "reason": "No new technical control, measured result, or defensible AI-specific operational consequence."
+    }
+  ],
+  "emerging_trends_detected": 3,
+  "notes": "Edition 43 proposes three moderate, qualitative and story-traceable movements: AI Security from persistent offensive-agent evidence, Agents from legacy voice as an action interface, and Governance from first-class agent principals entering IAM. No quantitative Signal Map score is used.",
+  "publication": {
+    "pull_request": "https://github.com/ddugi/ddugi.github.io/pull/122",
+    "commit": "4e5a052b4b31bdb62ffa47f717d979e501f396d5",
+    "live_edition_changed": true,
+    "verified_url": "https://ddugi.github.io/ai-signal/"
+  }
+}

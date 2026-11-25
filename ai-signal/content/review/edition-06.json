@@ -1,0 +1,732 @@
+{
+  "schemaVersion": 1,
+  "edition": {
+    "id": "edition-06",
+    "title": "The frontier model is becoming a governed route",
+    "status": "editorial-review",
+    "preparedAt": "2026-10-01",
+    "publicationDate": "2026-10-01",
+    "editor": "Dugi Selmanaj",
+    "note": "Five source-backed stories approved for Edition 06 on 1 October 2026. The edition adds Google Gemini 4 Argon to the cross-vendor routing signal and replaces the earlier chemistry story with SynthID Bio as a new provenance and biosecurity signal."
+  },
+  "weekly": {
+    "title": "The frontier model is becoming a governed route",
+    "intro": "Google introduced Gemini 4 Argon through a restricted cyber-defender rollout, pairing long-horizon capability with explicit access staging, safety controls, and future pricing. A separate DeepMind paper shows provenance controls moving from digital media into functional proteins.",
+    "theme": "Frontier AI is no longer just a model choice. It is an access, routing, provenance, and control decision that follows the output into real systems.",
+    "watchNext": [
+      "Independent production evaluations of Gemini 4 Argon beyond vendor and partner benchmarks.",
+      "Whether Google preserves phased access and stated safeguards when Argon reaches paid API customers.",
+      "Independent comparisons of cost per accepted task across Argon, GPT-6.1 Sol, and Claude Sonnet 5.5.",
+      "Whether biological watermarking survives deliberate removal attempts without making useful designs impractical.",
+      "Whether synthesis providers and biological databases adopt interoperable provenance standards rather than vendor-specific detectors."
+    ],
+    "closing": "The model is only one layer. The durable system also decides who may use it, where it may act, how its output is traced, and what evidence can stop the route."
+  },
+  "stories": [
+    {
+      "id": "enterprise-agents-become-managed-workloads",
+      "slug": "enterprise-agents-become-managed-workloads",
+      "title": "The office assistant is becoming a managed workload.",
+      "summary": "Microsoft put persistent agents, generated apps, tenant hosting, identity, governance, and usage billing into one Copilot product story. The new unit of work needs an operator, not just a prompt.",
+      "topic": "Enterprise agent runtime",
+      "category": "Enterprise AI",
+      "signal": "Structural Shift",
+      "status": "draft",
+      "featured": true,
+      "publishedAt": "2026-09-25",
+      "updatedAt": "2026-09-26",
+      "author": "Dugi Selmanaj",
+      "visual": "enterprise",
+      "scenario": "Microsoft announced Copilot Home, Code, and Autopilot alongside Copilot Managed Runtime and new FinOps controls for agentic work.",
+      "facts": [
+        {
+          "text": "Microsoft announced the new Copilot with Home, Code, and Autopilot on 25 September 2026.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft says Code can build apps, dashboards, automations, and workflows in a sandboxed environment that can be hosted inside a customer tenant.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft introduced Copilot Managed Runtime in public preview as a Microsoft-hosted environment with Entra identity, tenant policies, governed data access, lifecycle management, and centralized inventory.",
+          "sourceIds": [
+            "microsoft-managed-runtime"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft describes Autopilot as a cloud-hosted agent with its own identity, memory, computer, and workspace; it is scheduled to expand to private preview at the end of September.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        },
+        {
+          "text": "Microsoft says Cowork, Code, Autopilot, and frontier-model use will use usage-based billing, with administrator spending policies, model-family controls, and user-visible credit balances.",
+          "sourceIds": [
+            "microsoft-new-copilot"
+          ],
+          "verifiedAt": "2026-09-26"
+        }
+      ],
+      "changed": "Microsoft joined four previously separate concerns: creating small applications, hosting their code, running persistent agents, and controlling variable AI spend. The announced product surface gives those workloads tenant identity, governed runtime, inventory, policy, and billing rather than leaving them as isolated chat features.",
+      "whyItMatters": "A persistent agent or generated internal app behaves more like software than a conversation. It keeps state, calls data and tools, consumes money, and may continue after the user leaves. Putting identity, runtime, inventory, and budgets around it acknowledges the operational work that begins when the prompt ends.",
+      "technicalImpact": "Platform teams will need an inventory that joins agent identity, code version, connectors, data scope, memory, runtime health, policy, audit events, and spend. Tenant hosting can simplify that stack, but teams still need to test effective permissions, isolation, data retention, failure recovery, and how a human stops or repairs a long-running task.",
+      "businessImpact": "Knowledge workers may be able to create useful internal tools without waiting for a full application project. That can shorten delivery while shifting cost and risk into a larger tail of small, usage-billed workloads. IT will need ownership, support, retirement, and budget rules before those tools become invisible production systems.",
+      "outlook": "Conditional outlook: if the previews prove reliable and administrators can see and control the effective identity, data, runtime, and spend boundaries, enterprise copilots may become an application platform for non-developers. If controls are fragmented or generated tools are costly to support, adoption may stall at supervised experiments.",
+      "uncertainties": [
+        "Code, Autopilot, and Copilot Managed Runtime are in staged rollout or preview, so the announcement does not establish production reliability or broad customer adoption.",
+        "Microsoft describes inherited governance and tenant boundaries but the cited material does not provide independent isolation tests, incident data, or detailed recovery behavior.",
+        "A persistent agent can amplify stale instructions, excessive permissions, or incorrect memory over time even when its runtime is centrally managed.",
+        "Usage-based billing exposes spend controls but can also make the cost of long-running work less predictable than a user subscription.",
+        "Lowering the barrier to internal application creation can increase the number of unsupported tools, duplicated workflows, and unclear business owners."
+      ],
+      "analysis": "The important launch is not another Copilot tab. Microsoft is packaging the pieces an enterprise needs after an agent becomes persistent: a place to run, an identity, a memory, a policy boundary, an inventory, and a bill. That is the point where an assistant starts looking like infrastructure.",
+      "sources": [
+        {
+          "id": "microsoft-new-copilot",
+          "title": "Introducing the new Copilot with Home, Code and Autopilot",
+          "publisher": "Microsoft",
+          "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+          "publishedAt": "2026-09-25",
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
+        },
+        {
+          "id": "microsoft-managed-runtime",
+          "title": "Build where you want, run with confidence: Now Microsoft hosts and manages the code created by Copilot",
+          "publisher": "Microsoft",
+          "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/",
+          "publishedAt": "2026-09-25",
+          "accessedAt": "2026-09-26",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source announcements from Microsoft. Product availability, governance, security, and cost claims remain vendor-reported; this edition does not claim independent production validation.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-01",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 1 October 2026."
+      }
+    },
+    {
+      "id": "coding-agents-get-a-local-boundary",
+      "slug": "coding-agents-get-a-local-boundary",
+      "title": "The AI control plane now decides what arrives by default.",
+      "summary": "GitHub added local boundaries for agent-run commands and a global default for future Copilot features. Enterprise AI policy is moving from scattered toggles into a control plane.",
+      "topic": "Enterprise agent controls",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-23",
+      "updatedAt": "2026-09-25",
+      "author": "Dugi Selmanaj",
+      "visual": "security",
+      "scenario": "GitHub released local sandboxing for Copilot app sessions and introduced an enterprise default policy for generally available Copilot features, code review, and MCP servers.",
+      "facts": [
+        {
+          "text": "GitHub announced local sandboxing in the GitHub Copilot app on 23 September 2026.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "Project settings can restrict additional filesystem paths, outbound and local-network access, and availability of Git and GitHub CLI credentials.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "GitHub says enterprise-managed settings can make the effective policy more restrictive than the project requests.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "GitHub says the sandboxed shell fails instead of running without a sandbox when the operating system cannot enforce the requested policy.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "Local sandboxing is off by default, applies to new or restarted local sessions, does not cover cloud or remote-host sessions, and remains in public preview.",
+          "sourceIds": [
+            "github-local-sandbox"
+          ],
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "text": "GitHub announced a global default policy for eligible generally available Copilot features on 24 September 2026.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        },
+        {
+          "text": "Enterprises can set eligible current and future features to enabled, disabled, or delegated to organization administrators; the policy is scheduled to take effect on 22 October 2026.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        },
+        {
+          "text": "GitHub says explicit feature decisions and preview opt-ins are preserved, and that the default covers eligible feature controls, Copilot code review, and MCP-server policy.",
+          "sourceIds": [
+            "github-copilot-default-policy"
+          ],
+          "verifiedAt": "2026-09-25"
+        }
+      ],
+      "changed": "GitHub added two layers of enterprise control. A local sandbox can constrain filesystem, network, and credential access for agent-run commands. A separate global policy can decide whether current and future eligible Copilot features are enabled, disabled, or delegated to organization administrators by default.",
+      "whyItMatters": "AI governance fails when every new capability arrives as a separate switch that administrators discover after users do. A default policy answers the rollout question before the next feature appears, while the sandbox answers what an active agent can touch. Together they turn adoption from a sequence of product surprises into an explicit operating decision.",
+      "technicalImpact": "Treat feature defaults and sandbox rules as versioned policy. Record which layer wins, preserve explicit exceptions, test the effective filesystem, network, and credential boundary, and inventory MCP servers and code-review agents covered by the rollout default. A configured policy is useful only if teams can see and audit the effective result.",
+      "businessImpact": "Central defaults can reduce administrative drift across large organizations and let security teams choose deliberate opt-in. They can also expand AI access silently if an enterprise selects enabled and stops reviewing future eligible features. The setting becomes a standing risk decision, not a one-time convenience.",
+      "outlook": "Conditional outlook: if vendors expose consistent, auditable controls across models, agents, tools, and clients, enterprise AI policy may become a real control plane. If eligibility exceptions and product-specific settings remain fragmented, administrators will still need manual inventories to understand what users can access.",
+      "uncertainties": [
+        "Local sandboxing remains a public preview, is off by default, and provides no independent escape-testing results in the cited release note.",
+        "The global rollout policy does not take effect until 22 October 2026, so this draft cannot verify its behavior across a real enterprise estate.",
+        "Eligibility rules and exceptions can change which controls inherit the default; administrators still need an effective-policy inventory.",
+        "Local, cloud, remote-host, app, and CLI sessions have different control paths, which can produce inconsistent protection.",
+        "A permissive global default or broadly available Git credentials can turn centralized convenience into a larger blast radius."
+      ],
+      "analysis": "The important change is temporal. Administrators are no longer deciding only what is available today; they are deciding the default answer for features that do not exist yet. That saves work, but it also turns a settings page into future policy.",
+      "sources": [
+        {
+          "id": "github-local-sandbox",
+          "title": "Local sandboxing in the GitHub Copilot app",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
+          "publishedAt": "2026-09-23",
+          "accessedAt": "2026-09-24",
+          "kind": "primary"
+        },
+        {
+          "id": "github-copilot-default-policy",
+          "title": "Default Enablement of Copilot Features for Copilot Business and Enterprise",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/",
+          "publishedAt": "2026-09-24",
+          "accessedAt": "2026-09-25",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source release notes from GitHub. They define the announced controls and rollout schedule; this draft does not claim independent validation of sandbox isolation or enterprise-wide policy enforcement.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-01",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 1 October 2026."
+      }
+    },
+    {
+      "id": "frontier-models-enter-the-efficiency-race",
+      "slug": "frontier-models-enter-the-efficiency-race",
+      "title": "The frontier model is becoming a governed route.",
+      "summary": "Anthropic, OpenAI, and Google now pair frontier or near-frontier models with explicit price tiers, distribution paths, and access controls. Model choice is becoming a governed routing decision.",
+      "topic": "Frontier-model efficiency",
+      "category": "Models",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-10-01",
+      "author": "Dugi Selmanaj",
+      "visual": "models",
+      "scenario": "Google announced Gemini 4 Argon with long-horizon coding, enterprise, and cyber capabilities, but initially limited access to trusted cyber defenders while it strengthens safeguards before broader release.",
+      "facts": [
+        {
+          "text": "Anthropic released Claude Opus 5.5 on 22 September 2026.",
+          "sourceIds": [
+            "anthropic-opus-55"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic lists Opus 5.5 at $4 per million input tokens, $20 per million output tokens, and $0.20 per million cache-read tokens, compared with $5, $25, and $0.50 for Opus 5.",
+          "sourceIds": [
+            "anthropic-opus-55"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic reports that Opus 5.5 costs 40% less than Opus 5 on its typical-workload tests and generates output more than 30% faster.",
+          "sourceIds": [
+            "anthropic-opus-55"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic says Frontier Design and METR evaluated the model before release and that biology and cybersecurity safeguards route some work through restricted access or another model.",
+          "sourceIds": [
+            "anthropic-opus-55",
+            "anthropic-opus-55-system-card"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic states that Opus 5.5 may recognize evaluation settings and that pre-deployment evaluations cannot reliably catch every failure.",
+          "sourceIds": [
+            "anthropic-opus-55-system-card"
+          ],
+          "verifiedAt": "2026-09-23"
+        },
+        {
+          "text": "Anthropic released Claude Sonnet 5.5 on 28 September 2026 and says it generates output more than 30% faster than Sonnet 5.",
+          "sourceIds": [
+            "anthropic-sonnet-55"
+          ],
+          "verifiedAt": "2026-09-29"
+        },
+        {
+          "text": "Anthropic lists Sonnet 5.5 at the same token prices as Sonnet 5—$2 per million input tokens, $10 per million output tokens, and $0.20 per million cache-read tokens—and reports up to 30% lower cost per task because it typically uses fewer tokens.",
+          "sourceIds": [
+            "anthropic-sonnet-55"
+          ],
+          "verifiedAt": "2026-09-29"
+        },
+        {
+          "text": "Anthropic says Sonnet 5.5 is available through its platform and on Amazon Web Services, Google Cloud, and Microsoft Azure.",
+          "sourceIds": [
+            "anthropic-sonnet-55"
+          ],
+          "verifiedAt": "2026-09-29"
+        },
+        {
+          "text": "GitHub announced Claude Sonnet 5.5 as generally available in GitHub Copilot on 28 September 2026, with a gradual rollout across its listed editors, agents, apps, web, CLI, and mobile clients.",
+          "sourceIds": [
+            "github-sonnet-55-copilot"
+          ],
+          "verifiedAt": "2026-09-29"
+        },
+        {
+          "text": "GitHub says Business and Enterprise administrators can manage Sonnet 5.5 through the Copilot model policy, and that new models are enabled by default unless the administrator disables the global default or the model.",
+          "sourceIds": [
+            "github-sonnet-55-copilot"
+          ],
+          "verifiedAt": "2026-09-29"
+        },
+        {
+          "text": "OpenAI published the GPT-6.1 Sol system-card addendum on 29 September 2026 and describes the model as comparable to GPT-6 Astra in capability with lower cost.",
+          "sourceIds": [
+            "openai-gpt-61-sol-safety"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "OpenAI lists GPT-6.1 Sol at $2 per million input tokens, $0.10 per million cached-input tokens, $2.50 per million cache-write tokens, and $10 per million output tokens in Standard processing for short-context requests.",
+          "sourceIds": [
+            "openai-gpt-61-sol-model"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "OpenAI documents a 1,050,000-token context window, a 128,000-token maximum output, US and EU data residency, and tool support through the Responses API for GPT-6.1 Sol.",
+          "sourceIds": [
+            "openai-gpt-61-sol-model"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "OpenAI treats GPT-6.1 Sol as Critical capability in cybersecurity and High capability in biological and chemical domains, and says it applies the same safeguards stack used for GPT-6 Astra.",
+          "sourceIds": [
+            "openai-gpt-61-sol-safety"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "GitHub announced GPT-6.1 Sol as generally available and gradually rolling out in GitHub Copilot on 29 September 2026, billed at provider list pricing under usage-based billing.",
+          "sourceIds": [
+            "github-gpt-61-sol-copilot"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "GitHub says Business and Enterprise administrators can manage GPT-6.1 Sol through the Copilot model policy, with new models enabled by default unless the administrator disables the global default or the model.",
+          "sourceIds": [
+            "github-gpt-61-sol-copilot"
+          ],
+          "verifiedAt": "2026-09-30"
+        },
+        {
+          "text": "Google announced Gemini 4 Argon on 30 September 2026 and initially made it available to a set of trusted cyber defenders through its Fairwind Program.",
+          "sourceIds": [
+            "google-gemini-4-argon"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "Google says Argon supports an output limit of one million tokens, up from 64,000 for its previous model, and is designed for long, multi-step coding, enterprise, and cybersecurity workflows.",
+          "sourceIds": [
+            "google-gemini-4-argon"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "Google announced an introductory price of $2 per million input tokens and $10 per million output tokens, rising after the introductory period to $4 and $20 respectively.",
+          "sourceIds": [
+            "google-gemini-4-argon"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "Google says it is using a phased release, participating in a US government pre-release access process, and strengthening misuse, prompt-injection, misalignment-monitoring, and sandbox controls before broad availability.",
+          "sourceIds": [
+            "google-gemini-4-argon"
+          ],
+          "verifiedAt": "2026-10-01"
+        }
+      ],
+      "changed": "Three leading providers now frame capable models as distinct operational routes. Anthropic and OpenAI compete on workhorse economics; Google adds a frontier route with restricted initial access, a one-million-token output limit, explicit safety work, introductory pricing, and a planned broader rollout.",
+      "whyItMatters": "The strongest model may also carry the strictest access, safety, latency, cost, and review conditions. Google is treating Argon as a capability that must be staged, while Anthropic and OpenAI push capable workhorse tiers into everyday tools. Teams therefore need routing policy that considers who may invoke a model, for which task, under what controls, and with what evidence.",
+      "technicalImpact": "Build routing evaluations around accepted task completion, retries, token and tool use, latency, safeguard intervention, data residency, and human correction. Version access and model policy separately from application code. A route to Argon may require trusted-user controls and stronger monitoring; a route to a workhorse model may trade peak capability for availability and predictable cost.",
+      "businessImpact": "Model portfolios can reserve expensive or restricted capability for tasks that justify it while routing routine work to broadly available tiers. That only saves money if task-level evaluation includes failed runs, review time, tool charges, long-context premiums, and the operating cost of stronger controls.",
+      "outlook": "Conditional outlook: if independent tests confirm Argon’s long-horizon performance and Google can broaden access without weakening its stated safeguards, enterprises will treat frontier models as governed escalation paths inside a multi-model control plane. If performance claims do not transfer or access remains narrow, workhorse models will carry most production demand.",
+      "uncertainties": [
+        "OpenAI describes GPT-6.1 Sol as near-Astra performance at lower cost; that positioning and the published evaluations are provider-reported rather than independent production measurements.",
+        "OpenAI list prices vary with long context, processing mode, regional processing, and tools, so the headline token price is not a complete task-cost estimate.",
+        "OpenAI treats GPT-6.1 Sol as Critical in cybersecurity and High in biological and chemical capability. It applies the Astra safeguards stack, but the cited material does not independently validate its effectiveness in production.",
+        "OpenAI reports some increased credential-harvesting, reward-hacking, or concealed-uncertainty signals in specific internal comparisons even where aggregate measures improved.",
+        "GitHub describes a gradual rollout and provider-list-price billing; availability and effective cost can differ across plans, clients, and organizations.",
+        "GitHub default model enablement can broaden access unless administrators disable the global default or the model, making governance part of deployment economics.",
+        "Anthropic and OpenAI use different benchmarks, harnesses, effort settings, and definitions of task cost, so their efficiency claims are not directly comparable.",
+        "Gemini 4 Argon is not yet broadly available. Most capability and productivity evidence is reported by Google or named early partners rather than independent production users.",
+        "The one-million-token output limit describes capacity, not reliable completion quality for million-token trajectories; long runs may increase cost, review burden, and failure recovery time.",
+        "Google reports strong cyber capability and plans broader availability only after more safeguard work. The cited announcement does not establish how those controls perform against adaptive misuse in production.",
+        "Argon’s introductory price is temporary, so routing economics must use the announced post-introductory price as a separate scenario."
+      ],
+      "analysis": "The important launch is not another top score. Google is releasing capability as a controlled route: limited users first, stronger monitoring, then broader access. Anthropic and OpenAI are pushing the opposite end of the same system—capable workhorse tiers. The competitive layer between them is policy.",
+      "sources": [
+        {
+          "id": "anthropic-opus-55",
+          "title": "Claude Opus 5.5",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/claude-opus-5-5",
+          "publishedAt": "2026-09-22",
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
+        },
+        {
+          "id": "anthropic-opus-55-system-card",
+          "title": "Claude Opus 5.5 System Card",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/claude-opus-5-5-system-card",
+          "publishedAt": "2026-09-22",
+          "accessedAt": "2026-09-23",
+          "kind": "primary"
+        },
+        {
+          "id": "anthropic-sonnet-55",
+          "title": "Claude Sonnet 5.5",
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/claude-sonnet-5-5",
+          "publishedAt": "2026-09-28",
+          "accessedAt": "2026-09-29",
+          "kind": "primary"
+        },
+        {
+          "id": "github-sonnet-55-copilot",
+          "title": "Claude Sonnet 5.5 in GitHub Copilot",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot/",
+          "publishedAt": "2026-09-28",
+          "accessedAt": "2026-09-29",
+          "kind": "primary"
+        },
+        {
+          "id": "openai-gpt-61-sol-model",
+          "title": "GPT-6.1 Sol Model",
+          "publisher": "OpenAI",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+          "publishedAt": "2026-09-29",
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
+        },
+        {
+          "id": "openai-gpt-61-sol-safety",
+          "title": "Addendum to GPT-6 Astra System Card: GPT-6.1 Sol",
+          "publisher": "OpenAI",
+          "url": "https://deploymentsafety.openai.com/gpt-6-1-sol/respecting-auto-review",
+          "publishedAt": "2026-09-29",
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
+        },
+        {
+          "id": "github-gpt-61-sol-copilot",
+          "title": "GPT-6.1 Sol in GitHub Copilot",
+          "publisher": "GitHub",
+          "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot/",
+          "publishedAt": "2026-09-29",
+          "accessedAt": "2026-09-30",
+          "kind": "primary"
+        },
+        {
+          "id": "google-gemini-4-argon",
+          "title": "Gemini 4 Argon: our next era of frontier intelligence",
+          "publisher": "Google",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+          "publishedAt": "2026-09-30",
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source model documentation, safety material, and distribution release notes. Capability, efficiency, safety, and early-testing claims remain vendor-reported; this edition does not claim independent production validation.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-01",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 1 October 2026."
+      }
+    },
+    {
+      "id": "an-advisory-group-can-review-results-not-control-the-pace",
+      "slug": "an-advisory-group-can-review-results-not-control-the-pace",
+      "title": "An advisory group can review the result. It cannot control the race.",
+      "summary": "OpenAI and nine mathematicians established an independent group to advise on mathematical AI results. Its remit is public; its power is limited.",
+      "topic": "Mathematics and AI governance",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-21",
+      "updatedAt": "2026-09-25",
+      "author": "Dugi Selmanaj",
+      "visual": "governance",
+      "scenario": "OpenAI announced an independent group of mathematicians to advise on reviewing, communicating, and releasing mathematical results produced with AI.",
+      "facts": [
+        {
+          "text": "OpenAI announced the Advisory Group on Mathematics and Artificial Intelligence on 21 September 2026.",
+          "sourceIds": [
+            "openai-math-advisory"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "OpenAI says the group will advise on the significance, review, communication, dissemination, and professional standards of emerging mathematical results.",
+          "sourceIds": [
+            "openai-math-advisory"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "OpenAI says group members are unpaid, may publish advice, may comment without being asked, and control their own membership.",
+          "sourceIds": [
+            "openai-math-advisory"
+          ],
+          "verifiedAt": "2026-09-22"
+        },
+        {
+          "text": "OpenAI explicitly says the group will not advise the company on how to pace its internal progress in mathematics.",
+          "sourceIds": [
+            "openai-math-advisory"
+          ],
+          "verifiedAt": "2026-09-22"
+        }
+      ],
+      "changed": "A named external group now has a public mandate to advise OpenAI on mathematical AI results and to publish its advice. The group can challenge how results are reviewed and released, but it has no stated decision right over OpenAI's research pace or releases.",
+      "whyItMatters": "A mathematical proof is not useful because a model produced it; it becomes useful when experts can inspect it, resolve gaps, assign credit, and communicate it without flooding the field. The group creates a place for that work. Its lack of decision power also makes the boundary visible: advice can improve release practice without governing the company that controls the model.",
+      "technicalImpact": "A credible review process needs stable artifacts: the exact proof, model and prompt context, revision history, reviewer comments, dependency checks, and a record of unresolved objections. Without that package, experts are reviewing a moving claim rather than a reproducible result.",
+      "businessImpact": "Organizations using AI for high-value research will need domain review capacity, publication rules, and clear ownership of errors. A provider-appointed advisory channel can help, but buyers should still ask who can delay a release, require more evidence, or disclose disagreement.",
+      "outlook": "Conditional outlook: if the group publishes specific recommendations and OpenAI follows them, domain-led review could become a template for other scientific AI programs. If advice is nonbinding or the underlying artifacts remain inaccessible, the group may add legitimacy without adding much control.",
+      "uncertainties": [
+        "OpenAI reports that its internal model resolved more than 100 long-standing problems, including Navier–Stokes. This draft does not treat those extraordinary capability claims as established facts because independent review is not yet available.",
+        "Independence of membership and publication does not create authority over release timing, access to evidence, or company decisions.",
+        "The announcement does not yet specify review procedures, disclosure rules, conflict handling, response deadlines, or what happens when OpenAI rejects advice."
+      ],
+      "analysis": "The important announcement is not the large number in OpenAI's capability claim. It is the attempt to build a review institution before those claims arrive at scale. The honest footnote is already present: the institution can advise, and the company still decides.",
+      "sources": [
+        {
+          "id": "openai-math-advisory",
+          "title": "Advisory Group on Mathematics and Artificial Intelligence",
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+          "publishedAt": "2026-09-21",
+          "accessedAt": "2026-09-22",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Primary-source announcement from OpenAI. The group's public website corroborates its independent mandate but does not display an exact publication date, so it is not used as a dated source record. OpenAI's capability claims remain attributed and unverified in this draft.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-01",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 1 October 2026."
+      }
+    },
+    {
+      "id": "provenance-moves-into-the-molecule",
+      "slug": "provenance-moves-into-the-molecule",
+      "title": "Provenance is moving into the molecule.",
+      "summary": "SynthID Bio embeds a detectable signature into AI-generated protein sequences and structures while preserving tested function. It is a serious proof of concept, and still far from a complete biosecurity system.",
+      "topic": "Biological AI provenance",
+      "category": "Security & Governance",
+      "signal": "Important",
+      "status": "draft",
+      "featured": false,
+      "publishedAt": "2026-09-30",
+      "updatedAt": "2026-10-01",
+      "author": "Dugi Selmanaj",
+      "visual": "governance",
+      "scenario": "Google DeepMind and collaborators published methods for watermarking AI-generated protein sequences and predicted structures, with wet-lab testing and an explicit analysis of removal attacks.",
+      "facts": [
+        {
+          "text": "Nature published the SynthID Bio methods paper on 30 September 2026.",
+          "sourceIds": [
+            "nature-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "The paper introduces methods that embed watermarks into AI-generated protein sequences and AlphaFold 3-predicted structures.",
+          "sourceIds": [
+            "nature-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "The authors tested watermarked protein binders against three targets and report no population-level difference in binding affinity between watermarked and non-watermarked binders in the tested settings.",
+          "sourceIds": [
+            "nature-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "For the structure method, the paper reports a true-positive detection rate above 99.8% at a calibrated 0.1% false-positive rate on the AlphaFold 3 evaluation set.",
+          "sourceIds": [
+            "nature-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "The authors report that a ProteinMPNN resequencing attack effectively removes the sequence watermark, with trade-offs in estimated binder hit rate depending on the attacker’s filters and target.",
+          "sourceIds": [
+            "nature-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        },
+        {
+          "text": "Google DeepMind describes SynthID Bio as a proof of concept and says wider biosecurity use will require further research, community coordination, and additional provenance layers.",
+          "sourceIds": [
+            "deepmind-synthid-bio"
+          ],
+          "verifiedAt": "2026-10-01"
+        }
+      ],
+      "changed": "Provenance is no longer limited to a label beside a generated file. SynthID Bio puts a detectable signal into the generated biological object itself—its amino-acid sequence or predicted structure—and tests whether that signal can coexist with function.",
+      "whyItMatters": "AI-designed biology can lose its origin metadata as it moves through laboratories, synthesis providers, and public databases. An embedded signal could help screeners distinguish a model-originated design from an unfamiliar natural sequence and help database maintainers flag synthetic entries. The paper also shows the hard part: provenance must survive transformation without changing biology.",
+      "technicalImpact": "A usable system needs calibrated detectors, protected keys, versioned model provenance, false-positive monitoring, and procedures for samples that fail verification. It should combine embedded watermarks with signed metadata and registry records because the sequence watermark can be removed by resequencing and detector ownership creates another trust boundary.",
+      "businessImpact": "Synthesis providers and research databases could use provenance as one input to triage review rather than treating every unfamiliar design alike. Adoption will depend on interoperability, detector access, liability, privacy, and whether the extra computation and verification steps fit laboratory workflows.",
+      "outlook": "Conditional outlook: if independent laboratories reproduce the functional results and the ecosystem agrees on interoperable verification, biological watermarking could become one layer in synthesis screening and scientific-data integrity. If removal remains easy or detection stays vendor-specific, it will be supporting evidence rather than a dependable control.",
+      "uncertainties": [
+        "The paper presents a proof of concept across selected protein-binder and structure tasks; it does not establish reliability across the diversity of biological designs used in research or production.",
+        "A documented resequencing attack largely removes the sequence watermark, so determined actors with model access may bypass the signal.",
+        "Detection depends on secret keys or detector access, creating governance, availability, and trust questions for independent verification.",
+        "Near-perfect structure detection is measured on an evaluation set under defined perturbations; robustness to broader scientific processing and deliberate attacks remains open.",
+        "A provenance signal says something about origin. It does not establish that a biological design is safe, effective, lawful, or accurately labeled."
+      ],
+      "analysis": "This is a more interesting provenance problem than watermarking an image: the mark has to survive in something meant to function. The result is credible because the paper tests biology and admits an effective removal path. That honesty is also the limit—the watermark can support screening, but it cannot carry biosecurity alone.",
+      "sources": [
+        {
+          "id": "nature-synthid-bio",
+          "title": "Function-preserving watermarking of AI-generated proteins",
+          "publisher": "Nature",
+          "url": "https://www.nature.com/articles/s41586-026-10965-y",
+          "publishedAt": "2026-09-30",
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
+        },
+        {
+          "id": "deepmind-synthid-bio",
+          "title": "Introducing SynthID Bio",
+          "publisher": "Google DeepMind",
+          "url": "https://deepmind.google/blog/introducing-synthid-bio/",
+          "publishedAt": "2026-09-30",
+          "accessedAt": "2026-10-01",
+          "kind": "primary"
+        }
+      ],
+      "sourceNote": "Peer-reviewed primary research and the research team’s release note. Performance and robustness claims are bounded to the reported experiments; this edition does not claim deployment readiness.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Dugi Selmanaj",
+        "reviewedAt": "2026-10-01",
+        "factCheck": true,
+        "rightsCheck": true,
+        "fairnessCheck": true,
+        "copyCheck": true,
+        "notes": "Primary sources, exact dates, factual attribution, counterarguments, risk language, and editorial wording reviewed under the authorized daily publication workflow on 1 October 2026."
+      }
+    }
+  ],
+  "signalMapChanges": [
+    {
+      "area": "Governance",
+      "direction": "up",
+      "dimension": "Independent domain-review capacity",
+      "rationale": "OpenAI announced a named, unpaid group that may publish advice and comment without being asked. The arrow describes added review capacity, not authority over OpenAI or validation of its mathematical claims.",
+      "storyId": "an-advisory-group-can-review-results-not-control-the-pace"
+    },
+    {
+      "area": "Inference",
+      "direction": "down",
+      "dimension": "Provider-reported cost per completed model task",
+      "rationale": "Anthropic and OpenAI position workhorse models around lower effective or listed task cost, while Google announced temporary introductory pricing for Argon. The arrow tracks pricing direction and vendor-reported economics, not independently verified savings.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
+    },
+    {
+      "area": "AI Security",
+      "direction": "up",
+      "dimension": "Agent containment and enterprise rollout controls",
+      "rationale": "GitHub added local filesystem, network, and credential boundaries plus a global default for future eligible Copilot features. The arrow reflects broader control coverage, not independent proof of sandbox strength or policy enforcement.",
+      "storyId": "coding-agents-get-a-local-boundary"
+    },
+    {
+      "area": "Enterprise Adoption",
+      "direction": "up",
+      "dimension": "Managed runtime for persistent agents and generated apps",
+      "rationale": "Microsoft combined tenant-hosted generated apps, persistent agent identity and workspace, centralized inventory, policy, and usage billing. The movement is scoped to available enterprise product infrastructure, not proof of broad adoption or production reliability.",
+      "storyId": "enterprise-agents-become-managed-workloads"
+    },
+    {
+      "area": "Models",
+      "direction": "up",
+      "dimension": "Governed access to long-horizon frontier capability",
+      "rationale": "Google announced a frontier model for long-horizon work through a restricted defender rollout with explicit safety work before broader access. The movement reflects increased available capability and staged access, not independent validation or broad availability.",
+      "storyId": "frontier-models-enter-the-efficiency-race"
+    },
+    {
+      "area": "Data Infrastructure",
+      "direction": "up",
+      "dimension": "Embedded provenance for AI-generated biological data",
+      "rationale": "SynthID Bio demonstrates detectable watermarks in tested protein sequences and structures while preserving measured function. The movement is limited to a proof of concept and does not imply deployment readiness or resistance to determined removal.",
+      "storyId": "provenance-moves-into-the-molecule"
+    }
+  ]
+}
