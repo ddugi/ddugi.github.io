@@ -1,0 +1,56 @@
+{
+  "run_date": "2026-11-26",
+  "research_window": {
+    "start": "2026-11-24T09:40:32Z",
+    "end": "2026-11-26T07:35:24Z"
+  },
+  "status": "awaiting_editorial_approval",
+  "checked_primary_sources": [
+    "https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-microvm/",
+    "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iam/",
+    "https://docs.aws.amazon.com/devopsagent/latest/userguide/document-history.html",
+    "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity/",
+    "https://www.anthropic.com/engineering",
+    "https://github.blog/changelog/",
+    "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+  ],
+  "accepted": [
+    {
+      "story_id": "aws-lambda-puts-sandbox-tasks-inside-durable-workflows",
+      "source_publication_date": "2026-11-25",
+      "source_publication_timestamp": "2026-11-25T20:00:00Z",
+      "action": "new_draft",
+      "reason": "The preview brings isolated task execution and workflow recovery into the same SDK."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "AWS IAM trusted identity propagation expansion",
+      "source_publication_date": "2026-11-25",
+      "reason": "Held for comparison of supported integrations and overlap with existing agent identity coverage."
+    },
+    {
+      "candidate": "AWS DevOps Agent access profiles",
+      "source_publication_date": "2026-11-25",
+      "reason": "The dated entry records a documentation addition without establishing a new release."
+    },
+    {
+      "candidate": "DeepMind Mass Spec Skills",
+      "source_publication_date": "2026-11-25",
+      "reason": "Held as a domain-specific study without independent validation across laboratories in the reviewed announcement."
+    },
+    {
+      "candidate": "Anthropic Messages API migration to Rust",
+      "source_publication_date": "2026-11-25",
+      "reason": "Held pending a closer look at the effect on API users."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "The Workspace story remains pending from November 25. The research window overlaps because no later edition has been published.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": null
+  }
+}
