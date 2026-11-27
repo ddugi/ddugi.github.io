@@ -1,0 +1,46 @@
+{
+  "run_date": "2026-11-27",
+  "research_window": {
+    "start": "2026-11-26T07:35:24Z",
+    "end": "2026-11-27T07:53:01Z"
+  },
+  "status": "no_new_signal",
+  "checked_primary_sources": [
+    "https://docs.cloud.google.com/release-notes",
+    "https://news.microsoft.com/source/emea/view-more/",
+    "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-postgresql-18-7-17-12-16-16-15-20-14-25/",
+    "https://huggingface.co/blog/FINAL-Bench/ai-model-market-daily-reading-ai-models-like-a-sto",
+    "https://learn.microsoft.com/mt-mt/azure/databricks/release-notes/whats-coming"
+  ],
+  "accepted": [],
+  "rejected": [
+    {
+      "candidate": "Managed Airflow agentic upgrade check",
+      "source_publication_date": "2026-11-26",
+      "reason": "Useful for a specific migration workflow. The release notes do not establish how reliably the check finds compatibility issues across workloads."
+    },
+    {
+      "candidate": "Microsoft and NVIDIA Frontier Launchpad",
+      "source_publication_date": "2026-11-26",
+      "reason": "Startup support program announcement. It does not establish a new engineering capability or measured adoption outcome."
+    },
+    {
+      "candidate": "Amazon RDS PostgreSQL minor versions",
+      "source_publication_date": "2026-11-26",
+      "reason": "Relevant maintenance for operators, but the release does not materially change AI infrastructure."
+    },
+    {
+      "candidate": "FINAL-Bench AI Model Market Daily",
+      "source_publication_date": "2026-11-27",
+      "reason": "The project authors publish a composite ranking. Combining usage, benchmark and scanning inputs does not independently establish model quality or security."
+    }
+  ],
+  "emerging_trends_detected": 0,
+  "notes": "The November 25 and 26 audits cover the earlier portion of the window since the last published update. Edition 46 was merged as a draft in PR #129, with two stories still awaiting explicit human editorial approval. The publication cursor and live edition therefore remain at Edition 45.",
+  "publication": {
+    "pull_request": null,
+    "commit": null,
+    "live_edition_changed": false,
+    "verified_url": null
+  }
+}
